@@ -38,6 +38,7 @@ export function FrameImage({
         fill
         sizes={sizes}
         priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
         style={{ objectFit, objectPosition }}
       />
       {standin && showChecks() ? <span className={styles.tag}>STAND-IN</span> : null}

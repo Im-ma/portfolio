@@ -161,38 +161,71 @@ function TokenDemo() {
 
 function QueueDemo() {
   const [notes, setNotes] = useState([
-    { id: "study", text: "Study session", state: "pending" },
-    { id: "picnic", text: "Saturday picnic", state: "pending" },
+    { id: "study", text: "Study session", state: "pending", x: 16, y: 14 },
+    { id: "picnic", text: "Saturday picnic", state: "pending", x: 16, y: 108 },
   ]);
+  const [drag, setDrag] = useState<{ id: string; dx: number; dy: number } | null>(null);
+  function setState(id: string, state: string) {
+    setNotes((current) => current.map((item) => (item.id === id ? { ...item, state } : item)));
+  }
   return (
     <div className={`${styles.stage} ${styles.queue}`}>
       {notes.map((note) => (
-        <div key={note.id} className={styles.queueNote} data-state={note.state}>
-          <span className="t-body-s">{note.text}</span>
+        <div
+          key={note.id}
+          className={styles.queueNote}
+          data-state={note.state}
+          style={{ left: note.x, top: note.y }}
+        >
+          <button
+            type="button"
+            className={`${styles.dragHandle} t-body-s`}
+            aria-label={`${note.text}. Drag to move, or use arrow keys.`}
+            onPointerDown={(event) => {
+              event.currentTarget.setPointerCapture(event.pointerId);
+              setDrag({ id: note.id, dx: event.clientX - note.x, dy: event.clientY - note.y });
+            }}
+            onPointerMove={(event) => {
+              if (!drag || drag.id !== note.id) return;
+              const bounds =
+                event.currentTarget.parentElement?.parentElement?.getBoundingClientRect();
+              if (!bounds) return;
+              const x = Math.min(Math.max(8, event.clientX - drag.dx), bounds.width - 160);
+              const y = Math.min(Math.max(8, event.clientY - drag.dy), bounds.height - 72);
+              setNotes((current) =>
+                current.map((item) => (item.id === note.id ? { ...item, x, y } : item)),
+              );
+            }}
+            onPointerUp={() => setDrag(null)}
+            onKeyDown={(event) => {
+              const step = 12;
+              if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) return;
+              event.preventDefault();
+              setNotes((current) =>
+                current.map((item) => {
+                  if (item.id !== note.id) return item;
+                  if (event.key === "ArrowRight") return { ...item, x: item.x + step };
+                  if (event.key === "ArrowLeft") return { ...item, x: Math.max(8, item.x - step) };
+                  if (event.key === "ArrowDown") return { ...item, y: item.y + step };
+                  return { ...item, y: Math.max(8, item.y - step) };
+                }),
+              );
+            }}
+          >
+            {note.text}
+          </button>
           <span className={styles.queueActions}>
             <button
               type="button"
               className="t-mono-small"
-              onClick={() =>
-                setNotes((current) =>
-                  current.map((item) =>
-                    item.id === note.id ? { ...item, state: "approved" } : item,
-                  ),
-                )
-              }
+              onClick={() => setState(note.id, "approved")}
             >
               Approve
             </button>
             <button
               type="button"
               className="t-mono-small"
-              onClick={() =>
-                setNotes((current) =>
-                  current.map((item) =>
-                    item.id === note.id ? { ...item, state: "hidden" } : item,
-                  ),
-                )
-              }
+              onClick={() => setState(note.id, "hidden")}
             >
               Hide
             </button>

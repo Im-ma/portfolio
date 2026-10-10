@@ -9,6 +9,10 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Gatherings",
   description: gatheringsPage.intro.lead,
+  openGraph: {
+    title: gatheringsPage.intro.title,
+    description: gatheringsPage.intro.lead,
+  },
 };
 
 export default async function GatheringsPage() {

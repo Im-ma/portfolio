@@ -25,7 +25,8 @@
 
 .progress {
   background: var(--color-accent-soft);
-  color: var(--color-accent);
+  /* Small type on accent-soft needs a darker blue than the accent token. */
+  color: #2450e6;
 }
 
 .progress .dot {

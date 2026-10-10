@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Immanuel Mensah",
     description: home.hero.lead,
-    images: [{ url: home.hero.portrait.src, alt: home.hero.portrait.alt }],
   },
 };
 

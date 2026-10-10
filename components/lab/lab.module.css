@@ -201,19 +201,28 @@
 }
 
 .queue {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
+  position: relative;
 }
 
 .queueNote {
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  width: 148px;
   padding: 8px 10px;
   border-radius: 6px;
   background: var(--note-yellow);
+  box-shadow: var(--shadow-note);
+}
+
+.dragHandle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--note-ink);
+  text-align: left;
+  cursor: grab;
 }
 
 .queueNote[data-state="approved"] {
