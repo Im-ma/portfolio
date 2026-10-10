@@ -5,12 +5,13 @@ import { Button } from "@/components/button/button";
 import { FrameImage } from "@/components/media/frame-image";
 import { TalkAction } from "@/components/talk/talk-action";
 import { home, site } from "@/lib/content";
-import { useLivelyPointer } from "@/lib/lively-pointer";
+import { lastFinePoint, useLivelyPointer } from "@/lib/lively-pointer";
 import {
   useEffect,
   useRef,
   useState,
   useSyncExternalStore,
+  Fragment,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
@@ -146,7 +147,17 @@ export function HeroStage() {
     let frame = 0;
     let running = true;
     let primed = false;
-    const pointer = { x: 0, y: 0, inside: false };
+    const start = lastFinePoint();
+    const opening = section.getBoundingClientRect();
+    const pointer = {
+      x: start.x,
+      y: start.y,
+      inside:
+        start.x >= opening.left &&
+        start.x <= opening.right &&
+        start.y >= opening.top &&
+        start.y <= opening.bottom,
+    };
     const ends = anchors.map(() => ({ x: 0, y: 0 }));
 
     const place = () => {
@@ -235,27 +246,26 @@ export function HeroStage() {
               const key = cleanWord(word);
               const keyword = keywords.find((item) => item === key);
               return (
-                <span
-                  key={`${word}-${index}`}
-                  className={styles.word}
-                  style={{ ["--i" as string]: index }}
-                >
-                  {keyword ? (
-                    <button
-                      type="button"
-                      className={`${styles.wordBtn} ${active === keyword ? styles.hot : ""}`}
-                      aria-pressed={active === keyword}
-                      onClick={() => {
-                        setActive(keyword);
-                        setPinned(true);
-                      }}
-                    >
-                      {word}
-                    </button>
-                  ) : (
-                    word
-                  )}{" "}
-                </span>
+                <Fragment key={`${word}-${index}`}>
+                  {index > 0 ? " " : null}
+                  <span className={styles.word} style={{ ["--i" as string]: index }}>
+                    {keyword ? (
+                      <button
+                        type="button"
+                        className={`${styles.wordBtn} ${active === keyword ? styles.hot : ""}`}
+                        aria-pressed={active === keyword}
+                        onClick={() => {
+                          setActive(keyword);
+                          setPinned(true);
+                        }}
+                      >
+                        {word}
+                      </button>
+                    ) : (
+                      word
+                    )}
+                  </span>
+                </Fragment>
               );
             })}
           </h1>

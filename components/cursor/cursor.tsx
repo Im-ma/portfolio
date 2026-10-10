@@ -1,6 +1,6 @@
 "use client";
 
-import { useLivelyPointer } from "@/lib/lively-pointer";
+import { lastFinePoint, useLivelyPointer } from "@/lib/lively-pointer";
 import { useEffect, useRef } from "react";
 import styles from "./cursor.module.css";
 
@@ -58,8 +58,9 @@ export function SiteCursor() {
     const label = labelRef.current;
     if (!root || !dot || !ring || !label) return;
 
-    document.documentElement.dataset.cursor = "on";
-    const point = { x: -100, y: -100, dx: -100, dy: -100, rx: -100, ry: -100 };
+    document.documentElement.dataset.fineCursor = "on";
+    const start = lastFinePoint();
+    const point = { x: start.x, y: start.y, dx: start.x, dy: start.y, rx: start.x, ry: start.y };
     let mode: Mode = "default";
     let down = false;
     let grabbing = false;
@@ -127,7 +128,7 @@ export function SiteCursor() {
       window.removeEventListener("pointerup", onUp);
       document.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("pointerenter", onEnter);
-      delete document.documentElement.dataset.cursor;
+      delete document.documentElement.dataset.fineCursor;
     };
   }, [lively]);
 

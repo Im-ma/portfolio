@@ -6,7 +6,7 @@
   opacity: 0;
 }
 
-:global(html[data-cursor="on"]) .root {
+:global(html[data-fine-cursor="on"]) .root {
   opacity: 1;
 }
 
@@ -110,29 +110,29 @@
   display: none;
 }
 
-:global(html[data-cursor="on"]) :global(body),
-:global(html[data-cursor="on"]) :global(a),
-:global(html[data-cursor="on"]) :global(button),
-:global(html[data-cursor="on"]) :global(summary) {
+:global(html[data-fine-cursor="on"]) :global(body),
+:global(html[data-fine-cursor="on"]) :global(a),
+:global(html[data-fine-cursor="on"]) :global(button),
+:global(html[data-fine-cursor="on"]) :global(summary) {
   cursor: none;
 }
 
-:global(html[data-cursor="on"]) :global(input),
-:global(html[data-cursor="on"]) :global(textarea),
-:global(html[data-cursor="on"]) :global(select),
-:global(html[data-cursor="on"]) :global([contenteditable="true"]) {
+:global(html[data-fine-cursor="on"]) :global(input),
+:global(html[data-fine-cursor="on"]) :global(textarea),
+:global(html[data-fine-cursor="on"]) :global(select),
+:global(html[data-fine-cursor="on"]) :global([contenteditable="true"]) {
   cursor: text;
 }
 
-@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
   .root {
     display: none;
   }
 
-  :global(html[data-cursor="on"]) :global(body),
-  :global(html[data-cursor="on"]) :global(a),
-  :global(html[data-cursor="on"]) :global(button),
-  :global(html[data-cursor="on"]) :global(summary) {
+  :global(html[data-fine-cursor="on"]) :global(body),
+  :global(html[data-fine-cursor="on"]) :global(a),
+  :global(html[data-fine-cursor="on"]) :global(button),
+  :global(html[data-fine-cursor="on"]) :global(summary) {
     cursor: revert;
   }
 }

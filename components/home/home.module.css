@@ -482,7 +482,7 @@
   }
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (pointer: coarse) {
   .lines {
     display: none;
   }
