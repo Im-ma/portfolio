@@ -1,6 +1,7 @@
 "use client";
 
 import { talkLabelForPath } from "@/lib/content";
+import { lockScroll } from "@/lib/scroll-lock";
 import { usePathname } from "next/navigation";
 import {
   createContext,
@@ -125,10 +126,16 @@ export function TalkProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!open) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const release = lockScroll();
+    const background = [
+      document.querySelector("header"),
+      document.getElementById("content"),
+      document.querySelector("[data-talk-launcher]"),
+    ].filter((node): node is HTMLElement => node instanceof HTMLElement);
+    background.forEach((node) => node.setAttribute("inert", ""));
     return () => {
-      document.body.style.overflow = previous;
+      release();
+      background.forEach((node) => node.removeAttribute("inert"));
     };
   }, [open]);
 

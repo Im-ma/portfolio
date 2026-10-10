@@ -45,7 +45,11 @@ export async function POST(request: Request) {
 
   try {
     const result = await sendQuestion(parsed.data);
-    return NextResponse.json({ ok: true, delivered: result.delivered });
+    return NextResponse.json({
+      ok: true,
+      delivered: result.delivered,
+      configured: result.configured,
+    });
   } catch {
     return NextResponse.json(
       { ok: false, error: "That did not go through. Try again in a moment." },

@@ -187,10 +187,22 @@ export function CaseStudy({
                 </dd>
               </div>
             ))}
-            <div className={styles.stripLinks}>
-              <p className={`${styles.blockLabel} t-mono-label`}>LINKS</p>
-              <LinkList items={work.links.items} />
+            <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+              <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
+              <dd>
+                <LinkList items={work.links.items} />
+              </dd>
             </div>
+            {work.links.flows && work.links.flows.length > 0 ? (
+              <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+                <dt className={`${styles.blockLabel} t-mono-label`}>
+                  {work.links.flowsLabel || "PROTOTYPE FLOWS"}
+                </dt>
+                <dd>
+                  <LinkList items={work.links.flows} />
+                </dd>
+              </div>
+            ) : null}
           </dl>
           <p className={`${styles.scopeLine} t-body-s`}>
             <span className={`${styles.scopeLabel} t-mono-label`}>{work.scope.label}</span>

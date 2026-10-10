@@ -1,5 +1,6 @@
 "use client";
 
+import { lockScroll } from "@/lib/scroll-lock";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
@@ -35,11 +36,10 @@ export function Lightbox({
         onCloseRef.current();
       }
     };
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const release = lockScroll();
     document.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = overflow;
+      release();
       document.removeEventListener("keydown", onKey);
       previous?.focus();
     };

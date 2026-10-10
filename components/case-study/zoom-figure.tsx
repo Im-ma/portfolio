@@ -37,7 +37,7 @@ export function ZoomFigure({
           src={media.src}
           alt={alt}
           sizes={sizes}
-          objectFit="cover"
+          objectFit={media.objectFit === "contain" ? "contain" : "cover"}
           objectPosition={media.objectPosition || "center"}
           standin={media.standin}
           priority={priority}

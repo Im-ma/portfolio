@@ -15,7 +15,7 @@ export async function sendQuestion(input: QuestionMail) {
 
   if (!apiKey) {
     console.info("Question form (mail is not configured)", input);
-    return { delivered: false as const };
+    return { delivered: false as const, configured: false as const };
   }
 
   const resend = new Resend(apiKey);
@@ -44,5 +44,5 @@ export async function sendQuestion(input: QuestionMail) {
     console.error("Resend error", error);
     throw new Error(error.message);
   }
-  return { delivered: true as const };
+  return { delivered: true as const, configured: true as const };
 }

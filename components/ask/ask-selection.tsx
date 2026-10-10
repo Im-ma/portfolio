@@ -28,10 +28,12 @@ export function AskSelection() {
     document.addEventListener("mouseup", update);
     document.addEventListener("keyup", update);
     document.addEventListener("selectionchange", update);
+    window.addEventListener("scroll", update, { passive: true, capture: true });
     return () => {
       document.removeEventListener("mouseup", update);
       document.removeEventListener("keyup", update);
       document.removeEventListener("selectionchange", update);
+      window.removeEventListener("scroll", update, true);
     };
   }, []);
 

@@ -10,25 +10,32 @@ function useActiveSection(ids: string[]) {
 
   useEffect(() => {
     const list = key ? key.split("|") : [];
-    const nodes = list
-      .map((id) => document.getElementById(id))
-      .filter((node): node is HTMLElement => Boolean(node));
-    if (nodes.length === 0) return;
-    const visible = new Map<string, number>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.set(entry.target.id, entry.boundingClientRect.top);
-          else visible.delete(entry.target.id);
-        }
-        if (visible.size === 0) return;
-        const next = [...visible.entries()].sort((a, b) => a[1] - b[1])[0]?.[0];
-        if (next) setActive(next);
-      },
-      { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.15, 0.4] },
-    );
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const nodes = list
+        .map((id) => document.getElementById(id))
+        .filter((node): node is HTMLElement => Boolean(node));
+      if (nodes.length === 0) return;
+      const line = window.innerHeight * 0.32;
+      let current = nodes[0];
+      for (const node of nodes) {
+        if (node.getBoundingClientRect().top <= line) current = node;
+      }
+      setActive((previous) => (previous === current.id ? previous : current.id));
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+    frame = window.requestAnimationFrame(update);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, [key]);
 
   return active;

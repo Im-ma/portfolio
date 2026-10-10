@@ -417,6 +417,7 @@ export function useFreeArrange({
         seed: seedRef.current,
         map: { ...(current.seed === seedRef.current ? current.map : {}), [id]: next },
       }));
+      return;
     }
     writeSaved(keyRef.current, { ...readSaved(keyRef.current), [id]: next });
   }
@@ -485,6 +486,9 @@ export function useFreeArrange({
           window.clearTimeout(holdRef.current);
           dragRef.current = null;
           skipClick.current = true;
+          window.setTimeout(() => {
+            skipClick.current = false;
+          }, 80);
           return;
         }
         lift(drag);

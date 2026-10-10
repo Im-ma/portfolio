@@ -12,9 +12,16 @@ const labels: Partial<Record<Mode, string>> = {
   ask: "Ask",
 };
 
-function modeFrom(target: EventTarget | null, down: boolean): Mode {
+function modeFrom(target: EventTarget | null, down: boolean, event?: PointerEvent): Mode {
   const el = target instanceof Element ? target : null;
+  if (event) {
+    const gutterX = window.innerWidth - document.documentElement.clientWidth;
+    const gutterY = window.innerHeight - document.documentElement.clientHeight;
+    if (gutterX > 2 && event.clientX >= document.documentElement.clientWidth) return "native";
+    if (gutterY > 2 && event.clientY >= document.documentElement.clientHeight) return "native";
+  }
   if (!el) return "default";
+  if (el.closest("iframe")) return "native";
   if (el.closest("input, textarea, select, [contenteditable='true']")) return "native";
   const marked = el.closest<HTMLElement>("[data-cursor]");
   if (marked) {
@@ -93,18 +100,18 @@ export function SiteCursor() {
         setMode("grabbing");
         return;
       }
-      setMode(modeFrom(event.target, down));
+      setMode(modeFrom(event.target, down, event));
     };
     const onDown = (event: PointerEvent) => {
       down = true;
-      const next = modeFrom(event.target, true);
+      const next = modeFrom(event.target, true, event);
       grabbing = next === "grabbing";
       setMode(next);
     };
     const onUp = (event: PointerEvent) => {
       down = false;
       grabbing = false;
-      setMode(modeFrom(event.target, false));
+      setMode(modeFrom(event.target, false, event));
     };
     const onLeave = () => {
       root.dataset.hidden = "true";

@@ -13,6 +13,7 @@ export function TalkButton() {
       className={`${styles.button} t-button-m`}
       onClick={() => (open ? closeTalk() : openTalk("talk:open"))}
       aria-expanded={open}
+      data-talk-launcher=""
       aria-haspopup="dialog"
       aria-keyshortcuts="T"
     >
