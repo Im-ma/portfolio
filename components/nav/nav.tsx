@@ -11,6 +11,23 @@ function isActive(pathname: string, href: string) {
   return pathname === href;
 }
 
+type NavItem = (typeof site.nav)[number];
+
+function navItems(): NavItem[] {
+  if (site.nav.some((item) => item.href === "/lab")) return site.nav;
+  const lab: NavItem = { number: "04", label: "Lab", href: "/lab", external: false };
+  const items: NavItem[] = [];
+  for (const item of site.nav) {
+    if (item.href === "/resume.pdf") {
+      items.push(lab);
+      items.push({ ...item, number: "05" });
+    } else {
+      items.push(item);
+    }
+  }
+  return items;
+}
+
 export function Nav() {
   const pathname = usePathname();
   const [openPath, setOpenPath] = useState<string | null>(null);
@@ -34,7 +51,8 @@ export function Nav() {
     };
   }, [open]);
 
-  const items = site.nav.map((item) => {
+  const links = navItems();
+  const items = links.map((item) => {
     const active = isActive(pathname, item.href);
     const className = `${styles.link} t-body-nav${active ? ` ${styles.active}` : ""}`;
     const content = (
@@ -57,7 +75,12 @@ export function Nav() {
       );
     }
     return (
-      <Link key={item.href} className={className} href={item.href} aria-current={active ? "page" : undefined}>
+      <Link
+        key={item.href}
+        className={className}
+        href={item.href}
+        aria-current={active ? "page" : undefined}
+      >
         {content}
       </Link>
     );
@@ -73,10 +96,8 @@ export function Nav() {
         <div className={styles.desktop}>
           <nav aria-label="Primary">
             <ul className={styles.links}>
-              {site.nav.map((item) => (
-                <li key={item.href}>
-                  {items.find((node) => node.key === item.href)}
-                </li>
+              {links.map((item) => (
+                <li key={item.href}>{items.find((node) => node.key === item.href)}</li>
               ))}
             </ul>
           </nav>
@@ -106,14 +127,21 @@ export function Nav() {
       </div>
       {open ? (
         <>
-          <button type="button" className={styles.backdrop} aria-label="Close menu" onClick={() => setOpen(false)} />
+          <button
+            type="button"
+            className={styles.backdrop}
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          />
           <nav id={sheetId} className={styles.sheet} aria-label="Primary">
-            {site.nav.map((item) => {
+            {links.map((item) => {
               const active = isActive(pathname, item.href);
               const content = (
                 <>
                   <span className={`${styles.num} t-mono-small`}>{item.number}</span>
-                  <span className={`t-body-nav${active ? ` ${styles.active}` : ""}`}>{item.label}</span>
+                  <span className={`t-body-nav${active ? ` ${styles.active}` : ""}`}>
+                    {item.label}
+                  </span>
                 </>
               );
               if (item.external) {

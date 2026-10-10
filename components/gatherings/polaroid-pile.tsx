@@ -148,7 +148,7 @@ export function PolaroidPile({
         role="group"
         aria-label="Recent gatherings"
       >
-        {placed.map((spot, index) => {
+        {placed.map((spot) => {
           const photo = byId.get(spot.id);
           if (!photo) return null;
           const photoWidth = photo.image.figmaSize?.[0] ?? photo.image.width;

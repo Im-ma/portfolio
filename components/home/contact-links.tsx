@@ -30,7 +30,9 @@ export function ContactLinks() {
               <a
                 className={styles.row}
                 href={link.href}
-                target={link.href.startsWith("http") || link.href.endsWith(".pdf") ? "_blank" : undefined}
+                target={
+                  link.href.startsWith("http") || link.href.endsWith(".pdf") ? "_blank" : undefined
+                }
                 rel={
                   link.href.startsWith("http") || link.href.endsWith(".pdf")
                     ? "noopener noreferrer"

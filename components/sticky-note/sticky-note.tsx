@@ -46,7 +46,9 @@ export function StickyNote({
         {text}
         {check ? <Check note={checkNote} /> : null}
       </p>
-      {signature ? <span className={`${styles.signature} t-hand-signature`}>{signature}</span> : null}
+      {signature ? (
+        <span className={`${styles.signature} t-hand-signature`}>{signature}</span>
+      ) : null}
     </article>
   );
 }

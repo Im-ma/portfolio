@@ -25,12 +25,18 @@ export async function POST(request: Request) {
   try {
     json = await request.json();
   } catch {
-    return NextResponse.json({ ok: false, error: "Check the form and try again." }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "Check the form and try again." },
+      { status: 400 },
+    );
   }
 
   const parsed = questionSchema.safeParse(json);
   if (!parsed.success) {
-    return NextResponse.json({ ok: false, error: "Check the form and try again." }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "Check the form and try again." },
+      { status: 400 },
+    );
   }
 
   if (parsed.data.company) {

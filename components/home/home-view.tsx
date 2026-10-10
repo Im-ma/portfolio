@@ -117,9 +117,16 @@ export function HomeView({ notes }: { notes: WallNote[] }) {
             </div>
             <div className={styles.noteRow}>
               <div className={styles.noteIntro}>
-                <p className={`${styles.noteLabel} t-mono-label`}>{home.gatheringsTeaser.noteWall.label}</p>
-                <p className={`${styles.noteText} t-body-s`}>{home.gatheringsTeaser.noteWall.text}</p>
-                <Link className={`${styles.wallLink} t-body-nav`} href={home.gatheringsTeaser.noteWall.link.href}>
+                <p className={`${styles.noteLabel} t-mono-label`}>
+                  {home.gatheringsTeaser.noteWall.label}
+                </p>
+                <p className={`${styles.noteText} t-body-s`}>
+                  {home.gatheringsTeaser.noteWall.text}
+                </p>
+                <Link
+                  className={`${styles.wallLink} t-body-nav`}
+                  href={home.gatheringsTeaser.noteWall.link.href}
+                >
                   {home.gatheringsTeaser.noteWall.link.label} <span aria-hidden="true">→</span>
                 </Link>
               </div>

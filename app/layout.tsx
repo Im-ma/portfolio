@@ -4,6 +4,7 @@ import { TalkButton } from "@/components/talk/talk-button";
 import { TalkPanel } from "@/components/talk/talk-panel";
 import { TalkProvider } from "@/components/talk/talk-provider";
 import { home } from "@/lib/content";
+import { getSiteUrl } from "@/lib/site-url";
 import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 import "@/tokens/tokens.css";
@@ -37,12 +38,8 @@ const hand = Caveat({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "Immanuel Mensah",
     template: "%s | Immanuel Mensah",
@@ -51,7 +48,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Immanuel Mensah",
     description: home.hero.lead,
-    images: [{ url: home.hero.portrait.src, alt: home.hero.portrait.alt }],
     type: "website",
   },
 };

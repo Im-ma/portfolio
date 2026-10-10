@@ -27,29 +27,31 @@ export default async function AdminNotesPage() {
           <p className="t-mono-label">NOTES</p>
           <h1 className="t-display-h1-case">Approve the wall</h1>
           <p className={`${styles.lead} t-body-l`}>
-            New notes arrive unapproved. After you approve one, it can show on the note wall
-            without a new deploy.
+            New notes arrive unapproved. After you approve one, it can show on the note wall without
+            a new deploy.
           </p>
           {!configured ? (
             <p className={`${styles.lead} t-body-m`}>
-              This page stays locked until ADMIN_PASSWORD is set. You can also approve notes in
-              the Supabase dashboard by setting approved to true. The table SQL is in the README.
+              This page stays locked until ADMIN_PASSWORD is set. You can also approve notes in the
+              Supabase dashboard by setting approved to true. The table SQL is in the README.
             </p>
           ) : null}
           {configured && !authed ? <LoginForm /> : null}
           {authed && mode === "off" ? (
             <p className={`${styles.lead} t-body-m`}>
-              Supabase is not connected yet, so there is nothing to list. Add the URL and keys
-              from .env.example.
+              Supabase is not connected yet, so there is nothing to list. Add the URL and keys from
+              .env.example.
             </p>
           ) : null}
           {authed && mode === "anon" ? (
             <p className={`${styles.lead} t-body-m`}>
-              The anon key can read approved notes. Approving from here needs the service role
-              key. Until then, flip approved in the Supabase dashboard.
+              The anon key can read approved notes. Approving from here needs the service role key.
+              Until then, flip approved in the Supabase dashboard.
             </p>
           ) : null}
-          {authed && mode !== "off" ? <NoteList notes={notes} canWrite={mode === "service"} /> : null}
+          {authed && mode !== "off" ? (
+            <NoteList notes={notes} canWrite={mode === "service"} />
+          ) : null}
         </div>
       </main>
       <Footer />

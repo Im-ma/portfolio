@@ -3,6 +3,7 @@ import { Check } from "@/components/check/check";
 import { SectionHeader } from "@/components/section-header/section-header";
 import { StatusTag } from "@/components/status-tag/status-tag";
 import { FrameImage } from "@/components/media/frame-image";
+import { Reveal } from "@/components/motion/reveal";
 import { TalkAction } from "@/components/talk/talk-action";
 import { showChecks } from "@/lib/show-checks";
 import { sectionSplitsViews } from "@/lib/built-views";
@@ -173,8 +174,10 @@ export function CaseStudy({ work }: { work: Work }) {
         <div className={styles.studyMain}>
           {body.map((section) => (
             <section key={section.id} id={section.id} className={styles.section}>
-              <SectionHeader number={section.number} title={section.title} />
-              <SectionBody section={section} source={work.title} sizes={columnSizes} />
+              <Reveal>
+                <SectionHeader number={section.number} title={section.title} />
+                <SectionBody section={section} source={work.title} sizes={columnSizes} />
+              </Reveal>
             </section>
           ))}
         </div>
@@ -182,59 +185,63 @@ export function CaseStudy({ work }: { work: Work }) {
 
       <section className={`${styles.nextSection} ${styles.surface}`}>
         <div className="shell">
-          <Link className={styles.next} href={`/work/${work.nextProject.slug}`}>
-            <span className={styles.nextPhoto}>
-              <FrameImage
-                src={work.nextProject.image.src}
-                alt=""
-                sizes="(max-width: 767px) calc(100vw - 48px), 588px"
-                objectPosition={work.nextProject.image.objectPosition}
-                fillFrame
-              />
-            </span>
-            <span className={styles.nextBody}>
-              <span className={`${styles.accent} t-mono-label`}>
-                {work.nextProject.label} <span aria-hidden="true">→</span>
+          <Reveal>
+            <Link className={styles.next} href={`/work/${work.nextProject.slug}`}>
+              <span className={styles.nextPhoto}>
+                <FrameImage
+                  src={work.nextProject.image.src}
+                  alt=""
+                  sizes="(max-width: 767px) calc(100vw - 48px), 588px"
+                  objectPosition={work.nextProject.image.objectPosition}
+                  fillFrame
+                />
               </span>
-              <StatusTag status={work.nextProject.status} />
-              <h2 className="t-heading-h2">{work.nextProject.title}</h2>
-              <span className={`${styles.muted} t-body-s`}>{work.nextProject.summary}</span>
-              <span className={`${styles.nextCta} t-body-nav`}>
-                {work.nextProject.cta} <span aria-hidden="true">→</span>
+              <span className={styles.nextBody}>
+                <span className={`${styles.accent} t-mono-label`}>
+                  {work.nextProject.label} <span aria-hidden="true">→</span>
+                </span>
+                <StatusTag status={work.nextProject.status} />
+                <h2 className="t-heading-h2">{work.nextProject.title}</h2>
+                <span className={`${styles.muted} t-body-s`}>{work.nextProject.summary}</span>
+                <span className={`${styles.nextCta} t-body-nav`}>
+                  {work.nextProject.cta} <span aria-hidden="true">→</span>
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       <section className={styles.contact}>
         <div className="shell">
-          <h2 className="t-heading-h2">{work.contact.heading}</h2>
-          <p className={`${styles.contactBody} t-body-m`}>{work.contact.body}</p>
-          <div className={styles.actions}>
-            {work.contact.buttons.map((button) =>
-              button.href ? (
-                <Button
-                  key={button.label}
-                  href={button.href}
-                  variant={button.variant}
-                  arrow={button.arrow}
-                >
-                  {button.label}
-                  {button.check ? <Check note={button.checkNote} /> : null}
-                </Button>
-              ) : button.action ? (
-                <TalkAction
-                  key={button.label}
-                  action={button.action}
-                  variant={button.variant}
-                  arrow={button.arrow}
-                >
-                  {button.label}
-                </TalkAction>
-              ) : null,
-            )}
-          </div>
+          <Reveal>
+            <h2 className="t-heading-h2">{work.contact.heading}</h2>
+            <p className={`${styles.contactBody} t-body-m`}>{work.contact.body}</p>
+            <div className={styles.actions}>
+              {work.contact.buttons.map((button) =>
+                button.href ? (
+                  <Button
+                    key={button.label}
+                    href={button.href}
+                    variant={button.variant}
+                    arrow={button.arrow}
+                  >
+                    {button.label}
+                    {button.check ? <Check note={button.checkNote} /> : null}
+                  </Button>
+                ) : button.action ? (
+                  <TalkAction
+                    key={button.label}
+                    action={button.action}
+                    variant={button.variant}
+                    arrow={button.arrow}
+                  >
+                    {button.label}
+                  </TalkAction>
+                ) : null,
+              )}
+            </div>
+          </Reveal>
         </div>
       </section>
     </article>

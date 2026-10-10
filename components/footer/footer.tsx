@@ -39,7 +39,11 @@ export function Footer() {
           {compact.map((link) => (
             <li key={link.label}>
               {link.href === "talk:book" ? (
-                <button type="button" className={`${styles.book} t-mono-small`} onClick={() => openTalk("talk:book")}>
+                <button
+                  type="button"
+                  className={`${styles.book} t-mono-small`}
+                  onClick={() => openTalk("talk:book")}
+                >
                   {link.label}
                   {link.check ? <Check note={link.checkNote} /> : null}
                 </button>
@@ -48,7 +52,9 @@ export function Footer() {
                   className="t-mono-small"
                   href={link.href}
                   target={link.external || link.href.endsWith(".pdf") ? "_blank" : undefined}
-                  rel={link.external || link.href.endsWith(".pdf") ? "noopener noreferrer" : undefined}
+                  rel={
+                    link.external || link.href.endsWith(".pdf") ? "noopener noreferrer" : undefined
+                  }
                 >
                   {link.label}
                   {link.check ? <Check note={link.checkNote} /> : null}
@@ -57,7 +63,10 @@ export function Footer() {
             </li>
           ))}
         </ul>
-        <p className={`${styles.meta} t-mono-small`}>{site.footer.copyright}</p>
+        <p className={`${styles.meta} t-mono-small`}>
+          <span className={styles.hint}>Press T to talk</span>
+          {site.footer.copyright}
+        </p>
       </div>
     </footer>
   );

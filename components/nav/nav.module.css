@@ -124,6 +124,16 @@
   }
 }
 
+@media (min-width: 900px) and (max-width: 1199px) {
+  .desktop .chip {
+    display: none;
+  }
+
+  .links {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 899px) {
   .desktop {
     display: none;

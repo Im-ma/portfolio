@@ -18,6 +18,7 @@ export default function NotFound() {
               Nothing lives at this address.
               <Check note="404 body" />
             </p>
+            <p className={`${styles.hint} t-mono-small`}>Press T to pull up a chair.</p>
             <Button href="/">Back home</Button>
           </div>
           <div aria-hidden="true">

@@ -36,7 +36,14 @@
 }
 
 .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   color: var(--color-muted);
+}
+
+.hint {
+  color: var(--color-ink);
 }
 
 @media (max-width: 767px) {

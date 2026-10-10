@@ -24,7 +24,10 @@ export async function POST(request: Request) {
   const parsed = loginSchema.safeParse(json);
   const token = adminCookieValue();
   if (!parsed.success || !token || parsed.data.password !== process.env.ADMIN_PASSWORD) {
-    return NextResponse.json({ ok: false, error: "That password does not match." }, { status: 401 });
+    return NextResponse.json(
+      { ok: false, error: "That password does not match." },
+      { status: 401 },
+    );
   }
 
   const response = NextResponse.json({ ok: true });

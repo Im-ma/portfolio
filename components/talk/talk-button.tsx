@@ -14,6 +14,7 @@ export function TalkButton() {
       onClick={() => (open ? closeTalk() : openTalk("talk:open"))}
       aria-expanded={open}
       aria-haspopup="dialog"
+      aria-keyshortcuts="T"
     >
       {open ? (
         <span aria-hidden="true">×</span>
@@ -21,7 +22,9 @@ export function TalkButton() {
         <span className={styles.dot} aria-hidden="true" />
       )}
       <span className={styles.label}>{open ? site.talkButton.closeLabel : label}</span>
-      <span className={`${styles.key} t-mono-tag`}>{open ? site.talkButton.closeHint : site.talkButton.shortcut}</span>
+      <span className={`${styles.key} t-mono-tag`}>
+        {open ? site.talkButton.closeHint : site.talkButton.shortcut}
+      </span>
     </button>
   );
 }

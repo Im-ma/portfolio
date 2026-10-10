@@ -18,26 +18,17 @@ function asWork(value: unknown) {
   return value as Work;
 }
 
-function resultImage(work: Work) {
-  const section = work.sections.find((item) => item.id === "the-result");
-  const figure = section?.blocks.find((block) => block.type === "figure");
-  if (!figure || figure.type !== "figure") return undefined;
-  return figure.src ?? figure.images?.[0]?.src;
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const work = getWork(slug);
   if (!work) return {};
   const typed = asWork(work);
-  const image = resultImage(typed);
   return {
     title: typed.title,
     description: typed.summary,
     openGraph: {
       title: typed.title,
       description: typed.summary,
-      images: image ? [{ url: image }] : undefined,
     },
   };
 }

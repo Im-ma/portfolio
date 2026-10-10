@@ -2,7 +2,15 @@
 
 import { talkLabelForPath } from "@/lib/content";
 import { usePathname } from "next/navigation";
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 export type TalkView = "menu" | "note" | "question" | "book";
 export type TalkQuote = { text: string; source: string };

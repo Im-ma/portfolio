@@ -142,7 +142,15 @@ function Menu({
             key={option.state}
             type="button"
             className={styles.option}
-            onClick={() => onOpen(option.state === "note" ? "talk:note" : option.state === "question" ? "talk:question" : "talk:book")}
+            onClick={() =>
+              onOpen(
+                option.state === "note"
+                  ? "talk:note"
+                  : option.state === "question"
+                    ? "talk:question"
+                    : "talk:book",
+              )
+            }
           >
             <span className={`${styles.num} t-mono-number`}>{option.number}</span>
             <span>
@@ -158,7 +166,9 @@ function Menu({
       <footer className={styles.foot}>
         <span className="t-mono-small">
           {talkCopy.footer.replyTime.text}
-          {talkCopy.footer.replyTime.check ? <Check note={talkCopy.footer.replyTime.checkNote} /> : null}
+          {talkCopy.footer.replyTime.check ? (
+            <Check note={talkCopy.footer.replyTime.checkNote} />
+          ) : null}
         </span>
         <span className="t-mono-small">{talkCopy.footer.shortcut}</span>
       </footer>
@@ -262,7 +272,12 @@ function NoteForm() {
       <div className={styles.honey} aria-hidden="true">
         <label>
           Company
-          <input value={company} onChange={(event) => setCompany(event.target.value)} tabIndex={-1} autoComplete="off" />
+          <input
+            value={company}
+            onChange={(event) => setCompany(event.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </label>
       </div>
       <div className={styles.field}>
@@ -379,14 +394,26 @@ function QuestionForm({
       <div className={styles.honey} aria-hidden="true">
         <label>
           Company
-          <input value={company} onChange={(event) => setCompany(event.target.value)} tabIndex={-1} autoComplete="off" />
+          <input
+            value={company}
+            onChange={(event) => setCompany(event.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </label>
       </div>
       {quote ? (
         <blockquote className={styles.quote}>
-          <span className={`${styles.quoteLabel} t-mono-tag`}>QUOTED FROM {quote.source.toUpperCase()}</span>
+          <span className={`${styles.quoteLabel} t-mono-tag`}>
+            QUOTED FROM {quote.source.toUpperCase()}
+          </span>
           <p className="t-body-s">{quote.text}</p>
-          <button type="button" className={styles.remove} onClick={onClearQuote} aria-label="Remove quote">
+          <button
+            type="button"
+            className={styles.remove}
+            onClick={onClearQuote}
+            aria-label="Remove quote"
+          >
             ×
           </button>
         </blockquote>

@@ -1,18 +1,24 @@
-import { ComingSoon } from "@/components/placeholder/coming-soon";
+import { AboutView } from "@/components/about/about-view";
+import { Footer } from "@/components/footer/footer";
 import { aboutPage } from "@/lib/content";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
   description: aboutPage.intro.lead,
+  openGraph: {
+    title: aboutPage.intro.title,
+    description: aboutPage.intro.lead,
+  },
 };
 
 export default function AboutPage() {
   return (
-    <ComingSoon
-      eyebrow={aboutPage.intro.eyebrow}
-      title={aboutPage.intro.title}
-      summary={aboutPage.intro.lead}
-    />
+    <>
+      <main id="content">
+        <AboutView />
+      </main>
+      <Footer />
+    </>
   );
 }
