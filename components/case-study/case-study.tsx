@@ -131,12 +131,18 @@ export function CaseStudy({ work }: { work: Work }) {
             />
           </div>
         ) : work.cover?.src ? (
-          <div className={styles.hero}>
+          <div
+            className={styles.hero}
+            data-portrait={
+              (work.cover.height ?? 0) > (work.cover.width ?? 0) ? "true" : undefined
+            }
+          >
             <FrameImage
               src={work.cover.src}
               alt=""
               sizes="100vw"
-              objectPosition={work.cover.objectPosition || "center top"}
+              objectFit={(work.cover.height ?? 0) > (work.cover.width ?? 0) ? "contain" : "cover"}
+              objectPosition={work.cover.objectPosition || "center"}
               standin={work.cover.standin}
               priority
               fillFrame

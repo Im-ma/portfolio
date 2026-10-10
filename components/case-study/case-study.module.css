@@ -12,6 +12,11 @@
   background: var(--color-neutral-soft);
 }
 
+.hero[data-portrait="true"] {
+  height: min(78vh, 820px);
+  min-height: 520px;
+}
+
 .heroVideo {
   margin-top: 20px;
 }
@@ -622,6 +627,11 @@
   .hero {
     height: 42vh;
     min-height: 220px;
+  }
+
+  .hero[data-portrait="true"] {
+    height: 68vh;
+    min-height: 420px;
   }
 
   .strip,
