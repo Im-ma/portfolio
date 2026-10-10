@@ -13,6 +13,13 @@
     "checkNote": "app name. Proposed short name: \"Linkup\" (or keep Campus Events)"
   },
   "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+  "cover": {
+    "kind": "image",
+    "src": "/images/work/campus-events/01-discover.webp",
+    "width": 402,
+    "height": 874,
+    "objectPosition": "center top"
+  },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
     "heading": "I take ideas from zero to one for my own community, and then I’m honest enough to tear down my own first version.",
@@ -96,8 +103,7 @@
           "text": "This app is one place to see what’s on tonight, save and RSVP in a tap, carry your ticket in your pocket, and, if you run a club, create an event, get it approved, and scan people in at the door."
         },
         {
-          "type": "paragraph",
-          "variant": "body",
+          "type": "research",
           "text": "I kept hearing about great events the day after they happened. Flyers on doors and posts in group chats were easy to miss, and the clubs doing the work deserved a bigger crowd. I wanted one place where any student could see what is on tonight and say yes in one tap.",
           "check": true,
           "checkNote": "what sparked it"
@@ -189,6 +195,17 @@
           "webm": "/videos/campus-events-flow.webm",
           "playLabel": "Play the flow 0:12",
           "caption": "Flow video, 12.5 s. An attendee discovers an event, RSVPs, and gets a ticket, while the organizer checks them in at the door."
+        },
+        {
+          "type": "video",
+          "devOnly": true,
+          "standin": true,
+          "label": "SECOND FLOW",
+          "poster": "/images/work/campus-events/flow-poster.webp",
+          "mp4": "",
+          "webm": "",
+          "playLabel": "Play the flow",
+          "caption": "SECOND FLOW SLOT. Add the mp4, webm, poster, and caption here."
         }
       ]
     },
@@ -310,6 +327,7 @@
               "objectFit": "cover",
               "objectPosition": "center",
               "radius": 6,
+              "layout": "fullBleed",
               "figmaSize": [
                 420,
                 461
@@ -414,8 +432,9 @@
               "width": 1600,
               "height": 1358,
               "objectFit": "cover",
-              "objectPosition": "50% 0%",
+              "objectPosition": "50% 18%",
               "radius": 6,
+              "layout": "single",
               "figmaSize": [
                 728,
                 520
@@ -547,6 +566,40 @@
       "number": "04",
       "title": "How I built it",
       "blocks": [
+        {
+          "type": "bento",
+          "standin": true,
+          "frames": [
+            {
+              "src": "/images/work/campus-events/06-foundations-contrast.webp",
+              "width": 1600,
+              "height": 1358,
+              "objectPosition": "18% 16%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-events/06-foundations-contrast.webp",
+              "width": 1600,
+              "height": 1358,
+              "objectPosition": "72% 22%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-events/06-foundations-contrast.webp",
+              "width": 1600,
+              "height": 1358,
+              "objectPosition": "28% 72%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-events/06-foundations-contrast.webp",
+              "width": 1600,
+              "height": 1358,
+              "objectPosition": "78% 68%",
+              "standin": true
+            }
+          ]
+        },
         {
           "type": "list",
           "variant": "arrow",

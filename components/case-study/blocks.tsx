@@ -1,9 +1,23 @@
 import { Check } from "@/components/check/check";
 import { showChecks } from "@/lib/show-checks";
-import type { Block, Media } from "@/lib/work-types";
+import type { Block, Media, VideoBlock } from "@/lib/work-types";
 import { AskHighlight } from "./ask-highlight";
+import { CompareSlider } from "./compare-slider";
 import { ContentList } from "./content-list";
 import { FlowVideo } from "./flow-video";
+import {
+  Bento,
+  Contained,
+  FlowFrame,
+  FullBleed,
+  Pair,
+  QuoteCard,
+  ResearchCard,
+  SingleCard,
+  SplitBlock,
+  Trio,
+  VideoSlot,
+} from "./media-blocks";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
 
@@ -131,64 +145,65 @@ function BlockView({
   }
 
   if (block.type === "video") {
-    return <FlowVideo {...block} />;
+    return <VideoView block={block} />;
   }
 
-  if (block.type === "figure") {
-    if (block.images && block.images.length > 0) {
-      return (
-        <figure className={styles.figure}>
-          <div className={styles.band}>
-            {block.images.map((image, imageIndex) => (
-              <div
-                key={image.src}
-                className={styles.bandItem}
-                style={{ flexGrow: image.figmaSize?.[0] || 1 }}
-              >
-                <ZoomFigure
-                  bare
-                  media={image}
-                  alt={image.caption || block.caption || image.alt || source}
-                  caption={image.caption || block.caption}
-                  sizes="(max-width: 767px) calc(100vw - 48px), 560px"
-                  priority={priority && imageIndex === 0}
-                />
-              </div>
-            ))}
-          </div>
-          {block.caption ? (
-            <figcaption className={`${styles.figcaption} t-mono-small`}>{block.caption}</figcaption>
-          ) : null}
-        </figure>
-      );
-    }
-    const media = mediaOf(block);
-    if (!media) return null;
+  if (block.type === "videos") {
     return (
-      <ZoomFigure
-        media={media}
-        alt={block.caption || block.alt || source}
-        caption={block.caption}
-        sizes={sizes}
-        priority={priority}
+      <div className={styles.stack}>
+        {block.items.map((item) => (
+          <VideoView key={item.label + item.caption} block={item} />
+        ))}
+      </div>
+    );
+  }
+
+  if (block.type === "fullBleed") return <FullBleed frame={block.frame} />;
+  if (block.type === "contained") return <Contained frame={block.frame} priority={priority} />;
+  if (block.type === "single") return <SingleCard frame={block.frame} />;
+  if (block.type === "pair") return <Pair frames={block.frames} />;
+  if (block.type === "trio") return <Trio frames={block.frames} />;
+  if (block.type === "bento") return <Bento frames={block.frames} />;
+  if (block.type === "quote") {
+    return <QuoteCard label={block.label} text={block.text} detail={block.detail} />;
+  }
+  if (block.type === "research") {
+    return <ResearchCard text={block.text} check={block.check} checkNote={block.checkNote} />;
+  }
+  if (block.type === "flow") return <FlowFrame frame={block.frame} steps={block.steps} />;
+  if (block.type === "compare") return <CompareSlider before={block.before} after={block.after} />;
+  if (block.type === "split") {
+    return (
+      <SplitBlock
+        text={block.text}
+        frame={block.frame}
+        side={block.side}
+        check={block.check}
+        checkNote={block.checkNote}
       />
     );
   }
 
+  if (block.type === "figure") {
+    if (block.images && block.images.length > 0) {
+      const frames = block.images.map((image, index) => ({
+        ...image,
+        caption: image.caption || (index === 0 ? block.caption : undefined),
+      }));
+      if (frames.length >= 3) return <Trio frames={frames} />;
+      return <Pair frames={frames} />;
+    }
+    const media = mediaOf(block);
+    if (!media) return null;
+    if (block.layout === "fullBleed") return <FullBleed frame={media} />;
+    if (block.layout === "single") return <SingleCard frame={media} />;
+    if (block.layout === "flow") return <FlowFrame frame={media} />;
+    return <Contained frame={{ ...media, caption: block.caption }} priority={priority} />;
+  }
+
   if (block.type === "figureRow") {
-    return (
-      <div className={styles.figureRow} style={{ ["--cols" as string]: block.figures.length }}>
-        {block.figures.map((figure) => (
-          <ZoomFigure
-            key={figure.src}
-            media={figure}
-            alt={figure.caption || source}
-            caption={figure.caption}
-            sizes="(max-width: 767px) calc(100vw - 48px), 380px"
-          />
-        ))}
-      </div>
-    );
+    if (block.figures.length >= 3) return <Trio frames={block.figures} />;
+    return <Pair frames={block.figures} />;
   }
 
   if (block.type === "options") {
@@ -228,4 +243,23 @@ function BlockView({
   }
 
   return null;
+}
+
+function VideoView({ block }: { block: VideoBlock }) {
+  if (block.devOnly && !showChecks()) return null;
+  if (!block.mp4) {
+    return (
+      <VideoSlot poster={block.poster} caption={block.caption} standin={block.standin ?? true} />
+    );
+  }
+  return (
+    <FlowVideo
+      label={block.label}
+      poster={block.poster}
+      mp4={block.mp4}
+      webm={block.webm}
+      playLabel={block.playLabel}
+      caption={block.caption}
+    />
+  );
 }

@@ -9,6 +9,13 @@
   "status": "In progress",
   "title": "Campus Ride",
   "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+  "cover": {
+    "kind": "image",
+    "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
+    "width": 2400,
+    "height": 631,
+    "objectPosition": "center top"
+  },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
     "heading": "I think in products, not just screens.",
@@ -91,8 +98,7 @@
           "text": "Campus Ride connects them: verified Livingstone students, riding with and driving for each other, at a price the rider proposes."
         },
         {
-          "type": "paragraph",
-          "variant": "body",
+          "type": "research",
           "text": "Salisbury is hard to get around without a car. The trips students need most are groceries, the pharmacy, and getting to the bus or train station before breaks. Today that means asking in group chats and hoping someone answers. I wanted asking for a ride to feel less like asking for a favor.",
           "check": true,
           "checkNote": "the real story"
@@ -149,6 +155,17 @@
           "webm": "/videos/campus-ride-flow.webm",
           "playLabel": "Play the flow 0:12",
           "caption": "Flow video, 12 s. A rider sets a destination and a price, driver offers come in, and the rider accepts one."
+        },
+        {
+          "type": "video",
+          "devOnly": true,
+          "standin": true,
+          "label": "SECOND FLOW",
+          "poster": "/images/work/campus-ride/flow-poster.webp",
+          "mp4": "",
+          "webm": "",
+          "playLabel": "Play the flow",
+          "caption": "SECOND FLOW SLOT. Add the mp4, webm, poster, and caption here."
         }
       ]
     },
@@ -201,23 +218,22 @@
               "text": "WHAT I CHOSE"
             },
             {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "A suggested price next to an editable offer. On the \"Set your price\" step the rider sees Suggested Price $7.00 and Your offer $6.00 with a stepper, right under the trip details and Now or Later."
-            },
-            {
-              "caption": "Set your price",
-              "src": "/images/work/campus-ride/04-set-your-price.webp",
-              "width": 402,
-              "height": 874,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "radius": 6,
-              "figmaSize": [
-                270,
-                587
-              ],
-              "type": "figure"
+              "type": "split",
+              "side": "end",
+              "text": "A suggested price next to an editable offer. On the \"Set your price\" step the rider sees Suggested Price $7.00 and Your offer $6.00 with a stepper, right under the trip details and Now or Later.",
+              "frame": {
+                "caption": "Set your price",
+                "src": "/images/work/campus-ride/04-set-your-price.webp",
+                "width": 402,
+                "height": 874,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "radius": 6,
+                "figmaSize": [
+                  270,
+                  587
+                ]
+              }
             },
             {
               "type": "label",
@@ -247,6 +263,7 @@
               "objectFit": "cover",
               "objectPosition": "center",
               "radius": 6,
+              "layout": "fullBleed",
               "figmaSize": [
                 728,
                 528
@@ -404,44 +421,38 @@
               "text": "I added the whole driver side and designed a full offer loop."
             },
             {
-              "type": "list",
-              "variant": "arrow",
-              "items": [
+              "type": "flow",
+              "steps": [
                 {
-                  "marker": "→",
                   "title": "Riders see driver offers",
                   "text": "A list, each with a verified badge, rating, ride count, ETA, and price. One is tagged Best Match."
                 },
                 {
-                  "marker": "→",
                   "title": "Drivers get each request with a countdown",
                   "text": "They can accept, decline, or counter. The counter offer screen shows the rider’s offer, the driver’s price, and \"You earn after 10% fee,\" so the driver sees what they actually take home."
                 },
                 {
-                  "marker": "→",
                   "title": "When no one accepts",
                   "text": "The rider gets \"No drivers available\" with two clear ways forward: raise the offer or schedule for later."
                 },
                 {
-                  "marker": "→",
                   "title": "Drivers get closure too",
                   "text": "\"Rider chose someone else\" and \"You missed a request\" explain what happened instead of leaving them guessing."
                 }
-              ]
-            },
-            {
-              "caption": "Offer loop: driver offers, counter offer, and no drivers available",
-              "src": "/images/work/campus-ride/05-offer-negotiation-loop.webp",
-              "width": 1302,
-              "height": 922,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "radius": 6,
-              "figmaSize": [
-                728,
-                516
               ],
-              "type": "figure"
+              "frame": {
+                "caption": "Offer loop: driver offers, counter offer, and no drivers available",
+                "src": "/images/work/campus-ride/05-offer-negotiation-loop.webp",
+                "width": 1302,
+                "height": 922,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "radius": 6,
+                "figmaSize": [
+                  728,
+                  516
+                ]
+              }
             },
             {
               "type": "paragraph",
@@ -470,6 +481,40 @@
       "number": "04",
       "title": "How I built it",
       "blocks": [
+        {
+          "type": "bento",
+          "standin": true,
+          "frames": [
+            {
+              "src": "/images/work/campus-ride/06-component-library.webp",
+              "width": 2400,
+              "height": 299,
+              "objectPosition": "8% center",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-ride/06-component-library.webp",
+              "width": 2400,
+              "height": 299,
+              "objectPosition": "36% center",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-ride/06-component-library.webp",
+              "width": 2400,
+              "height": 299,
+              "objectPosition": "64% center",
+              "standin": true
+            },
+            {
+              "src": "/images/work/campus-ride/06-component-library.webp",
+              "width": 2400,
+              "height": 299,
+              "objectPosition": "92% center",
+              "standin": true
+            }
+          ]
+        },
         {
           "type": "list",
           "variant": "arrow",

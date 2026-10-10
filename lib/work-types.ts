@@ -19,6 +19,18 @@ export type ListItem = {
   checkNote?: string;
 };
 
+export type VideoBlock = {
+  type: "video";
+  label: string;
+  poster: string;
+  mp4: string;
+  webm: string;
+  playLabel: string;
+  caption: string;
+  devOnly?: boolean;
+  standin?: boolean;
+};
+
 export type Block =
   | { type: "annotation"; devOnly?: boolean; text: string }
   | {
@@ -30,18 +42,16 @@ export type Block =
       check?: boolean;
       checkNote?: string;
     }
-  | ({ type: "figure"; caption?: string; images?: Media[] } & Partial<Media>)
+  | ({
+      type: "figure";
+      caption?: string;
+      images?: Media[];
+      layout?: "contained" | "fullBleed" | "single" | "flow" | "pair";
+    } & Partial<Media>)
   | { type: "figureRow"; figures: Media[] }
   | { type: "features"; label?: string; items: { title: string; text: string }[] }
-  | {
-      type: "video";
-      label: string;
-      poster: string;
-      mp4: string;
-      webm: string;
-      playLabel: string;
-      caption: string;
-    }
+  | VideoBlock
+  | { type: "videos"; items: VideoBlock[] }
   | { type: "decision"; number: number; eyebrow: string; title: string; blocks: Block[] }
   | { type: "label"; text: string }
   | { type: "heading"; text?: string }
@@ -55,7 +65,30 @@ export type Block =
         image?: Media;
       }[];
     }
-  | { type: "list"; variant?: string; items: ListItem[] };
+  | { type: "list"; variant?: string; items: ListItem[] }
+  | { type: "fullBleed"; frame: Media }
+  | { type: "contained"; frame: Media }
+  | { type: "single"; frame: Media }
+  | {
+      type: "split";
+      text: string;
+      frame: Media;
+      side?: "start" | "end";
+      check?: boolean;
+      checkNote?: string;
+    }
+  | { type: "pair"; frames: Media[] }
+  | { type: "trio"; frames: Media[] }
+  | { type: "bento"; frames: Media[]; standin?: boolean }
+  | { type: "quote"; label?: string; text: string; detail?: string }
+  | {
+      type: "research";
+      text: string;
+      check?: boolean;
+      checkNote?: string;
+    }
+  | { type: "flow"; frame?: Media; steps?: { title: string; text?: string }[] }
+  | { type: "compare"; before: Media; after: Media };
 
 export type WorkSection = {
   id: string;
@@ -88,6 +121,14 @@ export type Work = {
   title: string;
   titleCheck?: { check?: boolean; checkNote?: string };
   summary: string;
+  cover?: {
+    kind: "image" | "video";
+    src?: string;
+    width?: number;
+    height?: number;
+    objectPosition?: string;
+    standin?: boolean;
+  };
   keyTakeaway: { label: string; heading: string; body: string };
   scope: { label: string; text: string };
   meta: { label: string; value: string; tag?: string; check?: boolean; checkNote?: string }[];

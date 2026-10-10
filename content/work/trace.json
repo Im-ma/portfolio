@@ -9,6 +9,9 @@
   "status": "Concept",
   "title": "Trace",
   "summary": "A debug console for finding the bad records hiding in ML training data.",
+  "cover": {
+    "kind": "video"
+  },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
     "heading": "I design for the moment things go wrong, not just the happy path.",
@@ -124,8 +127,7 @@
           "text": "I picked a realistic example to design around: perception-training, a dataset of camera annotations for autonomous driving. Batch 024 has 48 records. 36 pass, 8 are invalid and block training, and 4 have warnings."
         },
         {
-          "type": "paragraph",
-          "variant": "body",
+          "type": "research",
           "text": "I got curious about what happens before a model ever trains. Reading about how self-driving teams clean their camera annotations, I learned that one bad label can block a whole batch, and the people fixing it often dig through logs and spreadsheets. I wanted to design the tool I would want open in that moment.",
           "check": true,
           "checkNote": "why this problem"
@@ -160,7 +162,8 @@
           "width": 1440,
           "height": 1524,
           "objectFit": "cover",
-          "objectPosition": "50% 0%",
+          "objectPosition": "72% 32%",
+          "layout": "single",
           "radius": 8,
           "figmaSize": [
             1200,
@@ -206,6 +209,17 @@
           "webm": "/videos/trace-flow.webm",
           "playLabel": "Play the flow 0:12",
           "caption": "Flow video, 12.5 s. Filter invalid records, select them, quarantine, revalidate, and land on \"Passed with warnings\"."
+        },
+        {
+          "type": "video",
+          "devOnly": true,
+          "standin": true,
+          "label": "SECOND FLOW",
+          "poster": "/images/work/trace/flow-poster.webp",
+          "mp4": "",
+          "webm": "",
+          "playLabel": "Play the flow",
+          "caption": "SECOND FLOW SLOT. Add the mp4, webm, poster, and caption here."
         }
       ]
     },
@@ -414,8 +428,9 @@
               "width": 1440,
               "height": 1524,
               "objectFit": "cover",
-              "objectPosition": "center",
+              "objectPosition": "center 30%",
               "radius": 6,
+              "layout": "single",
               "figmaSize": [
                 728,
                 770
@@ -625,8 +640,9 @@
               "width": 2400,
               "height": 874,
               "objectFit": "cover",
-              "objectPosition": "center",
+              "objectPosition": "22% center",
               "radius": 6,
+              "layout": "single",
               "figmaSize": [
                 728,
                 265
@@ -653,6 +669,40 @@
       "number": "04",
       "title": "How I built it",
       "blocks": [
+        {
+          "type": "bento",
+          "standin": true,
+          "frames": [
+            {
+              "src": "/images/work/trace/07-before-after-components.webp",
+              "width": 1440,
+              "height": 900,
+              "objectPosition": "18% 40%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/trace/07-before-after-components.webp",
+              "width": 1440,
+              "height": 900,
+              "objectPosition": "78% 30%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/trace/06-before-after-overview.webp",
+              "width": 1440,
+              "height": 900,
+              "objectPosition": "30% 20%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/trace/08-mobile-before-after.webp",
+              "width": 1440,
+              "height": 900,
+              "objectPosition": "50% 35%",
+              "standin": true
+            }
+          ]
+        },
         {
           "type": "label",
           "text": "HOW I GOT HERE"

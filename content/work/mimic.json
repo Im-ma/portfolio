@@ -9,6 +9,13 @@
   "status": "In progress",
   "title": "Mimic",
   "summary": "A control dashboard for a robotic arm that copies your hand.",
+  "cover": {
+    "kind": "image",
+    "src": "/images/work/mimic/01-final-dashboard.webp",
+    "width": 1440,
+    "height": 1062,
+    "objectPosition": "center 28%"
+  },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
     "heading": "I iterate in the open and I take my designs into code.",
@@ -96,8 +103,7 @@
           "text": "The dashboard exists to answer those questions."
         },
         {
-          "type": "paragraph",
-          "variant": "body",
+          "type": "research",
           "text": "The operator is whoever stands in front of the camera. At the hackathon that was me and my teammates. In a demo, it is someone trying the arm for the first time. Both need to see at a glance whether the arm is listening to them.",
           "check": true,
           "checkNote": "who is the operator"
@@ -120,8 +126,9 @@
           "width": 1440,
           "height": 1062,
           "objectFit": "cover",
-          "objectPosition": "center",
+          "objectPosition": "30% 20%",
           "radius": 8,
+          "layout": "single",
           "figmaSize": [
             1200,
             885
@@ -170,6 +177,17 @@
           "webm": "/videos/mimic-flow.webm",
           "playLabel": "Play the flow 0:12",
           "caption": "Flow video, 12.5 s. The live camera feed, the current gesture, the control mapping, and the Emergency Stop."
+        },
+        {
+          "type": "video",
+          "devOnly": true,
+          "standin": true,
+          "label": "SECOND FLOW",
+          "poster": "/images/work/mimic/flow-poster.webp",
+          "mp4": "",
+          "webm": "",
+          "playLabel": "Play the flow",
+          "caption": "SECOND FLOW SLOT. Add the mp4, webm, poster, and caption here."
         }
       ]
     },
@@ -315,37 +333,25 @@
               "text": "Header chips, no column. The camera feed got the space back and became noticeably wider, which matters because the feed is how the operator checks that their hand is being tracked. Latency and sync already live in the telemetry card, so nothing was lost."
             },
             {
-              "type": "figureRow",
-              "figures": [
-                {
-                  "caption": "Before: status column next to the feed (25:4)",
-                  "src": "/images/work/mimic/05-before-status-column.webp",
-                  "width": 1440,
-                  "height": 1024,
-                  "objectFit": "cover",
-                  "objectPosition": "center",
-                  "radius": 6,
-                  "figmaSize": [
-                    356,
-                    254
-                  ],
-                  "type": "figure"
-                },
-                {
-                  "caption": "After: status moved into header chips (26:620)",
-                  "src": "/images/work/mimic/06-after-status-in-header.webp",
-                  "width": 1440,
-                  "height": 1044,
-                  "objectFit": "cover",
-                  "objectPosition": "center",
-                  "radius": 6,
-                  "figmaSize": [
-                    356,
-                    254
-                  ],
-                  "type": "figure"
-                }
-              ]
+              "type": "compare",
+              "before": {
+                "caption": "Before: status column next to the feed (25:4)",
+                "src": "/images/work/mimic/05-before-status-column.webp",
+                "width": 1440,
+                "height": 1024,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "radius": 6
+              },
+              "after": {
+                "caption": "After: status moved into header chips (26:620)",
+                "src": "/images/work/mimic/06-after-status-in-header.webp",
+                "width": 1440,
+                "height": 1044,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "radius": 6
+              }
             },
             {
               "type": "label",
@@ -446,6 +452,40 @@
       "number": "04",
       "title": "How I built it",
       "blocks": [
+        {
+          "type": "bento",
+          "standin": true,
+          "frames": [
+            {
+              "src": "/images/work/mimic/02-wireframe.webp",
+              "width": 1200,
+              "height": 854,
+              "objectPosition": "50% 20%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/mimic/03-dark-figma-frame.webp",
+              "width": 1440,
+              "height": 900,
+              "objectPosition": "30% 30%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/mimic/04-light-concept-image.webp",
+              "width": 1440,
+              "height": 811,
+              "objectPosition": "70% 24%",
+              "standin": true
+            },
+            {
+              "src": "/images/work/mimic/01-final-dashboard.webp",
+              "width": 1440,
+              "height": 1062,
+              "objectPosition": "62% 55%",
+              "standin": true
+            }
+          ]
+        },
         {
           "type": "list",
           "variant": "arrow",

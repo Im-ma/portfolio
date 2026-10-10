@@ -58,7 +58,7 @@ export function CaseToc({
           return (
             <li key={item.anchor}>
               <a
-                className={`${styles.tocLink} t-body-s`}
+                className={`${styles.tocLink} t-body-xs`}
                 href={`#${item.anchor}`}
                 data-active={item.anchor === active ? "true" : undefined}
                 data-current={current ? "true" : undefined}
@@ -103,7 +103,7 @@ export function CaseTocBar({ label, items }: { label: string; items: TocItem[] }
         return (
           <a
             key={item.anchor}
-            className={`${styles.tocChip} t-body-nav`}
+            className={`${styles.tocChip} t-body-xs`}
             href={`#${item.anchor}`}
             data-active={on ? "true" : undefined}
             aria-current={on ? "location" : undefined}
