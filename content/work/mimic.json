@@ -1,0 +1,669 @@
+{
+  "slug": "mimic",
+  "backLink": {
+    "label": "Back to work",
+    "href": "/#work"
+  },
+  "eyebrow": "CASE STUDY 02",
+  "number": 2,
+  "status": "In progress",
+  "title": "Mimic",
+  "summary": "A control dashboard for a robotic arm that copies your hand.",
+  "keyTakeaway": {
+    "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
+    "heading": "I iterate in the open and I take my designs into code.",
+    "body": "Mimic went through a wireframe, a dark theme, a light theme, and five dashboard frames before I started turning the final frame into code."
+  },
+  "scope": {
+    "label": "SCOPE",
+    "text": "One desktop dashboard (1440 wide): live camera feed with hand tracking, 3D arm view, current gesture, gesture-to-control mapping, live telemetry, and safety controls"
+  },
+  "meta": [
+    {
+      "label": "STATUS",
+      "tag": "In progress",
+      "value": "Designed in Figma, UI being coded"
+    },
+    {
+      "label": "ROLE",
+      "value": "Product design + engineering"
+    },
+    {
+      "label": "TIMELINE",
+      "value": "September 2026 to present. On Sep 26, 2026 I started turning the final frame into code.",
+      "check": true,
+      "checkNote": "timeline"
+    },
+    {
+      "label": "TEAM",
+      "value": "Product designer on a robotics team at HackGT 13 (Georgia Tech). My teammates built the arm and the hand tracking.",
+      "check": true,
+      "checkNote": "team (from resume: HackGT 13 Teleoperation-Arm)"
+    },
+    {
+      "label": "TOOLS",
+      "value": "Figma, React for the dashboard, MediaPipe Hands for hand tracking (placeholder)",
+      "check": true,
+      "checkNote": "stack"
+    }
+  ],
+  "links": {
+    "items": [
+      {
+        "label": "Final frame",
+        "href": null
+      },
+      {
+        "label": "Iteration history",
+        "href": null
+      },
+      {
+        "label": "Code branch (link coming soon)",
+        "href": null,
+        "check": true,
+        "checkNote": "code link",
+        "comingSoon": true
+      }
+    ],
+    "flows": []
+  },
+  "sections": [
+    {
+      "id": "context",
+      "number": "01",
+      "title": "Context",
+      "blocks": [
+        {
+          "type": "annotation",
+          "devOnly": true,
+          "text": "OPTIONAL INTERACTION Select any sentence to ask about it. The question form opens with the quote prefilled."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Mimic is a gesture-controlled robotic arm. You move your hand in front of a camera, and the arm (MIMIC-V1) follows: left and right to rotate, up and down to raise and lower, pinch to grip and release."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "askHighlight": true,
+          "tooltip": "Ask Immanuel about this",
+          "text": "That’s a fun idea and a slightly scary one. When your hand is the controller, the operator needs to know three things at a glance: Is the system actually seeing my hand? What does the arm think I’m telling it to do? How do I stop it, right now?"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The dashboard exists to answer those questions."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The operator is whoever stands in front of the camera. At the hackathon that was me and my teammates. In a demo, it is someone trying the arm for the first time. Both need to see at a glance whether the arm is listening to them.",
+          "check": true,
+          "checkNote": "who is the operator"
+        }
+      ]
+    },
+    {
+      "id": "the-result",
+      "number": "02",
+      "title": "The result: final solution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "lead",
+          "text": "One light, desktop dashboard that answers the operator’s three questions at a glance: tracking, intent, and stop."
+        },
+        {
+          "caption": "Final Mimic dashboard: live camera feed tracking a hand, MIMIC-V1 arm view, current gesture, control mapping, telemetry, and safety controls.",
+          "src": "/images/work/mimic/01-final-dashboard.webp",
+          "width": 1440,
+          "height": 1062,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 8,
+          "figmaSize": [
+            1200,
+            885
+          ],
+          "type": "figure"
+        },
+        {
+          "type": "features",
+          "label": "WHAT YOU SEE",
+          "items": [
+            {
+              "title": "Live camera feed",
+              "text": "A hand skeleton overlay, a \"Hand Tracking Active\" tag, and the feed quality (1080p, 30 FPS)."
+            },
+            {
+              "title": "3D arm view",
+              "text": "Labelled MIMIC-V1, with controls to rotate and recenter."
+            },
+            {
+              "title": "Current gesture",
+              "text": "\"Grip, closing gripper\" with a confidence-style progress bar."
+            },
+            {
+              "title": "Control mapping",
+              "text": "Which gesture does what, so a new operator can learn the controls from the screen itself."
+            },
+            {
+              "title": "Performance telemetry",
+              "text": "Sync quality, latency, and FPS, each with a small trend line."
+            },
+            {
+              "title": "Status chips in the header",
+              "text": "Camera source, robot connection, sync quality, and a LIVE session timer."
+            },
+            {
+              "title": "Pause Control and Emergency Stop",
+              "text": "Full width along the bottom."
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "label": "FLOW VIDEO",
+          "poster": "/images/work/mimic/flow-poster.webp",
+          "mp4": "/videos/mimic-flow.mp4",
+          "webm": "/videos/mimic-flow.webm",
+          "playLabel": "Play the flow 0:12",
+          "caption": "Flow video, 12.5 s. The live camera feed, the current gesture, the control mapping, and the Emergency Stop."
+        }
+      ]
+    },
+    {
+      "id": "key-decisions",
+      "number": "03",
+      "title": "Key decisions",
+      "blocks": [
+        {
+          "type": "decision",
+          "number": 1,
+          "eyebrow": "DECISION 01",
+          "title": "From dark to light",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Robotics dashboards are almost always dark. It looks technical and dramatic. But this screen has to make a live camera feed, a robot render, and a red emergency button all read instantly."
+            },
+            {
+              "type": "label",
+              "text": "OPTIONS EXPLORED"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "image": {
+                    "src": "/images/work/mimic/02-wireframe.webp",
+                    "width": 1200,
+                    "height": 854,
+                    "objectFit": "cover",
+                    "objectPosition": "50% 0%",
+                    "radius": 4,
+                    "figmaSize": [
+                      200,
+                      126
+                    ]
+                  },
+                  "label": "WIREFRAME",
+                  "text": "A gray wireframe that blocked out the big feed, a row of cards, and two bottom actions."
+                },
+                {
+                  "chosen": false,
+                  "image": {
+                    "src": "/images/work/mimic/03-dark-figma-frame.webp",
+                    "width": 1440,
+                    "height": 900,
+                    "objectFit": "cover",
+                    "objectPosition": "center",
+                    "radius": 4,
+                    "figmaSize": [
+                      200,
+                      126
+                    ]
+                  },
+                  "label": "DARK",
+                  "text": "Dark concept images, then a dark Figma frame (19:4) with a System Status card, a gesture card, and control mapping."
+                },
+                {
+                  "chosen": true,
+                  "image": {
+                    "src": "/images/work/mimic/04-light-concept-image.webp",
+                    "width": 1440,
+                    "height": 811,
+                    "objectFit": "cover",
+                    "objectPosition": "center",
+                    "radius": 4,
+                    "figmaSize": [
+                      200,
+                      126
+                    ]
+                  },
+                  "label": "LIGHT",
+                  "text": "A light concept image, then four light frames (25:4, 26:22, 26:620, 26:927)."
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Light. Looking at the two side by side, the light version gives the cards clearer edges, lets the camera feed and the white robot render stand on their own, and makes the red Emergency Stop the loudest thing on the screen. I also wanted it to stay readable on a bright projector or a laptop in a lit room, because that is where a demo actually happens.",
+              "check": true,
+              "checkNote": "why light theme"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "number": 2,
+          "eyebrow": "DECISION 02",
+          "title": "Cutting the System Status column",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Operators need status. But status was showing up in three places at once."
+            },
+            {
+              "type": "label",
+              "text": "OPTIONS EXPLORED"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "label": "25:4",
+                  "text": "Header chips + a five-card status column (Robot Connected, Hand Tracking, Sync Quality, Latency, Mode Active), plus telemetry."
+                },
+                {
+                  "chosen": false,
+                  "label": "26:22",
+                  "text": "Column only. Chips pulled out of the header."
+                },
+                {
+                  "chosen": true,
+                  "label": "26:620",
+                  "text": "Header only. Chips back, column removed. It stayed gone in the final."
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Header chips, no column. The camera feed got the space back and became noticeably wider, which matters because the feed is how the operator checks that their hand is being tracked. Latency and sync already live in the telemetry card, so nothing was lost."
+            },
+            {
+              "type": "figureRow",
+              "figures": [
+                {
+                  "caption": "Before: status column next to the feed (25:4)",
+                  "src": "/images/work/mimic/05-before-status-column.webp",
+                  "width": 1440,
+                  "height": 1024,
+                  "objectFit": "cover",
+                  "objectPosition": "center",
+                  "radius": 6,
+                  "figmaSize": [
+                    356,
+                    254
+                  ],
+                  "type": "figure"
+                },
+                {
+                  "caption": "After: status moved into header chips (26:620)",
+                  "src": "/images/work/mimic/06-after-status-in-header.webp",
+                  "width": 1440,
+                  "height": 1044,
+                  "objectFit": "cover",
+                  "objectPosition": "center",
+                  "radius": 6,
+                  "figmaSize": [
+                    356,
+                    254
+                  ],
+                  "type": "figure"
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Saying the same thing three times doesn’t make it clearer. It makes the operator hunt for which one is current.",
+              "check": true,
+              "checkNote": "decision 2 why"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "In the final pass I also trimmed the side navigation from six icons to three (control, performance, settings) and hid the wordmark, to keep the screen focused on the arm.",
+              "check": true,
+              "checkNote": "decision 2 why (wordmark)"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "number": 3,
+          "eyebrow": "DECISION 03",
+          "title": "Safety controls never move",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Everything else on this dashboard changed between versions. The stop button can’t."
+            },
+            {
+              "type": "label",
+              "text": "TWO WAYS TO STOP, NEVER CONFUSED"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "label": "PAUSE CONTROL",
+                  "badge": "SOFT BLUE",
+                  "text": "\"Temporarily stop sending gesture commands\""
+                },
+                {
+                  "chosen": false,
+                  "label": "EMERGENCY STOP",
+                  "badge": "SOLID RED",
+                  "text": "\"Immediately halt all robotic arm movement\""
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Pause Control and Emergency Stop are in every version, starting with the wireframe’s two bottom bars. In the final they are the largest targets on the screen, full width at the bottom, with the consequence written right on the button. I would also map the stop to the Space bar, so nobody has to aim a mouse in a hurry.",
+              "check": true,
+              "checkNote": "keyboard stop"
+            },
+            {
+              "caption": "Final dashboard, bottom edge: telemetry, then Pause Control and Emergency Stop",
+              "src": "/images/work/mimic/01-final-dashboard.webp",
+              "width": 1440,
+              "height": 1062,
+              "objectFit": "cover",
+              "objectPosition": "50% 100%",
+              "radius": 6,
+              "figmaSize": [
+                728,
+                190
+              ],
+              "type": "figure"
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "When something goes wrong, nobody reads. The two ways to stop the arm should be findable without thinking, and their difference (pause versus halt) should be obvious from color and words."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-i-built-it",
+      "number": "04",
+      "title": "How I built it",
+      "blocks": [
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "title": "Design",
+              "text": "Wireframe, theme exploration, and five dashboard versions in Figma, all kept in the iteration file so the history is visible."
+            },
+            {
+              "marker": "→",
+              "title": "Code",
+              "text": "On Sep 26, 2026 I started turning the final Figma frame into the coded UI, in its own code branch. The dashboard is React. For now the camera feed, hand tracking, robot connection, and telemetry run on sample data, so I can get the layout and every state right before wiring it to the real arm.",
+              "check": true,
+              "checkNote": "stack + real vs mocked"
+            },
+            {
+              "marker": "→",
+              "title": "Hardware and tracking",
+              "text": "The physical arm is an SO-ARM101 that my team used at HackGT 13, and hand tracking runs from a webcam with a model like MediaPipe Hands.",
+              "check": true,
+              "checkNote": "arm + tracking model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impact",
+      "number": "05",
+      "title": "Impact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "What I would measure next: how fast a first-time operator gets the arm to follow them, and whether people find and press Emergency Stop without being told where it is.",
+          "check": true,
+          "checkNote": "impact as targets"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Until then, here’s why it matters: Mimic is the project where my design work meets the physical world. A confusing screen here doesn’t just slow someone down. It moves a robot."
+        },
+        {
+          "type": "label",
+          "text": "WHAT I’D MEASURE NEXT"
+        },
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "text": "How quickly a first-time operator can find and hit Emergency Stop."
+            },
+            {
+              "marker": "→",
+              "text": "Whether new operators can learn the gestures from the Control Mapping card alone."
+            },
+            {
+              "marker": "→",
+              "text": "End-to-end latency in the coded version, compared to what the telemetry card shows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "number": "06",
+      "title": "Reflection",
+      "blocks": [
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "title": "Keeping every version was the best decision I made.",
+              "text": "Because I didn’t overwrite frames, I can show exactly when the status column appeared, moved, and disappeared, and explain why."
+            },
+            {
+              "marker": "→",
+              "title": "Removing things is a design skill.",
+              "text": "My biggest improvement between versions was deleting a whole column, not adding a feature."
+            },
+            {
+              "marker": "→",
+              "title": "Design files are inputs to code.",
+              "text": "Going from frame to code is much smoother when the frame is organized. Naming layers like telemetry-capsules, gesture-card, and button-stop paid off.",
+              "check": true,
+              "checkNote": "reflection"
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "text": "NEXT STEPS"
+        },
+        {
+          "type": "list",
+          "variant": "numbered",
+          "items": [
+            {
+              "marker": "01",
+              "text": "Finish the coded version and connect it to live data.",
+              "check": true,
+              "checkNote": "next step"
+            },
+            {
+              "marker": "02",
+              "text": "Design the states I haven’t drawn yet: hand lost, robot disconnected, high latency, and what the screen looks like right after an emergency stop."
+            },
+            {
+              "marker": "03",
+              "text": "Test with someone who has never seen it and time how long they take to find the stop."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tocLabel": "CONTENTS",
+  "toc": [
+    {
+      "number": "01",
+      "subs": [],
+      "title": "Context",
+      "anchor": "context"
+    },
+    {
+      "number": "02",
+      "subs": [],
+      "title": "The result",
+      "anchor": "the-result"
+    },
+    {
+      "number": "03",
+      "subs": [
+        {
+          "number": "3.1",
+          "title": "From dark to light",
+          "anchor": "decision-1"
+        },
+        {
+          "number": "3.2",
+          "title": "Cutting the status column",
+          "anchor": "decision-2"
+        },
+        {
+          "number": "3.3",
+          "title": "Safety controls never move",
+          "anchor": "decision-3"
+        }
+      ],
+      "title": "Key decisions",
+      "anchor": "key-decisions"
+    },
+    {
+      "number": "04",
+      "subs": [],
+      "title": "How I built it",
+      "anchor": "how-i-built-it"
+    },
+    {
+      "number": "05",
+      "subs": [],
+      "title": "Impact",
+      "anchor": "impact"
+    },
+    {
+      "number": "06",
+      "subs": [],
+      "title": "Reflection",
+      "anchor": "reflection"
+    }
+  ],
+  "tocNote": {
+    "text": "Sticky while scrolling",
+    "devOnly": true
+  },
+  "nextProject": {
+    "image": {
+      "src": "/images/work/campus-events/03-rsvp-states.webp",
+      "width": 1728,
+      "height": 922,
+      "objectFit": "cover",
+      "objectPosition": "center",
+      "radius": 0,
+      "figmaSize": [
+        588,
+        320
+      ]
+    },
+    "label": "NEXT PROJECT",
+    "status": "In progress",
+    "title": "Campus Events",
+    "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+    "cta": "Read case study",
+    "slug": "campus-events"
+  },
+  "contact": {
+    "heading": "Questions about this project?",
+    "body": "Ask me anything, or book a quick chat.",
+    "buttons": [
+      {
+        "label": "Ask a question",
+        "action": "talk:question",
+        "variant": "primary",
+        "arrow": true
+      },
+      {
+        "label": "Book a 15-min chat",
+        "action": "talk:book",
+        "variant": "secondary"
+      }
+    ]
+  },
+  "talkButtonLabel": "Questions about this project?"
+}

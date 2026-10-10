@@ -1,0 +1,319 @@
+{
+  "route": "/",
+  "talkButtonLabel": "Pull up a chair",
+  "hero": {
+    "eyebrow": "CS + MATH  /  FIRST YEAR  /  PEOPLE FIRST",
+    "title": "I listen to people, then design and build what helps them.",
+    "lead": "First-year CS + Math student at Livingstone College, aiming for product design and engineering roles.",
+    "buttons": [
+      {
+        "label": "See selected work",
+        "href": "#work",
+        "variant": "primary",
+        "arrow": true
+      },
+      {
+        "label": "Pull up a chair",
+        "action": "talk:open",
+        "variant": "secondary"
+      }
+    ],
+    "portrait": {
+      "src": "/images/about/standin-portrait.webp",
+      "width": 564,
+      "height": 760,
+      "objectFit": "cover",
+      "objectPosition": "center",
+      "radius": 6,
+      "figmaSize": [
+        282,
+        380
+      ],
+      "standin": true,
+      "alt": "stylized portrait silhouette, swap for a real photo",
+      "check": true
+    },
+    "portraitCaption": "Livingstone College, class of 2030"
+  },
+  "selectedWork": {
+    "id": "work",
+    "number": "01",
+    "title": "Selected work",
+    "link": {
+      "label": "View all work",
+      "href": "/#work"
+    },
+    "cards": [
+      {
+        "tools": [
+          {
+            "text": "Figma"
+          },
+          {
+            "text": "React + TypeScript",
+            "check": true,
+            "checkNote": "Trace stack chip"
+          }
+        ],
+        "cover": {
+          "src": "/images/work/trace/01-dataset-overview.webp",
+          "width": 1440,
+          "height": 1524,
+          "objectFit": "cover",
+          "objectPosition": "50% 0%",
+          "radius": 0,
+          "figmaSize": [
+            588,
+            331
+          ]
+        },
+        "number": "01",
+        "status": "Concept",
+        "title": "Trace",
+        "summary": "A debug console for finding the bad records hiding in ML training data.",
+        "slug": "trace",
+        "href": "/work/trace"
+      },
+      {
+        "tools": [
+          {
+            "text": "Figma"
+          },
+          {
+            "text": "React",
+            "check": true,
+            "checkNote": "Mimic stack chip"
+          }
+        ],
+        "cover": {
+          "src": "/images/work/mimic/01-final-dashboard.webp",
+          "width": 1440,
+          "height": 1062,
+          "objectFit": "cover",
+          "objectPosition": "50% 0%",
+          "radius": 0,
+          "figmaSize": [
+            588,
+            331
+          ]
+        },
+        "number": "02",
+        "status": "In progress",
+        "title": "Mimic",
+        "summary": "A control dashboard for a robotic arm that copies your hand.",
+        "slug": "mimic",
+        "href": "/work/mimic"
+      },
+      {
+        "tools": [
+          {
+            "text": "Figma"
+          }
+        ],
+        "cover": {
+          "src": "/images/work/campus-events/03-rsvp-states.webp",
+          "width": 1728,
+          "height": 922,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            588,
+            331
+          ]
+        },
+        "number": "03",
+        "status": "In progress",
+        "title": "Campus Events",
+        "check": true,
+        "checkNote": "app name. Proposed short name: \"Linkup\" (or keep Campus Events)",
+        "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+        "slug": "campus-events",
+        "href": "/work/campus-events"
+      },
+      {
+        "tools": [
+          {
+            "text": "Figma"
+          }
+        ],
+        "cover": {
+          "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
+          "width": 2400,
+          "height": 631,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            588,
+            331
+          ]
+        },
+        "number": "04",
+        "status": "In progress",
+        "title": "Campus Ride",
+        "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+        "slug": "campus-ride",
+        "href": "/work/campus-ride"
+      }
+    ]
+  },
+  "howIWork": {
+    "number": "02",
+    "title": "How I work",
+    "diagram": "signal-path",
+    "steps": [
+      {
+        "label": "STEP 01",
+        "title": "Listen",
+        "text": "Talk with the people involved and hear what they actually need."
+      },
+      {
+        "label": "STEP 02",
+        "title": "Design",
+        "text": "Sketch, prototype, and test ideas until the right one is clear."
+      },
+      {
+        "label": "STEP 03",
+        "title": "Build",
+        "text": "Write the code and ship something people can use."
+      }
+    ]
+  },
+  "gatheringsTeaser": {
+    "number": "03",
+    "title": "Gatherings",
+    "link": {
+      "label": "See all gatherings",
+      "href": "/gatherings"
+    },
+    "lead": "Study sessions, picnics, and eat-outs I organize. Good things start when people sit at the same table.",
+    "items": [
+      {
+        "image": {
+          "src": "/images/gatherings/standin-study-tables.webp",
+          "width": 1200,
+          "height": 1600,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 6,
+          "figmaSize": [
+            384,
+            260
+          ],
+          "standin": true,
+          "alt": "overhead study tables",
+          "credit": "Pexels photo 28993557 (stand-in, replace before launch)"
+        },
+        "title": "Study session",
+        "date": "Sep 2026",
+        "check": true,
+        "checkNote": "study session date"
+      },
+      {
+        "image": {
+          "src": "/images/gatherings/standin-picnic-blanket.webp",
+          "width": 1200,
+          "height": 1600,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 6,
+          "figmaSize": [
+            384,
+            260
+          ],
+          "standin": true,
+          "alt": "picnic blanket on grass",
+          "credit": "Pexels photo 28122105 (stand-in, replace before launch)"
+        },
+        "title": "Picnic",
+        "date": "Sep 2026",
+        "check": true,
+        "checkNote": "picnic date"
+      },
+      {
+        "image": {
+          "src": "/images/gatherings/standin-shared-table.webp",
+          "width": 1200,
+          "height": 1854,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 6,
+          "figmaSize": [
+            384,
+            260
+          ],
+          "standin": true,
+          "alt": "shared table from above, hands only",
+          "credit": "Pexels photo 6223233 (stand-in, replace before launch)"
+        },
+        "title": "Eat-out",
+        "date": "Oct 2026",
+        "check": true,
+        "checkNote": "eat-out date"
+      }
+    ],
+    "noteWall": {
+      "label": "FROM THE NOTE WALL",
+      "text": "Notes friends and visitors left. Each one shows up after I approve it.",
+      "link": {
+        "label": "Read the wall",
+        "href": "/gatherings#note-wall"
+      },
+      "notes": [
+        {
+          "text": "Thanks for the calc study night. Limits finally make sense.",
+          "check": true,
+          "checkNote": "note 1",
+          "signature": "- A study group regular",
+          "rotation": -3,
+          "color": "yellow",
+          "attachment": "tape"
+        },
+        {
+          "text": "Loved reading how you build things. Save me a seat at the next picnic.",
+          "check": true,
+          "checkNote": "note 2",
+          "signature": "- A visitor",
+          "rotation": 2,
+          "color": "cobalt",
+          "attachment": "pin"
+        },
+        {
+          "text": "Best picnic of the semester. Same spot next month?",
+          "check": true,
+          "checkNote": "note 3",
+          "signature": "- A friend from class",
+          "rotation": -1,
+          "color": "pink",
+          "attachment": "tape"
+        }
+      ],
+      "sourceNote": "Static sample notes from Figma. In production, show the 3 newest approved notes from Supabase and fall back to these."
+    }
+  },
+  "contact": {
+    "number": "04",
+    "title": "Let's talk",
+    "heading": "Have a project, a question, or just want to say hi? My inbox and my table are open.",
+    "buttons": [
+      {
+        "label": "Email me",
+        "href": "mailto:tutuimmanuel10@gmail.com",
+        "variant": "primary",
+        "check": true,
+        "checkNote": "email button label"
+      },
+      {
+        "label": "Pull up a chair",
+        "action": "talk:open",
+        "variant": "secondary"
+      }
+    ],
+    "links": "see site.contactLinks",
+    "footer": [
+      "Immanuel Mensah, 2026",
+      "Designed and built by me"
+    ]
+  }
+}

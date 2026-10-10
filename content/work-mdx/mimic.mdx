@@ -1,0 +1,310 @@
+---
+{
+  "slug": "mimic",
+  "number": 2,
+  "eyebrow": "CASE STUDY 02",
+  "title": "Mimic",
+  "status": "In progress",
+  "summary": "A control dashboard for a robotic arm that copies your hand.",
+  "keyTakeaway": {
+    "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
+    "heading": "I iterate in the open and I take my designs into code.",
+    "body": "Mimic went through a wireframe, a dark theme, a light theme, and five dashboard frames before I started turning the final frame into code."
+  },
+  "meta": [
+    {
+      "label": "STATUS",
+      "tag": "In progress",
+      "value": "Designed in Figma, UI being coded"
+    },
+    {
+      "label": "ROLE",
+      "value": "Product design + engineering"
+    },
+    {
+      "label": "TIMELINE",
+      "value": "September 2026 to present. On Sep 26, 2026 I started turning the final frame into code.",
+      "check": true,
+      "checkNote": "timeline"
+    },
+    {
+      "label": "TEAM",
+      "value": "Product designer on a robotics team at HackGT 13 (Georgia Tech). My teammates built the arm and the hand tracking.",
+      "check": true,
+      "checkNote": "team (from resume: HackGT 13 Teleoperation-Arm)"
+    },
+    {
+      "label": "TOOLS",
+      "value": "Figma, React for the dashboard, MediaPipe Hands for hand tracking (placeholder)",
+      "check": true,
+      "checkNote": "stack"
+    }
+  ],
+  "scope": {
+    "label": "SCOPE",
+    "text": "One desktop dashboard (1440 wide): live camera feed with hand tracking, 3D arm view, current gesture, gesture-to-control mapping, live telemetry, and safety controls"
+  },
+  "links": {
+    "items": [
+      {
+        "label": "Final frame",
+        "href": null
+      },
+      {
+        "label": "Iteration history",
+        "href": null
+      },
+      {
+        "label": "Code branch (link coming soon)",
+        "href": null,
+        "check": true,
+        "checkNote": "code link",
+        "comingSoon": true
+      }
+    ],
+    "flows": []
+  },
+  "toc": [
+    {
+      "number": "01",
+      "subs": [],
+      "title": "Context",
+      "anchor": "context"
+    },
+    {
+      "number": "02",
+      "subs": [],
+      "title": "The result",
+      "anchor": "the-result"
+    },
+    {
+      "number": "03",
+      "subs": [
+        {
+          "number": "3.1",
+          "title": "From dark to light",
+          "anchor": "decision-1"
+        },
+        {
+          "number": "3.2",
+          "title": "Cutting the status column",
+          "anchor": "decision-2"
+        },
+        {
+          "number": "3.3",
+          "title": "Safety controls never move",
+          "anchor": "decision-3"
+        }
+      ],
+      "title": "Key decisions",
+      "anchor": "key-decisions"
+    },
+    {
+      "number": "04",
+      "subs": [],
+      "title": "How I built it",
+      "anchor": "how-i-built-it"
+    },
+    {
+      "number": "05",
+      "subs": [],
+      "title": "Impact",
+      "anchor": "impact"
+    },
+    {
+      "number": "06",
+      "subs": [],
+      "title": "Reflection",
+      "anchor": "reflection"
+    }
+  ],
+  "nextProject": {
+    "image": {
+      "src": "/images/work/campus-events/03-rsvp-states.webp",
+      "width": 1728,
+      "height": 922,
+      "objectFit": "cover",
+      "objectPosition": "center",
+      "radius": 0,
+      "figmaSize": [
+        588,
+        320
+      ]
+    },
+    "label": "NEXT PROJECT",
+    "status": "In progress",
+    "title": "Campus Events",
+    "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+    "cta": "Read case study",
+    "slug": "campus-events"
+  },
+  "talkButtonLabel": "Questions about this project?"
+}
+---
+
+{/* Frontmatter is JSON (valid YAML). Content from Figma. <Check> marks drafts I still need to confirm: render a subtle marker in development only. */}
+
+<Section id="context" number="01" title="Context">
+
+<DevNote>OPTIONAL INTERACTION Select any sentence to ask about it. The question form opens with the quote prefilled.</DevNote>
+
+Mimic is a gesture-controlled robotic arm. You move your hand in front of a camera, and the arm (MIMIC-V1) follows: left and right to rotate, up and down to raise and lower, pinch to grip and release.
+
+<AskHighlight tooltip="Ask Immanuel about this">That’s a fun idea and a slightly scary one. When your hand is the controller, the operator needs to know three things at a glance: Is the system actually seeing my hand? What does the arm think I’m telling it to do? How do I stop it, right now?</AskHighlight>
+
+The dashboard exists to answer those questions.
+
+<Check note="who is the operator">The operator is whoever stands in front of the camera. At the hackathon that was me and my teammates. In a demo, it is someone trying the arm for the first time. Both need to see at a glance whether the arm is listening to them.</Check>
+
+</Section>
+
+<Section id="the-result" number="02" title="The result: final solution">
+
+<Lead>One light, desktop dashboard that answers the operator’s three questions at a glance: tracking, intent, and stop.</Lead>
+
+<Figure src="/images/work/mimic/01-final-dashboard.webp" width={1440} height={1062} figmaSize={[1200,885]} position="center" radius={8} caption="Final Mimic dashboard: live camera feed tracking a hand, MIMIC-V1 arm view, current gesture, control mapping, telemetry, and safety controls." />
+
+<Label>WHAT YOU SEE</Label>
+
+<Features>
+  <Feature title="Live camera feed">A hand skeleton overlay, a "Hand Tracking Active" tag, and the feed quality (1080p, 30 FPS).</Feature>
+  <Feature title="3D arm view">Labelled MIMIC-V1, with controls to rotate and recenter.</Feature>
+  <Feature title="Current gesture">"Grip, closing gripper" with a confidence-style progress bar.</Feature>
+  <Feature title="Control mapping">Which gesture does what, so a new operator can learn the controls from the screen itself.</Feature>
+  <Feature title="Performance telemetry">Sync quality, latency, and FPS, each with a small trend line.</Feature>
+  <Feature title="Status chips in the header">Camera source, robot connection, sync quality, and a LIVE session timer.</Feature>
+  <Feature title="Pause Control and Emergency Stop">Full width along the bottom.</Feature>
+</Features>
+
+<FlowVideo label="FLOW VIDEO" mp4="/videos/mimic-flow.mp4" webm="/videos/mimic-flow.webm" poster="/images/work/mimic/flow-poster.webp" playLabel="Play the flow 0:12" caption="Flow video, 12.5 s. The live camera feed, the current gesture, the control mapping, and the Emergency Stop." />
+
+</Section>
+
+<Section id="key-decisions" number="03" title="Key decisions">
+
+<Decision number={1} eyebrow="DECISION 01" title="From dark to light">
+
+<Label>THE TENSION</Label>
+
+Robotics dashboards are almost always dark. It looks technical and dramatic. But this screen has to make a live camera feed, a robot render, and a red emergency button all read instantly.
+
+<Label>OPTIONS EXPLORED</Label>
+
+<Options>
+  <Option label="WIREFRAME" image="/images/work/mimic/02-wireframe.webp">A gray wireframe that blocked out the big feed, a row of cards, and two bottom actions.</Option>
+  <Option label="DARK" image="/images/work/mimic/03-dark-figma-frame.webp">Dark concept images, then a dark Figma frame (19:4) with a System Status card, a gesture card, and control mapping.</Option>
+  <Option label="LIGHT" chosen image="/images/work/mimic/04-light-concept-image.webp">A light concept image, then four light frames (25:4, 26:22, 26:620, 26:927).</Option>
+</Options>
+
+<Label>WHAT I CHOSE</Label>
+
+<Check note="why light theme">Light. Looking at the two side by side, the light version gives the cards clearer edges, lets the camera feed and the white robot render stand on their own, and makes the red Emergency Stop the loudest thing on the screen. I also wanted it to stay readable on a bright projector or a laptop in a lit room, because that is where a demo actually happens.</Check>
+
+</Decision>
+
+<Decision number={2} eyebrow="DECISION 02" title="Cutting the System Status column">
+
+<Label>THE TENSION</Label>
+
+Operators need status. But status was showing up in three places at once.
+
+<Label>OPTIONS EXPLORED</Label>
+
+<Options>
+  <Option label="25:4">Header chips + a five-card status column (Robot Connected, Hand Tracking, Sync Quality, Latency, Mode Active), plus telemetry.</Option>
+  <Option label="26:22">Column only. Chips pulled out of the header.</Option>
+  <Option label="26:620" chosen>Header only. Chips back, column removed. It stayed gone in the final.</Option>
+</Options>
+
+<Label>WHAT I CHOSE</Label>
+
+Header chips, no column. The camera feed got the space back and became noticeably wider, which matters because the feed is how the operator checks that their hand is being tracked. Latency and sync already live in the telemetry card, so nothing was lost.
+
+<FigureRow>
+<Figure src="/images/work/mimic/05-before-status-column.webp" width={1440} height={1024} figmaSize={[356,254]} position="center" radius={6} caption="Before: status column next to the feed (25:4)" />
+<Figure src="/images/work/mimic/06-after-status-in-header.webp" width={1440} height={1044} figmaSize={[356,254]} position="center" radius={6} caption="After: status moved into header chips (26:620)" />
+</FigureRow>
+
+<Label>WHY</Label>
+
+<Check note="decision 2 why">Saying the same thing three times doesn’t make it clearer. It makes the operator hunt for which one is current.</Check>
+
+<Check note="decision 2 why (wordmark)">In the final pass I also trimmed the side navigation from six icons to three (control, performance, settings) and hid the wordmark, to keep the screen focused on the arm.</Check>
+
+</Decision>
+
+<Decision number={3} eyebrow="DECISION 03" title="Safety controls never move">
+
+<Label>THE TENSION</Label>
+
+Everything else on this dashboard changed between versions. The stop button can’t.
+
+<Label>TWO WAYS TO STOP, NEVER CONFUSED</Label>
+
+<Options>
+  <Option label="PAUSE CONTROL" badge="SOFT BLUE">"Temporarily stop sending gesture commands"</Option>
+  <Option label="EMERGENCY STOP" badge="SOLID RED">"Immediately halt all robotic arm movement"</Option>
+</Options>
+
+<Label>WHAT I CHOSE</Label>
+
+<Check note="keyboard stop">Pause Control and Emergency Stop are in every version, starting with the wireframe’s two bottom bars. In the final they are the largest targets on the screen, full width at the bottom, with the consequence written right on the button. I would also map the stop to the Space bar, so nobody has to aim a mouse in a hurry.</Check>
+
+<Figure src="/images/work/mimic/01-final-dashboard.webp" width={1440} height={1062} figmaSize={[728,190]} position="50% 100%" radius={6} caption="Final dashboard, bottom edge: telemetry, then Pause Control and Emergency Stop" />
+
+<Label>WHY</Label>
+
+When something goes wrong, nobody reads. The two ways to stop the arm should be findable without thinking, and their difference (pause versus halt) should be obvious from color and words.
+
+</Decision>
+
+</Section>
+
+<Section id="how-i-built-it" number="04" title="How I built it">
+
+<ArrowList>
+
+- **Design** Wireframe, theme exploration, and five dashboard versions in Figma, all kept in the iteration file so the history is visible.
+- **Code** <Check note="stack + real vs mocked">On Sep 26, 2026 I started turning the final Figma frame into the coded UI, in its own code branch. The dashboard is React. For now the camera feed, hand tracking, robot connection, and telemetry run on sample data, so I can get the layout and every state right before wiring it to the real arm.</Check>
+- **Hardware and tracking** <Check note="arm + tracking model">The physical arm is an SO-ARM101 that my team used at HackGT 13, and hand tracking runs from a webcam with a model like MediaPipe Hands.</Check>
+
+</ArrowList>
+
+</Section>
+
+<Section id="impact" number="05" title="Impact">
+
+<Check note="impact as targets">What I would measure next: how fast a first-time operator gets the arm to follow them, and whether people find and press Emergency Stop without being told where it is.</Check>
+
+Until then, here’s why it matters: Mimic is the project where my design work meets the physical world. A confusing screen here doesn’t just slow someone down. It moves a robot.
+
+<Label>WHAT I’D MEASURE NEXT</Label>
+
+<ArrowList>
+
+- How quickly a first-time operator can find and hit Emergency Stop.
+- Whether new operators can learn the gestures from the Control Mapping card alone.
+- End-to-end latency in the coded version, compared to what the telemetry card shows.
+
+</ArrowList>
+
+</Section>
+
+<Section id="reflection" number="06" title="Reflection">
+
+<ArrowList>
+
+- **Keeping every version was the best decision I made.** Because I didn’t overwrite frames, I can show exactly when the status column appeared, moved, and disappeared, and explain why.
+- **Removing things is a design skill.** My biggest improvement between versions was deleting a whole column, not adding a feature.
+- **Design files are inputs to code.** <Check note="reflection">Going from frame to code is much smoother when the frame is organized. Naming layers like telemetry-capsules, gesture-card, and button-stop paid off.</Check>
+
+</ArrowList>
+
+<Label>NEXT STEPS</Label>
+
+1. <Check note="next step">Finish the coded version and connect it to live data.</Check>
+2. Design the states I haven’t drawn yet: hand lost, robot disconnected, high latency, and what the screen looks like right after an emergency stop.
+3. Test with someone who has never seen it and time how long they take to find the stop.
+
+</Section>
+

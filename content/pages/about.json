@@ -1,0 +1,260 @@
+{
+  "route": "/about",
+  "talkButtonLabel": "Say hi",
+  "intro": {
+    "eyebrow": "ABOUT",
+    "title": "I’m Immanuel. I design, I build, and I start with people.",
+    "lead": "First-year CS + Math student at Livingstone College, class of 2030. I like hard problems, good conversations, and long tables full of friends.",
+    "photo": {
+      "src": "/images/gatherings/standin-breaking-bread.webp",
+      "width": 1200,
+      "height": 800,
+      "objectFit": "cover",
+      "objectPosition": "center",
+      "radius": 16,
+      "figmaSize": [
+        384,
+        460
+      ],
+      "standin": true,
+      "alt": "hands sharing food on a picnic blanket",
+      "credit": "Pexels photo 6594958 (stand-in, replace before launch)"
+    },
+    "photoCaption": "Picnics are my favorite kind of meeting."
+  },
+  "story": {
+    "number": "01",
+    "title": "My story",
+    "paragraphs": [
+      "I came to Livingstone College to study Computer Science and Math, and I am grateful to be here as an LC Presidential Scholar. I am in my first year, class of 2030.",
+      "Before I cared about pixels, I cared about people. I am the friend who stays up talking someone through a hard week, the one who organizes the study session before the exam, and the one who asks the group chat, \"picnic on Saturday?\" Listening comes first for me, with friends and in design.",
+      "That habit turned into how I build. I took CodePath Web 101 to learn the web properly, I go to hackathons to ship with a team under pressure, and as a ColorStack Campus Advocate I help other CS students find resources and community.",
+      "I call myself a designer who engineers. I love starting in Figma, but I do not want to hand off a picture and walk away. I want to understand the constraints, write the code, and make sure what ships is what people actually needed."
+    ],
+    "quickFactsLabel": "QUICK FACTS",
+    "quickFacts": [
+      {
+        "label": "SCHOOL",
+        "value": "Livingstone College"
+      },
+      {
+        "label": "STUDYING",
+        "value": "Computer Science + Math"
+      },
+      {
+        "label": "CLASS OF",
+        "value": "2030"
+      },
+      {
+        "label": "HONORS",
+        "value": "LC Presidential Scholar"
+      },
+      {
+        "label": "COMMUNITY",
+        "value": "ColorStack Campus Advocate"
+      },
+      {
+        "label": "LEARNING",
+        "value": "CodePath Web 101"
+      },
+      {
+        "label": "OFF HOURS",
+        "value": "Hackathons, study sessions, picnics, eat-outs"
+      }
+    ]
+  },
+  "principles": {
+    "number": "02",
+    "title": "How I work",
+    "items": [
+      {
+        "number": "01",
+        "title": "Listen before I design",
+        "text": "I talk with the people involved first. The best ideas I have had came from someone describing a bad day, not from a blank canvas."
+      },
+      {
+        "number": "02",
+        "title": "Design the awkward moments",
+        "text": "Errors, empty states, full events, and failed checks. If a product is honest when things go wrong, people trust it when things go right."
+      },
+      {
+        "number": "03",
+        "title": "Make it real",
+        "text": "A design is a guess until it runs. I build in code early, so the hard parts show up while they are still cheap to fix."
+      },
+      {
+        "number": "04",
+        "title": "Say what is done and what is not",
+        "text": "I label sample data as sample data and concepts as concepts. Being clear about status is part of the work."
+      }
+    ]
+  },
+  "tools": {
+    "number": "03",
+    "title": "Tools I use",
+    "groups": [
+      {
+        "label": "DESIGN",
+        "chips": [
+          {
+            "text": "Figma"
+          },
+          {
+            "text": "Wireframing"
+          },
+          {
+            "text": "Prototyping"
+          },
+          {
+            "text": "Design systems"
+          },
+          {
+            "text": "Photoshop"
+          },
+          {
+            "text": "Illustrator"
+          },
+          {
+            "text": "InDesign"
+          }
+        ]
+      },
+      {
+        "label": "BUILD",
+        "chips": [
+          {
+            "text": "HTML"
+          },
+          {
+            "text": "CSS"
+          },
+          {
+            "text": "JavaScript"
+          },
+          {
+            "text": "Python"
+          },
+          {
+            "text": "Git"
+          },
+          {
+            "text": "GitHub"
+          },
+          {
+            "text": "React",
+            "check": true,
+            "checkNote": "about tool chip React"
+          },
+          {
+            "text": "TypeScript",
+            "check": true,
+            "checkNote": "about tool chip TypeScript"
+          }
+        ]
+      },
+      {
+        "label": "METHODS",
+        "chips": [
+          {
+            "text": "User flows"
+          },
+          {
+            "text": "Interaction design"
+          },
+          {
+            "text": "Responsive design"
+          },
+          {
+            "text": "Design handoff"
+          },
+          {
+            "text": "Usability testing",
+            "check": true,
+            "checkNote": "about tool chip Usability testing"
+          }
+        ]
+      }
+    ]
+  },
+  "away": {
+    "number": "04",
+    "title": "Away from the screen",
+    "lead": "Most of what I know about people I learned around a table. That is why I organize gatherings, and why I keep doing it.",
+    "photos": [
+      {
+        "image": {
+          "src": "/images/gatherings/standin-study-tables.webp",
+          "width": 1200,
+          "height": 1600,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 12,
+          "figmaSize": [
+            384,
+            288
+          ],
+          "standin": true,
+          "alt": "overhead study tables",
+          "credit": "Pexels photo 28993557 (stand-in, replace before launch)"
+        },
+        "title": "Study sessions",
+        "text": "The table before a big exam."
+      },
+      {
+        "image": {
+          "src": "/images/gatherings/standin-picnic-overhead.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 12,
+          "figmaSize": [
+            384,
+            288
+          ],
+          "standin": true,
+          "alt": "picnic from above, hands and food",
+          "credit": "Pexels photo 17041327 (stand-in, replace before launch)"
+        },
+        "title": "Picnics",
+        "text": "Blankets, food, and no agenda."
+      },
+      {
+        "image": {
+          "src": "/images/gatherings/standin-passing-food.webp",
+          "width": 1200,
+          "height": 1500,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 12,
+          "figmaSize": [
+            384,
+            288
+          ],
+          "standin": true,
+          "alt": "hands passing food at an eat-out",
+          "credit": "Pexels photo 29177217 (stand-in, replace before launch)"
+        },
+        "title": "Eat-outs",
+        "text": "New spots, old friends."
+      }
+    ]
+  },
+  "footer": {
+    "heading": "Want the short version?",
+    "buttons": [
+      {
+        "label": "Say hi",
+        "action": "talk:open",
+        "variant": "primary"
+      },
+      {
+        "label": "Resume (PDF)",
+        "href": "/resume.pdf",
+        "variant": "secondary",
+        "check": true,
+        "checkNote": "resume PDF link"
+      }
+    ]
+  }
+}

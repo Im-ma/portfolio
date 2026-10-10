@@ -1,0 +1,908 @@
+{
+  "slug": "trace",
+  "backLink": {
+    "label": "Back to work",
+    "href": "/#work"
+  },
+  "eyebrow": "CASE STUDY 01",
+  "number": 1,
+  "status": "Concept",
+  "title": "Trace",
+  "summary": "A debug console for finding the bad records hiding in ML training data.",
+  "keyTakeaway": {
+    "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
+    "heading": "I design for the moment things go wrong, not just the happy path.",
+    "body": "Trace has more screens for failure, recovery, and \"are you sure?\" than for success."
+  },
+  "scope": {
+    "label": "SCOPE",
+    "text": "31 desktop screens, a 12-screen mobile prototype, 9 dialogs and 2 toasts, a component library with interactive states, and 7 prototype flows"
+  },
+  "meta": [
+    {
+      "label": "STATUS",
+      "tag": "Concept",
+      "value": "Interactive prototype + working console"
+    },
+    {
+      "label": "ROLE",
+      "value": "Product design + front end",
+      "check": true,
+      "checkNote": "role"
+    },
+    {
+      "label": "TIMELINE",
+      "value": "Fall 2026, about 4 weeks (estimate)",
+      "check": true,
+      "checkNote": "timeline"
+    },
+    {
+      "label": "TEAM",
+      "value": "Solo, self-initiated",
+      "check": true,
+      "checkNote": "team"
+    },
+    {
+      "label": "TOOLS",
+      "value": "Figma (variables, components with variants, interactive components, prototyping). Working console: React + TypeScript",
+      "check": true,
+      "checkNote": "stack"
+    }
+  ],
+  "links": {
+    "items": [
+      {
+        "label": "Figma file",
+        "href": null
+      },
+      {
+        "label": "Working console (link coming soon)",
+        "href": null,
+        "check": true,
+        "checkNote": "working console link",
+        "comingSoon": true
+      }
+    ],
+    "flows": [
+      {
+        "label": "Triage invalid records",
+        "href": null
+      },
+      {
+        "label": "Quarantine and revalidate 8",
+        "href": null
+      },
+      {
+        "label": "Quarantine one outlier",
+        "href": null
+      },
+      {
+        "label": "Ask the batch assistant",
+        "href": null
+      },
+      {
+        "label": "Validation failure and retry",
+        "href": null
+      },
+      {
+        "label": "Mobile triage",
+        "href": null
+      },
+      {
+        "label": "Mobile validate",
+        "href": null
+      }
+    ],
+    "flowsLabel": "PROTOTYPE FLOWS"
+  },
+  "sections": [
+    {
+      "id": "context",
+      "number": "01",
+      "title": "Context",
+      "blocks": [
+        {
+          "type": "annotation",
+          "devOnly": true,
+          "text": "OPTIONAL INTERACTION Select any sentence to ask about it. The question form opens with the quote prefilled."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "A machine learning model is only as good as the data it learns from. If a few training records are broken (an empty label, an impossible image size, a duplicate frame), the training run can fail or, worse, quietly learn the wrong thing."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "askHighlight": true,
+          "tooltip": "Ask Immanuel about this",
+          "text": "The people who fix this are ML and data engineers. Their job in that moment is detective work: which records are bad, why, and what is safe to do about them."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I picked a realistic example to design around: perception-training, a dataset of camera annotations for autonomous driving. Batch 024 has 48 records. 36 pass, 8 are invalid and block training, and 4 have warnings."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I got curious about what happens before a model ever trains. Reading about how self-driving teams clean their camera annotations, I learned that one bad label can block a whole batch, and the people fixing it often dig through logs and spreadsheets. I wanted to design the tool I would want open in that moment.",
+          "check": true,
+          "checkNote": "why this problem"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I designed Trace for the kind of ML data teams I want to work with one day, like the ones at NVIDIA, where clean training data is part of the product.",
+          "check": true,
+          "checkNote": "NVIDIA framing"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "All data in Trace is synthetic, and the assistant is simulated. I say that in the product itself, not just in this write-up."
+        }
+      ]
+    },
+    {
+      "id": "the-result",
+      "number": "02",
+      "title": "The result: final solution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "lead",
+          "text": "Trace is a desktop console with one job: get you from \"this batch failed\" to \"this batch is ready to train\" without losing any data along the way."
+        },
+        {
+          "caption": "Dataset quality screen for perception-training batch 024: KPI tiles for 48 total, 36 passed, 8 invalid, and 4 warnings, Rule outcomes, Batch health, the record table, and the inspector.",
+          "src": "/images/work/trace/01-dataset-overview.webp",
+          "width": 1440,
+          "height": 1524,
+          "objectFit": "cover",
+          "objectPosition": "50% 0%",
+          "radius": 8,
+          "figmaSize": [
+            1200,
+            900
+          ],
+          "type": "figure"
+        },
+        {
+          "type": "features",
+          "label": "WHAT YOU SEE",
+          "items": [
+            {
+              "title": "A health summary first",
+              "text": "KPI tiles for total, passed, invalid, and warnings (each one opens the matching filtered view), a Rule outcomes bar chart, and a Batch health donut that also tracks how many records are quarantined."
+            },
+            {
+              "title": "A filterable record table",
+              "text": "Search by ID, file, or issue, and filter by status, issue type, and split (train, validation, test)."
+            },
+            {
+              "title": "A record inspector",
+              "text": "The problem in plain words (\"The label field is empty. Every frame needs a verified annotation before training.\"), the rule it broke (ANNOTATION_REQUIRED), the raw JSON, and a suggested next step."
+            },
+            {
+              "title": "A Batch assistant tab",
+              "text": "A clearly labelled, rule-based helper that explains why the batch failed and links straight to the evidence."
+            },
+            {
+              "title": "Seven prototype flows",
+              "text": "Triage invalid records, Quarantine and revalidate 8, Quarantine one outlier, Ask the batch assistant, Validation failure and retry, Mobile triage, and Mobile validate."
+            },
+            {
+              "title": "The unglamorous screens",
+              "text": "Empty results, loading, validation running, pagination, and failure with retry."
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "label": "FLOW VIDEO",
+          "poster": "/images/work/trace/flow-poster.webp",
+          "mp4": "/videos/trace-flow.mp4",
+          "webm": "/videos/trace-flow.webm",
+          "playLabel": "Play the flow 0:12",
+          "caption": "Flow video, 12.5 s. Filter invalid records, select them, quarantine, revalidate, and land on \"Passed with warnings\"."
+        }
+      ]
+    },
+    {
+      "id": "key-decisions",
+      "number": "03",
+      "title": "Key decisions",
+      "blocks": [
+        {
+          "type": "decision",
+          "number": 1,
+          "eyebrow": "DECISION 01",
+          "title": "Quarantine, never delete",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "When you find a broken record, the fastest fix is to delete it. But deleting destroys evidence. You can’t audit it later, and you can’t undo a mistake made under pressure."
+            },
+            {
+              "type": "label",
+              "text": "OPTIONS EXPLORED"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "label": "OPTION 1",
+                  "text": "Delete the record."
+                },
+                {
+                  "chosen": false,
+                  "label": "OPTION 2",
+                  "text": "Let people edit the record in place."
+                },
+                {
+                  "chosen": true,
+                  "label": "OPTION 3",
+                  "text": "Move it aside (\"quarantine\") so it’s excluded from training but kept exactly as it was."
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Quarantine. My rule: quarantine preserves the source record; restoration requires revalidation."
+            },
+            {
+              "type": "list",
+              "variant": "arrow",
+              "items": [
+                {
+                  "marker": "→",
+                  "title": "Screen 11",
+                  "text": "Select the 8 invalid records and quarantine them in one action."
+                },
+                {
+                  "marker": "→",
+                  "title": "Screen 12",
+                  "text": "The batch flips to an amber \"Revalidation needed\" badge. The inspector says \"This record is held aside. Its original data has been preserved,\" and the raw JSON is still right there."
+                },
+                {
+                  "marker": "→",
+                  "title": "Screens 15, 15b, 15c",
+                  "text": "Restore a record. Trace doesn’t just trust you. It reruns validation, and in 15c (\"Restored record still blocks batch\") the invalid count goes back to 1 and the record is flagged again."
+                },
+                {
+                  "marker": "→",
+                  "title": "Screens 25 to 25d",
+                  "text": "The same logic for a single record: quarantine one, revalidate, and see that seven records still block the batch."
+                }
+              ]
+            },
+            {
+              "type": "figureRow",
+              "figures": [
+                {
+                  "caption": "Quarantined records pending validation",
+                  "src": "/images/work/trace/03-quarantined-pending-validation.webp",
+                  "width": 1440,
+                  "height": 1420,
+                  "objectFit": "cover",
+                  "objectPosition": "50% 0%",
+                  "radius": 6,
+                  "figmaSize": [
+                    356,
+                    330
+                  ],
+                  "type": "figure"
+                },
+                {
+                  "caption": "Restored record still blocks the batch (15c)",
+                  "src": "/images/work/trace/04-restored-record-still-blocks.webp",
+                  "width": 1440,
+                  "height": 1520,
+                  "objectFit": "cover",
+                  "objectPosition": "50% 0%",
+                  "radius": 6,
+                  "figmaSize": [
+                    356,
+                    330
+                  ],
+                  "type": "figure"
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Restoring something is a claim that it’s fine now. The system should check that claim instead of taking it on faith. Designing the \"restore didn’t fix it\" screen was the moment I understood the rule was real and not just a nice sentence.",
+              "check": true,
+              "checkNote": "decision 1 why"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "number": 2,
+          "eyebrow": "DECISION 02",
+          "title": "The AI explains. It never edits.",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "An assistant that can \"fix the batch\" sounds great in a demo. But in a training pipeline, a confident wrong fix is worse than no fix, because nobody notices it."
+            },
+            {
+              "type": "label",
+              "text": "OPTIONS EXPLORED"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "label": "OPTION 1",
+                  "text": "An auto-fix button that applies suggested changes."
+                },
+                {
+                  "chosen": false,
+                  "label": "OPTION 2",
+                  "text": "Suggestions people can accept one by one."
+                },
+                {
+                  "chosen": true,
+                  "label": "OPTION 3",
+                  "text": "An explanation with evidence, where every action stays in the person’s hands."
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Option 3. My rule: AI suggestions never mutate data."
+            },
+            {
+              "type": "list",
+              "variant": "arrow",
+              "items": [
+                {
+                  "marker": "→",
+                  "text": "The assistant panel is labelled \"SIMULATED AI · RULE-BASED\" with a note that no data is sent to an AI service."
+                },
+                {
+                  "marker": "→",
+                  "text": "It summarizes (\"8 records are blocking this batch\") and groups the evidence: 5 missing labels, 3 invalid dimensions, 2 duplicates, 2 low resolution. Each group links to the affected records."
+                },
+                {
+                  "marker": "→",
+                  "text": "The footer reads: \"AI suggestions never change records automatically.\""
+                },
+                {
+                  "marker": "→",
+                  "text": "When the data changes, the explanation is marked as needing a refresh (screen 19) instead of quietly going stale."
+                },
+                {
+                  "marker": "→",
+                  "text": "When the assistant fails (screen 21), it says so, and tells you that your records and validation results are unchanged."
+                }
+              ]
+            },
+            {
+              "caption": "Batch assistant failure and retry",
+              "src": "/images/work/trace/05-assistant-failure-retry.webp",
+              "width": 1440,
+              "height": 1524,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "radius": 6,
+              "figmaSize": [
+                728,
+                770
+              ],
+              "type": "figure"
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "I wanted the assistant to make people faster at understanding, not to make decisions for them. Labelling it honestly was part of the design, not a disclaimer added at the end.",
+              "check": true,
+              "checkNote": "decision 2 why"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "number": 3,
+          "eyebrow": "DECISION 03",
+          "title": "Looking at a record is not the same as choosing it",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "In most tables, clicking a row both opens it and selects it. In a tool where the main action is \"quarantine selected,\" that’s dangerous. You might be reading one record and accidentally act on it, or act on a set you didn’t mean to."
+            },
+            {
+              "type": "label",
+              "text": "THE TRADEOFF"
+            },
+            {
+              "type": "options",
+              "items": [
+                {
+                  "chosen": false,
+                  "label": "COMMON PATTERN",
+                  "text": "Clicking a row both opens it and selects it."
+                },
+                {
+                  "chosen": true,
+                  "label": "TRACE",
+                  "text": "Inspection and selection are different states."
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "My rule: inspection and selection are different states."
+            },
+            {
+              "type": "list",
+              "variant": "arrow",
+              "items": [
+                {
+                  "marker": "→",
+                  "title": "Highlighted row",
+                  "text": "What you’re inspecting. It drives the inspector panel."
+                },
+                {
+                  "marker": "→",
+                  "title": "Checkboxes",
+                  "text": "What you’ve selected. They drive the bulk action bar (\"8 selected · Quarantine · Restore · Clear selection\")."
+                },
+                {
+                  "marker": "→",
+                  "title": "Screen 11",
+                  "text": "Both at once: eight records checked, while the inspector still shows rec_01284. Restore stays disabled because nothing selected is quarantined yet."
+                }
+              ]
+            },
+            {
+              "caption": "Selecting invalid records while inspecting one",
+              "src": "/images/work/trace/02-select-invalid-records.webp",
+              "width": 1440,
+              "height": 1520,
+              "objectFit": "cover",
+              "objectPosition": "50% 0%",
+              "radius": 6,
+              "figmaSize": [
+                728,
+                460
+              ],
+              "type": "figure"
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Separating the two makes the bulk action predictable. You always know exactly what a button will touch.",
+              "check": true,
+              "checkNote": "decision 3 why"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "number": 4,
+          "eyebrow": "DECISION 04",
+          "title": "Turning the look into a system people can trust",
+          "blocks": [
+            {
+              "type": "label",
+              "text": "THE TENSION"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "My first version worked, but it was a set of screens, not a system. Colors were picked per screen, there were no focus states, and the prototype had rough edges: rows on one branch jumped to screens from another, and switching tabs could quietly reset your filters. For a tool whose whole promise is \"nothing changes unless you mean it,\" that’s a real problem."
+            },
+            {
+              "type": "label",
+              "text": "WHAT I CHOSE"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "I restyled Trace as a card-based dashboard with a green accent, and rebuilt it on semantic tokens."
+            },
+            {
+              "type": "list",
+              "variant": "arrow",
+              "items": [
+                {
+                  "marker": "→",
+                  "title": "A green that passes contrast",
+                  "text": "Bright green (#76B900) on white is only 2.41:1, so I never use it for text. On the accent I put dark ink (8.01:1). Buttons with white labels use darker greens (#4E7A00 at 5.11:1, #3D6100 at 7.22:1). Every text pair passes WCAG AA."
+                },
+                {
+                  "marker": "→",
+                  "title": "Focus states everywhere",
+                  "text": "Buttons, checkboxes, filters, tabs, and search all have a visible focus variant (a 3 px ring, 2 px on small controls), and checkboxes sit in a 24 px target."
+                },
+                {
+                  "marker": "→",
+                  "title": "Filters stay put",
+                  "text": "Clicking the tab or row you’re already on does nothing, so your filters are kept when you move between the inspector and the assistant."
+                },
+                {
+                  "marker": "→",
+                  "title": "Branches stay honest",
+                  "text": "Each flow keeps its own links, and while validation runs, rows, filters, and actions are disabled so you can’t act on data mid-check."
+                },
+                {
+                  "marker": "→",
+                  "title": "Dialogs and toasts behave consistently",
+                  "text": "Dialogs open over a backdrop that closes on an outside click, and confirmations like \"Record JSON copied\" are toasts that dismiss themselves."
+                }
+              ]
+            },
+            {
+              "type": "figureRow",
+              "figures": [
+                {
+                  "caption": "Dataset overview, before and after the restyle",
+                  "src": "/images/work/trace/06-before-after-overview.webp",
+                  "width": 2400,
+                  "height": 1272,
+                  "objectFit": "cover",
+                  "objectPosition": "center",
+                  "radius": 6,
+                  "figmaSize": [
+                    728,
+                    386
+                  ],
+                  "type": "figure"
+                },
+                {
+                  "caption": "Components, before and after",
+                  "src": "/images/work/trace/07-before-after-components.webp",
+                  "width": 2400,
+                  "height": 1578,
+                  "objectFit": "cover",
+                  "objectPosition": "center",
+                  "radius": 6,
+                  "figmaSize": [
+                    728,
+                    479
+                  ],
+                  "type": "figure"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "I also rebuilt the mobile prototype at true 390 x 844 scale, with 44 px targets, a search and filter sheet, and a validation result screen, so validating on mobile no longer drops you back to the start."
+            },
+            {
+              "caption": "Mobile, before and after",
+              "src": "/images/work/trace/08-mobile-before-after.webp",
+              "width": 2400,
+              "height": 874,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "radius": 6,
+              "figmaSize": [
+                728,
+                265
+              ],
+              "type": "figure"
+            },
+            {
+              "type": "label",
+              "text": "WHY"
+            },
+            {
+              "type": "paragraph",
+              "variant": "body",
+              "text": "Trust in a debugging tool comes from predictability. If focus is visible, filters don’t reset, and buttons can’t fire mid-validation, people can stop double-checking the interface and focus on their data.",
+              "check": true,
+              "checkNote": "decision 4 why"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-i-built-it",
+      "number": "04",
+      "title": "How I built it",
+      "blocks": [
+        {
+          "type": "label",
+          "text": "HOW I GOT HERE"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Trace started as a single static screen with a few side cards: empty, loading, and error states, an early assistant panel titled \"evidence before action,\" and a small set of foundations. I kept it in the file as an archive."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The core layout survived. What changed first was depth. One screen became 31 connected screens, because the interesting questions (What happens after you quarantine? What if the restore is wrong? What if the assistant fails?) only show up when you design the next step, and the step after that."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Then I changed the surface. Once the flows were solid, I restyled the whole product on semantic tokens and tightened the prototype (Decision 4), keeping every screen, every rule, and every piece of copy."
+        },
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "title": "Figma prototype",
+              "text": "31 numbered desktop screens (01 to 26, plus 15b, 15c, 25b, 25c, 25d), 9 dialogs and 2 toasts, a 12-screen mobile prototype, and a START HERE guide so anyone can present it. 7 named flows. Screen to screen moves use Smart Animate, so counts, charts, and the donut visibly update after quarantine and validation. Validating screens loop a progress bar, and the assistant shows a loading skeleton."
+            },
+            {
+              "marker": "→",
+              "title": "Foundations",
+              "text": "Semantic color tokens (background, surface, border, text, accent, status, focus, overlay) aliased to primitives, radius tokens (8, 12, 16, 24, full), and effect styles for cards, overlays, and focus. DM Sans for the interface, IBM Plex Mono for record IDs and JSON."
+            },
+            {
+              "marker": "→",
+              "title": "Components",
+              "text": "Button (Primary, Secondary, Danger, each with Default, Hover, Pressed, Focus, Disabled), Status pill, Checkbox, Filter, Tab, Record row (Hover, Disabled, selection bar), Sidebar nav item, Icon button, Search with a keyboard shortcut, Stat tile, Toast, Overlay backdrop, Progress, Skeleton, and Chip. They respond to hover, press, and click in the prototype."
+            },
+            {
+              "marker": "→",
+              "title": "Working console",
+              "text": "The guide links to a working console that supports arbitrary filtering, data actions, and export. It is built in React + TypeScript and hosted as a static web app.",
+              "check": true,
+              "checkNote": "console stack + hosting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impact",
+      "number": "05",
+      "title": "Impact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Trace hasn’t been tested with real users yet, and I want to be upfront about that. The prototype itself says: \"Synthetic data · simulated AI · user interviews and usability sessions still to be conducted.\""
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "What it shows today is how I think: every action has a defined result, every failure has a recovery, and nothing destructive happens by accident."
+        },
+        {
+          "type": "label",
+          "text": "WHAT I’D MEASURE NEXT"
+        },
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "text": "Time from \"batch failed\" to finding every blocking record."
+            },
+            {
+              "marker": "→",
+              "text": "Whether people can predict what Quarantine and Restore will do before they click."
+            },
+            {
+              "marker": "→",
+              "text": "How often people act on the wrong records (the thing Decision 3 is meant to prevent)."
+            },
+            {
+              "marker": "→",
+              "text": "Whether people trust the assistant’s evidence, and whether they double-check it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "number": "06",
+      "title": "Reflection",
+      "blocks": [
+        {
+          "type": "list",
+          "variant": "arrow",
+          "items": [
+            {
+              "marker": "→",
+              "title": "Rules first, screens second.",
+              "text": "Writing three plain rules (quarantine preserves, AI never mutates, inspect is not select) made dozens of small decisions easy. When I wasn’t sure what a screen should do, I checked it against the rules."
+            },
+            {
+              "marker": "→",
+              "title": "The best screen is the one where the user is wrong.",
+              "text": "Screen 15c, where a restored record still blocks the batch, taught me more than the happy path did."
+            },
+            {
+              "marker": "→",
+              "title": "Honesty is a design material.",
+              "text": "Labelling the AI as simulated and the data as synthetic made the prototype more credible, not less."
+            },
+            {
+              "marker": "→",
+              "title": "A brand color has to earn its place.",
+              "text": "The green I wanted fails contrast as text, so I made it a surface and used darker greens for anything people have to read."
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "text": "NEXT STEPS"
+        },
+        {
+          "type": "list",
+          "variant": "numbered",
+          "items": [
+            {
+              "marker": "01",
+              "text": "Run 5 interviews with ML or data engineers about how they find bad records today. I would start with professors in my CS department, ColorStack peers who have interned on data teams, and online ML communities.",
+              "check": true,
+              "checkNote": "who to interview"
+            },
+            {
+              "marker": "02",
+              "text": "Run usability sessions on both demo paths, starting with the quarantine and restore flow."
+            },
+            {
+              "marker": "03",
+              "text": "Connect the console to a real public dataset instead of synthetic records."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tocLabel": "CONTENTS",
+  "toc": [
+    {
+      "number": "01",
+      "subs": [],
+      "title": "Context",
+      "anchor": "context"
+    },
+    {
+      "number": "02",
+      "subs": [],
+      "title": "The result",
+      "anchor": "the-result"
+    },
+    {
+      "number": "03",
+      "subs": [
+        {
+          "number": "3.1",
+          "title": "Quarantine, never delete",
+          "anchor": "decision-1"
+        },
+        {
+          "number": "3.2",
+          "title": "The AI explains, never edits",
+          "anchor": "decision-2"
+        },
+        {
+          "number": "3.3",
+          "title": "Inspecting is not selecting",
+          "anchor": "decision-3"
+        },
+        {
+          "number": "3.4",
+          "title": "A look people can trust",
+          "anchor": "decision-4"
+        }
+      ],
+      "title": "Key decisions",
+      "anchor": "key-decisions"
+    },
+    {
+      "number": "04",
+      "subs": [],
+      "title": "How I built it",
+      "anchor": "how-i-built-it"
+    },
+    {
+      "number": "05",
+      "subs": [],
+      "title": "Impact",
+      "anchor": "impact"
+    },
+    {
+      "number": "06",
+      "subs": [],
+      "title": "Reflection",
+      "anchor": "reflection"
+    }
+  ],
+  "tocNote": {
+    "text": "Sticky while scrolling",
+    "devOnly": true
+  },
+  "nextProject": {
+    "image": {
+      "src": "/images/work/mimic/01-final-dashboard.webp",
+      "width": 1440,
+      "height": 1062,
+      "objectFit": "cover",
+      "objectPosition": "50% 0%",
+      "radius": 0,
+      "figmaSize": [
+        588,
+        320
+      ]
+    },
+    "label": "NEXT PROJECT",
+    "status": "In progress",
+    "title": "Mimic",
+    "summary": "A control dashboard for a robotic arm that copies your hand.",
+    "cta": "Read case study",
+    "slug": "mimic"
+  },
+  "contact": {
+    "heading": "Questions about this project?",
+    "body": "Ask me anything, or book a quick chat.",
+    "buttons": [
+      {
+        "label": "Ask a question",
+        "action": "talk:question",
+        "variant": "primary",
+        "arrow": true
+      },
+      {
+        "label": "Book a 15-min chat",
+        "action": "talk:book",
+        "variant": "secondary"
+      }
+    ]
+  },
+  "talkButtonLabel": "Questions about this project?"
+}

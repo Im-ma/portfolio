@@ -1,0 +1,80 @@
+/* Signal Path tokens, exported from my Figma variables and styles. */
+:root {
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-ink: #0b1b3f;
+  --color-muted: #56627e;
+  --color-hairline: #dce1ec;
+  --color-hairline-strong: #b7c0d6;
+  --color-accent: #2f5bff;
+  --color-accent-soft: #e8eeff;
+  --color-accent-line: #afc2ff;
+  --color-signal: #00b37e;
+  --color-signal-soft: #e0f6ee;
+  --color-signal-ink: #00805a;
+  --color-neutral-soft: #eef0f5;
+  --color-on-accent: #ffffff;
+  --note-cobalt: #dce5ff;
+  --note-green: #d3f2e5;
+  --note-yellow: #fff3b0;
+  --note-pink: #ffdde6;
+  --note-tape: #f4eccf;
+  --note-ink: #2a3550;
+  --flag-bg: #fff3b0;
+  --flag-line: #d9a400;
+  --flag-ink: #5c4300;
+  --shadow-card: 0px 4px 16px 0px #0b1b3f14;
+  --shadow-lifted: 0px 16px 36px 0px #0b1b3f2e;
+  --shadow-note: 2px 6px 10px 0px #0b1b3f24;
+  --radius-tag: 2px;
+  --radius-chip: 2px;
+  --radius-button: 4px;
+  --radius-tooltip: 4px;
+  --radius-option: 6px;
+  --radius-figure: 6px;
+  --radius-card: 8px;
+  --radius-video-poster: 16px;
+  --radius-photo-large: 16px;
+  --radius-photo-card: 12px;
+  --grid-max: 1200px;
+  --grid-margin: 120px;
+  --grid-gutter: 24px;
+  --grid-columns: 12;
+  --section-y: 96px;
+  --nav-h: 78px;
+  /* --font-display, --font-sans, --font-mono, and --font-hand are set by next/font */
+}
+@media (max-width: 767px) {
+:root { --grid-margin: 24px; --grid-gutter: 16px; --grid-columns: 4; --section-y: 58px; }
+}
+
+.t-display-h1 { font-family: var(--font-display); font-weight: 500; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; }
+.t-display-h1-case { font-family: var(--font-display); font-weight: 500; font-size: 56px; line-height: 1.12; letter-spacing: -0.01em; }
+.t-heading-h2 { font-family: var(--font-display); font-weight: 500; font-size: 36px; line-height: 1.2; letter-spacing: -0.005em; }
+.t-heading-h3 { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.25; letter-spacing: 0.0em; }
+.t-heading-h4 { font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1.3; letter-spacing: 0.0em; }
+.t-heading-logo { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: 0.0em; }
+.t-heading-metric { font-family: var(--font-display); font-weight: 500; font-size: 44px; line-height: 1.15; letter-spacing: -0.005em; }
+.t-body-l { font-family: var(--font-sans); font-weight: 400; font-size: 20px; line-height: 1.5; letter-spacing: 0.0em; }
+.t-body-m { font-family: var(--font-sans); font-weight: 400; font-size: 17px; line-height: 1.6; letter-spacing: 0.0em; }
+.t-body-s { font-family: var(--font-sans); font-weight: 400; font-size: 15px; line-height: 1.5; letter-spacing: 0.0em; }
+.t-body-xs { font-family: var(--font-sans); font-weight: 400; font-size: 13px; line-height: 1.5; letter-spacing: 0.0em; }
+.t-body-m-strong { font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 1.5; letter-spacing: 0.0em; }
+.t-body-nav { font-family: var(--font-sans); font-weight: 500; font-size: 15px; line-height: 1.5; letter-spacing: 0.0em; }
+.t-button-m { font-family: var(--font-sans); font-weight: 500; font-size: 15px; line-height: 1.2; letter-spacing: 0.0em; }
+.t-mono-label { font-family: var(--font-mono); font-weight: 500; font-size: 12px; line-height: 1.3; letter-spacing: 0.06em; }
+.t-mono-number { font-family: var(--font-mono); font-weight: 400; font-size: 13px; line-height: 1.3; letter-spacing: 0.0em; }
+.t-mono-tag { font-family: var(--font-mono); font-weight: 500; font-size: 11px; line-height: 1.3; letter-spacing: 0.04em; }
+.t-mono-small { font-family: var(--font-mono); font-weight: 400; font-size: 12px; line-height: 1.4; letter-spacing: 0.0em; }
+.t-mono-caption { font-family: var(--font-mono); font-weight: 500; font-size: 14px; line-height: 1.3; letter-spacing: 0.04em; }
+.t-hand-note { font-family: var(--font-hand); font-weight: 400; font-size: 26px; line-height: 1.15; letter-spacing: 0.0em; }
+.t-hand-caption { font-family: var(--font-hand); font-weight: 400; font-size: 24px; line-height: 1.15; letter-spacing: 0.0em; }
+.t-hand-signature { font-family: var(--font-mono); font-weight: 400; font-size: 12px; line-height: 1.3; letter-spacing: 0.0em; }
+.t-mono-label, .t-mono-tag, .t-mono-caption { text-transform: uppercase; } /* copy is already uppercase in content; keep as safety */
+@media (max-width: 767px) {
+  .t-display-h1 { font-size: 38px; line-height: 1.1; }
+  .t-display-h1-case { font-size: 38px; line-height: 1.12; }
+  .t-heading-h2 { font-size: 28px; line-height: 1.2; }
+  .t-heading-h3 { font-size: 24px; line-height: 1.25; }
+  .t-body-l { font-size: 18px; line-height: 1.5; }
+}

@@ -1,0 +1,44 @@
+.tip {
+  position: fixed;
+  z-index: 75;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transform: translate(-50%, calc(-100% - 10px));
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--radius-tooltip);
+  background: var(--color-ink);
+  color: var(--color-on-accent);
+  box-shadow: var(--shadow-card);
+  white-space: nowrap;
+}
+
+.tip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-ink);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-signal);
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 3px;
+  border: 1px solid color-mix(in srgb, var(--color-on-accent) 55%, transparent);
+}
