@@ -119,3 +119,45 @@ export function homeTeaserNotes(live: StoredNote[]): WallNote[] {
 export function pickNoteColor(seed: number): NoteColor {
   return NOTE_COLORS[Math.abs(seed) % NOTE_COLORS.length];
 }
+
+export type NoteSlot = {
+  text: string;
+  signature: string;
+  color: string;
+  attachment?: string | null;
+  check?: boolean;
+  checkNote?: string;
+  layout: { x: number; y: number; width: number; rotation: number };
+};
+
+export type PlacedNote = WallNote & { x: number; y: number; width: number };
+
+/** Approved notes fill the wall slots in order. Samples stay in any slot a live note has not replaced. */
+export function placeWallNotes(live: StoredNote[], slots: NoteSlot[]): PlacedNote[] {
+  return slots.map((slot, index) => {
+    const placed = {
+      rotation: slot.layout.rotation,
+      x: slot.layout.x,
+      y: slot.layout.y,
+      width: slot.layout.width,
+      attachment: slot.attachment === "pin" ? ("pin" as const) : ("tape" as const),
+    };
+    const note = live[index];
+    if (!note) {
+      return {
+        ...placed,
+        text: slot.text,
+        signature: slot.signature,
+        color: asColor(slot.color, index),
+        check: slot.check,
+        checkNote: slot.checkNote,
+      };
+    }
+    return {
+      ...placed,
+      text: note.body,
+      signature: `- ${note.name}`,
+      color: asColor(note.color, index),
+    };
+  });
+}

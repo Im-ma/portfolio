@@ -1,18 +1,25 @@
-import { ComingSoon } from "@/components/placeholder/coming-soon";
+import { Footer } from "@/components/footer/footer";
+import { GatheringsView } from "@/components/gatherings/gatherings-view";
 import { gatheringsPage } from "@/lib/content";
+import { getApprovedNotes, placeWallNotes } from "@/lib/notes";
 import type { Metadata } from "next";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Gatherings",
   description: gatheringsPage.intro.lead,
 };
 
-export default function GatheringsPage() {
+export default async function GatheringsPage() {
+  const live = await getApprovedNotes();
+  const notes = placeWallNotes(live, gatheringsPage.noteWall.notes);
   return (
-    <ComingSoon
-      eyebrow={gatheringsPage.intro.eyebrow}
-      title={gatheringsPage.intro.title}
-      summary={gatheringsPage.intro.lead}
-    />
+    <>
+      <main id="content">
+        <GatheringsView notes={notes} />
+      </main>
+      <Footer />
+    </>
   );
 }

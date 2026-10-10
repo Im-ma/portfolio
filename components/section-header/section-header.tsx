@@ -5,10 +5,12 @@ export function SectionHeader({
   number,
   title,
   link,
+  aside,
 }: {
   number: string;
   title: string;
   link?: { label: string; href: string };
+  aside?: React.ReactNode;
 }) {
   return (
     <div className={styles.header}>
@@ -23,6 +25,8 @@ export function SectionHeader({
         <Link className={`${styles.link} t-body-nav`} href={link.href}>
           {link.label} <span aria-hidden="true">→</span>
         </Link>
+      ) : aside ? (
+        <div className={styles.aside}>{aside}</div>
       ) : null}
     </div>
   );

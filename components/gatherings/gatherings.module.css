@@ -1,0 +1,311 @@
+.intro {
+  padding: 64px 0 72px;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 282px;
+  gap: 48px;
+  align-items: start;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+}
+
+.intro h1 {
+  max-width: 800px;
+  margin-top: 16px;
+}
+
+.lead {
+  max-width: 720px;
+  margin-top: 16px;
+  color: var(--color-muted);
+}
+
+.nextCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.nextLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-signal);
+}
+
+.nextMeta {
+  color: var(--color-muted);
+}
+
+.join {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+}
+
+.join:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.surface {
+  background: var(--color-surface);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.chip {
+  padding: 10px 16px;
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.chip[data-active="true"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-accent);
+}
+
+.pile {
+  position: relative;
+  width: 100%;
+}
+
+.polaroid {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: var(--w);
+  height: var(--h);
+  padding: 14px 14px 22px;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  color: inherit;
+  text-align: left;
+  transform: rotate(var(--rot));
+  transition:
+    left 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    top 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 200ms ease,
+    opacity 180ms ease;
+}
+
+.photo {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-neutral-soft);
+}
+
+.polaroidTitle {
+  color: var(--note-ink);
+}
+
+.polaroidCaption,
+.polaroidMeta {
+  color: var(--color-muted);
+}
+
+.polaroidMeta {
+  display: flex;
+  gap: 12px;
+}
+
+.out {
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.96) rotate(var(--rot));
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.wallLead {
+  max-width: 62ch;
+  margin-top: -24px;
+  margin-bottom: 32px;
+  color: var(--color-muted);
+}
+
+.board {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-hairline) 70%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-hairline) 70%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+}
+
+.slot {
+  position: absolute;
+}
+
+.slot article {
+  width: 100%;
+}
+
+.swipe {
+  display: none;
+  margin-top: 12px;
+  color: var(--color-muted);
+}
+
+.cta {
+  padding: 72px 0 56px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .polaroid:hover,
+  .polaroid:focus-visible {
+    z-index: 20;
+    border-color: var(--color-accent);
+    border-width: 1.5px;
+    box-shadow: var(--shadow-lifted);
+    transform: translateY(-8px) rotate(0deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .introGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .nextCard {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro {
+    padding: 36px 0 48px;
+  }
+
+  .pile {
+    display: flex;
+    gap: 16px;
+    aspect-ratio: auto !important;
+    height: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 12px 0 8px;
+  }
+
+  .polaroid {
+    position: relative;
+    left: auto;
+    top: auto;
+    flex: none;
+    width: 260px;
+    height: auto;
+    scroll-snap-align: start;
+  }
+
+  .photo {
+    flex: none;
+    aspect-ratio: var(--photo, 4 / 3);
+  }
+
+  .board {
+    display: flex;
+    gap: 16px;
+    aspect-ratio: auto !important;
+    height: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0 12px;
+    border: 0;
+    background: transparent;
+    background-image: none;
+  }
+
+  .slot {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    flex: none;
+    width: 260px !important;
+    scroll-snap-align: start;
+  }
+
+  .swipe {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid,
+  .polaroid:hover,
+  .polaroid:focus-visible,
+  .out {
+    transform: none;
+    transition: opacity 180ms linear;
+  }
+
+  .polaroid:hover,
+  .polaroid:focus-visible {
+    box-shadow: var(--shadow-card);
+  }
+}
