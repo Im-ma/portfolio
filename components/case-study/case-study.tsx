@@ -9,6 +9,7 @@ import { showChecks } from "@/lib/show-checks";
 import { sectionSplitsViews } from "@/lib/built-views";
 import type { Block, VideoBlock, Work, WorkLink, WorkSection } from "@/lib/work-types";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
 import { CaseToc, CaseTocBar } from "./case-toc";
@@ -90,14 +91,22 @@ function SectionBody({
   source,
   sizes,
   priorityFirst = false,
+  decisionExtras,
 }: {
   section: WorkSection;
   source: string;
   sizes: string;
   priorityFirst?: boolean;
+  decisionExtras?: Partial<Record<number, ReactNode>>;
 }) {
   const blocks = (
-    <Blocks blocks={section.blocks} source={source} sizes={sizes} priorityFirst={priorityFirst} />
+    <Blocks
+      blocks={section.blocks}
+      source={source}
+      sizes={sizes}
+      priorityFirst={priorityFirst}
+      decisionExtras={decisionExtras}
+    />
   );
   if (section.id === "how-i-built-it" && sectionSplitsViews(section.blocks)) {
     return <BuiltToggle>{blocks}</BuiltToggle>;
@@ -105,7 +114,15 @@ function SectionBody({
   return blocks;
 }
 
-export function CaseStudy({ work }: { work: Work }) {
+export function CaseStudy({
+  work,
+  banner,
+  decisionExtras,
+}: {
+  work: Work;
+  banner?: ReactNode;
+  decisionExtras?: Partial<Record<number, ReactNode>>;
+}) {
   const tocNote = work.tocNote?.devOnly && showChecks() ? work.tocNote.text : undefined;
   const details = work.meta.filter((item) => !item.tag && item.label !== "STATUS");
   const coverVideo = work.cover?.kind === "video" ? findVideo(work) : null;
@@ -114,6 +131,7 @@ export function CaseStudy({ work }: { work: Work }) {
   return (
     <article>
       <header className={styles.cover}>
+        {banner ? <div className="shell">{banner}</div> : null}
         <div className="shell">
           <Link className={`${styles.back} t-mono-small`} href={work.backLink.href}>
             <span aria-hidden="true">←</span> {work.backLink.label}
@@ -213,7 +231,12 @@ export function CaseStudy({ work }: { work: Work }) {
                 ) : (
                   <>
                     <SectionHeader number={section.number} title={section.title} />
-                    <SectionBody section={section} source={work.title} sizes={columnSizes} />
+                    <SectionBody
+                      section={section}
+                      source={work.title}
+                      sizes={columnSizes}
+                      decisionExtras={decisionExtras}
+                    />
                   </>
                 )}
                 {section.id === "context" ? (

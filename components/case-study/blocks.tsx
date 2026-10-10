@@ -1,6 +1,7 @@
 import { Check } from "@/components/check/check";
 import { showChecks } from "@/lib/show-checks";
 import type { Block, Media, VideoBlock } from "@/lib/work-types";
+import type { ReactNode } from "react";
 import { AskHighlight } from "./ask-highlight";
 import { CompareSlider } from "./compare-slider";
 import { ContentList } from "./content-list";
@@ -50,11 +51,13 @@ export function Blocks({
   source,
   sizes,
   priorityFirst = false,
+  decisionExtras,
 }: {
   blocks: Block[];
   source: string;
   sizes: string;
   priorityFirst?: boolean;
+  decisionExtras?: Partial<Record<number, ReactNode>>;
 }) {
   const priorityIndex = priorityFirst
     ? blocks.findIndex(
@@ -70,6 +73,7 @@ export function Blocks({
           source={source}
           sizes={sizes}
           priority={index === priorityIndex}
+          decisionExtras={decisionExtras}
         />
       ))}
     </div>
@@ -81,11 +85,13 @@ function BlockView({
   source,
   sizes,
   priority,
+  decisionExtras,
 }: {
   block: Block;
   source: string;
   sizes: string;
   priority: boolean;
+  decisionExtras?: Partial<Record<number, ReactNode>>;
 }) {
   if (block.type === "annotation") {
     if (!showChecks() || block.devOnly === false) return null;
@@ -237,7 +243,13 @@ function BlockView({
           <p className={`${styles.accent} t-mono-label`}>{block.eyebrow}</p>
           <h3 className="t-heading-h3">{block.title}</h3>
         </header>
-        <Blocks blocks={block.blocks} source={source} sizes={sizes} />
+        {decisionExtras?.[block.number] ?? null}
+        <Blocks
+          blocks={block.blocks}
+          source={source}
+          sizes={sizes}
+          decisionExtras={decisionExtras}
+        />
       </article>
     );
   }

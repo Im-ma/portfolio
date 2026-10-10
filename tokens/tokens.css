@@ -42,6 +42,11 @@
   --grid-columns: 12;
   --section-y: 96px;
   --nav-h: 78px;
+  /* Pairs quoted from the Trace case study. Used by the playable contrast demo. */
+  --trace-green: #76b900;
+  --trace-green-mid: #4e7a00;
+  --trace-green-deep: #3d6100;
+  --trace-ink: #0e0e0e;
   /* --font-display, --font-sans, --font-mono, and --font-hand are set by next/font */
 }
 @media (max-width: 767px) {
