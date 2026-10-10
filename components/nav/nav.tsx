@@ -1,6 +1,7 @@
 "use client";
 
 import { site } from "@/lib/content";
+import { lockScroll } from "@/lib/scroll-lock";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
@@ -37,8 +38,7 @@ export function Nav() {
 
   useEffect(() => {
     if (!open) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const release = lockScroll();
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" && !document.querySelector("[data-talk-dialog]")) {
         setOpenPath(null);
@@ -46,7 +46,7 @@ export function Nav() {
     };
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = previous;
+      release();
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);

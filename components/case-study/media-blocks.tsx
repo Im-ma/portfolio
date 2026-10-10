@@ -13,10 +13,9 @@ function altFor(frame: Media, fallback: string) {
 }
 
 export function FullBleed({ frame }: { frame: Media }) {
-  const media = { ...frame, figmaSize: [16, 9] as const };
   return (
     <div className={styles.fullBleed}>
-      <ZoomFigure media={media} alt={altFor(frame, "")} caption={frame.caption} sizes={wide} />
+      <ZoomFigure media={frame} alt={altFor(frame, "")} caption={frame.caption} sizes={wide} />
     </div>
   );
 }
@@ -144,12 +143,12 @@ export function ResearchCard({
   checkNote?: string;
 }) {
   return (
-    <aside className={styles.research}>
+    <div className={styles.research}>
       <p className="t-body-m">
         {text}
         {check ? <Check note={checkNote} /> : null}
       </p>
-    </aside>
+    </div>
   );
 }
 

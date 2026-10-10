@@ -171,9 +171,11 @@ export function CaseStudy({ work }: { work: Work }) {
                 </dd>
               </div>
             ))}
-            <div className={styles.stripLinks}>
-              <p className={`${styles.blockLabel} t-mono-label`}>LINKS</p>
-              <LinkList items={work.links.items} />
+            <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+              <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
+              <dd>
+                <LinkList items={work.links.items} />
+              </dd>
             </div>
           </dl>
           <p className={`${styles.scopeLine} t-body-s`}>
