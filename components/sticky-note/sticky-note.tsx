@@ -48,7 +48,7 @@ export function StickyNote({
     >
       {attachment === "tape" ? <span className={styles.tape} aria-hidden="true" /> : null}
       {attachment === "pin" ? <span className={styles.pin} aria-hidden="true" /> : null}
-      <p className={`${styles.text} t-hand-note`}>
+      <p className={styles.text}>
         {text}
         {check ? <Check note={checkNote} /> : null}
       </p>

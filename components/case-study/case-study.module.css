@@ -197,6 +197,8 @@
 .tocSlot {
   grid-column: 1;
   grid-row: 1;
+  align-self: stretch;
+  height: auto;
   padding-top: var(--section-y);
 }
 
