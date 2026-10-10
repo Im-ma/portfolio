@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/button/button";
 import { Check } from "@/components/check/check";
-import { talkCopy } from "@/lib/content";
+import { site, talkCopy } from "@/lib/content";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import { useEffect, useId, useRef, useState } from "react";
@@ -16,6 +16,40 @@ const CalEmbed = dynamic(() => import("./cal-embed").then((mod) => mod.CalEmbed)
 
 const NOTE_SUCCESS = "Thanks. Your note will show up after I approve it.";
 const QUESTION_SUCCESS = "Sent. I will reply to your email soon.";
+const UNCONFIGURED_FALLBACK = "Thanks! If you don't hear back, email me at";
+
+function SuccessMessage({ kind, configured }: { kind: "note" | "question"; configured: boolean }) {
+  if (!configured && process.env.NODE_ENV !== "production") {
+    return (
+      <p className={`${styles.success} t-body-m`} role="status">
+        {kind === "note"
+          ? "Not stored (dev): connect Supabase to store notes."
+          : "Not sent (dev): connect Resend to deliver questions."}
+      </p>
+    );
+  }
+  if (!configured) {
+    return (
+      <p className={`${styles.success} t-body-m`} role="status">
+        {UNCONFIGURED_FALLBACK} <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+    );
+  }
+  return (
+    <p className={`${styles.success} t-body-m`} role="status">
+      {kind === "note" ? NOTE_SUCCESS : QUESTION_SUCCESS}
+      <Check note="success copy" />
+    </p>
+  );
+}
+
+function CloseButton({ onClose }: { onClose: () => void }) {
+  return (
+    <button type="button" className={`${styles.close} t-mono-small`} onClick={onClose}>
+      {site.talkButton.closeLabel}
+    </button>
+  );
+}
 
 function focusable(root: HTMLElement) {
   return [...root.querySelectorAll<HTMLElement>("a, button, input, textarea, select")].filter(
@@ -132,9 +166,7 @@ function Menu({
           {label}
         </h2>
         <p className={`${styles.sub} t-body-s`}>{talkCopy.subtitle}</p>
-        <button type="button" className={styles.close} onClick={onClose} aria-label="Close">
-          ×
-        </button>
+        <CloseButton onClose={onClose} />
       </header>
       <div>
         {talkCopy.options.map((option) => (
@@ -208,9 +240,7 @@ function StateView({
           {state.title}
         </h2>
         <p className={`${styles.sub} t-body-s`}>{state.subtitle}</p>
-        <button type="button" className={styles.close} onClick={onClose} aria-label="Close">
-          ×
-        </button>
+        <CloseButton onClose={onClose} />
       </header>
       {view === "note" ? <NoteForm /> : null}
       {view === "question" ? <QuestionForm quote={quote} onClearQuote={onClearQuote} /> : null}
@@ -226,7 +256,7 @@ function NoteForm() {
   const [company, setCompany] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState<boolean | null>(null);
   const max = note.counter.max;
 
   async function onSubmit(event: React.FormEvent) {
@@ -243,12 +273,16 @@ function NoteForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, note: body, page: window.location.pathname, company }),
       });
-      const data = (await response.json()) as { ok?: boolean; error?: string };
+      const data = (await response.json()) as {
+        ok?: boolean;
+        error?: string;
+        configured?: boolean;
+      };
       if (!response.ok || !data.ok) {
         setError(data.error || "That did not go through. Try again in a moment.");
         return;
       }
-      setDone(true);
+      setDone(data.configured !== false);
     } catch {
       setError("That did not go through. Try again in a moment.");
     } finally {
@@ -256,13 +290,10 @@ function NoteForm() {
     }
   }
 
-  if (done) {
+  if (done !== null) {
     return (
       <div className={styles.form}>
-        <p className={`${styles.success} t-body-m`} role="status">
-          {NOTE_SUCCESS}
-          <Check note="success copy" />
-        </p>
+        <SuccessMessage kind="note" configured={done} />
       </div>
     );
   }
@@ -342,7 +373,7 @@ function QuestionForm({
   const [company, setCompany] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState<boolean | null>(null);
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -365,12 +396,16 @@ function QuestionForm({
           company,
         }),
       });
-      const data = (await response.json()) as { ok?: boolean; error?: string };
+      const data = (await response.json()) as {
+        ok?: boolean;
+        error?: string;
+        configured?: boolean;
+      };
       if (!response.ok || !data.ok) {
         setError(data.error || "That did not go through. Try again in a moment.");
         return;
       }
-      setDone(true);
+      setDone(data.configured !== false);
     } catch {
       setError("That did not go through. Try again in a moment.");
     } finally {
@@ -378,13 +413,10 @@ function QuestionForm({
     }
   }
 
-  if (done) {
+  if (done !== null) {
     return (
       <div className={styles.form}>
-        <p className={`${styles.success} t-body-m`} role="status">
-          {QUESTION_SUCCESS}
-          <Check note="success copy" />
-        </p>
+        <SuccessMessage kind="question" configured={done} />
       </div>
     );
   }
@@ -476,6 +508,10 @@ function BookPane({ onWrite }: { onWrite: () => void }) {
   const calLink = process.env.NEXT_PUBLIC_CALCOM_LINK;
   return (
     <div>
+      <p className="sr-only">
+        The calendar is a separate page. Escape does not close this panel from inside it. Use Close
+        in the header.
+      </p>
       <div className={styles.embed}>
         {calLink ? (
           <CalEmbed calLink={calLink} />

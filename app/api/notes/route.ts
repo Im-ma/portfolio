@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       note: parsed.data.note,
       page: parsed.data.page,
     });
-    return NextResponse.json({ ok: true, stored: false });
+    return NextResponse.json({ ok: true, stored: false, configured: false });
   }
 
   const { error } = await supabase.from("notes").insert({
@@ -68,5 +68,5 @@ export async function POST(request: Request) {
     );
   }
 
-  return NextResponse.json({ ok: true, stored: true });
+  return NextResponse.json({ ok: true, stored: true, configured: true });
 }

@@ -133,9 +133,7 @@ export function CaseStudy({ work }: { work: Work }) {
         ) : work.cover?.src ? (
           <div
             className={styles.hero}
-            data-portrait={
-              (work.cover.height ?? 0) > (work.cover.width ?? 0) ? "true" : undefined
-            }
+            data-portrait={(work.cover.height ?? 0) > (work.cover.width ?? 0) ? "true" : undefined}
           >
             <FrameImage
               src={work.cover.src}
@@ -177,6 +175,16 @@ export function CaseStudy({ work }: { work: Work }) {
                 <LinkList items={work.links.items} />
               </dd>
             </div>
+            {work.links.flows && work.links.flows.length > 0 ? (
+              <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+                <dt className={`${styles.blockLabel} t-mono-label`}>
+                  {work.links.flowsLabel || "PROTOTYPE FLOWS"}
+                </dt>
+                <dd>
+                  <LinkList items={work.links.flows} />
+                </dd>
+              </div>
+            ) : null}
           </dl>
           <p className={`${styles.scopeLine} t-body-s`}>
             <span className={`${styles.scopeLabel} t-mono-label`}>{work.scope.label}</span>

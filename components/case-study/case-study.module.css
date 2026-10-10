@@ -148,6 +148,10 @@
   list-style: none;
 }
 
+.linkList li {
+  max-width: 100%;
+}
+
 .linkList a {
   color: var(--color-accent);
   text-decoration: none;

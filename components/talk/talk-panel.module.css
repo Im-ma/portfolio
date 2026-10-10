@@ -25,11 +25,13 @@
 }
 
 .head {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 22px 24px;
+  padding: 22px 88px 22px 24px;
   background: var(--color-bg);
 }
 
@@ -37,13 +39,10 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
   border: 0;
   background: transparent;
   color: var(--color-ink);
-  font-size: 20px;
-  line-height: 1;
+  padding: 4px 2px;
 }
 
 .online {
@@ -62,7 +61,6 @@
 
 .sub {
   color: var(--color-muted);
-  padding-right: 28px;
 }
 
 .backRow {
