@@ -14,6 +14,18 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## npm warnings explained
+
+A fresh install can print three warnings. None of them mean a vulnerable package is shipped to the browser or the Next server.
+
+`eslint@9.39.5` is deprecated because ESLint 10 is the supported line, and 9.39.5 is the last 9.x release. This repo stays on 9. `eslint-config-next` 16 still depends on `eslint-plugin-react` and `eslint-plugin-jsx-a11y`, which only declare support through ESLint 9. ESLint 10 installs, then lint crashes. ESLint is a devDependency. It does not run in the browser or on the server.
+
+`npm audit` reports 5 high findings. They are one issue, [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm): `braces` 3.0.3 can crash if a glob pattern is nested thousands of levels deep. The chain is dev-only: `eslint-config-next` to `@next/eslint-plugin-next` to `fast-glob` to `micromatch` to `braces`. `npm audit --omit=dev` reports 0 vulnerabilities. `braces` 3.0.3 is the latest release, so there is no patch. `npm audit fix --force` would downgrade `eslint-config-next` to 14 and break this Next 16 setup. ESLint only passes its own file globs into that code, not visitor input.
+
+`unrs-resolver@1.12.2` prints an install-scripts warning on npm 11 and 12. It is a devDependency of `eslint-import-resolver-typescript`, used while linting. Its `postinstall` (`node postinstall.js`) only selects the prebuilt native binary for your machine. Newer npm blocks that script until `allowScripts` names the package. `package.json` allows `unrs-resolver@1.12.2`. The script does not run in production.
+
+Next.js is pinned at 16.4.0, the latest stable release. There is no 16.4 patch to apply.
+
 The site runs with no env vars. Forms still succeed: notes and questions are logged on the server, the note wall shows the sample notes, and booking says "Booking opens soon".
 
 ```bash
