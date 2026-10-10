@@ -68,7 +68,7 @@ function NoteDemo() {
   const [pos, setPos] = useState({ x: 28, y: 36 });
   const [drag, setDrag] = useState<{ dx: number; dy: number } | null>(null);
   return (
-    <div className={styles.stage}>
+    <div className={`${styles.stage} ${styles.noteDemo}`}>
       <button
         type="button"
         className={`${styles.dragNote} t-hand-note`}
@@ -83,8 +83,15 @@ function NoteDemo() {
           if (!drag) return;
           const bounds = event.currentTarget.parentElement?.getBoundingClientRect();
           if (!bounds) return;
-          const x = Math.min(Math.max(8, event.clientX - drag.dx), bounds.width - 120);
-          const y = Math.min(Math.max(8, event.clientY - drag.dy), bounds.height - 72);
+          const note = event.currentTarget;
+          const x = Math.min(
+            Math.max(8, event.clientX - drag.dx),
+            Math.max(8, bounds.width - note.offsetWidth - 8),
+          );
+          const y = Math.min(
+            Math.max(8, event.clientY - drag.dy),
+            Math.max(8, bounds.height - note.offsetHeight - 8),
+          );
           setPos({ x, y });
         }}
         onPointerUp={() => setDrag(null)}
@@ -170,7 +177,7 @@ function QueueDemo() {
     setNotes((current) => current.map((item) => (item.id === id ? { ...item, state } : item)));
   }
   return (
-    <div className={`${styles.stage} ${styles.queue}`}>
+    <div className={`${styles.stage} ${styles.queue} ${styles.noteDemo}`}>
       {notes.map((note) => (
         <div
           key={note.id}
@@ -191,9 +198,16 @@ function QueueDemo() {
               if (!drag || drag.id !== note.id) return;
               const bounds =
                 event.currentTarget.parentElement?.parentElement?.getBoundingClientRect();
-              if (!bounds) return;
-              const x = Math.min(Math.max(8, event.clientX - drag.dx), bounds.width - 160);
-              const y = Math.min(Math.max(8, event.clientY - drag.dy), bounds.height - 72);
+              const card = event.currentTarget.parentElement;
+              if (!bounds || !card) return;
+              const x = Math.min(
+                Math.max(8, event.clientX - drag.dx),
+                Math.max(8, bounds.width - card.offsetWidth - 8),
+              );
+              const y = Math.min(
+                Math.max(8, event.clientY - drag.dy),
+                Math.max(8, bounds.height - card.offsetHeight - 8),
+              );
               setNotes((current) =>
                 current.map((item) => (item.id === note.id ? { ...item, x, y } : item)),
               );

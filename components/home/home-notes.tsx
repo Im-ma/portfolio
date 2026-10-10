@@ -7,26 +7,26 @@ import { useMemo, useRef, useSyncExternalStore } from "react";
 import styles from "./home.module.css";
 
 const desktopDesign = { width: 880, height: 340 };
-const stackDesign = { width: 360, height: 820 };
+const stackDesign = { width: 360, height: 980 };
 
-function useNarrow() {
+function useStacked() {
   return useSyncExternalStore(
     (onChange) => {
-      const query = window.matchMedia("(max-width: 767px)");
+      const query = window.matchMedia("(max-width: 1199px)");
       query.addEventListener("change", onChange);
       return () => query.removeEventListener("change", onChange);
     },
-    () => window.matchMedia("(max-width: 767px)").matches,
+    () => window.matchMedia("(max-width: 1199px)").matches,
     () => false,
   );
 }
 
-function piecesFor(notes: WallNote[], narrow: boolean): Piece[] {
-  const spots = narrow
+function piecesFor(notes: WallNote[], stacked: boolean): Piece[] {
+  const spots = stacked
     ? [
-        { x: 6, y: 2, w: 88, h: 30 },
-        { x: 6, y: 35, w: 88, h: 30 },
-        { x: 6, y: 68, w: 88, h: 30 },
+        { x: 6, y: 2, w: 88, h: 26 },
+        { x: 6, y: 36, w: 88, h: 26 },
+        { x: 6, y: 70, w: 88, h: 26 },
       ]
     : [
         { x: 14, y: 5, w: 27.2, h: 70 },
@@ -47,18 +47,19 @@ function piecesFor(notes: WallNote[], narrow: boolean): Piece[] {
 }
 
 export function HomeNotes({ notes }: { notes: WallNote[] }) {
-  const narrow = useNarrow();
-  const defaults = useMemo(() => piecesFor(notes, narrow), [notes, narrow]);
+  const stacked = useStacked();
+  const defaults = useMemo(() => piecesFor(notes, stacked), [notes, stacked]);
   const visibleIds = useMemo(() => defaults.map((piece) => piece.id), [defaults]);
   const canvasRef = useRef<HTMLDivElement>(null);
   const arrange = useFreeArrange({
     canvasRef,
-    storageKey: narrow ? "im-arrange:home-notes-stack" : "im-arrange:home-notes",
-    design: narrow ? stackDesign : desktopDesign,
+    storageKey: stacked ? "im-arrange:home-notes-stack" : "im-arrange:home-notes",
+    design: stacked ? stackDesign : desktopDesign,
     defaults,
     visibleIds,
     layout: "saved",
     scatterSeed: 0,
+    scale: "readable",
   });
 
   return (

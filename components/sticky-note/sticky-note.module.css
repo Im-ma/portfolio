@@ -3,17 +3,22 @@
   --tilt: 1.5deg;
   position: relative;
   width: min(240px, 78vw);
-  padding: 30px 20px 18px;
+  padding: 30px 22px 20px;
   background: var(--note-yellow);
   color: var(--note-ink);
   box-shadow: var(--shadow-note);
   transform: rotate(var(--rot));
   animation: sway 6s ease-in-out infinite alternate;
   flex: none;
+  container-type: inline-size;
 }
 
 .text {
   margin: 0;
+  font-family: var(--font-hand), "Caveat", cursive;
+  font-weight: 400;
+  font-size: clamp(18px, 11cqi, 26px);
+  line-height: 1.2;
 }
 
 .signature {
@@ -63,7 +68,8 @@
 
 .note.plain {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 0;
   max-width: none;
   transform: none;
   animation: none;

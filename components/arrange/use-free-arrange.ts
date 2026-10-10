@@ -120,24 +120,55 @@ function placeFrom(piece: Piece, z: number): Place {
 
 type Fitted = { widthPx: number; heightPx: number; wPct: number };
 
-function fit(piece: Piece, canvasW: number, designH: number, minSize?: MinSize): Fitted {
+type ScaleMode = "uniform" | "readable";
+
+function fit(
+  piece: Piece,
+  canvasW: number,
+  boardH: number,
+  design: { width: number; height: number },
+  mode: ScaleMode,
+  minSize?: MinSize,
+): Fitted {
   const naturalW = canvasW > 0 ? (piece.w / 100) * canvasW : 0;
-  const naturalH = designH > 0 ? (piece.h / 100) * designH : 0;
-  let scale = 1;
-  if (minSize && naturalW > 0 && naturalH > 0) {
-    scale = Math.max(scale, minSize.width / naturalW, minSize.height / naturalH);
-    scale = Math.min(scale, Math.max(canvasW - 8, 1) / naturalW);
+  const naturalH = boardH > 0 ? (piece.h / 100) * boardH : 0;
+  let widthPx = naturalW;
+  let heightPx = naturalH;
+  if (mode === "readable") {
+    const authoredW = (piece.w / 100) * design.width;
+    const authoredH = (piece.h / 100) * design.height;
+    // Shrink with the canvas so a row of notes keeps its gaps. Never grow past the authored size.
+    const scaleFactor = canvasW > 0 && design.width > 0 ? Math.min(1, canvasW / design.width) : 1;
+    widthPx = authoredW * scaleFactor;
+    heightPx = authoredH * scaleFactor;
   }
-  const widthPx = naturalW * scale;
-  const heightPx = naturalH * scale;
+  if (minSize && widthPx > 0 && heightPx > 0 && mode === "uniform") {
+    let scale = Math.max(1, minSize.width / widthPx, minSize.height / heightPx);
+    scale = Math.min(scale, Math.max(canvasW - 8, 1) / widthPx);
+    widthPx *= scale;
+    heightPx *= scale;
+  }
+  if (mode === "readable" && canvasW > 0) {
+    widthPx = Math.min(widthPx, Math.max(canvasW - 16, 1));
+  }
   const wPct = canvasW > 0 ? (widthPx / canvasW) * 100 : piece.w;
   return { widthPx, heightPx, wPct };
 }
 
-function clamp(place: Place, wPct: number): Place {
+function horizontalInset(rotation: number, widthPx: number, heightPx: number, canvasW: number) {
+  if (canvasW <= 0 || widthPx <= 0 || heightPx <= 0) return 0;
+  const rad = (Math.abs(rotation) * Math.PI) / 180;
+  const bounds = widthPx * Math.abs(Math.cos(rad)) + heightPx * Math.abs(Math.sin(rad));
+  const extra = Math.max(0, (bounds - widthPx) / 2 + 2);
+  return (extra / canvasW) * 100;
+}
+
+function clamp(place: Place, wPct: number, insetPct = 0): Place {
+  const room = Math.max(0, 100 - wPct);
+  const inset = Math.min(Math.max(0, insetPct), room / 2);
   return {
     ...place,
-    x: Math.min(Math.max(0, place.x), Math.max(0, 100 - wPct)),
+    x: Math.min(Math.max(inset, place.x), Math.max(inset, room - inset)),
     y: Math.min(Math.max(0, place.y), MAX_Y),
   };
 }
@@ -184,6 +215,7 @@ export function useFreeArrange({
   layout,
   scatterSeed,
   minSize,
+  scale = "uniform",
 }: {
   canvasRef: RefObject<HTMLDivElement | null>;
   storageKey: string;
@@ -193,6 +225,8 @@ export function useFreeArrange({
   layout: "saved" | "scatter";
   scatterSeed: number;
   minSize?: MinSize;
+  /** readable keeps a note's designed size and lets the canvas grow. uniform scales photos with the board. */
+  scale?: ScaleMode;
 }) {
   const saved = useSaved(storageKey);
   const [overrides, setOverrides] = useState<{ seed: number; map: Record<string, Place> }>({
@@ -201,12 +235,14 @@ export function useFreeArrange({
   });
   const [settling, setSettling] = useState(false);
   const [width, setWidth] = useState(0);
+  const [grown, setGrown] = useState<Record<string, number>>({});
   const designRef = useRef(design);
   const defaultsRef = useRef(defaults);
   const layoutRef = useRef(layout);
   const seedRef = useRef(scatterSeed);
   const keyRef = useRef(storageKey);
   const minSizeRef = useRef(minSize);
+  const scaleRef = useRef(scale);
   const viewRef = useRef<Record<string, Place>>({});
   const dragRef = useRef<Drag | null>(null);
   const holdRef = useRef(0);
@@ -242,27 +278,37 @@ export function useFreeArrange({
     return map;
   }, [defaults, layout, overrides, scatterSeed, scattered, saved]);
 
-  const designH = width > 0 ? (width * design.height) / design.width : 0;
+  const boardH =
+    scale === "readable" ? design.height : width > 0 ? (width * design.height) / design.width : 0;
 
   const view = useMemo(() => {
     const map: Record<string, Place> = {};
     for (const [id, place] of Object.entries(live)) {
       const piece = defaults.find((item) => item.id === id);
       if (!piece) continue;
-      const fitted = fit(piece, width, designH, minSize);
-      map[id] = clamp(place, width > 0 ? fitted.wPct : piece.w);
+      const fitted = fit(piece, width, boardH, design, scale, minSize);
+      const box = Math.max(fitted.heightPx, grown[id] ?? 0);
+      const inset =
+        scale === "readable" ? horizontalInset(place.rotation, fitted.widthPx, box, width) : 0;
+      map[id] = clamp(place, width > 0 ? fitted.wPct : piece.w, inset);
     }
     return map;
-  }, [live, defaults, width, designH, minSize]);
+  }, [live, defaults, width, boardH, design, scale, minSize, grown]);
 
-  let need = designH;
+  let need = boardH;
   for (const id of visibleIds) {
     const piece = defaults.find((item) => item.id === id);
     const place = view[id];
-    if (!piece || !place || !designH) continue;
-    const fitted = fit(piece, width, designH, minSize);
-    const top = (place.y / 100) * designH;
-    need = Math.max(need, top + fitted.heightPx + 28);
+    if (!piece || !place || !boardH) continue;
+    const fitted = fit(piece, width, boardH, design, scale, minSize);
+    const top = (place.y / 100) * boardH;
+    const box = Math.max(fitted.heightPx, grown[id] ?? 0);
+    const rad = (Math.abs(place.rotation) * Math.PI) / 180;
+    const spill =
+      scale === "readable"
+        ? Math.max(0, (fitted.widthPx * Math.sin(rad) + box * Math.cos(rad) - box) / 2)
+        : 0;
+    need = Math.max(need, top + box + spill + 28);
   }
 
   useEffect(() => {
@@ -273,7 +319,8 @@ export function useFreeArrange({
     keyRef.current = storageKey;
     minSizeRef.current = minSize;
     viewRef.current = view;
-  }, [design, defaults, layout, scatterSeed, storageKey, minSize, view]);
+    scaleRef.current = scale;
+  }, [design, defaults, layout, scatterSeed, storageKey, minSize, view, scale]);
 
   useEffect(() => {
     const node = canvasRef.current;
@@ -285,6 +332,32 @@ export function useFreeArrange({
     observer.observe(node);
     return () => observer.disconnect();
   }, [canvasRef]);
+
+  const visibleKey = visibleIds.join("|");
+  useEffect(() => {
+    if (scale !== "readable") return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const observer = new ResizeObserver(() => {
+      const next: Record<string, number> = {};
+      canvas.querySelectorAll<HTMLElement>("[data-arrange-id]").forEach((node) => {
+        const id = node.dataset.arrangeId;
+        if (!id) return;
+        next[id] = node.offsetHeight;
+      });
+      setGrown((current) => {
+        const ids = Object.keys(next);
+        const same =
+          ids.length === Object.keys(current).length &&
+          ids.every((id) => Math.abs((current[id] ?? 0) - next[id]) < 2);
+        return same ? current : next;
+      });
+    });
+    canvas
+      .querySelectorAll<HTMLElement>("[data-arrange-id]")
+      .forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [canvasRef, scale, width, visibleKey]);
 
   useEffect(() => {
     return () => {
@@ -299,8 +372,17 @@ export function useFreeArrange({
 
   function metrics(piece: Piece) {
     const canvasW = canvasRef.current?.clientWidth ?? 0;
-    const height = canvasW > 0 ? (canvasW * designRef.current.height) / designRef.current.width : 0;
-    return { canvasW, height, fitted: fit(piece, canvasW, height, minSizeRef.current) };
+    const height =
+      scaleRef.current === "readable"
+        ? designRef.current.height
+        : canvasW > 0
+          ? (canvasW * designRef.current.height) / designRef.current.width
+          : 0;
+    return {
+      canvasW,
+      height,
+      fitted: fit(piece, canvasW, height, designRef.current, scaleRef.current, minSizeRef.current),
+    };
   }
 
   function freshTilt() {
@@ -318,8 +400,17 @@ export function useFreeArrange({
   function commit(id: string, place: Place) {
     const piece = pieceById(id);
     if (!piece) return;
-    const { fitted } = metrics(piece);
-    const next = clamp(place, fitted.wPct);
+    const { canvasW, fitted } = metrics(piece);
+    const node = canvasRef.current?.querySelector<HTMLElement>(
+      `[data-arrange-id="${CSS.escape(id)}"]`,
+    );
+    const box =
+      scaleRef.current === "readable" ? node?.offsetHeight || fitted.heightPx : fitted.heightPx;
+    const inset =
+      scaleRef.current === "readable"
+        ? horizontalInset(place.rotation, fitted.widthPx, box, canvasW)
+        : 0;
+    const next = clamp(place, fitted.wPct, inset);
     viewRef.current = { ...viewRef.current, [id]: next };
     if (layoutRef.current === "scatter") {
       setOverrides((current) => ({
@@ -354,10 +445,30 @@ export function useFreeArrange({
     if (canvasW < 1 || height < 1) return;
     const dx = ((clientX - drag.originX) / canvasW) * 100;
     const dy = ((clientY - drag.originY) / height) * 100;
-    const next = clamp({ ...drag.start, x: drag.start.x + dx, y: drag.start.y + dy }, fitted.wPct);
+    const box = scaleRef.current === "readable" ? drag.node.offsetHeight : fitted.heightPx;
+    const inset =
+      scaleRef.current === "readable"
+        ? horizontalInset(drag.start.rotation, fitted.widthPx, box, canvasW)
+        : 0;
+    const next = clamp(
+      { ...drag.start, x: drag.start.x + dx, y: drag.start.y + dy },
+      fitted.wPct,
+      inset,
+    );
+    const topPx = (next.y / 100) * height;
     drag.node.style.left = `${next.x}%`;
-    drag.node.style.top = `${(next.y / 100) * height}px`;
+    drag.node.style.top = `${topPx}px`;
     drag.node.style.zIndex = String(drag.start.z);
+    if (scaleRef.current === "readable" && canvasRef.current) {
+      const box = drag.node.offsetHeight;
+      const rad = (Math.abs(next.rotation) * Math.PI) / 180;
+      const spill = Math.max(0, (fitted.widthPx * Math.sin(rad) + box * Math.cos(rad) - box) / 2);
+      const needPx = Math.ceil(topPx + box + spill + 28);
+      const canvas = canvasRef.current;
+      const current =
+        Number.parseFloat(canvas.style.getPropertyValue("--need-h")) || canvas.clientHeight;
+      if (needPx > current) canvas.style.setProperty("--need-h", `${needPx}px`);
+    }
     drag.start = { ...next, z: drag.start.z };
     drag.originX = clientX;
     drag.originY = clientY;
@@ -457,14 +568,23 @@ export function useFreeArrange({
   function bind(id: string) {
     const piece = defaults.find((item) => item.id === id);
     const place = view[id];
-    const fitted = piece ? fit(piece, width, designH, minSize) : null;
+    const fitted = piece ? fit(piece, width, boardH, design, scale, minSize) : null;
     const style: CSSProperties | undefined =
       piece && place
         ? {
             left: `${place.x}%`,
-            top: designH ? `${(place.y / 100) * designH}px` : `${place.y}%`,
+            top: boardH ? `${(place.y / 100) * boardH}px` : `${place.y}%`,
             width: fitted && fitted.widthPx > 0 ? `${fitted.widthPx}px` : `${piece.w}%`,
-            height: fitted && fitted.heightPx > 0 ? `${fitted.heightPx}px` : undefined,
+            height:
+              scale === "readable"
+                ? "auto"
+                : fitted && fitted.heightPx > 0
+                  ? `${fitted.heightPx}px`
+                  : undefined,
+            minHeight:
+              scale === "readable" && fitted && fitted.heightPx > 0
+                ? `${fitted.heightPx}px`
+                : undefined,
             ["--rot" as string]: `${place.rotation}deg`,
             ["--z" as string]: String(place.z),
           }
@@ -512,9 +632,9 @@ export function useFreeArrange({
   }
 
   const canvasStyle: CSSProperties = {
-    ["--design-h" as string]: designH ? `${designH}px` : undefined,
+    ["--design-h" as string]: boardH ? `${boardH}px` : undefined,
     ["--need-h" as string]: need ? `${Math.ceil(need)}px` : undefined,
-    aspectRatio: designH ? undefined : `${design.width} / ${design.height}`,
+    aspectRatio: boardH ? undefined : `${design.width} / ${design.height}`,
   };
 
   return {
