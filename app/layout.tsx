@@ -55,9 +55,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    // The inline script adds `js` before hydration so reveal styles apply on first paint.
     <html
       lang="en"
       className={`${display.variable} ${sans.variable} ${mono.variable} ${hand.variable}`}
+      suppressHydrationWarning
     >
       <body>
         <script

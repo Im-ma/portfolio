@@ -130,7 +130,6 @@
 .consoleTop,
 .toolbar,
 .bulk,
-.tryHead,
 .modes,
 .pairSwitch,
 .legend,
@@ -340,7 +339,7 @@
 
 .passed {
   background: var(--color-signal-soft);
-  color: var(--color-signal-ink);
+  color: var(--color-ink);
 }
 
 .invalid {
@@ -897,6 +896,10 @@
 
   .columns {
     display: none;
+  }
+
+  .record {
+    grid-template-columns: 44px minmax(0, 1fr);
   }
 
   .recordButton {

@@ -52,6 +52,7 @@ export function RestyleDemo() {
   return (
     <TryIt
       id="play-decision-4"
+      label="Try it: restyle and focus"
       hint="Drag from the first version to the restyle, then tab through the focus states."
       onReset={reset}
     >

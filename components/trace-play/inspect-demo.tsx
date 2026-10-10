@@ -85,6 +85,7 @@ export function InspectDemo() {
   return (
     <TryIt
       id="play-decision-3"
+      label="Try it: inspect and select"
       hint="Click a row to read it, then see what Quarantine will touch."
       onReset={reset}
     >
@@ -152,7 +153,7 @@ export function InspectDemo() {
             </li>
           ))}
         </ul>
-        <aside className={styles.inspector} aria-label="Record inspector">
+        <aside className={styles.inspector} aria-label="Inspect and select inspector">
           <h4 className="t-heading-h4">Inspector</h4>
           <p className={styles.id}>{current.id}</p>
           <p className="t-body-s">

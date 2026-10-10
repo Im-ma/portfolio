@@ -50,6 +50,7 @@ export function AssistantDemo() {
   return (
     <TryIt
       id="play-decision-2"
+      label="Try it: assistant explains or edits"
       hint="Assistant explains, or assistant edits. Only one of these leaves the records alone."
       onReset={reset}
     >

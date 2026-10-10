@@ -263,6 +263,7 @@ export function QuarantineConsole() {
   return (
     <TryIt
       id="play-decision-1"
+      label="Try it: quarantine or delete"
       hint="Filter the invalid records, select them, then choose Delete or Quarantine."
       onReset={reset}
     >
@@ -290,7 +291,12 @@ export function QuarantineConsole() {
           ))}
         </div>
         {validating ? (
-          <div className={styles.bar} role="progressbar" aria-valuetext="Validation running">
+          <div
+            className={styles.bar}
+            role="progressbar"
+            aria-label="Validation running"
+            aria-valuetext="Validation running"
+          >
             <span />
           </div>
         ) : null}
@@ -523,7 +529,7 @@ export function QuarantineConsole() {
 function Inspector({ row }: { row: Row | null }) {
   if (!row || row.phase === "deleted") {
     return (
-      <aside className={styles.inspector} aria-label="Record inspector">
+      <aside className={styles.inspector} aria-label="Sample record inspector">
         <h4 className="t-heading-h4">Inspector</h4>
         <p className={`${styles.muted} t-body-s`}>
           {row?.phase === "deleted"
@@ -535,7 +541,7 @@ function Inspector({ row }: { row: Row | null }) {
   }
 
   return (
-    <aside className={styles.inspector} aria-label="Record inspector">
+    <aside className={styles.inspector} aria-label="Sample record inspector">
       <h4 className="t-heading-h4">Inspector</h4>
       <p className={styles.id}>{row.id}</p>
       {row.phase === "quarantined" ? (
