@@ -18,7 +18,7 @@ export function Reveal({ children, className }: { children: React.ReactNode; cla
         node.dataset.shown = "true";
         observer.disconnect();
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
     observer.observe(node);
     return () => observer.disconnect();
