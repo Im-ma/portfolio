@@ -58,7 +58,27 @@ export function RestyleDemo() {
       <p className={`${styles.sample} t-mono-tag`}>Sample data</p>
       <figure className={styles.workbench}>
         <div className={styles.stage}>
-          <div className={`${styles.skin} ${styles.beforeSkin}`} aria-hidden="true">
+          <div className={`${styles.skin} ${styles.afterSkin}`} aria-hidden="true">
+            <span className={`${styles.skinTag} ${styles.skinTagEnd}`}>After</span>
+            <div className={styles.skinCard}>
+              <p className={styles.brandBar}>Trace</p>
+              <div className={styles.afterStats}>
+                <div className={styles.afterStat}>Total</div>
+                <div className={styles.afterStat}>Invalid</div>
+                <div className={styles.afterStat}>Warnings</div>
+              </div>
+              <div className={styles.deepButton}>Quarantine</div>
+              <p className={styles.skinNote}>
+                A card-based dashboard with a green accent, and a 3 px focus ring.
+              </p>
+            </div>
+          </div>
+          <div
+            className={`${styles.skin} ${styles.beforeSkin}`}
+            style={{ clipPath: `inset(0 ${value}% 0 0)` }}
+            aria-hidden="true"
+          >
+            <span className={`${styles.skinTag} ${styles.skinTagStart}`}>Before</span>
             <p className={styles.messyTitle}>Trace</p>
             <div className={styles.messyRow}>
               <div className={`${styles.messyTile} ${styles.tileA}`}>Total</div>
@@ -73,25 +93,7 @@ export function RestyleDemo() {
               Colors were picked per screen. There were no focus states.
             </p>
           </div>
-          <div
-            className={`${styles.skin} ${styles.afterSkin}`}
-            style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
-            aria-hidden="true"
-          >
-            <div className={styles.skinCard}>
-              <p className={styles.brandBar}>Trace</p>
-              <div className={styles.afterStats}>
-                <div className={styles.afterStat}>Total</div>
-                <div className={styles.afterStat}>Invalid</div>
-                <div className={styles.afterStat}>Warnings</div>
-              </div>
-              <div className={styles.deepButton}>Quarantine</div>
-              <p className={styles.skinNote}>
-                A card-based dashboard with a green accent, and a 3 px focus ring.
-              </p>
-            </div>
-          </div>
-          <div className={styles.cut} style={{ left: `${value}%` }} aria-hidden="true" />
+          <div className={styles.cut} style={{ left: `${100 - value}%` }} aria-hidden="true" />
           <input
             className={styles.range}
             type="range"
