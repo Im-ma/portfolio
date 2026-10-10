@@ -158,6 +158,7 @@ export function PolaroidPile({
               key={spot.id}
               type="button"
               className={`${styles.polaroid} ${spot.exiting ? styles.out : ""}`}
+              data-cursor="grab"
               style={{
                 ["--x" as string]: `${spot.x}%`,
                 ["--y" as string]: `${spot.y}%`,

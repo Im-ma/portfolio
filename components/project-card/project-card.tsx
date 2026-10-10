@@ -10,7 +10,7 @@ type Card = (typeof home.selectedWork.cards)[number];
 
 export function ProjectCard({ card }: { card: Card }) {
   return (
-    <Link className={styles.card} href={card.href}>
+    <Link className={styles.card} href={card.href} data-cursor="view">
       <span className={styles.cover}>
         <FrameImage
           src={card.cover.src}

@@ -1,6 +1,7 @@
 import { Check } from "@/components/check/check";
 import { Button } from "@/components/button/button";
 import { FrameImage } from "@/components/media/frame-image";
+import { HeroStage } from "@/components/home/hero-stage";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/project-card/project-card";
 import { SectionHeader } from "@/components/section-header/section-header";
@@ -14,49 +15,9 @@ import { ContactLinks } from "./contact-links";
 import styles from "./home.module.css";
 
 export function HomeView({ notes }: { notes: WallNote[] }) {
-  const hero = home.hero;
   return (
     <main id="content">
-      <section className={styles.hero}>
-        <div className={`shell ${styles.heroGrid}`}>
-          <div className={styles.copy}>
-            <p className={`${styles.eyebrow} t-mono-label`}>{hero.eyebrow}</p>
-            <h1 className="t-display-h1">{hero.title}</h1>
-            <p className={`${styles.lead} t-body-l`}>{hero.lead}</p>
-            <div className={styles.actions}>
-              {"href" in hero.buttons[0] && hero.buttons[0].href ? (
-                <Button href={hero.buttons[0].href} variant="primary" arrow={hero.buttons[0].arrow}>
-                  {hero.buttons[0].label}
-                </Button>
-              ) : null}
-              {"action" in hero.buttons[1] && hero.buttons[1].action ? (
-                <TalkAction action={hero.buttons[1].action} variant="secondary">
-                  {hero.buttons[1].label}
-                </TalkAction>
-              ) : null}
-            </div>
-          </div>
-          <figure className={styles.portrait}>
-            <div className={styles.photo}>
-              <FrameImage
-                src={hero.portrait.src}
-                alt={hero.portrait.alt}
-                sizes="(max-width: 899px) calc(100vw - 48px), 282px"
-                radius={hero.portrait.radius}
-                objectPosition={hero.portrait.objectPosition}
-                standin={hero.portrait.standin}
-                priority
-                fillFrame
-              />
-            </div>
-            <figcaption className={`${styles.caption} t-mono-small`}>
-              <span className={styles.signal} aria-hidden="true" />
-              {hero.portraitCaption}
-              {hero.portrait.check ? <Check note="portrait stand-in" /> : null}
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      <HeroStage />
 
       <section className={styles.section} id={home.selectedWork.id}>
         <div className="shell">

@@ -91,7 +91,7 @@ export function FlowVideo({
   return (
     <figure className={styles.wrap}>
       <p className={`${styles.label} t-mono-label`}>{label}</p>
-      <div className={styles.stage} ref={stageRef}>
+      <div className={styles.stage} ref={stageRef} data-cursor="play">
         {armed ? (
           <video
             ref={videoRef}

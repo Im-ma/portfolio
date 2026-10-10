@@ -74,6 +74,7 @@ function NoteDemo() {
         className={`${styles.dragNote} t-hand-note`}
         style={{ left: pos.x, top: pos.y }}
         aria-label="Draggable note. Use arrow keys to move it."
+        data-cursor="grab"
         onPointerDown={(event) => {
           event.currentTarget.setPointerCapture(event.pointerId);
           setDrag({ dx: event.clientX - pos.x, dy: event.clientY - pos.y });
@@ -181,6 +182,7 @@ function QueueDemo() {
             type="button"
             className={`${styles.dragHandle} t-body-s`}
             aria-label={`${note.text}. Drag to move, or use arrow keys.`}
+            data-cursor="grab"
             onPointerDown={(event) => {
               event.currentTarget.setPointerCapture(event.pointerId);
               setDrag({ id: note.id, dx: event.clientX - note.x, dy: event.clientY - note.y });
@@ -325,6 +327,7 @@ function SwipeDemo() {
     <div className={`${styles.stage} ${styles.swipe}`}>
       <div
         className={styles.swipeCard}
+        data-cursor="grab"
         style={{ transform: `translateX(${x}px)` }}
         onPointerDown={(event) => {
           event.currentTarget.setPointerCapture(event.pointerId);
