@@ -74,11 +74,19 @@
   background: var(--color-surface);
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-bottom: 28px;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 28px;
 }
 
 .chip {
@@ -115,16 +123,6 @@
   box-shadow: var(--shadow-card);
   color: inherit;
   text-align: left;
-  transform: rotate(var(--rot));
-  transition:
-    left 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    top 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    width 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    height 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 200ms ease,
-    opacity 180ms ease;
 }
 
 .photo {
@@ -165,11 +163,23 @@
   margin-top: 36px;
 }
 
+.wallBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .wallLead {
   max-width: 62ch;
   margin-top: -24px;
   margin-bottom: 32px;
   color: var(--color-muted);
+}
+
+.tidySlot {
+  flex: none;
+  margin-top: -8px;
 }
 
 .board {
@@ -218,8 +228,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .polaroid:hover,
-  .polaroid:focus-visible {
+  .polaroid:hover {
     z-index: 20;
     border-color: var(--color-accent);
     border-width: 1.5px;
@@ -243,69 +252,26 @@
     padding: 36px 0 48px;
   }
 
-  .pile {
-    display: flex;
-    gap: 16px;
-    aspect-ratio: auto !important;
-    height: auto;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 12px 0 8px;
+  .wallBar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .polaroid {
-    position: relative;
-    left: auto;
-    top: auto;
-    flex: none;
-    width: 260px;
-    height: auto;
-    scroll-snap-align: start;
-  }
-
-  .photo {
-    flex: none;
-    aspect-ratio: var(--photo, 4 / 3);
-  }
-
-  .board {
-    display: flex;
-    gap: 16px;
-    aspect-ratio: auto !important;
-    height: auto;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 20px 0 12px;
-    border: 0;
-    background: transparent;
-    background-image: none;
-  }
-
-  .slot {
-    position: relative;
-    left: auto !important;
-    top: auto !important;
-    flex: none;
-    width: 260px !important;
-    scroll-snap-align: start;
-  }
-
-  .swipe {
-    display: block;
+  .tidySlot {
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .polaroid,
   .polaroid:hover,
-  .polaroid:focus-visible,
   .out {
-    transform: none;
-    transition: opacity 180ms linear;
+    transition: none;
   }
 
-  .polaroid:hover,
-  .polaroid:focus-visible {
+  .polaroid:hover {
+    transform: rotate(var(--rot));
     box-shadow: var(--shadow-card);
   }
 }

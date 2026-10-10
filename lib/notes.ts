@@ -127,10 +127,10 @@ export type NoteSlot = {
   attachment?: string | null;
   check?: boolean;
   checkNote?: string;
-  layout: { x: number; y: number; width: number; rotation: number };
+  layout: { x: number; y: number; width: number; height: number; rotation: number };
 };
 
-export type PlacedNote = WallNote & { x: number; y: number; width: number };
+export type PlacedNote = WallNote & { x: number; y: number; width: number; height: number };
 
 /** Approved notes fill the wall slots in order. Samples stay in any slot a live note has not replaced. */
 export function placeWallNotes(live: StoredNote[], slots: NoteSlot[]): PlacedNote[] {
@@ -140,6 +140,7 @@ export function placeWallNotes(live: StoredNote[], slots: NoteSlot[]): PlacedNot
       x: slot.layout.x,
       y: slot.layout.y,
       width: slot.layout.width,
+      height: slot.layout.height,
       attachment: slot.attachment === "pin" ? ("pin" as const) : ("tape" as const),
     };
     const note = live[index];

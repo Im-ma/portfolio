@@ -6,12 +6,12 @@ import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/project-card/project-card";
 import { SectionHeader } from "@/components/section-header/section-header";
 import { SignalPath } from "@/components/signal-path/signal-path";
-import { StickyNote } from "@/components/sticky-note/sticky-note";
 import { TalkAction } from "@/components/talk/talk-action";
 import { home, site } from "@/lib/content";
 import type { WallNote } from "@/lib/notes";
 import Link from "next/link";
 import { ContactLinks } from "./contact-links";
+import { HomeNotes } from "./home-notes";
 import styles from "./home.module.css";
 
 export function HomeView({ notes }: { notes: WallNote[] }) {
@@ -91,16 +91,7 @@ export function HomeView({ notes }: { notes: WallNote[] }) {
                   {home.gatheringsTeaser.noteWall.link.label} <span aria-hidden="true">→</span>
                 </Link>
               </div>
-              <div>
-                <div className={styles.notes}>
-                  {notes.map((note) => (
-                    <StickyNote key={note.signature + note.text.slice(0, 12)} sway {...note} />
-                  ))}
-                </div>
-                <p className={`${styles.swipe} t-mono-small`}>
-                  Swipe for more <span aria-hidden="true">→</span>
-                </p>
-              </div>
+              <HomeNotes notes={notes} />
             </div>
           </Reveal>
         </div>

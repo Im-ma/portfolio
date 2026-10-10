@@ -326,29 +326,14 @@
   text-decoration: underline;
 }
 
-.notes {
+.noteStage {
+  min-width: 0;
+}
+
+.noteTools {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.notes article:nth-child(1) {
-  margin-top: 18px;
-}
-
-.notes article:nth-child(2) {
-  margin-top: 56px;
-}
-
-.notes article:nth-child(3) {
-  margin-top: 8px;
-}
-
-.swipe {
-  display: none;
-  margin-top: 12px;
-  color: var(--color-muted);
+  margin-bottom: 8px;
 }
 
 .contact {
@@ -448,25 +433,6 @@
     grid-template-columns: 1fr;
   }
 
-  .notes {
-    justify-content: flex-start;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding-bottom: 8px;
-    margin-inline: -24px;
-    padding-inline: 24px;
-  }
-
-  .notes article {
-    scroll-snap-align: center;
-    margin-top: 16px !important;
-  }
-
-  .swipe {
-    display: block;
-  }
-
   .row {
     grid-template-columns: 32px 1fr;
   }
@@ -489,10 +455,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .notes {
-    scroll-behavior: auto;
-  }
-
   .word,
   .live,
   .bubbleDot,

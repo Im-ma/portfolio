@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useFreeArrange, type Piece } from "@/components/arrange/use-free-arrange";
 import { Check } from "@/components/check/check";
-import { FrameImage } from "@/components/media/frame-image";
 import { Lightbox } from "@/components/lightbox/lightbox";
+import { FrameImage } from "@/components/media/frame-image";
+import { useMemo, useRef, useState } from "react";
 import styles from "./gatherings.module.css";
 
 export type PilePhoto = {
@@ -27,64 +28,6 @@ export type PilePhoto = {
   layout: { x: number; y: number; width: number; height: number; rotation: number };
 };
 
-type Spot = {
-  id: number;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  rotation: number;
-  exiting?: boolean;
-};
-
-function mulberry32(seed: number) {
-  let state = seed >>> 0;
-  return () => {
-    state = (state + 0x6d2b79f5) | 0;
-    let next = Math.imul(state ^ (state >>> 15), 1 | state);
-    next = (next + Math.imul(next ^ (next >>> 7), 61 | next)) ^ next;
-    return ((next ^ (next >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function spotFrom(
-  photo: PilePhoto,
-  pile: { width: number; height: number },
-  rotation = photo.layout.rotation,
-): Spot {
-  return {
-    id: photo.id,
-    x: (photo.layout.x / pile.width) * 100,
-    y: (photo.layout.y / pile.height) * 100,
-    w: (photo.layout.width / pile.width) * 100,
-    h: (photo.layout.height / pile.height) * 100,
-    rotation,
-  };
-}
-
-function scatter(
-  photos: PilePhoto[],
-  slots: PilePhoto[],
-  pile: { width: number; height: number },
-  seed: number,
-): Spot[] {
-  const random = mulberry32(seed);
-  return photos.map((photo, index) => {
-    const slot = slots[index] ?? photo;
-    const offsetX = (random() * 2 - 1) * 12;
-    const offsetY = (random() * 2 - 1) * 12;
-    const rotation = random() * 8 - 4;
-    return {
-      id: photo.id,
-      x: ((slot.layout.x + offsetX) / pile.width) * 100,
-      y: ((slot.layout.y + offsetY) / pile.height) * 100,
-      w: (slot.layout.width / pile.width) * 100,
-      h: (slot.layout.height / pile.height) * 100,
-      rotation,
-    };
-  });
-}
-
 export function PolaroidPile({
   photos,
   pile,
@@ -96,79 +39,103 @@ export function PolaroidPile({
 }) {
   const [filter, setFilter] = useState("all");
   const [seed, setSeed] = useState(1);
-  const [placed, setPlaced] = useState<Spot[]>(() => photos.map((photo) => spotFrom(photo, pile)));
   const [open, setOpen] = useState<PilePhoto | null>(null);
-  const ticket = useRef(0);
-  const byId = new Map(photos.map((photo) => [photo.id, photo]));
+  const canvasRef = useRef<HTMLDivElement>(null);
+  const minSize = useMemo(() => ({ width: 172, height: 220 }), []);
+  const byId = useMemo(() => new Map(photos.map((photo) => [String(photo.id), photo])), [photos]);
+
+  const defaults = useMemo<Piece[]>(
+    () =>
+      photos.map((photo) => ({
+        id: String(photo.id),
+        x: (photo.layout.x / pile.width) * 100,
+        y: (photo.layout.y / pile.height) * 100,
+        w: (photo.layout.width / pile.width) * 100,
+        h: (photo.layout.height / pile.height) * 100,
+        rotation: photo.layout.rotation,
+      })),
+    [photos, pile.width, pile.height],
+  );
+
+  const visibleIds = useMemo(
+    () =>
+      (filter === "all" ? photos : photos.filter((photo) => photo.filter === filter)).map((photo) =>
+        String(photo.id),
+      ),
+    [photos, filter],
+  );
+
+  const arrange = useFreeArrange({
+    canvasRef,
+    storageKey: "im-arrange:gatherings-polaroids",
+    design: pile,
+    defaults,
+    visibleIds,
+    layout: filter === "all" ? "saved" : "scatter",
+    scatterSeed: seed,
+    minSize,
+  });
 
   function select(value: string) {
     if (value === filter && value === "all") return;
-    const id = ++ticket.current;
-    const matching = value === "all" ? photos : photos.filter((photo) => photo.filter === value);
-    const nextSeed = value === "all" ? 0 : seed + 1;
-    if (value !== "all") setSeed(nextSeed);
-    const next =
-      value === "all"
-        ? matching.map((photo) => spotFrom(photo, pile))
-        : scatter(matching, photos.slice(0, matching.length), pile, nextSeed);
-    const nextIds = new Set(next.map((spot) => spot.id));
-    setFilter(value);
-    setPlaced((current) => {
-      const exiting = current
-        .filter((spot) => !spot.exiting && !nextIds.has(spot.id))
-        .map((spot) => ({ ...spot, exiting: true }));
-      return [...exiting, ...next];
+    arrange.animate(() => {
+      if (value !== "all") setSeed((current) => current + 1);
+      setFilter(value);
     });
-    window.setTimeout(() => {
-      if (ticket.current !== id) return;
-      setPlaced((current) => current.filter((spot) => !spot.exiting));
-    }, 180);
   }
 
   return (
     <div>
-      <div className={styles.filters} role="radiogroup" aria-label="Filter gatherings">
-        {filters.map((item) => (
-          <button
-            key={item.value}
-            type="button"
-            role="radio"
-            aria-checked={filter === item.value}
-            className={`${styles.chip} t-body-nav`}
-            data-active={filter === item.value ? "true" : undefined}
-            onClick={() => select(item.value)}
-          >
-            {item.label}
-          </button>
-        ))}
+      <div className={styles.toolbar}>
+        <div className={styles.filters} role="radiogroup" aria-label="Filter gatherings">
+          {filters.map((item) => (
+            <button
+              key={item.value}
+              type="button"
+              role="radio"
+              aria-checked={filter === item.value}
+              className={`${styles.chip} t-body-nav`}
+              data-active={filter === item.value ? "true" : undefined}
+              onClick={() => select(item.value)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          className={`${arrange.tidyClass} t-mono-small`}
+          onClick={() => arrange.tidy(() => setFilter("all"))}
+        >
+          Tidy up
+        </button>
       </div>
       <div
-        className={styles.pile}
-        style={{ aspectRatio: `${pile.width} / ${pile.height}` }}
+        ref={canvasRef}
+        className={`${styles.pile} ${arrange.canvasClass}`}
+        style={arrange.canvasStyle}
         role="group"
         aria-label="Recent gatherings"
       >
-        {placed.map((spot) => {
-          const photo = byId.get(spot.id);
+        {visibleIds.map((id) => {
+          const photo = byId.get(id);
+          const bound = arrange.bind(id);
           if (!photo) return null;
           const photoWidth = photo.image.figmaSize?.[0] ?? photo.image.width;
           const photoHeight = photo.image.figmaSize?.[1] ?? photo.image.height;
           return (
             <button
-              key={spot.id}
+              key={id}
               type="button"
-              className={`${styles.polaroid} ${spot.exiting ? styles.out : ""}`}
-              data-cursor="grab"
+              {...bound}
+              className={`${styles.polaroid} ${bound.className ?? ""}`}
               style={{
-                ["--x" as string]: `${spot.x}%`,
-                ["--y" as string]: `${spot.y}%`,
-                ["--w" as string]: `${spot.w}%`,
-                ["--h" as string]: `${spot.h}%`,
-                ["--rot" as string]: `${spot.rotation}deg`,
+                ...bound.style,
                 ["--photo" as string]: `${photoWidth} / ${photoHeight}`,
               }}
               onClick={() => {
-                if (!spot.exiting) setOpen(photo);
+                if (arrange.taken()) return;
+                setOpen(photo);
               }}
             >
               <span className={styles.photo}>
@@ -194,9 +161,8 @@ export function PolaroidPile({
           );
         })}
       </div>
-      <p className={`${styles.swipe} t-mono-small`}>
-        Swipe for more <span aria-hidden="true">→</span>
-      </p>
+      <p className={`${arrange.holdClass} t-mono-small`}>Hold, then drag</p>
+      <p className="sr-only">Arrow keys nudge a focused photo. Shift moves it farther.</p>
       <Lightbox
         open={Boolean(open)}
         src={open?.image.src}

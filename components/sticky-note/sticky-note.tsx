@@ -18,6 +18,7 @@ export function StickyNote({
   check,
   checkNote,
   sway = false,
+  plain = false,
 }: {
   text: string;
   signature?: string;
@@ -27,18 +28,23 @@ export function StickyNote({
   check?: boolean;
   checkNote?: string;
   sway?: boolean;
+  plain?: boolean;
 }) {
   const dir = rotation < 0 ? -1 : 1;
   const tilt = rotation < 0 ? -1.5 : 1.5;
   return (
     <article
-      className={`${styles.note} ${colors[color]}`}
-      style={{
-        ["--rot" as string]: `${rotation}deg`,
-        ["--tilt" as string]: `${tilt}deg`,
-        ["--dir" as string]: dir,
-        animation: sway ? undefined : "none",
-      }}
+      className={`${styles.note} ${colors[color]} ${plain ? styles.plain : ""}`}
+      style={
+        plain
+          ? undefined
+          : {
+              ["--rot" as string]: `${rotation}deg`,
+              ["--tilt" as string]: `${tilt}deg`,
+              ["--dir" as string]: dir,
+              animation: sway ? undefined : "none",
+            }
+      }
     >
       {attachment === "tape" ? <span className={styles.tape} aria-hidden="true" /> : null}
       {attachment === "pin" ? <span className={styles.pin} aria-hidden="true" /> : null}

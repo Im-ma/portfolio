@@ -61,6 +61,22 @@
   background: var(--note-pink);
 }
 
+.note.plain {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  transform: none;
+  animation: none;
+}
+
+.note.plain:hover,
+.note.plain:focus-visible {
+  transform: none;
+  box-shadow: var(--shadow-note);
+  animation: none;
+  z-index: auto;
+}
+
 .note:hover,
 .note:focus-visible {
   animation: none;
@@ -89,5 +105,11 @@
     animation: none;
     transform: rotate(var(--rot));
     transition: none;
+  }
+
+  .note.plain,
+  .note.plain:hover,
+  .note.plain:focus-visible {
+    transform: none;
   }
 }

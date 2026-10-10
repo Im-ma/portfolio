@@ -2,11 +2,11 @@ import { Button } from "@/components/button/button";
 import { Check } from "@/components/check/check";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeader } from "@/components/section-header/section-header";
-import { StickyNote } from "@/components/sticky-note/sticky-note";
 import { TalkAction } from "@/components/talk/talk-action";
 import { gatheringsPage } from "@/lib/content";
 import { showChecks } from "@/lib/show-checks";
 import type { PlacedNote } from "@/lib/notes";
+import { NoteBoard } from "./note-board";
 import { PolaroidPile } from "./polaroid-pile";
 import { TalkText } from "./talk-text";
 import styles from "./gatherings.module.css";
@@ -71,36 +71,7 @@ export function GatheringsView({ notes }: { notes: PlacedNote[] }) {
                 </TalkAction>
               }
             />
-            <p className={`${styles.wallLead} t-body-m`}>{page.noteWall.lead}</p>
-            <div
-              className={styles.board}
-              style={{ aspectRatio: `${board.width} / ${board.height}` }}
-            >
-              {notes.map((note) => (
-                <div
-                  key={`${note.x}-${note.y}-${note.signature}`}
-                  className={styles.slot}
-                  style={{
-                    left: `${(note.x / board.width) * 100}%`,
-                    top: `${(note.y / board.height) * 100}%`,
-                    width: `${(note.width / board.width) * 100}%`,
-                  }}
-                >
-                  <StickyNote
-                    text={note.text}
-                    signature={note.signature}
-                    rotation={note.rotation}
-                    color={note.color}
-                    attachment={note.attachment}
-                    check={note.check}
-                    checkNote={note.checkNote}
-                  />
-                </div>
-              ))}
-            </div>
-            <p className={`${styles.swipe} t-mono-small`}>
-              Swipe for more <span aria-hidden="true">→</span>
-            </p>
+            <NoteBoard notes={notes} board={board} lead={page.noteWall.lead} />
           </Reveal>
         </div>
       </section>
