@@ -124,6 +124,10 @@ export type Work = {
   cover?: {
     kind: "image" | "video";
     src?: string;
+    mp4?: string;
+    webm?: string;
+    poster?: string;
+    field?: string;
     width?: number;
     height?: number;
     objectPosition?: string;

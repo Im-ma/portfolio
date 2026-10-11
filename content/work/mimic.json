@@ -10,11 +10,13 @@
   "title": "Mimic",
   "summary": "A control dashboard for a robotic arm that copies your hand.",
   "cover": {
-    "kind": "image",
-    "src": "/images/work/mimic/01-final-dashboard.webp",
-    "width": 1440,
-    "height": 1062,
-    "objectPosition": "center 28%"
+    "kind": "video",
+    "mp4": "/videos/covers/mimic.mp4",
+    "webm": "/videos/covers/mimic.webm",
+    "poster": "/images/covers/mimic-poster.png",
+    "field": "#EEF2F7",
+    "width": 1920,
+    "height": 1080
   },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",

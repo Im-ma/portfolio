@@ -21,6 +21,14 @@
   margin-top: 20px;
 }
 
+.heroFilm {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
 .coverCopy {
   padding-top: 28px;
 }

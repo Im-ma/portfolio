@@ -10,7 +10,13 @@
   "title": "Trace",
   "summary": "A debug console for finding the bad records hiding in ML training data.",
   "cover": {
-    "kind": "video"
+    "kind": "video",
+    "mp4": "/videos/covers/trace.mp4",
+    "webm": "/videos/covers/trace.webm",
+    "poster": "/images/covers/trace-poster.png",
+    "field": "#142004",
+    "width": 1920,
+    "height": 1080
   },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",

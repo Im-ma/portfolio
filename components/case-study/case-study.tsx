@@ -2,6 +2,7 @@ import { Button } from "@/components/button/button";
 import { Check } from "@/components/check/check";
 import { SectionHeader } from "@/components/section-header/section-header";
 import { StatusTag } from "@/components/status-tag/status-tag";
+import { CoverVideo } from "@/components/media/cover-video";
 import { FrameImage } from "@/components/media/frame-image";
 import { Reveal } from "@/components/motion/reveal";
 import { TalkAction } from "@/components/talk/talk-action";
@@ -31,7 +32,7 @@ function findVideo(work: Work) {
 }
 
 function storySections(work: Work) {
-  if (work.cover?.kind !== "video") return work.sections;
+  if (work.cover?.kind !== "video" || work.cover.mp4) return work.sections;
   let skipped = false;
   return work.sections.map((section) => {
     if (skipped) return section;
@@ -119,7 +120,19 @@ export function CaseStudy({ work }: { work: Work }) {
             <span aria-hidden="true">←</span> {work.backLink.label}
           </Link>
         </div>
-        {coverVideo ? (
+        {work.cover?.mp4 && work.cover.webm && work.cover.poster ? (
+          <div
+            className={styles.heroFilm}
+            style={{ background: work.cover.field || "var(--color-neutral-soft)" }}
+          >
+            <CoverVideo
+              mp4={work.cover.mp4}
+              webm={work.cover.webm}
+              poster={work.cover.poster}
+              field={work.cover.field || "transparent"}
+            />
+          </div>
+        ) : coverVideo ? (
           <div className={`shell ${styles.heroVideo}`}>
             <FlowVideo
               label={coverVideo.label}

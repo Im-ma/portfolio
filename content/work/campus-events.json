@@ -14,11 +14,13 @@
   },
   "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
   "cover": {
-    "kind": "image",
-    "src": "/images/work/campus-events/01-discover.webp",
-    "width": 402,
-    "height": 874,
-    "objectPosition": "center top"
+    "kind": "video",
+    "mp4": "/videos/covers/campus-events.mp4",
+    "webm": "/videos/covers/campus-events.webm",
+    "poster": "/images/covers/campus-events-poster.png",
+    "field": "#ECE8FF",
+    "width": 1920,
+    "height": 1080
   },
   "keyTakeaway": {
     "label": "KEY TAKEAWAY  /  THE THROUGH LINE",

@@ -56,20 +56,17 @@
           }
         ],
         "cover": {
-          "src": "/images/work/trace/01-dataset-overview.webp",
-          "width": 1440,
-          "height": 1524,
-          "objectFit": "cover",
-          "objectPosition": "50% 0%",
-          "radius": 0,
-          "figmaSize": [
-            588,
-            331
-          ]
+          "mp4": "/videos/covers/trace.mp4",
+          "webm": "/videos/covers/trace.webm",
+          "poster": "/images/covers/trace-card.png",
+          "field": "#142004"
         },
         "number": "01",
         "status": "Concept",
         "title": "Trace",
+        "tag": "Product design 2026",
+        "tagCheck": true,
+        "tagCheckNote": "tag undecided: Concept 2026, or Product design + engineering",
         "summary": "A debug console for finding the bad records hiding in ML training data.",
         "slug": "trace",
         "href": "/work/trace"
@@ -86,20 +83,15 @@
           }
         ],
         "cover": {
-          "src": "/images/work/mimic/01-final-dashboard.webp",
-          "width": 1440,
-          "height": 1062,
-          "objectFit": "cover",
-          "objectPosition": "50% 0%",
-          "radius": 0,
-          "figmaSize": [
-            588,
-            331
-          ]
+          "mp4": "/videos/covers/mimic.mp4",
+          "webm": "/videos/covers/mimic.webm",
+          "poster": "/images/covers/mimic-card.png",
+          "field": "#EEF2F7"
         },
         "number": "02",
         "status": "In progress",
         "title": "Mimic",
+        "tag": "Product design 2026",
         "summary": "A control dashboard for a robotic arm that copies your hand.",
         "slug": "mimic",
         "href": "/work/mimic"
@@ -111,20 +103,15 @@
           }
         ],
         "cover": {
-          "src": "/images/work/campus-events/03-rsvp-states.webp",
-          "width": 1728,
-          "height": 922,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 0,
-          "figmaSize": [
-            588,
-            331
-          ]
+          "mp4": "/videos/covers/campus-events.mp4",
+          "webm": "/videos/covers/campus-events.webm",
+          "poster": "/images/covers/campus-events-card.png",
+          "field": "#ECE8FF"
         },
         "number": "03",
         "status": "In progress",
         "title": "Campus Events",
+        "tag": "Product design 2026",
         "check": true,
         "checkNote": "app name. Proposed short name: \"Linkup\" (or keep Campus Events)",
         "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
@@ -138,20 +125,15 @@
           }
         ],
         "cover": {
-          "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
-          "width": 2400,
-          "height": 631,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 0,
-          "figmaSize": [
-            588,
-            331
-          ]
+          "mp4": "/videos/covers/campus-ride.mp4",
+          "webm": "/videos/covers/campus-ride.webm",
+          "poster": "/images/covers/campus-ride-card.png",
+          "field": "#E4EFFE"
         },
         "number": "04",
         "status": "In progress",
         "title": "Campus Ride",
+        "tag": "Product design 2026",
         "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
         "slug": "campus-ride",
         "href": "/work/campus-ride"

@@ -20,24 +20,28 @@
 
 .cover {
   position: relative;
-  aspect-ratio: 588 / 331;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-neutral-soft);
 }
 
-.cover img {
-  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0;
+  padding: 16px 24px 0;
 }
 
-.card:hover .cover img {
-  transform: scale(1.02);
+.captionTag {
+  color: var(--color-muted);
 }
 
 .body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 24px;
+  padding: 12px 24px 24px;
 }
 
 .meta {
@@ -64,9 +68,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .card:hover,
-  .cover img,
-  .card:hover .cover img {
+  .card:hover {
     transform: none;
     transition: none;
   }
