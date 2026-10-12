@@ -6,7 +6,8 @@ import { CoverVideo } from "@/components/media/cover-video";
 import { FrameImage } from "@/components/media/frame-image";
 import { Reveal } from "@/components/motion/reveal";
 import { TalkAction } from "@/components/talk/talk-action";
-import { showChecks } from "@/lib/show-checks";
+import { getWork } from "@/lib/content";
+import { showAnnotations } from "@/lib/show-checks";
 import { sectionSplitsViews } from "@/lib/built-views";
 import type { Block, VideoBlock, Work, WorkLink, WorkSection } from "@/lib/work-types";
 import Link from "next/link";
@@ -68,6 +69,22 @@ function LinkList({ items }: { items: WorkLink[] }) {
   );
 }
 
+function NextCover({ slug }: { slug: string }) {
+  const cover = getWork(slug)?.cover;
+  if (!cover?.mp4 || !cover.webm || !cover.poster) return null;
+  const field = cover.field || "transparent";
+  return (
+    <span className={styles.nextPhoto} style={{ background: field }}>
+      <CoverVideo
+        mp4={cover.mp4}
+        webm={cover.webm}
+        poster={cover.cardPoster || cover.poster}
+        field={field}
+      />
+    </span>
+  );
+}
+
 function ContextSection({ section, source }: { section: WorkSection; source: string }) {
   const notes = section.blocks.filter((block) => block.type === "annotation");
   const copy = section.blocks.filter((block) => block.type !== "annotation");
@@ -107,7 +124,7 @@ function SectionBody({
 }
 
 export function CaseStudy({ work }: { work: Work }) {
-  const tocNote = work.tocNote?.devOnly && showChecks() ? work.tocNote.text : undefined;
+  const tocNote = work.tocNote && showAnnotations() ? work.tocNote.text : undefined;
   const details = work.meta.filter((item) => !item.tag && item.label !== "STATUS");
   const coverVideo = work.cover?.kind === "video" ? findVideo(work) : null;
   const sections = storySections(work);
@@ -245,16 +262,12 @@ export function CaseStudy({ work }: { work: Work }) {
       <section className={`${styles.nextSection} ${styles.surface}`}>
         <div className="shell">
           <Reveal>
-            <Link className={styles.next} href={`/work/${work.nextProject.slug}`}>
-              <span className={styles.nextPhoto}>
-                <FrameImage
-                  src={work.nextProject.image.src}
-                  alt=""
-                  sizes="(max-width: 767px) calc(100vw - 48px), 588px"
-                  objectPosition={work.nextProject.image.objectPosition}
-                  fillFrame
-                />
-              </span>
+            <Link
+              className={styles.next}
+              href={`/work/${work.nextProject.slug}`}
+              data-cursor="view"
+            >
+              <NextCover slug={work.nextProject.slug} />
               <span className={styles.nextBody}>
                 <span className={`${styles.accent} t-mono-label`}>
                   {work.nextProject.label} <span aria-hidden="true">→</span>

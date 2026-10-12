@@ -127,6 +127,7 @@ export type Work = {
     mp4?: string;
     webm?: string;
     poster?: string;
+    cardPoster?: string;
     field?: string;
     width?: number;
     height?: number;
@@ -148,7 +149,6 @@ export type Work = {
     summary: string;
     cta: string;
     slug: string;
-    image: Media;
   };
   contact: {
     heading: string;

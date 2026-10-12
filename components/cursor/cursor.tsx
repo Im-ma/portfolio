@@ -1,16 +1,42 @@
 "use client";
 
 import { lastFinePoint, useLivelyPointer } from "@/lib/lively-pointer";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import styles from "./cursor.module.css";
 
-type Mode = "default" | "link" | "view" | "play" | "grab" | "grabbing" | "ask" | "native";
+type Mode =
+  | "default"
+  | "link"
+  | "view"
+  | "play"
+  | "grab"
+  | "grabbing"
+  | "ask"
+  | "close"
+  | "zoom"
+  | "zoom-out"
+  | "native";
 
 const labels: Partial<Record<Mode, string>> = {
   view: "View",
   play: "Play",
   ask: "Ask",
+  close: "Close",
+  zoom: "Zoom",
+  "zoom-out": "Zoom out",
 };
+
+const markedModes = new Set<Mode>([
+  "view",
+  "play",
+  "link",
+  "ask",
+  "close",
+  "zoom",
+  "zoom-out",
+  "default",
+]);
 
 function modeFrom(target: EventTarget | null, down: boolean, event?: PointerEvent): Mode {
   const el = target instanceof Element ? target : null;
@@ -21,13 +47,12 @@ function modeFrom(target: EventTarget | null, down: boolean, event?: PointerEven
     if (gutterY > 2 && event.clientY >= document.documentElement.clientHeight) return "native";
   }
   if (!el) return "default";
-  if (el.closest("iframe")) return "native";
   if (el.closest("input, textarea, select, [contenteditable='true']")) return "native";
   const marked = el.closest<HTMLElement>("[data-cursor]");
   if (marked) {
     const value = marked.dataset.cursor;
     if (value === "grab") return down ? "grabbing" : "grab";
-    if (value === "view" || value === "play" || value === "link" || value === "ask") return value;
+    if (value && markedModes.has(value as Mode)) return value as Mode;
     return "link";
   }
   if (el.closest("a, button, [role='button'], summary")) return "link";
@@ -43,22 +68,43 @@ function modeFrom(target: EventTarget | null, down: boolean, event?: PointerEven
 
 function scaleFor(mode: Mode) {
   if (mode === "link") return 1.55;
-  if (mode === "view" || mode === "play") return 1.7;
+  if (
+    mode === "view" ||
+    mode === "play" ||
+    mode === "close" ||
+    mode === "zoom" ||
+    mode === "zoom-out"
+  ) {
+    return 1.7;
+  }
   if (mode === "grab") return 1.2;
   if (mode === "grabbing") return 0.92;
   if (mode === "ask") return 1;
   return 1;
 }
 
+function subscribeHost() {
+  return () => {};
+}
+
+function cursorHost() {
+  return document.body;
+}
+
+function cursorHostServer(): HTMLElement | null {
+  return null;
+}
+
 export function SiteCursor() {
   const lively = useLivelyPointer();
+  const host = useSyncExternalStore(subscribeHost, cursorHost, cursorHostServer);
   const rootRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLSpanElement>(null);
   const ringRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!lively) return;
+    if (!lively || !host) return;
     const root = rootRef.current;
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -137,9 +183,11 @@ export function SiteCursor() {
       document.removeEventListener("pointerenter", onEnter);
       delete document.documentElement.dataset.fineCursor;
     };
-  }, [lively]);
+  }, [host, lively]);
 
-  return (
+  if (!host) return null;
+
+  return createPortal(
     <div ref={rootRef} className={styles.root} data-mode="default" aria-hidden="true">
       <span ref={dotRef} className={styles.dot} />
       <span ref={ringRef} className={styles.ring}>
@@ -155,6 +203,7 @@ export function SiteCursor() {
         </svg>
         <span ref={labelRef} className={`${styles.label} t-mono-tag`} />
       </span>
-    </div>
+    </div>,
+    host,
   );
 }

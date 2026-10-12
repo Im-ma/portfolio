@@ -16,8 +16,9 @@
 }
 
 .fullBleed {
-  width: calc(100% + var(--toc-space, 0px));
-  margin-left: calc(var(--toc-space, 0px) * -1);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
 }
 
 .single {
@@ -226,11 +227,6 @@
   .bentoTile:first-child {
     grid-column: 1 / -1;
     grid-row: auto;
-  }
-
-  .fullBleed {
-    width: 100%;
-    margin-left: 0;
   }
 }
 

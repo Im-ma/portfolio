@@ -199,7 +199,6 @@
 }
 
 .study {
-  --toc-space: calc(168px + 36px);
   display: grid;
   grid-template-columns: 168px minmax(0, 1fr);
   column-gap: 36px;
@@ -207,6 +206,8 @@
 }
 
 .tocSlot {
+  position: relative;
+  z-index: 3;
   grid-column: 1;
   grid-row: 1;
   align-self: stretch;
@@ -223,6 +224,7 @@
   grid-column: 2;
   grid-row: 1;
   min-width: 0;
+  overflow-x: clip;
 }
 
 .surfaceBand {
@@ -561,7 +563,7 @@
   position: relative;
   width: 100%;
   min-width: 0;
-  aspect-ratio: 588 / 320;
+  aspect-ratio: 16 / 9;
 }
 
 .nextBody {
@@ -663,10 +665,6 @@
   .figureRow,
   .contextSplit {
     grid-template-columns: 1fr;
-  }
-
-  .study {
-    --toc-space: 0px;
   }
 
   .options {

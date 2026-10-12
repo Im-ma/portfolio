@@ -14,6 +14,7 @@
     "mp4": "/videos/covers/campus-ride.mp4",
     "webm": "/videos/covers/campus-ride.webm",
     "poster": "/images/covers/campus-ride-poster.png",
+    "cardPoster": "/images/covers/campus-ride-card.png",
     "field": "#E4EFFE",
     "width": 1920,
     "height": 1080
@@ -722,18 +723,6 @@
     "devOnly": true
   },
   "nextProject": {
-    "image": {
-      "src": "/images/work/trace/01-dataset-overview.webp",
-      "width": 1440,
-      "height": 1524,
-      "objectFit": "cover",
-      "objectPosition": "50% 0%",
-      "radius": 0,
-      "figmaSize": [
-        588,
-        320
-      ]
-    },
     "label": "NEXT PROJECT",
     "status": "Concept",
     "title": "Trace",

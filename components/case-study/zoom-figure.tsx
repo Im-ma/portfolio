@@ -29,6 +29,7 @@ export function ZoomFigure({
       <button
         type="button"
         className={styles.zoom}
+        data-cursor="zoom"
         style={{ aspectRatio: `${width} / ${height}`, borderRadius: media.radius ?? 6 }}
         onClick={() => setOpen(true)}
         aria-label={`Enlarge image: ${alt}`}

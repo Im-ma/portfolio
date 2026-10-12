@@ -1,5 +1,5 @@
 import { Check } from "@/components/check/check";
-import { showChecks } from "@/lib/show-checks";
+import { showAnnotations, showChecks } from "@/lib/show-checks";
 import type { Block, Media, VideoBlock } from "@/lib/work-types";
 import { AskHighlight } from "./ask-highlight";
 import { CompareSlider } from "./compare-slider";
@@ -88,7 +88,7 @@ function BlockView({
   priority: boolean;
 }) {
   if (block.type === "annotation") {
-    if (!showChecks() || block.devOnly === false) return null;
+    if (!showAnnotations()) return null;
     return <p className={`${styles.devNote} t-mono-small`}>{block.text}</p>;
   }
 

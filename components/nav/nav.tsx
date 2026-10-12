@@ -109,6 +109,7 @@ export function Nav() {
         <button
           type="button"
           className={styles.menuButton}
+          data-cursor={open ? "close" : undefined}
           aria-expanded={open}
           aria-controls={sheetId}
           onClick={() => setOpen(!open)}
@@ -130,6 +131,7 @@ export function Nav() {
           <button
             type="button"
             className={styles.backdrop}
+            data-cursor="close"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
           />

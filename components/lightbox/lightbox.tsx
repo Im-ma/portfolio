@@ -50,6 +50,7 @@ export function Lightbox({
   return createPortal(
     <div
       className={styles.backdrop}
+      data-cursor="zoom-out"
       role="presentation"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -57,6 +58,7 @@ export function Lightbox({
     >
       <div
         className={styles.dialog}
+        data-cursor="default"
         role="dialog"
         aria-modal="true"
         aria-label={caption || alt || "Enlarged image"}
@@ -65,6 +67,7 @@ export function Lightbox({
           ref={closeRef}
           type="button"
           className={`${styles.close} t-button-m`}
+          data-cursor="close"
           onClick={onClose}
         >
           Close

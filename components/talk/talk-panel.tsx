@@ -45,7 +45,12 @@ function SuccessMessage({ kind, configured }: { kind: "note" | "question"; confi
 
 function CloseButton({ onClose }: { onClose: () => void }) {
   return (
-    <button type="button" className={`${styles.close} t-mono-small`} onClick={onClose}>
+    <button
+      type="button"
+      className={`${styles.close} t-mono-small`}
+      data-cursor="close"
+      onClick={onClose}
+    >
       {site.talkButton.closeLabel}
     </button>
   );
@@ -106,7 +111,13 @@ export function TalkPanel() {
 
   return (
     <>
-      <button type="button" className={styles.overlay} aria-label="Close" onClick={closeTalk} />
+      <button
+        type="button"
+        className={styles.overlay}
+        data-cursor="close"
+        aria-label="Close"
+        onClick={closeTalk}
+      />
       <motion.div
         ref={panelRef}
         className={styles.panel}

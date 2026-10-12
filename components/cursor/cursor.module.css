@@ -1,7 +1,7 @@
 .root {
   position: fixed;
   inset: 0;
-  z-index: 85;
+  z-index: 10000;
   pointer-events: none;
   opacity: 0;
 }
@@ -44,7 +44,10 @@
 }
 
 .root[data-mode="view"] .ring,
-.root[data-mode="play"] .ring {
+.root[data-mode="play"] .ring,
+.root[data-mode="close"] .ring,
+.root[data-mode="zoom"] .ring,
+.root[data-mode="zoom-out"] .ring {
   background: color-mix(in srgb, var(--color-accent) 12%, transparent);
 }
 
@@ -114,7 +117,8 @@
 :global(html[data-fine-cursor="on"]) :global(a),
 :global(html[data-fine-cursor="on"]) :global(button),
 :global(html[data-fine-cursor="on"]) :global(summary),
-:global(html[data-fine-cursor="on"]) :global([data-cursor="grab"]) {
+:global(html[data-fine-cursor="on"]) :global([data-cursor="grab"]),
+:global(html[data-fine-cursor="on"]) :global(iframe) {
   cursor: none;
 }
 

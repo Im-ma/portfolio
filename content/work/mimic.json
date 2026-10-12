@@ -14,6 +14,7 @@
     "mp4": "/videos/covers/mimic.mp4",
     "webm": "/videos/covers/mimic.webm",
     "poster": "/images/covers/mimic-poster.png",
+    "cardPoster": "/images/covers/mimic-card.png",
     "field": "#EEF2F7",
     "width": 1920,
     "height": 1080
@@ -671,18 +672,6 @@
     "devOnly": true
   },
   "nextProject": {
-    "image": {
-      "src": "/images/work/campus-events/03-rsvp-states.webp",
-      "width": 1728,
-      "height": 922,
-      "objectFit": "cover",
-      "objectPosition": "center",
-      "radius": 0,
-      "figmaSize": [
-        588,
-        320
-      ]
-    },
     "label": "NEXT PROJECT",
     "status": "In progress",
     "title": "Campus Events",

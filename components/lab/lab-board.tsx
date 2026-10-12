@@ -8,7 +8,7 @@ import { StatusTag } from "@/components/status-tag/status-tag";
 import { TalkAction } from "@/components/talk/talk-action";
 import { useTalk } from "@/components/talk/talk-provider";
 import { labPage } from "@/lib/content";
-import { showChecks } from "@/lib/show-checks";
+import { showAnnotations } from "@/lib/show-checks";
 import styles from "./lab.module.css";
 
 function mulberry32(seed: number) {
@@ -415,7 +415,7 @@ export function LabBoard() {
           </button>
         ))}
       </div>
-      {showChecks() && labPage.pageNote.devOnly ? (
+      {showAnnotations() && labPage.pageNote.devOnly ? (
         <p className={`${styles.note} t-mono-small`}>
           {labPage.pageNote.text}
           {labPage.pageNote.check ? <Check note={labPage.pageNote.checkNote} /> : null}
