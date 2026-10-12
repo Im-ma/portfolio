@@ -1,0 +1,358 @@
+---
+{
+  "slug": "campus-events",
+  "number": 3,
+  "eyebrow": "CASE STUDY 03",
+  "title": "Campus Events",
+  "titleCheck": {
+    "check": true,
+    "checkNote": "app name. Proposed short name: \"Linkup\" (or keep Campus Events)"
+  },
+  "status": "In progress",
+  "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+  "keyTakeaway": {
+    "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
+    "heading": "I take ideas from zero to one for my own community, and then I’m honest enough to tear down my own first version.",
+    "body": "I built v1, audited it, and redesigned it into a complete, accessible system for both attendees and organizers."
+  },
+  "meta": [
+    {
+      "label": "STATUS",
+      "tag": "In progress",
+      "value": "v2 designed and prototyped in Figma; v1 was a working web app"
+    },
+    {
+      "label": "ROLE",
+      "value": "Product design + engineering"
+    },
+    {
+      "label": "TIMELINE",
+      "value": "v1: September 2026. v2 redesign: Oct 3 to 9, 2026.",
+      "check": true,
+      "checkNote": "timeline (v1 estimated)"
+    },
+    {
+      "label": "TEAM",
+      "value": "Solo, independent student project.",
+      "check": true,
+      "checkNote": "team"
+    },
+    {
+      "label": "TOOLS",
+      "value": "Figma (variables, text styles, components with variants, prototyping)"
+    }
+  ],
+  "scope": {
+    "label": "SCOPE",
+    "text": "v1: 9 screens. v2: about 59 mobile screens (402 x 874) across attendee and organizer flows, a component library, a foundations sheet, and a clickable prototype with 9 named flows."
+  },
+  "links": {
+    "items": [
+      {
+        "label": "Figma file",
+        "href": null
+      },
+      {
+        "label": "Prototype: 9 named flows (link coming soon)",
+        "href": null,
+        "check": true,
+        "checkNote": "prototype link",
+        "comingSoon": true
+      },
+      {
+        "label": "v1 web app (link coming soon)",
+        "href": null,
+        "check": true,
+        "checkNote": "v1 link",
+        "comingSoon": true
+      }
+    ],
+    "flows": []
+  },
+  "toc": [
+    {
+      "number": "01",
+      "subs": [],
+      "title": "Context",
+      "anchor": "context"
+    },
+    {
+      "number": "02",
+      "subs": [],
+      "title": "The result",
+      "anchor": "the-result"
+    },
+    {
+      "number": "03",
+      "subs": [
+        {
+          "number": "3.1",
+          "title": "Audit and rebuild v1",
+          "anchor": "decision-1"
+        },
+        {
+          "number": "3.2",
+          "title": "Playful but readable",
+          "anchor": "decision-2"
+        },
+        {
+          "number": "3.3",
+          "title": "The whole life of an event",
+          "anchor": "decision-3"
+        }
+      ],
+      "title": "Key decisions",
+      "anchor": "key-decisions"
+    },
+    {
+      "number": "04",
+      "subs": [],
+      "title": "How I built it",
+      "anchor": "how-i-built-it"
+    },
+    {
+      "number": "05",
+      "subs": [],
+      "title": "Impact",
+      "anchor": "impact"
+    },
+    {
+      "number": "06",
+      "subs": [],
+      "title": "Reflection",
+      "anchor": "reflection"
+    }
+  ],
+  "nextProject": {
+    "image": {
+      "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
+      "width": 2400,
+      "height": 631,
+      "objectFit": "cover",
+      "objectPosition": "center",
+      "radius": 0,
+      "figmaSize": [
+        588,
+        320
+      ]
+    },
+    "label": "NEXT PROJECT",
+    "status": "In progress",
+    "title": "Campus Ride",
+    "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+    "cta": "Read case study",
+    "slug": "campus-ride"
+  },
+  "talkButtonLabel": "Questions about this project?"
+}
+---
+
+{/* Frontmatter is JSON (valid YAML). Content from Figma. <Check> marks drafts I still need to confirm: render a subtle marker in development only. */}
+
+<Section id="context" number="01" title="Context">
+
+<DevNote>OPTIONAL INTERACTION Select any sentence to ask about it. The question form opens with the quote prefilled.</DevNote>
+
+<AskHighlight tooltip="Ask Immanuel about this">I love bringing people together, and on campus that should be easy. In practice, events get lost in group chats, flyers, and word of mouth. If you’re new, or just not in the right chat, you miss things. Clubs feel it from the other side: they plan something great and half the people who’d love it never hear about it.</AskHighlight>
+
+This app is one place to see what’s on tonight, save and RSVP in a tap, carry your ticket in your pocket, and, if you run a club, create an event, get it approved, and scan people in at the door.
+
+<Check note="what sparked it">I kept hearing about great events the day after they happened. Flyers on doors and posts in group chats were easy to miss, and the clubs doing the work deserved a bigger crowd. I wanted one place where any student could see what is on tonight and say yes in one tap.</Check>
+
+</Section>
+
+<Section id="the-result" number="02" title="The result: final solution">
+
+<Lead>v2 covers the whole life of an event, for the people going and the people running it.</Lead>
+
+<Figure caption="Redesigned Discover (\"What’s on tonight?\"), and the event detail RSVP states: free, going, full with a waitlist, and on the waitlist.">
+  <Img src="/images/work/campus-events/01-discover.webp" width={402} height={874} figmaSize={[340,739]} position="center" />
+  <Img src="/images/work/campus-events/03-rsvp-states.webp" width={1728} height={922} figmaSize={[730,390]} position="center" />
+</Figure>
+
+<Label>WHAT YOU SEE</Label>
+
+<Features>
+  <Feature title="Attendees: onboarding">Three cards ("Find your people, fast," "Save it. Go. Repeat.," "Throw the next big thing."), sign in with a campus email and a 6-digit code, an interests picker, and a notification permission screen.</Feature>
+  <Feature title="Attendees: Discover">"What’s on tonight?" with search, category chips, a stacked "Featured this week" card, "Happening today," a club promo, and "This weekend."</Feature>
+  <Feature title="Attendees: event detail">Real RSVP states: RSVP, going, full with a waitlist, on the waitlist (with your place in line), and full and closed. Plus a QR ticket, an add to calendar sheet, and a share sheet.</Feature>
+  <Feature title="Attendees: everything around it">Map, search with filters, saved events (list and calendar), notifications inbox, club profiles, a clubs directory, settings, report an event, and post-event feedback.</Feature>
+  <Feature title="Organizers">A dashboard, an 8-step create flow, a "Sent for review" approval state, attendees and waitlist, a door scanner, announcements, analytics, org roles, and manage, edit, postpone, and cancel.</Feature>
+  <Feature title="When things go wrong">Empty, offline, could not load, loading skeleton, time changed, and cancelled.</Feature>
+</Features>
+
+<Check note="real places in v2">Note: names, numbers, and places in the screens (like "Campus Radio 89.1," "1,284 RSVPs this month," and "Main Quad Stage") are sample content, not real data. When I build it, I will bring back real Livingstone places and orgs, like Varick Auditorium and the Blue Bears.</Check>
+
+<FlowVideo label="FLOW VIDEO" mp4="/videos/campus-events-flow.mp4" webm="/videos/campus-events-flow.webm" poster="/images/work/campus-events/flow-poster.webp" playLabel="Play the flow 0:12" caption="Flow video, 12.5 s. An attendee discovers an event, RSVPs, and gets a ticket, while the organizer checks them in at the door." />
+
+</Section>
+
+<Section id="key-decisions" number="03" title="Key decisions">
+
+<Decision number={1} eyebrow="DECISION 01" title="I audited my own v1 and rebuilt it as a system">
+
+<Label>THE TENSION</Label>
+
+v1 worked. It was a real web app with a warm editorial style ("Find your people.", "Your next good thing."). But "it works" and "it’s ready" aren’t the same thing, and I wanted to be honest about the gap.
+
+<Label>WHAT I FOUND WHEN I AUDITED V1</Label>
+
+<ArrowList>
+
+- **Text was too small.** Much of the meta text (dates, tags, venues, nav labels) was 8 to 10 px.
+- **Contrast failed.** Two tertiary greys came in at 3.48:1 and 2.68:1 on white, under the WCAG AA minimum for small text.
+- **Targets were too small.** The bookmark on list cards was 24 x 32. Map controls and the toggle were under 44 px.
+- **There was no system.** No components, no variables, no text styles, more than 20 corner radii, and near-duplicate colors.
+- **Inconsistencies.** Two Profile screens, three date formats, and headline sizes that drifted from 28 to 36.
+- **Missing screens.** No event detail (though every card pointed to one), no cover photo step in Create, and no organizer side at all.
+
+</ArrowList>
+
+<Label>THE TRADEOFF</Label>
+
+<Options>
+  <Option label="PATCH SCREENS">Fix each problem where it shows up.</Option>
+  <Option label="FOUNDATION FIRST" chosen>Rebuild the foundation, then redesign on top of it.</Option>
+</Options>
+
+<Label>WHAT I CHOSE</Label>
+
+Instead of patching screens, I rebuilt the foundation first and then redesigned on top of it.
+
+<ArrowList>
+
+- Semantic color tokens (var(--ce-...)) and 14 named text styles, with nothing under 12 px and 16 px body text.
+- Tertiary text darkened to 5.05:1.
+- 44 px minimum targets everywhere (buttons are 48 or 56).
+- One Profile, one date format, and a fixed nav that content scrolls under, so it never covers anything.
+
+</ArrowList>
+
+<Figure src="/images/work/campus-events/02-v1-vs-v2-discover.webp" width={876} height={962} figmaSize={[420,461]} position="center" radius={6} caption="v1 vs v2 Discover" />
+
+<Label>WHY</Label>
+
+<Check note="decision 1 why">If I’m going to build this, every inconsistency in the design becomes a bug in the code. Fixing it at the system level once beats fixing it screen by screen forever.</Check>
+
+</Decision>
+
+<Decision number={2} eyebrow="DECISION 02" title="Playful, but never at the cost of reading it">
+
+<Label>THE TENSION</Label>
+
+I wanted the app to feel like a campus night out, loud and fun. My references were bold color-block onboarding screens, Family wallet’s stickers, and Dream.Tour. But playful UIs often break the basics: neon on neon, tiny labels, and meaning carried by color alone. And I’m going to build this, so it has to follow real design principles.
+
+<Label>THE TRADEOFF</Label>
+
+<Options>
+  <Option label="LOUD">Fun is the reason people open the app.</Option>
+  <Option label="READABLE">Readability is the reason they can use it.</Option>
+  <Option label="BOTH, MEASURED" chosen>Push the color, measure every pair.</Option>
+</Options>
+
+<Label>WHAT I CHOSE</Label>
+
+Big color blocks carry the mood. The type stays calm and readable.
+
+<ArrowList>
+
+- **Big color blocks** Violet, lime, sun, pink, sky, coral. Chunky Bricolage Grotesque headlines over Plus Jakarta Sans body text.
+- **A sticker feel without losing legibility** 2 px ink outlines and a hard "Pop" shadow (0 4 0 ink).
+- **Every text pair is measured** The foundations sheet lists the WCAG ratio for each one, for example ink on lime at 13.91:1. White on pink at 3.04:1 failed, so I marked it "NOT USED."
+- **Characters only in emotional moments** Onboarding, success, empty, offline, error, and change notices. Never in the middle of a task.
+- **The nav never relies on color alone** The active tab is a lime pill with a label.
+
+</ArrowList>
+
+<Figure src="/images/work/campus-events/06-foundations-contrast.webp" width={1600} height={1358} figmaSize={[728,520]} position="50% 0%" radius={6} caption="Foundations and contrast pairs" />
+
+<Label>WHY</Label>
+
+<Check note="decision 2 why">Fun is the reason people open the app. Readability is the reason they can use it. I wanted both, and measuring contrast is what let me push the color without guessing.</Check>
+
+</Decision>
+
+<Decision number={3} eyebrow="DECISION 03" title="Design the whole life of an event, not just the feed">
+
+<Label>THE TENSION</Label>
+
+A feed of events is the easy part. The real experience is everything around it: what happens when an event fills up, when the time changes, when it gets cancelled, and what the person running it needs at the door.
+
+<Label>WHAT I CHOSE</Label>
+
+I designed the event lifecycle on both sides.
+
+<ArrowList>
+
+- **The RSVP button changes with the event** The sticky bar always says what’s true: "Free, 184 spots left," "You are in, ticket saved to You," "Event full, 12 people on the waitlist," "You are #4, we will notify you," and "No spots left, waitlist is closed."
+- **Organizers get the tools to run it** A dashboard, an approval step ("Sent for review," with Submitted, In review, and Published shown in order), and a door scanner that says clearly when someone is checked in or a ticket is invalid.
+- **Change is communicated kindly** A cancelled event says exactly what it means for you ("Your RSVP was removed, nothing else to do."), shows the organizer’s note, and suggests something else. Offline mode keeps saved events and tickets working.
+
+</ArrowList>
+
+<FigureRow>
+<Figure src="/images/work/campus-events/03-rsvp-states.webp" width={1728} height={922} figmaSize={[728,388]} position="center" radius={6} caption="RSVP states" />
+<Figure src="/images/work/campus-events/04-organizer-flow.webp" width={1302} height={922} figmaSize={[356,252]} position="center" radius={6} caption="Organizer dashboard, approval, and door scanner" />
+<Figure src="/images/work/campus-events/05-system-states.webp" width={1302} height={922} figmaSize={[356,252]} position="center" radius={6} caption="Empty, offline, and cancelled states" />
+</FigureRow>
+
+<Label>WHY</Label>
+
+<Check note="decision 3 why">Trust is built in the awkward moments. If the app is honest when an event is full or cancelled, people will believe it when it says "You’re going."</Check>
+
+</Decision>
+
+</Section>
+
+<Section id="how-i-built-it" number="04" title="How I built it">
+
+<ArrowList>
+
+- **v1** <Check note="v1 stack + link">A working web app with 9 screens: Discover, map (two states), Saved, two Profile versions, a two-step Create flow, and a confirmation. I kept these on the canvas as reference. v1 was a React web app built with Vite. The link goes here once it is back online.</Check>
+- **Foundations** Semantic color tokens aliased to primitives, a type scale from Display XL 44/48 down to Micro 12/16, spacing from 4 to 48, radii of 12, 16, 24, and 32 plus full, and three effects (Soft, Lift, Pop).
+- **Components** About 30 component sets with variants, including Button, Event Card, RSVP Button (5 states), Bookmark Toggle, Filter Chip, Bottom Nav, Step Progress (1 to 8), Ticket Card, QR Code, Bottom Sheet, Toast, Empty State, and a campus map kit. Plus 49 icons, 5 characters, and 6 stickers.
+- **Prototype** About 180 interactions and 9 named flows, from attendee onboarding and Discover to RSVP, to organizer create and publish, door check-in, and manage, edit, postpone, and cancel. Interactive components switch state in place.
+- **Photos** Event and avatar photos are from Pexels (free license), with sources documented.
+
+</ArrowList>
+
+</Section>
+
+<Section id="impact" number="05" title="Impact">
+
+No users or metrics yet, so I won’t invent any.
+
+What it shows today: I can take my own working first version, find what’s wrong with it, and turn it into something complete, consistent, and accessible enough to hand to engineering, which, in this case, is me.
+
+<Label>WHAT I’D MEASURE NEXT</Label>
+
+<ArrowList>
+
+- How many events clubs post per week, and how many make it through approval the same day.
+- Saves and RSVPs per event, and how many RSVPs actually check in at the door.
+- Whether students say they found something they would have missed.
+- How fast an organizer can go from "Create an event" to "Sent for review."
+
+</ArrowList>
+
+</Section>
+
+<Section id="reflection" number="06" title="Reflection">
+
+<ArrowList>
+
+- **My first version taught me more after I audited it than while I was building it.** Seeing 8 px text and failing contrast in my own work made those rules stick.
+- **Systems make playful possible.** The loud colors only work because every pair is measured and every color is a token.
+- **The organizer is a user too.** v1 only thought about attendees. Designing the door scanner and the approval flow changed how I see the whole product.
+- **I lost something in the redesign.** <Check note="reflection: lost campus feel">v1 was full of real Livingstone places. v2 uses generic sample content. Putting my campus back in is the next thing I’d fix.</Check>
+
+</ArrowList>
+
+<Label>NEXT STEPS</Label>
+
+1. <Check note="next step: real places">Bring real Livingstone venues, orgs, and the Blue Bears back into the sample content.</Check>
+2. Build v2 in code, starting with Discover, event detail, and RSVP.
+3. <Check note="who to ask">Show it to 5 students and 2 club leaders and watch them RSVP and post an event. I would start with friends from my study sessions and club leaders I know through ColorStack and campus events.</Check>
+
+</Section>
+

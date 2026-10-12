@@ -1,0 +1,95 @@
+{
+  "logo": "Immanuel Mensah",
+  "nav": [
+    {
+      "number": "01",
+      "label": "Work",
+      "href": "/#work",
+      "external": false
+    },
+    {
+      "number": "02",
+      "label": "Gatherings",
+      "href": "/gatherings",
+      "external": false
+    },
+    {
+      "number": "03",
+      "label": "About",
+      "href": "/about",
+      "external": false
+    },
+    {
+      "number": "04",
+      "label": "Resume",
+      "href": "/resume.pdf",
+      "external": true
+    }
+  ],
+  "availability": "Open to Summer 2027 internships",
+  "talkButton": {
+    "shortcut": "T",
+    "closeLabel": "Close",
+    "closeHint": "Esc",
+    "labels": {
+      "home": "Pull up a chair",
+      "gatherings": "Wanna hang?",
+      "work": "Questions about this project?",
+      "about": "Say hi",
+      "lab": "Say hi"
+    }
+  },
+  "contactLinks": [
+    {
+      "number": "01",
+      "label": "Email",
+      "value": "tutuimmanuel10@gmail.com",
+      "href": "mailto:tutuimmanuel10@gmail.com",
+      "check": true,
+      "checkNote": "public email"
+    },
+    {
+      "number": "02",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/immanuel-mensah",
+      "href": "https://www.linkedin.com/in/immanuel-mensah",
+      "check": true,
+      "checkNote": "LinkedIn URL"
+    },
+    {
+      "number": "03",
+      "label": "GitHub",
+      "value": "github.com/Im-ma",
+      "href": "https://github.com/Im-ma",
+      "check": true,
+      "checkNote": "GitHub URL"
+    },
+    {
+      "number": "04",
+      "label": "Resume (PDF)",
+      "value": "Download PDF",
+      "href": "/resume.pdf",
+      "check": true,
+      "checkNote": "resume link"
+    },
+    {
+      "number": "05",
+      "label": "Book a 15-min chat",
+      "value": "cal.com/immanuel-mensah",
+      "href": "talk:book",
+      "check": true,
+      "checkNote": "Cal.com URL"
+    }
+  ],
+  "email": "tutuimmanuel10@gmail.com",
+  "footer": {
+    "compactLinks": [
+      "Email",
+      "LinkedIn",
+      "GitHub",
+      "Resume"
+    ],
+    "copyright": "Immanuel Mensah, 2026",
+    "credit": "Designed and built by me"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+public
+content
+package-lock.json
+*.webp
+*.mp4
+*.webm
+*.pdf

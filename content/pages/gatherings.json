@@ -1,0 +1,504 @@
+{
+  "route": "/gatherings",
+  "talkButtonLabel": "Wanna hang?",
+  "intro": {
+    "eyebrow": "GATHERINGS",
+    "title": "I love bringing people together over books, food, and fresh air.",
+    "lead": "Study sessions, picnics, and eat-outs I organize with friends and classmates. Everyone is welcome at the table.",
+    "nextUp": {
+      "label": "NEXT UP",
+      "title": {
+        "text": "Saturday picnic",
+        "check": true,
+        "checkNote": "next gathering title"
+      },
+      "meta": {
+        "text": "Oct 2026  /  Campus lawn",
+        "check": true,
+        "checkNote": "next gathering date + place"
+      },
+      "link": {
+        "label": "Wanna join?",
+        "action": "talk:note-or-question"
+      }
+    }
+  },
+  "recent": {
+    "id": "recent",
+    "number": "01",
+    "title": "Recent gatherings",
+    "pileSize": {
+      "width": 1200,
+      "height": 1190
+    },
+    "filters": [
+      {
+        "label": "All",
+        "value": "all"
+      },
+      {
+        "label": "Study sessions",
+        "value": "study"
+      },
+      {
+        "label": "Picnics",
+        "value": "picnic"
+      },
+      {
+        "label": "Eat-outs",
+        "value": "eat-out"
+      }
+    ],
+    "filterNote": "Talk and Walk categories map to study and picnic for filtering; adjust when real gatherings are added.",
+    "polaroids": [
+      {
+        "id": 1,
+        "layout": {
+          "x": 38,
+          "y": 44,
+          "width": 300,
+          "height": 357,
+          "rotation": -4
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-study-tables.webp",
+          "width": 1200,
+          "height": 1600,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            272,
+            218
+          ],
+          "standin": true,
+          "alt": "overhead study tables",
+          "credit": "Pexels photo 28993557 (stand-in, replace before launch)"
+        },
+        "title": "Calc study night",
+        "caption": "Snacks and one very long limit.",
+        "date": "Sep 2026",
+        "category": "Study",
+        "filter": "study"
+      },
+      {
+        "id": 2,
+        "layout": {
+          "x": 330,
+          "y": 16,
+          "width": 260,
+          "height": 325,
+          "rotation": 4
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-breaking-bread.webp",
+          "width": 1200,
+          "height": 800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            232,
+            186
+          ],
+          "standin": true,
+          "alt": "hands breaking bread on a picnic blanket",
+          "credit": "Pexels photo 6594958 (stand-in, replace before launch)"
+        },
+        "title": "Sunday picnic",
+        "caption": "Blankets out, phones down.",
+        "date": "Sep 2026",
+        "category": "Picnic",
+        "filter": "picnic"
+      },
+      {
+        "id": 3,
+        "layout": {
+          "x": 10,
+          "y": 420,
+          "width": 280,
+          "height": 341,
+          "rotation": 3
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-shared-table.webp",
+          "width": 1200,
+          "height": 1854,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            252,
+            202
+          ],
+          "standin": true,
+          "alt": "shared table from above, hands only",
+          "credit": "Pexels photo 6223233 (stand-in, replace before launch)"
+        },
+        "title": "First eat-out of the year",
+        "caption": "A new spot near campus.",
+        "date": "Aug 2026",
+        "category": "Eat-out",
+        "filter": "eat-out"
+      },
+      {
+        "id": 4,
+        "layout": {
+          "x": 600,
+          "y": 430,
+          "width": 270,
+          "height": 333,
+          "rotation": 4
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-sticky-flipchart.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            242,
+            194
+          ],
+          "standin": true,
+          "alt": "sticky notes on a flip chart",
+          "credit": "Pexels photo 15543114 (stand-in, replace before launch)"
+        },
+        "title": "Hackathon prep night",
+        "caption": "Sticky notes before HackGT.",
+        "date": "Sep 2026",
+        "category": "Study",
+        "filter": "study"
+      },
+      {
+        "id": 5,
+        "layout": {
+          "x": 292,
+          "y": 360,
+          "width": 340,
+          "height": 389,
+          "rotation": -2
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-picnic-overhead.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            312,
+            250
+          ],
+          "standin": true,
+          "alt": "picnic from above, hands and food",
+          "credit": "Pexels photo 17041327 (stand-in, replace before launch)"
+        },
+        "title": "Potluck picnic",
+        "caption": "Everyone brought one dish.",
+        "date": "Oct 2026",
+        "category": "Picnic",
+        "filter": "picnic"
+      },
+      {
+        "id": 6,
+        "layout": {
+          "x": 53,
+          "y": 790,
+          "width": 300,
+          "height": 357,
+          "rotation": -3
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-desk-study.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            272,
+            218
+          ],
+          "standin": true,
+          "alt": "student studying at a desk, from behind",
+          "credit": "Pexels photo 5588404 (stand-in, replace before launch)"
+        },
+        "title": "Quiet study hour",
+        "caption": "Coffee and midterm energy.",
+        "date": "Oct 2026",
+        "category": "Study",
+        "filter": "study"
+      },
+      {
+        "id": 7,
+        "layout": {
+          "x": 596,
+          "y": 800,
+          "width": 300,
+          "height": 357,
+          "rotation": -4
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-passing-food.webp",
+          "width": 1200,
+          "height": 1500,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            272,
+            218
+          ],
+          "standin": true,
+          "alt": "hands passing food at an eat-out",
+          "credit": "Pexels photo 29177217 (stand-in, replace before launch)"
+        },
+        "title": "Midterm eat-out",
+        "caption": "Salad, fries, lots of laughing.",
+        "date": "Oct 2026",
+        "category": "Eat-out",
+        "filter": "eat-out"
+      },
+      {
+        "id": 8,
+        "layout": {
+          "x": 330,
+          "y": 740,
+          "width": 262,
+          "height": 326,
+          "rotation": 2
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-talk-audience.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            234,
+            187
+          ],
+          "standin": true,
+          "alt": "audience from behind at a talk",
+          "credit": "Pexels photo 38786013 (stand-in, replace before launch)"
+        },
+        "title": "ColorStack workshop",
+        "caption": "Career prep with CS peers.",
+        "date": "Sep 2026",
+        "category": "Talk",
+        "filter": "study"
+      },
+      {
+        "id": 9,
+        "layout": {
+          "x": 580,
+          "y": 24,
+          "width": 290,
+          "height": 350,
+          "rotation": -2,
+          "note": "Shown at 0 deg in Figma only to illustrate the hover state. Give it a resting tilt of -2 deg in code."
+        },
+        "check": true,
+        "image": {
+          "src": "/images/gatherings/standin-campus-lawn.webp",
+          "width": 1200,
+          "height": 1800,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 0,
+          "figmaSize": [
+            262,
+            210
+          ],
+          "standin": true,
+          "alt": "campus lawn in early fall",
+          "credit": "Pexels photo 34623256 (stand-in, replace before launch)"
+        },
+        "title": "Fall walk and talk",
+        "caption": "Leaves, sun, a long talk.",
+        "date": "Oct 2026",
+        "category": "Walk",
+        "filter": "picnic"
+      }
+    ],
+    "interactionNotes": {
+      "onFilter": "Choosing a chip shuffles the pile and re-scatters only the matching photos. All brings everyone back."
+    },
+    "moreButton": {
+      "label": "See older gatherings",
+      "variant": "secondary"
+    },
+    "designNotes": [
+      "Choosing a chip shuffles the pile and re-scatters only the matching photos. All brings everyone back.",
+      "The photo straightens to 0°, lifts 8px, and its shadow grows. The card on the left shows this state.",
+      "Each photo gets a small tilt (between -4° and +4°), an offset, and one of three sizes. Overlaps are intentional, like photos on a table.",
+      "Photos are Pexels stand-ins (backs, hands, and wide shots only). Titles, dates, captions, and notes are drafts marked CHECK."
+    ]
+  },
+  "noteWall": {
+    "id": "note-wall",
+    "number": "02",
+    "title": "Note wall",
+    "button": {
+      "label": "Leave a note",
+      "action": "talk:note",
+      "arrow": true
+    },
+    "lead": "Notes from friends and visitors. Each one shows up here after I approve it.",
+    "boardSize": {
+      "width": 1200,
+      "height": 680
+    },
+    "notes": [
+      {
+        "text": "Thanks for the study session. I walked in lost and walked out ready for the quiz.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A study group regular",
+        "layout": {
+          "x": 44,
+          "y": 52,
+          "width": 250,
+          "height": 202,
+          "rotation": -3
+        },
+        "color": "yellow",
+        "attachment": "tape"
+      },
+      {
+        "text": "Thanks for the picnic. I met half my friends on that blanket.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A friend from class",
+        "layout": {
+          "x": 336,
+          "y": 30,
+          "width": 240,
+          "height": 184,
+          "rotation": 2
+        },
+        "color": "cobalt",
+        "attachment": "pin"
+      },
+      {
+        "text": "The eat-out was the first time this semester I actually slowed down.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A classmate",
+        "layout": {
+          "x": 616,
+          "y": 66,
+          "width": 256,
+          "height": 208,
+          "rotation": -1
+        },
+        "color": "green",
+        "attachment": "tape"
+      },
+      {
+        "text": "Your work is thoughtful. Keep building.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A visitor",
+        "layout": {
+          "x": 910,
+          "y": 44,
+          "width": 244,
+          "height": 192,
+          "rotation": 4
+        },
+        "color": "pink",
+        "attachment": "pin"
+      },
+      {
+        "text": "Count me in for the next one.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A visitor",
+        "layout": {
+          "x": 64,
+          "y": 378,
+          "width": 240,
+          "height": 194,
+          "rotation": 2
+        },
+        "color": "cobalt",
+        "attachment": "pin"
+      },
+      {
+        "text": "I came to one picnic not knowing anyone. Now I come to every gathering, and I bring people with me.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A first-year student",
+        "layout": {
+          "x": 348,
+          "y": 336,
+          "width": 256,
+          "height": 226,
+          "rotation": -4
+        },
+        "color": "pink",
+        "attachment": "tape"
+      },
+      {
+        "text": "Same time next week?",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A friend",
+        "layout": {
+          "x": 650,
+          "y": 392,
+          "width": 236,
+          "height": 184,
+          "rotation": 3
+        },
+        "color": "yellow",
+        "attachment": null
+      },
+      {
+        "text": "The study session before the exam helped more than the review sheet.",
+        "check": true,
+        "checkNote": "sample note",
+        "signature": "- A classmate",
+        "layout": {
+          "x": 922,
+          "y": 356,
+          "width": 248,
+          "height": 204,
+          "rotation": -2
+        },
+        "color": "green",
+        "attachment": "tape"
+      }
+    ],
+    "sourceNote": "Static sample notes. In production, load approved notes from Supabase (approved = true), newest first, and cycle the 8 layout slots."
+  },
+  "footer": {
+    "heading": "Want in on the next one?",
+    "buttons": [
+      {
+        "label": "Pull up a chair",
+        "action": "talk:open",
+        "variant": "primary"
+      },
+      {
+        "label": "Email me",
+        "href": "mailto:tutuimmanuel10@gmail.com",
+        "variant": "secondary",
+        "check": true,
+        "checkNote": "email button label"
+      }
+    ]
+  }
+}

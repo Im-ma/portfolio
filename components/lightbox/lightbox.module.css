@@ -1,0 +1,41 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: color-mix(in srgb, var(--color-ink) 55%, transparent);
+}
+
+.dialog {
+  position: relative;
+  width: min(1100px, 100%);
+  padding: 48px 16px 16px;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lifted);
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--radius-button);
+  background: var(--color-surface);
+  padding: 8px 12px;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: min(78vh, 820px);
+  background: var(--color-bg);
+}
+
+.caption {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+}

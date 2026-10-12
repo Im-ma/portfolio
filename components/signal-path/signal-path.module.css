@@ -1,0 +1,146 @@
+.diagram {
+  position: relative;
+  margin-bottom: 28px;
+  height: 16px;
+}
+
+.track {
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  right: 5px;
+  height: 1px;
+  background: var(--color-hairline-strong);
+  transform-origin: left center;
+}
+
+.draw .track {
+  animation: draw-line 1.05s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.draw .node,
+.draw .end {
+  animation: pop-node 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.draw .node:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.draw .node:nth-child(4) {
+  animation-delay: 0.44s;
+}
+
+.draw .end {
+  animation-delay: 0.72s;
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pop-node {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.node,
+.end {
+  position: absolute;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+}
+
+.node {
+  border: 1.5px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.end {
+  right: 0;
+  background: var(--color-accent);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  color: var(--color-accent);
+}
+
+.text {
+  color: var(--color-muted);
+  max-width: 36ch;
+}
+
+@media (max-width: 767px) {
+  .diagram {
+    display: none;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    position: relative;
+    margin-left: 5px;
+    padding-left: 28px;
+    border-left: 1px solid var(--color-hairline-strong);
+  }
+
+  .step {
+    position: relative;
+  }
+
+  .step::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-surface);
+  }
+
+  .steps::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw .track,
+  .draw .node,
+  .draw .end {
+    animation: none;
+  }
+}

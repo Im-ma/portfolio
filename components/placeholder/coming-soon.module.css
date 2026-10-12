@@ -1,0 +1,42 @@
+.main {
+  padding: 72px 0 96px;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.title {
+  max-width: 16ch;
+  margin-bottom: 20px;
+}
+
+.lead {
+  color: var(--color-muted);
+  max-width: 46ch;
+  margin-bottom: 28px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.back {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.note {
+  margin-top: 36px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-top: 96px;
+  }
+}

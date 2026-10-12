@@ -1,0 +1,121 @@
+.note {
+  --rot: 0deg;
+  --tilt: 1.5deg;
+  position: relative;
+  width: min(240px, 78vw);
+  padding: 30px 22px 20px;
+  background: var(--note-yellow);
+  color: var(--note-ink);
+  box-shadow: var(--shadow-note);
+  transform: rotate(var(--rot));
+  animation: sway 6s ease-in-out infinite alternate;
+  flex: none;
+  container-type: inline-size;
+}
+
+.text {
+  margin: 0;
+  font-family: var(--font-hand), "Caveat", cursive;
+  font-weight: 400;
+  font-size: clamp(18px, 11cqi, 26px);
+  line-height: 1.2;
+}
+
+.signature {
+  display: block;
+  margin-top: 12px;
+  color: var(--color-muted);
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 88px;
+  height: 24px;
+  background: var(--note-tape);
+  opacity: 0.85;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.pin {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+  box-shadow: var(--shadow-card);
+}
+
+.yellow {
+  background: var(--note-yellow);
+}
+
+.cobalt {
+  background: var(--note-cobalt);
+}
+
+.green {
+  background: var(--note-green);
+}
+
+.pink {
+  background: var(--note-pink);
+}
+
+.note.plain {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-width: none;
+  transform: none;
+  animation: none;
+}
+
+.note.plain:hover,
+.note.plain:focus-visible {
+  transform: none;
+  box-shadow: var(--shadow-note);
+  animation: none;
+  z-index: auto;
+}
+
+.note:hover,
+.note:focus-visible {
+  animation: none;
+  transform: translateY(-4px) rotate(calc(var(--rot) + var(--tilt)));
+  box-shadow: var(--shadow-lifted);
+  outline: none;
+  z-index: 2;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+@keyframes sway {
+  from {
+    transform: rotate(var(--rot));
+  }
+  to {
+    transform: rotate(calc(var(--rot) + 0.5deg * var(--dir, 1)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note,
+  .note:hover,
+  .note:focus-visible {
+    animation: none;
+    transform: rotate(var(--rot));
+    transition: none;
+  }
+
+  .note.plain,
+  .note.plain:hover,
+  .note.plain:focus-visible {
+    transform: none;
+  }
+}

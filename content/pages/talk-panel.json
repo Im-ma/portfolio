@@ -1,0 +1,140 @@
+{
+  "width": 400,
+  "statusLabel": "ONLINE",
+  "title": "Pull up a chair",
+  "titleNote": "Use the page talk label as the panel title (home: Pull up a chair, gatherings: Wanna hang?, case study: Questions about this project?, about and lab: Say hi). Figma shows the home version.",
+  "subtitle": "Pick how you want to connect.",
+  "options": [
+    {
+      "number": "01",
+      "title": "Leave a note",
+      "description": "Public wall, after I approve it.",
+      "state": "note"
+    },
+    {
+      "number": "02",
+      "title": "Ask me anything",
+      "description": "Goes straight to my email.",
+      "state": "question"
+    },
+    {
+      "number": "03",
+      "title": "Book a 15-min chat",
+      "description": "Pick a time on my calendar (Cal.com).",
+      "state": "book"
+    }
+  ],
+  "footer": {
+    "replyTime": {
+      "text": "I usually reply within a day or two.",
+      "check": true,
+      "checkNote": "reply time"
+    },
+    "shortcut": "Shortcut: T"
+  },
+  "behavior": "The talk button opens a 400px panel anchored bottom-right. The page dims behind it (ink at 55%). Esc, X, or a click outside closes it.",
+  "states": {
+    "note": {
+      "fields": [
+        {
+          "label": "NAME",
+          "name": "name",
+          "placeholder": "Your name",
+          "maxLength": 60
+        },
+        {
+          "label": "NOTE",
+          "name": "note",
+          "placeholder": "Say hi, share a memory, or leave a kind word.",
+          "maxLength": 500,
+          "multiline": true
+        }
+      ],
+      "header": [
+        "←  Back",
+        "/  01"
+      ],
+      "title": "Leave a note",
+      "subtitle": "Your note goes on the public wall after I approve it.",
+      "counter": {
+        "max": 500,
+        "format": "{n} / 500",
+        "check": true,
+        "checkNote": "character limit"
+      },
+      "submit": {
+        "label": "Submit note",
+        "arrow": true
+      },
+      "helper": "Notes are reviewed before they appear.",
+      "back": "←  Back"
+    },
+    "question": {
+      "fields": [
+        {
+          "label": "NAME",
+          "name": "name",
+          "placeholder": "Your name"
+        },
+        {
+          "label": "EMAIL",
+          "name": "email",
+          "placeholder": "you@example.com",
+          "type": "email"
+        },
+        {
+          "label": "QUESTION",
+          "name": "question",
+          "placeholder": "What do you want to know?",
+          "multiline": true,
+          "maxLength": 2000
+        }
+      ],
+      "header": [
+        "←  Back",
+        "/  02"
+      ],
+      "title": "Ask me anything",
+      "subtitle": "Goes straight to my email.",
+      "prefilledQuote": {
+        "check": true,
+        "checkNote": "example only",
+        "label": "QUOTED FROM <PROJECT>",
+        "example": "QUOTED FROM TRACE",
+        "exampleQuote": "\"Trust in a debugging tool comes from predictability.\""
+      },
+      "submit": {
+        "label": "Send question",
+        "arrow": true
+      },
+      "back": "←  Back"
+    },
+    "book": {
+      "fields": [],
+      "header": [
+        "←  Back",
+        "/  03"
+      ],
+      "title": "Book a 15-min chat",
+      "subtitle": "Pick a time that works for you.",
+      "embedStandin": [
+        "October 2026",
+        "←   →",
+        "2:00 PM",
+        "3:30 PM",
+        "5:00 PM",
+        "Cal.com booking embed"
+      ],
+      "switchLink": {
+        "label": "Prefer writing? Ask me anything instead",
+        "to": "question"
+      },
+      "back": "←  Back",
+      "embed": {
+        "provider": "cal.com",
+        "env": "NEXT_PUBLIC_CALCOM_LINK",
+        "height": 420
+      }
+    }
+  }
+}
