@@ -38,7 +38,6 @@ function SuccessMessage({ kind, configured }: { kind: "note" | "question"; confi
   return (
     <p className={`${styles.success} t-body-m`} role="status">
       {kind === "note" ? NOTE_SUCCESS : QUESTION_SUCCESS}
-      <Check note="success copy" />
     </p>
   );
 }

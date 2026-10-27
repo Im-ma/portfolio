@@ -19,15 +19,6 @@
     "width": 1920,
     "height": 1080
   },
-  "keyTakeaway": {
-    "label": "KEY TAKEAWAY  /  THE THROUGH LINE",
-    "heading": "I think in products, not just screens.",
-    "body": "I started from a local problem, audited my own first 11 screens, and grew them into a two-sided marketplace (riders and drivers) built on a component system."
-  },
-  "scope": {
-    "label": "SCOPE",
-    "text": "76 mobile screens (402 x 874) in 13 flows: my original 11 rider screens, 31 more rider screens, and 34 driver screens. About 30 components and a clickable prototype with 12 starting flows."
-  },
   "meta": [
     {
       "label": "STATUS",
@@ -52,7 +43,7 @@
     },
     {
       "label": "TOOLS",
-      "value": "Figma (variables, text styles, components with variants, prototyping)"
+      "value": "Figma (variables, components, prototyping)"
     }
   ],
   "links": {
@@ -74,31 +65,26 @@
   },
   "sections": [
     {
-      "id": "context",
+      "id": "overview",
       "number": "01",
-      "title": "Context",
+      "title": "Overview",
       "blocks": [
         {
-          "type": "annotation",
-          "devOnly": true,
-          "text": "OPTIONAL INTERACTION Select any sentence to ask about it. The question form opens with the quote prefilled."
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Getting off campus without a car is hard. A grocery run, a doctor’s appointment, or a trip to the pharmacy can mean asking around in group chats and hoping someone is free."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Getting off campus without a car is hard. A grocery run, a doctor’s appointment, or a trip to the store can mean asking around in group chats and hoping someone is free."
+          "text": "Meanwhile plenty of students with cars would happily drive a classmate for a few dollars. The two groups just do not have a simple, trusted way to find each other."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Meanwhile, plenty of students with cars would happily drive a classmate for a few dollars. The two groups just don’t have a simple, trusted way to find each other."
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
+          "text": "Campus Ride connects them: verified Livingstone students, riding with and driving for each other, at a price the rider proposes.",
           "askHighlight": true,
-          "tooltip": "Ask Immanuel about this",
-          "text": "Campus Ride connects them: verified Livingstone students, riding with and driving for each other, at a price the rider proposes."
+          "tooltip": "Ask Immanuel about this"
         },
         {
           "type": "research",
@@ -109,17 +95,34 @@
       ]
     },
     {
-      "id": "the-result",
+      "id": "what-i-made",
       "number": "02",
-      "title": "The result: final solution",
+      "title": "What I made",
       "blocks": [
         {
           "type": "paragraph",
           "variant": "lead",
-          "text": "The file covers both sides of the trip, from booking a ride to getting paid for driving one."
+          "text": "Campus Ride covers both sides of a trip, from booking a ride to getting paid for driving one."
         },
         {
-          "caption": "Booking flow: home, destination, set your price, schedule a ride, finding a driver, driver offers, no drivers available, saved places, and edit place.",
+          "type": "panel",
+          "tone": "solution",
+          "label": "THE FLOW",
+          "blocks": [
+            {
+              "type": "video",
+              "label": "",
+              "poster": "/images/work/campus-ride/flow-poster.webp",
+              "mp4": "/videos/campus-ride-flow.mp4",
+              "webm": "/videos/campus-ride-flow.webm",
+              "playLabel": "Play the flow 0:12",
+              "caption": "12 seconds. A rider sets a destination and a price, driver offers come in, and the rider accepts one."
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "caption": "Booking flow: home, destination, set your price, schedule a ride, finding a driver, driver offers, and no drivers available.",
           "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
           "width": 2400,
           "height": 631,
@@ -129,101 +132,35 @@
           "figmaSize": [
             1440,
             379
-          ],
-          "type": "figure"
-        },
-        {
-          "type": "features",
-          "label": "WHAT YOU SEE",
-          "items": [
-            {
-              "title": "Rider",
-              "text": "Onboarding and student verification, home (\"Hey, Immanuel\"), destination, set your price, schedule for later, searching, driver offers, in-ride chat, call and safety sheet, cancel, payment and tip, receipt, rating, ride history, payment methods, profile, and settings."
-            },
-            {
-              "title": "Driver",
-              "text": "Apply to drive (with a student ID), upload license, insurance, and registration, vehicle details, pending approval, online and offline home, incoming requests with a countdown, counter offers, navigation to pickup, a rider trip code check, trip in progress, earnings, payouts, and cash out."
-            },
-            {
-              "title": "Edge states",
-              "text": "No internet, location off, payment failed, no drivers available, no requests nearby, and expired documents."
-            }
           ]
         },
         {
-          "type": "video",
-          "label": "FLOW VIDEO",
-          "poster": "/images/work/campus-ride/flow-poster.webp",
-          "mp4": "/videos/campus-ride-flow.mp4",
-          "webm": "/videos/campus-ride-flow.webm",
-          "playLabel": "Play the flow 0:12",
-          "caption": "Flow video, 12 s. A rider sets a destination and a price, driver offers come in, and the rider accepts one."
-        },
-        {
-          "type": "video",
-          "devOnly": true,
-          "standin": true,
-          "label": "SECOND FLOW",
-          "poster": "/images/work/campus-ride/flow-poster.webp",
-          "mp4": "",
-          "webm": "",
-          "playLabel": "Play the flow",
-          "caption": "SECOND FLOW SLOT. Add the mp4, webm, poster, and caption here."
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Riders verify as students, pick a destination, set a price, and choose from driver offers. Drivers apply with a student ID and their documents, go online, and get requests with a countdown. Both sides have the unhappy screens too: no internet, payment failed, no drivers available. It comes to 76 mobile screens in 13 flows, and a clickable prototype."
         }
       ]
     },
     {
-      "id": "key-decisions",
+      "id": "decisions",
       "number": "03",
-      "title": "Key decisions",
+      "title": "Decisions",
       "blocks": [
         {
           "type": "decision",
           "number": 1,
           "eyebrow": "DECISION 01",
-          "title": "Riders name the price, with a suggestion to anchor it",
+          "title": "Riders name the price, with a suggestion",
           "blocks": [
-            {
-              "type": "label",
-              "text": "THE TENSION"
-            },
             {
               "type": "paragraph",
               "variant": "body",
-              "text": "Fixed prices are simple but feel wrong between classmates, and students are on tight budgets. Fully open pricing is fair but slow, and people don’t know what’s reasonable."
-            },
-            {
-              "type": "label",
-              "text": "THE TRADEOFF"
-            },
-            {
-              "type": "options",
-              "items": [
-                {
-                  "chosen": false,
-                  "label": "FIXED PRICE",
-                  "text": "Simple, but feels wrong between classmates on tight budgets."
-                },
-                {
-                  "chosen": false,
-                  "label": "FULLY OPEN",
-                  "text": "Fair, but slow, and people don’t know what’s reasonable."
-                },
-                {
-                  "chosen": true,
-                  "label": "SUGGESTED + OFFER",
-                  "text": "A suggested price next to an editable offer."
-                }
-              ]
-            },
-            {
-              "type": "label",
-              "text": "WHAT I CHOSE"
+              "text": "Fixed prices are simple but feel wrong between classmates on tight budgets. Fully open pricing is fair but slow, and nobody knows what is reasonable."
             },
             {
               "type": "split",
               "side": "end",
-              "text": "A suggested price next to an editable offer. On the \"Set your price\" step the rider sees Suggested Price $7.00 and Your offer $6.00 with a stepper, right under the trip details and Now or Later.",
+              "text": "So the \"Set your price\" step shows a suggested price ($7.00) next to an offer the rider can change ($6.00). The suggestion starts from distance and estimated drive time. It gives people a starting point, and the offer keeps them in control.",
               "frame": {
                 "caption": "Set your price",
                 "src": "/images/work/campus-ride/04-set-your-price.webp",
@@ -236,49 +173,28 @@
                   270,
                   587
                 ]
-              }
-            },
-            {
-              "type": "label",
-              "text": "WHY"
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "The suggestion gives people a starting point, and the offer keeps them in control. It turns price from a surprise at the end into a choice at the start. The suggested price starts from distance and estimated drive time, so riders get a fair starting point and can adjust it from there.",
+              },
               "check": true,
               "checkNote": "suggested price logic"
             },
             {
-              "type": "label",
-              "text": "EXPLORING THE SCREEN"
-            },
-            {
               "type": "paragraph",
               "variant": "body",
-              "text": "The destination screen had to confirm pickup and stop, choose Now or Later, show the route, and set a price. I made it in five versions, changing where the map sits and whether a destination list shows."
+              "text": "It took five versions of the destination screen to get here, moving the map and the destination list around. In the end I stopped asking one screen to do everything. Choosing where you are going and agreeing on a price are different decisions, so each got its own screen."
             },
             {
-              "caption": "Destination versions explored",
+              "type": "figure",
+              "caption": "Five versions of the destination screen.",
               "src": "/images/work/campus-ride/02-destination-versions-explored.webp",
               "width": 1246,
               "height": 904,
               "objectFit": "cover",
               "objectPosition": "center",
               "radius": 6,
-              "layout": "fullBleed",
               "figmaSize": [
                 728,
                 528
-              ],
-              "type": "figure"
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "In the end I stopped making one screen do everything. Destination is for choosing where you’re going. The next, map-first screen shows the route and lets you set your price. Choosing a place and agreeing on a price are different decisions, so each gets its own screen.",
-              "check": true,
-              "checkNote": "decision 1 why"
+              ]
             }
           ]
         },
@@ -286,94 +202,50 @@
           "type": "decision",
           "number": 2,
           "eyebrow": "DECISION 02",
-          "title": "I audited my first 11 screens before adding a single new one",
+          "title": "I audited my first 11 screens before adding any new ones",
           "blocks": [
             {
-              "type": "label",
-              "text": "THE TENSION"
-            },
-            {
               "type": "paragraph",
               "variant": "body",
-              "text": "I had a solid happy path: onboarding, verify, log in, sign up, home, destination (two versions), driver offers, two driver-arriving states, and ride complete. The fastest move was to keep adding screens. But every problem in those 11 would get copied into the next 65."
+              "text": "My first 11 screens were a solid happy path. The fast move was to keep adding. But every problem in those 11 would get copied into the next 65."
             },
             {
-              "type": "label",
-              "text": "WHAT I FOUND"
-            },
-            {
-              "type": "list",
-              "variant": "arrow",
-              "items": [
+              "type": "panel",
+              "tone": "problem",
+              "label": "WHAT THE AUDIT FOUND",
+              "blocks": [
                 {
-                  "marker": "→",
-                  "title": "Two type families",
-                  "text": "Inter and SF Pro, 18 different text sizes (some fractional, like 11.545 px), and tab labels as small as 8 px."
-                },
-                {
-                  "marker": "→",
-                  "title": "Five primary buttons",
-                  "text": "The primary button existed in five sizes and radii."
-                },
-                {
-                  "marker": "→",
-                  "title": "Contrast failures",
-                  "text": "The \"Best Match\" and \"Agreed\" chips came in under 3:1, and input borders at 1.48:1."
-                },
-                {
-                  "marker": "→",
-                  "title": "0.1 px card borders",
-                  "text": "They would nearly vanish on screen and can’t be matched in code."
-                },
-                {
-                  "marker": "→",
-                  "title": "Small tap targets",
-                  "text": "As small as 16 px (edit pencils) and 24 px (back arrow)."
-                },
-                {
-                  "marker": "→",
-                  "title": "Copy slips",
-                  "text": "\"Kannaplois,\" \"Salibury,\" \"3-2 min,\" mixed \"US$6\" and \"$7.00.\""
+                  "type": "list",
+                  "variant": "arrow",
+                  "items": [
+                    {
+                      "marker": "→",
+                      "text": "Two type families and 18 text sizes, some fractional, like 11.545 px."
+                    },
+                    {
+                      "marker": "→",
+                      "text": "The primary button existed in five sizes and radii."
+                    },
+                    {
+                      "marker": "→",
+                      "text": "Two chips came in under 3:1 contrast, and input borders were 1.48:1."
+                    },
+                    {
+                      "marker": "→",
+                      "text": "Tap targets as small as 16 px, and copy slips like \"Kannaplois\" and \"Salibury.\""
+                    }
+                  ]
                 }
               ]
             },
             {
-              "type": "label",
-              "text": "WHAT I CHOSE"
-            },
-            {
               "type": "paragraph",
               "variant": "body",
-              "text": "I fixed the foundation first."
+              "text": "I fixed the foundation first: one type scale, every color bound to a variable, a radius scale, 44 px hit areas, and one price format. Then I turned the repeating patterns into components, starting with Button, Input, Header, Stepper, and Bottom sheet."
             },
             {
-              "type": "list",
-              "variant": "arrow",
-              "items": [
-                {
-                  "marker": "→",
-                  "text": "One iOS type scale as named text styles, with nothing under 11 px."
-                },
-                {
-                  "marker": "→",
-                  "text": "Every color bound to a variable, plus stronger success, error, and border colors so the chips and inputs pass."
-                },
-                {
-                  "marker": "→",
-                  "text": "1 px strokes, a radius scale, a single 24 px margin, and 44 px hit areas."
-                },
-                {
-                  "marker": "→",
-                  "text": "Corrected copy and one price format."
-                },
-                {
-                  "marker": "→",
-                  "text": "Then I turned the repeated patterns into components: Button, Input, Header, Route summary, Stepper, and Bottom sheet."
-                }
-              ]
-            },
-            {
-              "caption": "Driver offers, before and after the audit",
+              "type": "figure",
+              "caption": "Driver offers, before and after the audit.",
               "src": "/images/work/campus-ride/03-v1-vs-v2-driver-offers.webp",
               "width": 824,
               "height": 904,
@@ -383,12 +255,7 @@
               "figmaSize": [
                 420,
                 461
-              ],
-              "type": "figure"
-            },
-            {
-              "type": "label",
-              "text": "WHY"
+              ]
             },
             {
               "type": "paragraph",
@@ -406,45 +273,32 @@
           "title": "Design the negotiation on both sides, including when it fails",
           "blocks": [
             {
-              "type": "label",
-              "text": "THE TENSION"
-            },
-            {
               "type": "paragraph",
               "variant": "body",
-              "text": "\"Name your price\" only works if drivers can respond and riders can choose. And it has to handle the awkward moments: no one accepts, or a driver loses out."
-            },
-            {
-              "type": "label",
-              "text": "WHAT I CHOSE"
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "I added the whole driver side and designed a full offer loop."
+              "text": "Name your price only works if drivers can respond and riders can choose. And it has to handle the awkward moments: nobody accepts, or a driver loses out."
             },
             {
               "type": "flow",
               "steps": [
                 {
                   "title": "Riders see driver offers",
-                  "text": "A list, each with a verified badge, rating, ride count, ETA, and price. One is tagged Best Match."
+                  "text": "Each has a verified badge, rating, ETA, and price. One is tagged Best Match."
                 },
                 {
-                  "title": "Drivers get each request with a countdown",
-                  "text": "They can accept, decline, or counter. The counter offer screen shows the rider’s offer, the driver’s price, and \"You earn after 10% fee,\" so the driver sees what they actually take home."
+                  "title": "Drivers get a request with a countdown",
+                  "text": "They can accept, decline, or counter, and see what they take home after the fee."
                 },
                 {
                   "title": "When no one accepts",
-                  "text": "The rider gets \"No drivers available\" with two clear ways forward: raise the offer or schedule for later."
+                  "text": "The rider gets \"No drivers available\" and two ways forward: raise the offer or schedule for later."
                 },
                 {
                   "title": "Drivers get closure too",
-                  "text": "\"Rider chose someone else\" and \"You missed a request\" explain what happened instead of leaving them guessing."
+                  "text": "\"Rider chose someone else\" and \"You missed a request\" explain what happened."
                 }
               ],
               "frame": {
-                "caption": "Offer loop: driver offers, counter offer, and no drivers available",
+                "caption": "The offer loop: driver offers, counter offer, and no drivers available.",
                 "src": "/images/work/campus-ride/05-offer-negotiation-loop.webp",
                 "width": 1302,
                 "height": 922,
@@ -459,14 +313,10 @@
             },
             {
               "type": "paragraph",
-              "variant": "body",
-              "text": "Note: numbers in these screens, like typical offer ranges and the 10% fee, are placeholder copy, not real data. The 10% fee is a placeholder for now. I would set the real number after asking drivers what feels fair.",
+              "variant": "small",
+              "text": "The numbers in these screens, like typical offer ranges and the 10% fee, are placeholder copy, not real data. I would set the real fee after asking drivers what feels fair.",
               "check": true,
               "checkNote": "10% fee"
-            },
-            {
-              "type": "label",
-              "text": "WHY"
             },
             {
               "type": "paragraph",
@@ -480,165 +330,37 @@
       ]
     },
     {
-      "id": "how-i-built-it",
+      "id": "looking-back",
       "number": "04",
-      "title": "How I built it",
+      "title": "Looking back",
       "blocks": [
         {
-          "type": "bento",
-          "standin": true,
-          "frames": [
-            {
-              "src": "/images/work/campus-ride/06-component-library.webp",
-              "width": 2400,
-              "height": 299,
-              "objectPosition": "8% center",
-              "standin": true
-            },
-            {
-              "src": "/images/work/campus-ride/06-component-library.webp",
-              "width": 2400,
-              "height": 299,
-              "objectPosition": "36% center",
-              "standin": true
-            },
-            {
-              "src": "/images/work/campus-ride/06-component-library.webp",
-              "width": 2400,
-              "height": 299,
-              "objectPosition": "64% center",
-              "standin": true
-            },
-            {
-              "src": "/images/work/campus-ride/06-component-library.webp",
-              "width": 2400,
-              "height": 299,
-              "objectPosition": "92% center",
-              "standin": true
-            }
-          ]
-        },
-        {
-          "type": "list",
-          "variant": "arrow",
+          "type": "features",
           "items": [
             {
-              "marker": "→",
-              "title": "References",
-              "text": "I studied ride-hailing patterns, including an Uber UI kit, before designing my own flows."
-            },
-            {
-              "marker": "→",
-              "title": "Foundations",
-              "text": "An iOS-based type scale (Caption 2 to Large Title), color variables (including success, error, and border tokens), a radius scale (8, 12, 16, 24, and full), and a 24 px screen margin."
-            },
-            {
-              "marker": "→",
-              "title": "Components",
-              "text": "My first set was a navbar (dark and light), a driver card (Default, Best Match, Selected), a verified badge, and a bottom bar. It now has about 30 components, including Button (with a destructive style), Input, Header, Route summary, Stepper, Bottom sheet, 58 Lucide-style icons, List row, Chip, Toggle row, Rating stars, Modal, Chat bubble, Segmented control, Status pill, Countdown, Banner, Stat tile, Document row, Trip request card, and a shared Tab bar with rider and driver modes."
-            }
-          ]
-        },
-        {
-          "caption": "Component library (center crop)",
-          "src": "/images/work/campus-ride/06-component-library.webp",
-          "width": 2400,
-          "height": 299,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 6,
-          "figmaSize": [
-            792,
-            200
-          ],
-          "type": "figure"
-        },
-        {
-          "type": "paragraph",
-          "variant": "small",
-          "text": "Flows: 13 lettered sections, A to M: Onboarding, Booking, In ride, Post ride, Account, Edge states, Driver onboarding, Mode and home, Requests and offers, Trip, Post trip, Earnings and account, and Driver edge states."
-        },
-        {
-          "type": "paragraph",
-          "variant": "small",
-          "text": "Prototype: 12 starting flows. Forward screens push in from the right. Screens that share layers (home to destination to map to searching to offers) use Smart Animate. Safety and cancel open as overlays, and interactive components (chips, toggles, rating stars, the countdown) change state in place."
-        }
-      ]
-    },
-    {
-      "id": "impact",
-      "number": "05",
-      "title": "Impact",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Campus Ride hasn’t launched, and there are no users or metrics yet."
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Why it matters: it’s a real problem on my campus, and the design takes on the hard parts of a marketplace (trust, pricing, and what happens when nobody says yes) instead of only the happy path."
-        },
-        {
-          "type": "label",
-          "text": "WHAT I’D MEASURE NEXT"
-        },
-        {
-          "type": "list",
-          "variant": "arrow",
-          "items": [
-            {
-              "marker": "→",
-              "text": "How often a rider’s first offer gets accepted, and how long it takes."
-            },
-            {
-              "marker": "→",
-              "text": "How often riders raise their offer after \"No drivers available.\""
-            },
-            {
-              "marker": "→",
-              "text": "Whether riders and drivers feel the final price was fair."
-            },
-            {
-              "marker": "→",
-              "text": "How many students would sign up to drive. A short survey in student group chats and through ColorStack could answer this before I build anything.",
-              "check": true,
-              "checkNote": "survey"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "reflection",
-      "number": "06",
-      "title": "Reflection",
-      "blocks": [
-        {
-          "type": "list",
-          "variant": "arrow",
-          "items": [
-            {
-              "marker": "→",
               "title": "Audit before you scale.",
               "text": "Fixing 11 screens was cheap. Fixing 76 would not have been."
             },
             {
-              "marker": "→",
-              "title": "Five versions taught me to split, not squeeze.",
+              "title": "Split, do not squeeze.",
               "text": "When a screen keeps getting rearranged, it might be two screens."
             },
             {
-              "marker": "→",
               "title": "Two-sided means twice the empathy.",
               "text": "Designing \"Rider chose someone else\" made me care about how the app feels for the person who loses out, not just the person who wins."
             }
           ]
         },
         {
+          "type": "paragraph",
+          "variant": "small",
+          "text": "Campus Ride has not launched, so there are no users or metrics yet. What I most want to learn is whether a rider’s first offer gets accepted, and how many students would sign up to drive. A short survey in student group chats and through ColorStack could answer the second one before I build anything.",
+          "check": true,
+          "checkNote": "survey"
+        },
+        {
           "type": "label",
-          "text": "NEXT STEPS"
+          "text": "NEXT"
         },
         {
           "type": "list",
@@ -646,17 +368,17 @@
           "items": [
             {
               "marker": "01",
-              "text": "Talk to 10 students: 5 who need rides and 5 who have cars.",
+              "text": "Talk to ten students: five who need rides and five who have cars.",
               "check": true,
               "checkNote": "next step: interviews"
             },
             {
               "marker": "02",
-              "text": "Define the safety and verification rules in detail (student email, student ID, and driver documents)."
+              "text": "Settle the safety and verification rules: student email, student ID, and driver documents."
             },
             {
               "marker": "03",
-              "text": "Test the prototype’s offer loop with real classmates."
+              "text": "Test the offer loop in the prototype with real classmates."
             }
           ]
         }
@@ -667,18 +389,20 @@
   "toc": [
     {
       "number": "01",
-      "subs": [],
-      "title": "Context",
-      "anchor": "context"
+      "title": "Overview",
+      "anchor": "overview",
+      "subs": []
     },
     {
       "number": "02",
-      "subs": [],
-      "title": "The result",
-      "anchor": "the-result"
+      "title": "What I made",
+      "anchor": "what-i-made",
+      "subs": []
     },
     {
       "number": "03",
+      "title": "Decisions",
+      "anchor": "decisions",
       "subs": [
         {
           "number": "3.1",
@@ -692,36 +416,18 @@
         },
         {
           "number": "3.3",
-          "title": "Negotiation on both sides",
+          "title": "Design the negotiation",
           "anchor": "decision-3"
         }
-      ],
-      "title": "Key decisions",
-      "anchor": "key-decisions"
+      ]
     },
     {
       "number": "04",
-      "subs": [],
-      "title": "How I built it",
-      "anchor": "how-i-built-it"
-    },
-    {
-      "number": "05",
-      "subs": [],
-      "title": "Impact",
-      "anchor": "impact"
-    },
-    {
-      "number": "06",
-      "subs": [],
-      "title": "Reflection",
-      "anchor": "reflection"
+      "title": "Looking back",
+      "anchor": "looking-back",
+      "subs": []
     }
   ],
-  "tocNote": {
-    "text": "Sticky while scrolling",
-    "devOnly": true
-  },
   "nextProject": {
     "label": "NEXT PROJECT",
     "status": "Concept",

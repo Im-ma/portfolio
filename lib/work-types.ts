@@ -88,7 +88,14 @@ export type Block =
       checkNote?: string;
     }
   | { type: "flow"; frame?: Media; steps?: { title: string; text?: string }[] }
-  | { type: "compare"; before: Media; after: Media };
+  | { type: "compare"; before: Media; after: Media }
+  | {
+      type: "panel";
+      tone: "problem" | "solution" | "neutral";
+      label?: string;
+      caption?: string;
+      blocks: Block[];
+    };
 
 export type WorkSection = {
   id: string;
@@ -134,8 +141,8 @@ export type Work = {
     objectPosition?: string;
     standin?: boolean;
   };
-  keyTakeaway: { label: string; heading: string; body: string };
-  scope: { label: string; text: string };
+  keyTakeaway?: { label: string; heading: string; body: string };
+  scope?: { label: string; text: string };
   meta: { label: string; value: string; tag?: string; check?: boolean; checkNote?: string }[];
   links: { items: WorkLink[]; flows?: WorkLink[]; flowsLabel?: string };
   sections: WorkSection[];

@@ -3,8 +3,8 @@
   "talkButtonLabel": "Say hi",
   "intro": {
     "eyebrow": "ABOUT",
-    "title": "I’m Immanuel. I design, I build, and I start with people.",
-    "lead": "First-year CS + Math student at Livingstone College, class of 2030. I like hard problems, good conversations, and long tables full of friends.",
+    "title": "I’m Immanuel. I design and build things, and I start by listening.",
+    "lead": "First-year CS and Math student at Livingstone College, class of 2030. I like hard problems and long tables full of friends.",
     "photo": {
       "src": "/images/gatherings/standin-breaking-bread.webp",
       "width": 1200,
@@ -142,12 +142,12 @@
           },
           {
             "text": "React",
-            "check": true,
+            "check": false,
             "checkNote": "about tool chip React"
           },
           {
             "text": "TypeScript",
-            "check": true,
+            "check": false,
             "checkNote": "about tool chip TypeScript"
           }
         ]
@@ -169,7 +169,7 @@
           },
           {
             "text": "Usability testing",
-            "check": true,
+            "check": false,
             "checkNote": "about tool chip Usability testing"
           }
         ]
@@ -179,7 +179,7 @@
   "away": {
     "number": "04",
     "title": "Away from the screen",
-    "lead": "Most of what I know about people I learned around a table. That is why I organize gatherings, and why I keep doing it.",
+    "lead": "Most of what I know about people I learned around a table, so I keep setting one.",
     "photos": [
       {
         "image": {
@@ -252,7 +252,7 @@
         "label": "Resume (PDF)",
         "href": "/resume.pdf",
         "variant": "secondary",
-        "check": true,
+        "check": false,
         "checkNote": "resume PDF link"
       }
     ]

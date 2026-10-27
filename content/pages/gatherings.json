@@ -355,7 +355,7 @@
       "action": "talk:note",
       "arrow": true
     },
-    "lead": "Notes from friends and visitors. Each one shows up here after I approve it.",
+    "lead": "Notes from friends and visitors, shown after I approve them. Until the wall fills up, these are examples.",
     "boardSize": {
       "width": 1200,
       "height": 680
@@ -363,7 +363,7 @@
     "notes": [
       {
         "text": "Thanks for the study session. I walked in lost and walked out ready for the quiz.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A study group regular",
         "layout": {
@@ -378,7 +378,7 @@
       },
       {
         "text": "Thanks for the picnic. I met half my friends on that blanket.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A friend from class",
         "layout": {
@@ -393,7 +393,7 @@
       },
       {
         "text": "The eat-out was the first time this semester I actually slowed down.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A classmate",
         "layout": {
@@ -408,7 +408,7 @@
       },
       {
         "text": "Your work is thoughtful. Keep building.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A visitor",
         "layout": {
@@ -423,7 +423,7 @@
       },
       {
         "text": "Count me in for the next one.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A visitor",
         "layout": {
@@ -438,7 +438,7 @@
       },
       {
         "text": "I came to one picnic not knowing anyone. Now I come to every gathering, and I bring people with me.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A first-year student",
         "layout": {
@@ -453,7 +453,7 @@
       },
       {
         "text": "Same time next week?",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A friend",
         "layout": {
@@ -468,7 +468,7 @@
       },
       {
         "text": "The study session before the exam helped more than the review sheet.",
-        "check": true,
+        "check": false,
         "checkNote": "sample note",
         "signature": "- A classmate",
         "layout": {
@@ -496,7 +496,7 @@
         "label": "Email me",
         "href": "mailto:tutuimmanuel10@gmail.com",
         "variant": "secondary",
-        "check": true,
+        "check": false,
         "checkNote": "email button label"
       }
     ]

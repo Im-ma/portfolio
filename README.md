@@ -80,9 +80,10 @@ Copy lives in `content/`. The site reads the JSON files. Change the words there,
 
 - `content/site.json`: name, nav, availability line, talk button labels, contact links, footer.
 - `content/pages/home.json`: homepage sections.
-- `content/pages/gatherings.json`, `about.json`, `lab.json`: those pages.
+- `content/pages/gatherings.json`, `about.json`: those pages.
+- `content/pages/lab.json`: the Lab. `pieces` are the four playable decisions (the demos live in `components/lab/playables.tsx`), `site` lists the three small experiments from this site.
 - `content/pages/talk-panel.json`: the talk panel menu and the three forms.
-- `content/work/<slug>.json`: case studies. `content/work-mdx/` is the same writing in MDX, kept for reference. The site uses the JSON. Block types are listed below.
+- `content/work/<slug>.json`: case studies. `content/work-mdx/` is the first draft of the same writing in MDX. It is out of date and the site never reads it. Block types are listed below.
 - `tokens/tokens.css`: colors, type, shadows, radii. Do not paste hex colors into components.
 - `public/images/` and `public/videos/`: photos, posters, and flow videos.
 - `public/resume.pdf`: the Resume link.
@@ -93,7 +94,7 @@ House style for anything you add: no em dashes or en dashes. Do not invent metri
 
 ## Case study blocks
 
-A project opens with the cover, then a short details strip, then the story. The cover shows the title, the one-line summary, and the status once. The strip keeps only what the cover does not already say: role, timeline, team, tools, links, and one scope line. The key takeaway renders once, as a quote after Context. Do not paste the summary, status, or takeaway again inside the sections.
+A project opens with the cover, then a short details strip (role, timeline, team, tools, and any links that have a real URL), then the story. Every study uses the same four sections: Overview, What I made, Decisions (two or three, each a claim heading plus a few plain sentences plus one visual), and Looking back (short reflections, an honest status line, and what comes next). Aim for 400 to 800 words. Do not repeat the summary or status inside the sections. Links without an `href` are hidden until you add one.
 
 Story sections are `sections[].blocks`. These types already in the files still work: `paragraph`, `label`, `heading`, `list`, `features`, `options`, `decision`, `figure`, `figureRow`, `video`, `annotation`.
 
@@ -108,7 +109,8 @@ Use these block types when you have (or are standing in) an asset. To replace a 
 - `pair`: `{ "type": "pair", "frames": [frame, frame] }`.
 - `trio`: `{ "type": "trio", "frames": [frame, frame, frame] }`.
 - `bento`: up to four frames in a collage. Set `"standin": true` on the block and on each frame until the real moodboard, palette, or type sheet exists.
-- `quote`: `{ "type": "quote", "label", "text", "detail" }`. The page already shows `keyTakeaway` this way, so do not copy that text into a second quote.
+- `quote`: `{ "type": "quote", "label", "text", "detail" }`.
+- `panel`: `{ "type": "panel", "tone": "problem" | "solution" | "neutral", "label", "caption", "blocks": [...] }`. A tinted card around other blocks: yellow for the problem or an audit, blue for the solution or a flow clip.
 - `research`: `{ "type": "research", "text", "check", "checkNote" }`. A note card for a finding or a quote you already wrote.
 - `flow`: `{ "type": "flow", "steps": [{ "title", "text" }], "frame": frame }`. Steps and the frame are both optional. Put the sentences you already have in `steps` so the diagram does not invent new copy.
 - `compare`: `{ "type": "compare", "before": frame, "after": frame }`. A slider. Keep the real captions on the frames.

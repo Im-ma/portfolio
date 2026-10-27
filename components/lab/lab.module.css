@@ -21,37 +21,66 @@
   padding-bottom: var(--section-y);
 }
 
-.filters {
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.piece {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  padding: 24px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.pieceHead {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pieceMeta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
+}
+
+.project {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.project:hover {
+  text-decoration: underline;
+}
+
+.pieceNote {
+  margin: 0;
+  margin-top: auto;
+}
+
+.site {
+  padding-top: 72px;
+}
+
+.siteLead {
+  max-width: 62ch;
+  margin-top: 8px;
   margin-bottom: 28px;
-}
-
-.chip {
-  padding: 10px 16px;
-  border: 1px solid var(--color-hairline-strong);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-ink);
-}
-
-.chip[data-active="true"] {
-  border-color: var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-on-accent);
-}
-
-.note {
-  margin: -8px 0 24px;
-  padding: 12px;
-  border: 1px dashed var(--color-hairline-strong);
-  color: var(--color-muted);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin: 0;
   padding: 0;
@@ -126,20 +155,6 @@
   background: var(--color-surface);
 }
 
-.dragNote {
-  position: absolute;
-  width: max-content;
-  max-width: calc(100% - 16px);
-  min-height: 0;
-  padding: 16px 14px;
-  border: 0;
-  background: var(--note-yellow);
-  color: var(--note-ink);
-  box-shadow: var(--shadow-note);
-  cursor: grab;
-  text-align: left;
-}
-
 .press {
   display: flex;
   flex-direction: column;
@@ -169,37 +184,6 @@
 
 .pressLabel {
   color: var(--color-muted);
-}
-
-.swatch {
-  position: absolute;
-  top: 28px;
-  left: 24px;
-  width: 72px;
-  height: 72px;
-  border-radius: 8px;
-}
-
-.tokenRow {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  display: flex;
-  gap: 6px;
-}
-
-.token {
-  padding: 6px 8px;
-  border: 1px solid var(--color-hairline-strong);
-  border-radius: 999px;
-  background: var(--color-surface);
-}
-
-.token[data-active="true"] {
-  background: var(--color-ink);
-  color: var(--color-on-accent);
-  border-color: var(--color-ink);
 }
 
 .queue {
@@ -255,90 +239,6 @@
   color: var(--color-accent);
 }
 
-.price {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  padding: 20px;
-}
-
-.price input {
-  width: 100%;
-  accent-color: var(--color-accent);
-}
-
-.cursor {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  margin: -9px 0 0 -9px;
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  pointer-events: none;
-}
-
-.flag {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 12px 12px 44px;
-}
-
-.flagRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 6px 8px;
-  border: 1px solid var(--color-hairline);
-  border-radius: 4px;
-  background: var(--color-surface);
-}
-
-.flagRow[data-flagged="true"] {
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent);
-}
-
-.flagRow[data-held="true"] {
-  opacity: 0.45;
-}
-
-.swipe {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.swipeCard {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 70%;
-  padding: 18px;
-  border: 1px solid var(--color-hairline);
-  border-radius: 8px;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-card);
-  touch-action: none;
-}
-
-.swipeActions {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  display: flex;
-  gap: 8px;
-}
-
-.swipeActions button {
-  padding: 6px 8px;
-  border: 1px solid var(--color-hairline-strong);
-  border-radius: 999px;
-  background: var(--color-surface);
-}
-
 .cta {
   padding-top: 72px;
 }
@@ -350,7 +250,11 @@
   margin-top: 24px;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1099px) {
+  .pieces {
+    grid-template-columns: 1fr;
+  }
+
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -363,6 +267,14 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .piece {
+    padding: 18px;
+  }
+
+  .site {
+    padding-top: 56px;
   }
 }
 

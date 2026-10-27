@@ -15,7 +15,6 @@ import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
-import { QuoteCard } from "./media-blocks";
 import styles from "./case-study.module.css";
 
 const columnSizes = "(max-width: 767px) calc(100vw - 48px), 860px";
@@ -44,27 +43,21 @@ function storySections(work: Work) {
   });
 }
 
+function liveLinks(items: WorkLink[] | undefined) {
+  return (items ?? []).filter((item) => Boolean(item.href) && !item.comingSoon);
+}
+
 function LinkList({ items }: { items: WorkLink[] }) {
   return (
     <ul className={styles.linkList}>
-      {items.map((item) => {
-        const linked = Boolean(item.href) && !item.comingSoon;
-        return (
-          <li key={item.label}>
-            {linked ? (
-              <a href={item.href ?? undefined} target="_blank" rel="noopener noreferrer">
-                {item.label} <span aria-hidden="true">↗</span>
-                {item.check ? <Check note={item.checkNote} /> : null}
-              </a>
-            ) : (
-              <span className={styles.muted}>
-                {item.label}
-                {item.check ? <Check note={item.checkNote} /> : null}
-              </span>
-            )}
-          </li>
-        );
-      })}
+      {items.map((item) => (
+        <li key={item.label}>
+          <a href={item.href ?? undefined} target="_blank" rel="noopener noreferrer">
+            {item.label} <span aria-hidden="true">↗</span>
+            {item.check ? <Check note={item.checkNote} /> : null}
+          </a>
+        </li>
+      ))}
     </ul>
   );
 }
@@ -82,24 +75,6 @@ function NextCover({ slug }: { slug: string }) {
         field={field}
       />
     </span>
-  );
-}
-
-function ContextSection({ section, source }: { section: WorkSection; source: string }) {
-  const notes = section.blocks.filter((block) => block.type === "annotation");
-  const copy = section.blocks.filter((block) => block.type !== "annotation");
-  return (
-    <>
-      <SectionHeader number={section.number} title={section.title} />
-      <div className={styles.contextSplit}>
-        <div className={styles.rail}>
-          <Blocks blocks={notes} source={source} sizes={columnSizes} />
-        </div>
-        <div className={styles.copy}>
-          <Blocks blocks={copy} source={source} sizes={columnSizes} />
-        </div>
-      </div>
-    </>
   );
 }
 
@@ -128,6 +103,8 @@ export function CaseStudy({ work }: { work: Work }) {
   const details = work.meta.filter((item) => !item.tag && item.label !== "STATUS");
   const coverVideo = work.cover?.kind === "video" ? findVideo(work) : null;
   const sections = storySections(work);
+  const links = liveLinks(work.links.items);
+  const flowLinks = liveLinks(work.links.flows);
 
   return (
     <article>
@@ -199,27 +176,25 @@ export function CaseStudy({ work }: { work: Work }) {
                 </dd>
               </div>
             ))}
-            <div className={`${styles.stripItem} ${styles.stripLinks}`}>
-              <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
-              <dd>
-                <LinkList items={work.links.items} />
-              </dd>
-            </div>
-            {work.links.flows && work.links.flows.length > 0 ? (
+            {links.length > 0 ? (
+              <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+                <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
+                <dd>
+                  <LinkList items={links} />
+                </dd>
+              </div>
+            ) : null}
+            {flowLinks.length > 0 ? (
               <div className={`${styles.stripItem} ${styles.stripLinks}`}>
                 <dt className={`${styles.blockLabel} t-mono-label`}>
                   {work.links.flowsLabel || "PROTOTYPE FLOWS"}
                 </dt>
                 <dd>
-                  <LinkList items={work.links.flows} />
+                  <LinkList items={flowLinks} />
                 </dd>
               </div>
             ) : null}
           </dl>
-          <p className={`${styles.scopeLine} t-body-s`}>
-            <span className={`${styles.scopeLabel} t-mono-label`}>{work.scope.label}</span>
-            {work.scope.text}
-          </p>
           <CaseTocBar label={work.tocLabel} items={work.toc} />
         </div>
       </header>
@@ -232,27 +207,10 @@ export function CaseStudy({ work }: { work: Work }) {
         </div>
         <div className={styles.studyMain}>
           {sections.map((section) => (
-            <section
-              key={section.id}
-              id={section.id}
-              className={`${styles.section} ${section.id === "the-result" ? styles.surfaceBand : ""}`}
-            >
+            <section key={section.id} id={section.id} className={`${styles.section}`}>
               <Reveal>
-                {section.id === "context" ? (
-                  <ContextSection section={section} source={work.title} />
-                ) : (
-                  <>
-                    <SectionHeader number={section.number} title={section.title} />
-                    <SectionBody section={section} source={work.title} sizes={columnSizes} />
-                  </>
-                )}
-                {section.id === "context" ? (
-                  <QuoteCard
-                    label={work.keyTakeaway.label}
-                    text={work.keyTakeaway.heading}
-                    detail={work.keyTakeaway.body}
-                  />
-                ) : null}
+                <SectionHeader number={section.number} title={section.title} />
+                <SectionBody section={section} source={work.title} sizes={columnSizes} />
               </Reveal>
             </section>
           ))}

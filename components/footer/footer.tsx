@@ -24,8 +24,8 @@ const compact = [
   {
     label: "Lab",
     href: "/lab",
-    check: true,
-    checkNote: "Lab link in the footer",
+    check: undefined,
+    checkNote: undefined,
     external: false,
   },
 ];
