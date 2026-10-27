@@ -20,6 +20,7 @@ import {
 } from "./media-blocks";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
+import panelStyles from "./media-blocks.module.css";
 
 const variantClass: Record<string, string> = {
   lead: "t-body-l",
@@ -239,6 +240,20 @@ function BlockView({
         </header>
         <Blocks blocks={block.blocks} source={source} sizes={sizes} />
       </article>
+    );
+  }
+
+  if (block.type === "panel") {
+    return (
+      <div className={panelStyles.panel} data-tone={block.tone}>
+        {block.label ? (
+          <p className={`${panelStyles.panelLabel} t-mono-tag`}>{block.label}</p>
+        ) : null}
+        <Blocks blocks={block.blocks} source={source} sizes={sizes} />
+        {block.caption ? (
+          <p className={`${panelStyles.panelCaption} t-body-s`}>{block.caption}</p>
+        ) : null}
+      </div>
     );
   }
 

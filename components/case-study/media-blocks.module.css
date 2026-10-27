@@ -147,6 +147,37 @@
   letter-spacing: 0.04em;
 }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--radius-card);
+  background: var(--color-neutral-soft);
+}
+
+.panel[data-tone="problem"] {
+  background: color-mix(in srgb, var(--note-yellow) 55%, var(--color-surface));
+}
+
+.panel[data-tone="solution"] {
+  background: var(--color-accent-soft);
+}
+
+.panelLabel {
+  align-self: flex-start;
+  padding: 3px 8px;
+  border-radius: var(--radius-tag);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.panelCaption {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--color-ink);
+}
+
 .caption {
   margin-top: 8px;
   color: var(--color-muted);

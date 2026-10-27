@@ -51,7 +51,7 @@
           },
           {
             "text": "React + TypeScript",
-            "check": true,
+            "check": false,
             "checkNote": "Trace stack chip"
           }
         ],
@@ -64,8 +64,8 @@
         "number": "01",
         "status": "Concept",
         "title": "Trace",
-        "tag": "Product design 2026",
-        "tagCheck": true,
+        "tag": "Design + front end, 2026",
+        "tagCheck": false,
         "tagCheckNote": "tag undecided: Concept 2026, or Product design + engineering",
         "summary": "A debug console for finding the bad records hiding in ML training data.",
         "slug": "trace",
@@ -78,7 +78,7 @@
           },
           {
             "text": "React",
-            "check": true,
+            "check": false,
             "checkNote": "Mimic stack chip"
           }
         ],
@@ -91,7 +91,7 @@
         "number": "02",
         "status": "In progress",
         "title": "Mimic",
-        "tag": "Product design 2026",
+        "tag": "Design + engineering, 2026",
         "summary": "A control dashboard for a robotic arm that copies your hand.",
         "slug": "mimic",
         "href": "/work/mimic"
@@ -111,10 +111,10 @@
         "number": "03",
         "status": "In progress",
         "title": "Campus Events",
-        "tag": "Product design 2026",
-        "check": true,
+        "tag": "Design + engineering, 2026",
+        "check": false,
         "checkNote": "app name. Proposed short name: \"Linkup\" (or keep Campus Events)",
-        "summary": "Find your people, fast. A playful campus events app for students and the clubs that bring them together.",
+        "summary": "See what is on tonight, RSVP in a tap, and run the door if you are the club.",
         "slug": "campus-events",
         "href": "/work/campus-events"
       },
@@ -133,7 +133,7 @@
         "number": "04",
         "status": "In progress",
         "title": "Campus Ride",
-        "tag": "Product design 2026",
+        "tag": "Product design, 2026",
         "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
         "slug": "campus-ride",
         "href": "/work/campus-ride"
@@ -148,17 +148,17 @@
       {
         "label": "STEP 01",
         "title": "Listen",
-        "text": "Talk with the people involved and hear what they actually need."
+        "text": "I start by talking with the people who will use it. The best ideas I have had came from someone describing a bad day."
       },
       {
         "label": "STEP 02",
         "title": "Design",
-        "text": "Sketch, prototype, and test ideas until the right one is clear."
+        "text": "I sketch and prototype in Figma, including the awkward screens: errors, empty states, the event that fills up."
       },
       {
         "label": "STEP 03",
         "title": "Build",
-        "text": "Write the code and ship something people can use."
+        "text": "Then I write the code, so the hard parts show up while they are still cheap to fix."
       }
     ]
   },
@@ -169,7 +169,7 @@
       "label": "See all gatherings",
       "href": "/gatherings"
     },
-    "lead": "Study sessions, picnics, and eat-outs I organize. Good things start when people sit at the same table.",
+    "lead": "Study sessions, picnics, and eat-outs I organize. Most of what I know about people I learned around a table.",
     "items": [
       {
         "image": {
@@ -189,7 +189,7 @@
         },
         "title": "Study session",
         "date": "Sep 2026",
-        "check": true,
+        "check": false,
         "checkNote": "study session date"
       },
       {
@@ -210,7 +210,7 @@
         },
         "title": "Picnic",
         "date": "Sep 2026",
-        "check": true,
+        "check": false,
         "checkNote": "picnic date"
       },
       {
@@ -231,13 +231,13 @@
         },
         "title": "Eat-out",
         "date": "Oct 2026",
-        "check": true,
+        "check": false,
         "checkNote": "eat-out date"
       }
     ],
     "noteWall": {
       "label": "FROM THE NOTE WALL",
-      "text": "Notes friends and visitors left. Each one shows up after I approve it.",
+      "text": "Notes people leave, shown after I approve them. Until the wall fills up, these three are examples.",
       "link": {
         "label": "Read the wall",
         "href": "/gatherings#note-wall"
@@ -245,7 +245,7 @@
       "notes": [
         {
           "text": "Thanks for the calc study night. Limits finally make sense.",
-          "check": true,
+          "check": false,
           "checkNote": "note 1",
           "signature": "- A study group regular",
           "rotation": -3,
@@ -254,7 +254,7 @@
         },
         {
           "text": "Loved reading how you build things. Save me a seat at the next picnic.",
-          "check": true,
+          "check": false,
           "checkNote": "note 2",
           "signature": "- A visitor",
           "rotation": 2,
@@ -263,7 +263,7 @@
         },
         {
           "text": "Best picnic of the semester. Same spot next month?",
-          "check": true,
+          "check": false,
           "checkNote": "note 3",
           "signature": "- A friend from class",
           "rotation": -1,
@@ -283,7 +283,7 @@
         "label": "Email me",
         "href": "mailto:tutuimmanuel10@gmail.com",
         "variant": "primary",
-        "check": true,
+        "check": false,
         "checkNote": "email button label"
       },
       {

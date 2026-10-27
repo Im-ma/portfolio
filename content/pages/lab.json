@@ -3,218 +3,75 @@
   "talkButtonLabel": "Say hi",
   "intro": {
     "eyebrow": "LAB",
-    "title": "Small builds and UI experiments.",
-    "lead": "Where I try an interaction before it earns a place in a project. Some end up in my case studies. Most just teach me something."
+    "title": "Try the decisions.",
+    "lead": "Four decisions from my case studies, rebuilt small enough to play with. They run on sample data, and none of them is the real product."
   },
-  "filters": [
+  "pieces": [
     {
-      "label": "All",
-      "value": "all"
+      "id": "quarantine",
+      "project": "Trace",
+      "slug": "trace",
+      "title": "Delete or quarantine?",
+      "prompt": "Pick the broken records, then choose. After that, try restoring one.",
+      "status": "Playable sketch",
+      "note": "Sample records, not real data."
     },
     {
-      "label": "Interaction",
-      "value": "interaction"
-    },
-    {
-      "label": "Systems",
-      "value": "systems"
-    },
-    {
-      "label": "Prototypes",
-      "value": "prototypes"
-    }
-  ],
-  "tiles": [
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-tokens.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Token playground"
-      },
-      "status": "Prototype",
-      "title": "Token playground",
-      "text": "Swap Signal Path tokens and watch a page re-theme live.",
-      "stack": "Figma variables, CSS",
-      "filter": "systems",
-      "filterNote": "category is my guess, confirm"
-    },
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-polaroids.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Polaroid pile"
-      },
-      "status": "Prototype",
-      "title": "Polaroid pile",
-      "text": "Scatter, tilt, and hover lift for the Gatherings photos.",
-      "stack": "CSS, JavaScript",
-      "filter": "interaction",
-      "filterNote": "category is my guess, confirm"
-    },
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-notewall.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Note wall queue"
-      },
-      "status": "Sketch",
-      "title": "Note wall queue",
-      "text": "Approve or hide notes before they show up in public.",
-      "stack": "Figma, React",
-      "filter": "systems",
-      "filterNote": "category is my guess, confirm"
-    },
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-talk.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Press T to talk"
-      },
-      "status": "Prototype",
-      "title": "Press T to talk",
-      "text": "A keyboard-first talk panel that opens from anywhere.",
-      "stack": "JavaScript",
-      "filter": "interaction",
-      "filterNote": "category is my guess, confirm"
-    },
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-price.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Name your price"
-      },
-      "status": "Sketch",
+      "id": "price",
+      "project": "Campus Ride",
+      "slug": "campus-ride",
       "title": "Name your price",
-      "text": "A price slider with a suggested starting point, from Campus Ride.",
-      "stack": "Figma, CSS",
-      "filter": "prototypes",
-      "filterNote": "category is my guess, confirm"
+      "prompt": "Move your offer below the suggestion and see what happens when nobody says yes.",
+      "status": "Playable sketch",
+      "note": "Sample numbers. The real price logic is not set."
     },
     {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-hand.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Hand cursor"
-      },
-      "status": "Sketch",
-      "title": "Hand cursor",
-      "text": "Moving a cursor with hand landmarks from a webcam.",
-      "stack": "JavaScript, MediaPipe Hands",
-      "filter": "interaction",
-      "filterNote": "category is my guess, confirm"
+      "id": "stop",
+      "project": "Mimic",
+      "slug": "mimic",
+      "title": "Pause or emergency stop?",
+      "prompt": "Move your hand with the slider. Then pause the arm, stop it, and try the Space bar.",
+      "status": "Playable sketch",
+      "note": "A pretend arm. The real one is not connected to this page."
     },
     {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-rows.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Flag a row"
-      },
-      "status": "Prototype",
-      "title": "Flag a row",
-      "text": "Select, flag, and quarantine rows in a dense table, from Trace.",
-      "stack": "React, TypeScript",
-      "filter": "prototypes",
-      "filterNote": "category is my guess, confirm"
-    },
-    {
-      "check": true,
-      "image": {
-        "src": "/images/lab/standin-lab-swipe.webp",
-        "width": 800,
-        "height": 600,
-        "objectFit": "cover",
-        "objectPosition": "center",
-        "radius": 0,
-        "figmaSize": [
-          282,
-          212
-        ],
-        "standin": true,
-        "alt": "illustration, Swipe for tonight"
-      },
-      "status": "Sketch",
-      "title": "Swipe for tonight",
-      "text": "Swipe through tonight’s events and save one with a flick.",
-      "stack": "Figma prototyping",
-      "filter": "prototypes",
-      "filterNote": "category is my guess, confirm"
+      "id": "rsvp",
+      "project": "Campus Events",
+      "slug": "campus-events",
+      "title": "What the RSVP button says",
+      "prompt": "Switch the event between states and watch the button and the line under it change.",
+      "status": "Playable sketch",
+      "note": "Sample event."
     }
   ],
-  "pageNote": {
-    "text": "Every tile on this page is a draft. Names, stacks, and status are marked CHECK until I confirm them.",
-    "check": true,
-    "devOnly": true,
-    "checkNote": "Lab page note (remove before launch)"
+  "site": {
+    "title": "Also on this site",
+    "lead": "Smaller things I built for this site and kept.",
+    "tiles": [
+      {
+        "id": "polaroids",
+        "title": "Polaroid pile",
+        "text": "Shuffle a small pile of photos, like the one on Gatherings.",
+        "status": "Live",
+        "stack": "CSS, JavaScript",
+        "href": "/gatherings",
+        "linkLabel": "See Gatherings"
+      },
+      {
+        "id": "queue",
+        "title": "Note wall queue",
+        "text": "Approve or hide a note before it goes public. The real queue sits behind a password.",
+        "status": "Sketch",
+        "stack": "React"
+      },
+      {
+        "id": "press",
+        "title": "Press T to talk",
+        "text": "A keyboard shortcut that opens the talk panel from anywhere on this site.",
+        "status": "Live",
+        "stack": "JavaScript"
+      }
+    ]
   },
   "footer": {
     "heading": "Have an idea I should try?",
@@ -227,9 +84,7 @@
       {
         "label": "Email me",
         "href": "mailto:tutuimmanuel10@gmail.com",
-        "variant": "secondary",
-        "check": true,
-        "checkNote": "email button label"
+        "variant": "secondary"
       }
     ]
   }

@@ -388,17 +388,24 @@
 .decision {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 32px;
-  border: 1px solid var(--color-hairline);
-  border-radius: var(--radius-card);
-  background: var(--color-surface);
+  gap: 20px;
+  padding: 40px 0 0;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.decision:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .decisionHead {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.decisionHead h3 {
+  max-width: 22em;
 }
 
 .options {
@@ -505,6 +512,12 @@
 
 .ask {
   position: relative;
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  .ask {
+    margin-top: 28px;
+  }
 }
 
 .mark {
@@ -717,7 +730,7 @@
   }
 
   .decision {
-    padding: 20px;
+    padding-top: 28px;
   }
 
   .next {
