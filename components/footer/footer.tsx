@@ -21,13 +21,14 @@ const compact = [
       external: Boolean(match?.href?.startsWith("http")),
     };
   }),
-  {
-    label: "Lab",
-    href: "/lab",
-    check: undefined,
-    checkNote: undefined,
-    external: false,
-  },
+  // Lab is hidden for now. Restore this entry when the page comes back.
+  // {
+  //   label: "Lab",
+  //   href: "/lab",
+  //   check: undefined,
+  //   checkNote: undefined,
+  //   external: false,
+  // },
 ];
 
 export function Footer() {
