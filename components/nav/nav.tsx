@@ -15,18 +15,20 @@ function isActive(pathname: string, href: string) {
 type NavItem = (typeof site.nav)[number];
 
 function navItems(): NavItem[] {
-  if (site.nav.some((item) => item.href === "/lab")) return site.nav;
-  const lab: NavItem = { number: "04", label: "Lab", href: "/lab", external: false };
-  const items: NavItem[] = [];
-  for (const item of site.nav) {
-    if (item.href === "/resume.pdf") {
-      items.push(lab);
-      items.push({ ...item, number: "05" });
-    } else {
-      items.push(item);
-    }
-  }
-  return items;
+  // Lab is hidden for now. Restore the Lab entry here when the page comes back.
+  // if (site.nav.some((item) => item.href === "/lab")) return site.nav;
+  // const lab: NavItem = { number: "04", label: "Lab", href: "/lab", external: false };
+  // const items: NavItem[] = [];
+  // for (const item of site.nav) {
+  //   if (item.href === "/resume.pdf") {
+  //     items.push(lab);
+  //     items.push({ ...item, number: "05" });
+  //   } else {
+  //     items.push(item);
+  //   }
+  // }
+  // return items;
+  return site.nav.filter((item) => item.href !== "/lab");
 }
 
 export function Nav() {
