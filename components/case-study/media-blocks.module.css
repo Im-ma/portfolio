@@ -39,6 +39,10 @@
   align-items: center;
 }
 
+.split[data-compact="true"] {
+  grid-template-columns: minmax(120px, 210px) minmax(0, 1fr);
+}
+
 .split[data-side="start"] .splitCopy {
   order: 2;
 }
@@ -248,6 +252,15 @@
 
   .split[data-side="start"] .splitCopy {
     order: 0;
+  }
+
+  .split[data-compact="true"] {
+    grid-template-columns: minmax(0, 220px);
+    justify-content: start;
+  }
+
+  .split[data-compact="true"] .splitCopy {
+    order: 2;
   }
 
   .bento {

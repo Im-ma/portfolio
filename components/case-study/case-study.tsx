@@ -114,7 +114,22 @@ export function CaseStudy({ work }: { work: Work }) {
             <span aria-hidden="true">←</span> {work.backLink.label}
           </Link>
         </div>
-        {work.cover?.mp4 && work.cover.webm && work.cover.poster ? (
+        {work.hero?.src ? (
+          <div
+            className={styles.hero}
+            data-natural="true"
+            style={{ aspectRatio: `${work.hero.width} / ${work.hero.height}` }}
+          >
+            <FrameImage
+              src={work.hero.src}
+              alt={work.hero.alt || ""}
+              sizes="100vw"
+              objectFit="cover"
+              priority
+              fillFrame
+            />
+          </div>
+        ) : work.cover?.mp4 && work.cover.webm && work.cover.poster ? (
           <div
             className={styles.heroFilm}
             style={{ background: work.cover.field || "var(--color-neutral-soft)" }}

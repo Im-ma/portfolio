@@ -46,27 +46,37 @@ export function SingleCard({ frame }: { frame: Media }) {
 }
 
 export function SplitBlock({
+  title,
   text,
   frame,
   side = "end",
+  compact = false,
   check,
   checkNote,
 }: {
+  title?: string;
   text: string;
   frame: Media;
   side?: "start" | "end";
+  compact?: boolean;
   check?: boolean;
   checkNote?: string;
 }) {
   return (
-    <div className={styles.split} data-side={side}>
+    <div className={styles.split} data-side={side} data-compact={compact ? "true" : undefined}>
       <div className={styles.splitCopy}>
+        {title ? <h4 className="t-heading-h4">{title}</h4> : null}
         <p className="t-body-m">
           {text}
           {check ? <Check note={checkNote} /> : null}
         </p>
       </div>
-      <ZoomFigure media={frame} alt={altFor(frame, "")} caption={frame.caption} sizes={half} />
+      <ZoomFigure
+        media={frame}
+        alt={altFor(frame, title || "")}
+        caption={frame.caption}
+        sizes={half}
+      />
     </div>
   );
 }

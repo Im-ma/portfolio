@@ -1,6 +1,6 @@
 import { Check } from "@/components/check/check";
 import { showAnnotations, showChecks } from "@/lib/show-checks";
-import type { Block, Media, VideoBlock } from "@/lib/work-types";
+import type { Block, Media, TextPart, VideoBlock } from "@/lib/work-types";
 import { AskHighlight } from "./ask-highlight";
 import { CompareSlider } from "./compare-slider";
 import { ContentList } from "./content-list";
@@ -18,6 +18,7 @@ import {
   Trio,
   VideoSlot,
 } from "./media-blocks";
+import { BeforeAfter, Callout, Full, Stats, Table, ThreeUp, VideoLoop } from "./layout-blocks";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
 import panelStyles from "./media-blocks.module.css";
@@ -29,6 +30,25 @@ const variantClass: Record<string, string> = {
   xsmall: "t-body-xs",
   mono: "t-mono-small",
 };
+
+function RichText({ text, parts }: { text: string; parts?: TextPart[] }) {
+  if (!parts || parts.length === 0) return text;
+  return parts.map((part, index) =>
+    part.href ? (
+      <a
+        key={`${part.text}-${index}`}
+        className={styles.textLink}
+        href={part.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {part.text}
+      </a>
+    ) : (
+      <span key={`${part.text}-${index}`}>{part.text}</span>
+    ),
+  );
+}
 
 function mediaOf(block: Extract<Block, { type: "figure" }>): Media | null {
   if (!block.src) return null;
@@ -111,7 +131,7 @@ function BlockView({
       <p
         className={`${variantClass[variant] || "t-body-m"} ${variant === "lead" ? styles.lead : ""} ${muted ? styles.muted : ""}`}
       >
-        {block.text}
+        <RichText text={block.text} parts={block.parts} />
         {block.check ? <Check note={block.checkNote} /> : null}
       </p>
     );
@@ -122,7 +142,17 @@ function BlockView({
   }
 
   if (block.type === "heading") {
-    return <h3 className="t-heading-h3">{block.text}</h3>;
+    const Tag = block.level === 4 ? "h4" : "h3";
+    const variant = block.level === 4 ? "t-heading-h4" : "t-heading-h3";
+    return (
+      <div className={styles.headingRow} id={block.id}>
+        <Tag className={variant}>{block.text}</Tag>
+        {block.badge ? (
+          <span className={`${styles.headingBadge} t-mono-tag`}>{block.badge}</span>
+        ) : null}
+        {block.check ? <Check note={block.checkNote} /> : null}
+      </div>
+    );
   }
 
   if (block.type === "list") {
@@ -176,9 +206,11 @@ function BlockView({
   if (block.type === "split") {
     return (
       <SplitBlock
+        title={block.title}
         text={block.text}
         frame={block.frame}
         side={block.side}
+        compact={block.compact}
         check={block.check}
         checkNote={block.checkNote}
       />
@@ -241,6 +273,47 @@ function BlockView({
         <Blocks blocks={block.blocks} source={source} sizes={sizes} />
       </article>
     );
+  }
+
+  if (block.type === "full") return <Full frame={block.frame} />;
+  if (block.type === "threeUp") return <ThreeUp columns={block.columns} items={block.items} />;
+  if (block.type === "videoLoop") {
+    return (
+      <VideoLoop
+        mp4={block.mp4}
+        poster={block.poster}
+        width={block.width}
+        height={block.height}
+        title={block.title}
+        text={block.text}
+        caption={block.caption}
+        label={block.label}
+        layout={block.layout}
+        flip={block.flip}
+        check={block.check}
+        checkNote={block.checkNote}
+      />
+    );
+  }
+  if (block.type === "beforeAfter") return <BeforeAfter items={block.items} />;
+  if (block.type === "callout") {
+    return (
+      <Callout
+        tone={block.tone}
+        kicker={block.kicker}
+        title={block.title}
+        text={block.text}
+        frame={block.frame}
+        check={block.check}
+        checkNote={block.checkNote}
+      />
+    );
+  }
+  if (block.type === "stats") {
+    return <Stats items={block.items} check={block.check} checkNote={block.checkNote} />;
+  }
+  if (block.type === "table") {
+    return <Table headers={block.headers} rows={block.rows} caption={block.caption} />;
   }
 
   if (block.type === "panel") {
