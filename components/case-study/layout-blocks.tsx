@@ -1,6 +1,7 @@
 import { Check } from "@/components/check/check";
 import { showChecks } from "@/lib/show-checks";
 import type { Media, ThreeUpItem } from "@/lib/work-types";
+import { PhoneShot } from "@/components/phone/phone-shot";
 import { LoopVideo } from "./loop-video";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./layout-blocks.module.css";
@@ -68,6 +69,7 @@ function ThreeUpItemView({ item }: { item: ThreeUpItem }) {
 
 export function VideoLoop({
   mp4,
+  webm,
   poster,
   width,
   height,
@@ -81,6 +83,7 @@ export function VideoLoop({
   checkNote,
 }: {
   mp4: string;
+  webm?: string;
   poster: string;
   width: number;
   height: number;
@@ -96,7 +99,7 @@ export function VideoLoop({
   const name = label || title || "Flow";
   const media = (
     <div className={styles.loopMedia}>
-      <LoopVideo poster={poster} mp4={mp4} label={name} width={width} height={height} />
+      <LoopVideo poster={poster} mp4={mp4} webm={webm} label={name} width={width} height={height} />
     </div>
   );
 
@@ -133,7 +136,11 @@ export function BeforeAfter({
     <div className={styles.beforeAfter}>
       {items.map((item) => (
         <figure key={item.label} className={styles.ba}>
-          <ZoomFigure media={item.frame} alt={altFor(item.frame, item.label)} sizes={half} />
+          {item.frame.screen ? (
+            <PhoneShot media={item.frame} alt={altFor(item.frame, item.label)} />
+          ) : (
+            <ZoomFigure media={item.frame} alt={altFor(item.frame, item.label)} sizes={half} />
+          )}
           <figcaption>
             <p
               className={`${styles.baLabel} t-mono-label`}

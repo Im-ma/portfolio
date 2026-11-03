@@ -124,7 +124,8 @@ These are the shared blocks for a longer case study (Campus Ride uses them). Oth
 - `full`: `{ "type": "full", "frame": frame }`. One image at the width of the story column.
 - `pair`: `{ "type": "pair", "frames": [frame, frame] }`. Two frames, half width, stacked on a phone.
 - `threeUp`: `{ "type": "threeUp", "columns": 2 | 3 | 4, "items": [{ "title", "text", "frame"?, "placeholder"?, "check"? }] }`. Text columns, or frames. `"placeholder": true` paints a labeled coming-soon card instead of the file, so draft art with notes stays out of the public page. The `frame` can still point at the file you will swap in.
-- `videoLoop`: `{ "type": "videoLoop", "mp4", "poster", "width", "height", "title", "text", "layout": "split" | "full", "flip"? }`. Muted, looping, `playsInline`, with a poster. It autoplays in view. Reduced motion leaves the poster until someone presses play.
+- `videoLoop`: `{ "type": "videoLoop", "mp4", "webm"?, "poster", "width", "height", "title", "text", "layout": "split" | "full", "flip"? }`. Muted, looping, `playsInline`, with a poster. It autoplays in view. Reduced motion leaves the poster until someone presses play.
+- `phoneFlows`: `{ "type": "phoneFlows", "steps": [{ "title", "text", "mp4", "poster", "width", "height", "screen" }] }`. One phone stays put. Changing the step only crossfades the screen. A `screen` rect (`x`, `y`, `w`, `h`, source pixels) also drops a still into that same phone on `pair`, `split`, and `beforeAfter` frames.
 - `beforeAfter`: `{ "type": "beforeAfter", "items": [{ "label", "text", "frame" }] }`. A labeled pair. A label that starts with "After" uses the green.
 - `callout`: `{ "type": "callout", "tone": "accent" | "neutral" | "signal", "kicker"?, "title"?, "text"?, "frame"? }`. A short statement, an image, or both.
 - `stats`: `{ "type": "stats", "items": [{ "value", "text" }], "check"? }`.

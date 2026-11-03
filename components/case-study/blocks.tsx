@@ -19,6 +19,7 @@ import {
   VideoSlot,
 } from "./media-blocks";
 import { BeforeAfter, Callout, Full, Stats, Table, ThreeUp, VideoLoop } from "./layout-blocks";
+import { PhoneFlows } from "./phone-flows";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
 import panelStyles from "./media-blocks.module.css";
@@ -292,9 +293,11 @@ function BlockView({
         flip={block.flip}
         check={block.check}
         checkNote={block.checkNote}
+        webm={block.webm}
       />
     );
   }
+  if (block.type === "phoneFlows") return <PhoneFlows steps={block.steps} />;
   if (block.type === "beforeAfter") return <BeforeAfter items={block.items} />;
   if (block.type === "callout") {
     return (

@@ -1,3 +1,10 @@
+export type ScreenRect = {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
+
 export type Media = {
   src: string;
   width: number;
@@ -9,6 +16,8 @@ export type Media = {
   standin?: boolean;
   alt?: string;
   caption?: string;
+  /** Inner display, in source pixels, when the file includes a device bezel. */
+  screen?: ScreenRect;
 };
 
 export type ListItem = {
@@ -127,6 +136,7 @@ export type Block =
   | {
       type: "videoLoop";
       mp4: string;
+      webm?: string;
       poster: string;
       width: number;
       height: number;
@@ -138,6 +148,18 @@ export type Block =
       flip?: boolean;
       check?: boolean;
       checkNote?: string;
+    }
+  | {
+      type: "phoneFlows";
+      steps: {
+        title: string;
+        text: string;
+        mp4: string;
+        poster: string;
+        width: number;
+        height: number;
+        screen: ScreenRect;
+      }[];
     }
   | { type: "beforeAfter"; items: { label: string; text?: string; frame: Media }[] }
   | {

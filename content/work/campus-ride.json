@@ -9,12 +9,6 @@
   "status": "In progress",
   "title": "Campus Ride",
   "summary": "Getting off campus shouldn't take longer than the ride.",
-  "hero": {
-    "src": "/images/work/campus-ride/hero.webp",
-    "width": 1600,
-    "height": 700,
-    "alt": "Campus Ride. Rides between students, at a price the rider names."
-  },
   "cover": {
     "kind": "video",
     "mp4": "/videos/covers/campus-ride.mp4",
@@ -192,6 +186,27 @@
         {
           "type": "full",
           "frame": {
+            "src": "/images/work/campus-ride/hero.webp",
+            "width": 1600,
+            "height": 700,
+            "alt": "Campus Ride. Rides between students, at a price the rider names.",
+            "caption": "Rides between students, at a price the rider names."
+          }
+        },
+        {
+          "type": "videoLoop",
+          "layout": "full",
+          "mp4": "/videos/campus-ride-flow.mp4",
+          "webm": "/videos/campus-ride-flow.webm",
+          "poster": "/images/work/campus-ride/flow-poster.webp",
+          "width": 1920,
+          "height": 1080,
+          "label": "Booking flow",
+          "caption": "A rider sets a destination and a price, offers come in, and the rider accepts one."
+        },
+        {
+          "type": "full",
+          "frame": {
             "src": "/images/work/campus-ride/solution-in-context.webp",
             "width": 1600,
             "height": 1000,
@@ -236,42 +251,65 @@
       "title": "Core flows",
       "blocks": [
         {
-          "type": "videoLoop",
-          "mp4": "/videos/work/campus-ride/name-your-price.mp4",
-          "poster": "/images/work/campus-ride/flow-name-your-price-poster.webp",
-          "width": 960,
-          "height": 1200,
-          "title": "Name your price",
-          "text": "Pick where you're going, see a suggested price, and set your own offer."
-        },
-        {
-          "type": "videoLoop",
-          "mp4": "/videos/work/campus-ride/pick-your-driver.mp4",
-          "poster": "/images/work/campus-ride/flow-pick-your-driver-poster.webp",
-          "width": 960,
-          "height": 1200,
-          "title": "Pick your driver",
-          "text": "Compare verified student drivers by rating, ETA, and price. Marcus accepts $6.00 and he's on the way.",
-          "flip": true
-        },
-        {
-          "type": "videoLoop",
-          "mp4": "/videos/work/campus-ride/ride-and-rate.mp4",
-          "poster": "/images/work/campus-ride/flow-ride-and-rate-poster.webp",
-          "width": 960,
-          "height": 1200,
-          "title": "Ride with confidence",
-          "text": "Message your driver, open the safety sheet anytime, then rate the ride."
-        },
-        {
-          "type": "videoLoop",
-          "mp4": "/videos/work/campus-ride/drive-between-classes.mp4",
-          "poster": "/images/work/campus-ride/flow-drive-between-classes-poster.webp",
-          "width": 960,
-          "height": 1200,
-          "title": "Drive between classes",
-          "text": "Go online, get a request with a countdown, and navigate to a classmate.",
-          "flip": true
+          "type": "phoneFlows",
+          "steps": [
+            {
+              "title": "Name your price",
+              "text": "Pick where you're going, see a suggested price, and set your own offer.",
+              "mp4": "/videos/work/campus-ride/name-your-price.mp4",
+              "poster": "/images/work/campus-ride/flow-name-your-price-poster.webp",
+              "width": 960,
+              "height": 1200,
+              "screen": {
+                "x": 179,
+                "y": 0,
+                "w": 601,
+                "h": 1200
+              }
+            },
+            {
+              "title": "Pick your driver",
+              "text": "Compare verified student drivers by rating, ETA, and price. Marcus accepts $6.00 and he's on the way.",
+              "mp4": "/videos/work/campus-ride/pick-your-driver.mp4",
+              "poster": "/images/work/campus-ride/flow-pick-your-driver-poster.webp",
+              "width": 960,
+              "height": 1200,
+              "screen": {
+                "x": 179,
+                "y": 0,
+                "w": 601,
+                "h": 1200
+              }
+            },
+            {
+              "title": "Ride with confidence",
+              "text": "Message your driver, open the safety sheet anytime, then rate the ride.",
+              "mp4": "/videos/work/campus-ride/ride-and-rate.mp4",
+              "poster": "/images/work/campus-ride/flow-ride-and-rate-poster.webp",
+              "width": 960,
+              "height": 1200,
+              "screen": {
+                "x": 179,
+                "y": 0,
+                "w": 601,
+                "h": 1200
+              }
+            },
+            {
+              "title": "Drive between classes",
+              "text": "Go online, get a request with a countdown, and navigate to a classmate.",
+              "mp4": "/videos/work/campus-ride/drive-between-classes.mp4",
+              "poster": "/images/work/campus-ride/flow-drive-between-classes-poster.webp",
+              "width": 960,
+              "height": 1200,
+              "screen": {
+                "x": 179,
+                "y": 0,
+                "w": 601,
+                "h": 1200
+              }
+            }
+          ]
         },
         {
           "type": "heading",
@@ -323,7 +361,10 @@
         },
         {
           "type": "table",
-          "headers": ["Option today", "The gap for students"],
+          "headers": [
+            "Option today",
+            "The gap for students"
+          ],
           "rows": [
             [
               "Livingstone shuttle",
@@ -341,7 +382,10 @@
               "Uber or Lyft",
               "Fewer drivers in small towns. 19% of rural Americans use ride hailing vs 45% urban (Pew). [5]"
             ],
-            ["Group chats", "No trust, no tracking, no payment, no guaranteed reply."]
+            [
+              "Group chats",
+              "No trust, no tracking, no payment, no guaranteed reply."
+            ]
           ]
         },
         {
@@ -458,13 +502,25 @@
               "src": "/images/work/campus-ride/proto-map-a.webp",
               "width": 700,
               "height": 900,
-              "alt": "Destination exploration with the map in the middle."
+              "alt": "Destination exploration with the map in the middle.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             },
             {
               "src": "/images/work/campus-ride/proto-map-b.webp",
               "width": 700,
               "height": 900,
-              "alt": "Another destination exploration, with the map in a different place."
+              "alt": "Another destination exploration, with the map in a different place.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             }
           ]
         },
@@ -485,13 +541,25 @@
               "src": "/images/work/campus-ride/proto-offers-a.webp",
               "width": 700,
               "height": 900,
-              "alt": "An earlier layout for driver offer cards."
+              "alt": "An earlier layout for driver offer cards.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             },
             {
               "src": "/images/work/campus-ride/proto-offers-b.webp",
               "width": 700,
               "height": 900,
-              "alt": "A later offer card layout, with one offer called out."
+              "alt": "A later offer card layout, with one offer called out.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             }
           ]
         },
@@ -512,13 +580,25 @@
               "src": "/images/work/campus-ride/proto-waiting-a.webp",
               "width": 700,
               "height": 900,
-              "alt": "A waiting state while drivers respond to an offer."
+              "alt": "A waiting state while drivers respond to an offer.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             },
             {
               "src": "/images/work/campus-ride/proto-waiting-b.webp",
               "width": 700,
               "height": 900,
-              "alt": "A failed state when no driver accepts."
+              "alt": "A failed state when no driver accepts.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
             }
           ]
         },
@@ -660,7 +740,13 @@
                 "src": "/images/work/campus-ride/insight-consistency-before.webp",
                 "width": 700,
                 "height": 900,
-                "alt": "Driver offers before the audit, with mixed type and price formats."
+                "alt": "Driver offers before the audit, with mixed type and price formats.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
               }
             },
             {
@@ -670,7 +756,13 @@
                 "src": "/images/work/campus-ride/insight-consistency-after.webp",
                 "width": 700,
                 "height": 900,
-                "alt": "Driver offers after the audit, with one type scale and one price format."
+                "alt": "Driver offers after the audit, with one type scale and one price format.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
               }
             }
           ]
@@ -690,7 +782,13 @@
                 "src": "/images/work/campus-ride/insight-price-agree.webp",
                 "width": 700,
                 "height": 900,
-                "alt": "Set your price, with a suggested $7.00 beside a $6.00 offer."
+                "alt": "Set your price, with a suggested $7.00 beside a $6.00 offer.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
               }
             },
             {
@@ -700,7 +798,13 @@
                 "src": "/images/work/campus-ride/insight-price-carry.webp",
                 "width": 700,
                 "height": 900,
-                "alt": "Driver arriving, with the agreed $6.00 still on screen."
+                "alt": "Driver arriving, with the agreed $6.00 still on screen.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
               }
             }
           ]
@@ -767,7 +871,13 @@
             "src": "/images/work/campus-ride/cons-no-drivers.webp",
             "width": 600,
             "height": 820,
-            "alt": "No drivers available, with quick price picks and a raise offer button."
+            "alt": "No drivers available, with quick price picks and a raise offer button.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
           }
         },
         {
@@ -780,7 +890,13 @@
             "src": "/images/work/campus-ride/cons-schedule.webp",
             "width": 600,
             "height": 820,
-            "alt": "Schedule for later, so a low offer does not end the trip."
+            "alt": "Schedule for later, so a low offer does not end the trip.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
           }
         },
         {
@@ -813,7 +929,13 @@
             "src": "/images/work/campus-ride/cons-request.webp",
             "width": 600,
             "height": 820,
-            "alt": "Incoming request card with the offer, route, and a 12 second timer."
+            "alt": "Incoming request card with the offer, route, and a 12 second timer.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
           }
         },
         {
@@ -826,7 +948,13 @@
             "src": "/images/work/campus-ride/cons-chose-else.webp",
             "width": 600,
             "height": 820,
-            "alt": "Rider chose someone else, with the winning offer visible."
+            "alt": "Rider chose someone else, with the winning offer visible.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
           }
         },
         {
@@ -839,7 +967,13 @@
             "src": "/images/work/campus-ride/cons-missed.webp",
             "width": 600,
             "height": 820,
-            "alt": "You missed a request, with a way back to the next one."
+            "alt": "You missed a request, with a way back to the next one.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
           }
         },
         {
@@ -944,51 +1078,79 @@
           "variant": "small",
           "text": "",
           "parts": [
-            { "text": "[1] " },
+            {
+              "text": "[1] "
+            },
             {
               "text": "Livingstone shuttle driver posting",
               "href": "https://www.ihiretransportation.com/jobs/view/538636159"
             },
-            { "text": " [2] " },
+            {
+              "text": " [2] "
+            },
             {
               "text": "Salisbury Transit stops and times",
               "href": "https://salisburync.gov/Government/Transit/Stops-and-Times"
             },
-            { "text": " [3] " },
+            {
+              "text": " [3] "
+            },
             {
               "text": "Salisbury Transit",
               "href": "https://salisburync.gov/Government/Transit/Pages/default"
             },
-            { "text": " [4] " },
-            { "text": "Salisbury Connect", "href": "https://city.ridewithvia.com/salisbury" },
-            { "text": ", " },
+            {
+              "text": " [4] "
+            },
+            {
+              "text": "Salisbury Connect",
+              "href": "https://city.ridewithvia.com/salisbury"
+            },
+            {
+              "text": ", "
+            },
             {
               "text": "Salisbury Post",
               "href": "https://www.salisburypost.com/2026/05/08/salisbury-hears-first-quarter-salisbury-connect-statistics/"
             },
-            { "text": " [5] " },
+            {
+              "text": " [5] "
+            },
             {
               "text": "Vox citing Pew",
               "href": "https://www.vox.com/the-goods/2019/1/11/18179036/uber-lyft-rural-areas-subscription-model"
             },
-            { "text": " [6] Routes: OpenStreetMap contributors and OSRM [7] " },
-            { "text": "Zimride", "href": "https://en.wikipedia.org/wiki/Zimride" },
-            { "text": ", " },
+            {
+              "text": " [6] Routes: OpenStreetMap contributors and OSRM [7] "
+            },
+            {
+              "text": "Zimride",
+              "href": "https://en.wikipedia.org/wiki/Zimride"
+            },
+            {
+              "text": ", "
+            },
             {
               "text": "Fast Company",
               "href": "https://www.fastcompany.com/1702207/zimride-carpooling-college-students/"
             },
-            { "text": " [8] " },
+            {
+              "text": " [8] "
+            },
             {
               "text": "inDrive",
               "href": "https://blog.indrive.com/article/global-rideshare-leader-indrive-launches-in-the-u-s-bringing-name-your-price-model-to-consumers-and-drivers"
             },
-            { "text": ". Also: " },
+            {
+              "text": ". Also: "
+            },
             {
               "text": "ValuePenguin student car survey",
               "href": "https://www.valuepenguin.com/college-students-cars-survey"
             },
-            { "text": "." }
+            {
+              "text": "."
+            }
           ]
         },
         {
@@ -996,37 +1158,51 @@
           "variant": "small",
           "text": "",
           "parts": [
-            { "text": "Photos (Wikimedia Commons): " },
+            {
+              "text": "Photos (Wikimedia Commons): "
+            },
             {
               "text": "Livingstone College from Monroe St",
               "href": "https://commons.wikimedia.org/wiki/File:Livingstone_College_from_Monroe_St_Salisbury_NC.JPG"
             },
-            { "text": " and " },
+            {
+              "text": " and "
+            },
             {
               "text": "the bear",
               "href": "https://commons.wikimedia.org/wiki/File:Livingstone_College_from_Monroe_St_Salisbury_NC_-_the_bear.JPG"
             },
-            { "text": " (CC BY-SA 3.0), " },
+            {
+              "text": " (CC BY-SA 3.0), "
+            },
             {
               "text": "PCC shuttle bus",
               "href": "https://commons.wikimedia.org/wiki/File:PCC_shuttle_bus_on_Rock_Creek_campus_(2018).jpg"
             },
-            { "text": " (CC BY-SA 4.0), " },
+            {
+              "text": " (CC BY-SA 4.0), "
+            },
             {
               "text": "City Bus in Winston-Salem",
               "href": "https://commons.wikimedia.org/wiki/File:City_Bus_in_Winston-Salem.jpg"
             },
-            { "text": " (CC BY-SA 4.0), " },
+            {
+              "text": " (CC BY-SA 4.0), "
+            },
             {
               "text": "Uber iPhone app",
               "href": "https://commons.wikimedia.org/wiki/File:Uber_iPhone_app_(24336063775).jpg"
             },
-            { "text": " (CC0), " },
+            {
+              "text": " (CC0), "
+            },
             {
               "text": "GCC parking lot",
               "href": "https://commons.wikimedia.org/wiki/File:GCC_parking_lot_at_sunset.jpg"
             },
-            { "text": " (CC BY 2.0). The collage shows screenshots of the cited pages." }
+            {
+              "text": " (CC BY 2.0). The collage shows screenshots of the cited pages."
+            }
           ]
         }
       ]
@@ -1034,28 +1210,74 @@
   ],
   "tocLabel": "CONTENTS",
   "toc": [
-    { "number": "01", "title": "Overview", "anchor": "overview", "subs": [] },
+    {
+      "number": "01",
+      "title": "Overview",
+      "anchor": "overview",
+      "subs": []
+    },
     {
       "number": "02",
       "title": "Problem",
       "anchor": "problem",
       "subs": [
-        { "number": "02.1", "title": "The wait", "anchor": "problem-wait" },
-        { "number": "02.2", "title": "The opportunity", "anchor": "problem-opportunity" }
+        {
+          "number": "02.1",
+          "title": "The wait",
+          "anchor": "problem-wait"
+        },
+        {
+          "number": "02.2",
+          "title": "The opportunity",
+          "anchor": "problem-opportunity"
+        }
       ]
     },
-    { "number": "03", "title": "Solution", "anchor": "solution", "subs": [] },
-    { "number": "04", "title": "Core flows", "anchor": "flows", "subs": [] },
-    { "number": "05", "title": "Research", "anchor": "research", "subs": [] },
-    { "number": "06", "title": "Explorations", "anchor": "explorations", "subs": [] },
-    { "number": "07", "title": "Prototypes", "anchor": "prototypes", "subs": [] },
+    {
+      "number": "03",
+      "title": "Solution",
+      "anchor": "solution",
+      "subs": []
+    },
+    {
+      "number": "04",
+      "title": "Core flows",
+      "anchor": "flows",
+      "subs": []
+    },
+    {
+      "number": "05",
+      "title": "Research",
+      "anchor": "research",
+      "subs": []
+    },
+    {
+      "number": "06",
+      "title": "Explorations",
+      "anchor": "explorations",
+      "subs": []
+    },
+    {
+      "number": "07",
+      "title": "Prototypes",
+      "anchor": "prototypes",
+      "subs": []
+    },
     {
       "number": "08",
       "title": "Decisions",
       "anchor": "decisions",
       "subs": [
-        { "number": "08.1", "title": "Consistency", "anchor": "insight-consistency" },
-        { "number": "08.2", "title": "The price", "anchor": "insight-price" }
+        {
+          "number": "08.1",
+          "title": "Consistency",
+          "anchor": "insight-consistency"
+        },
+        {
+          "number": "08.2",
+          "title": "The price",
+          "anchor": "insight-price"
+        }
       ]
     },
     {
@@ -1063,13 +1285,35 @@
       "title": "Constraints",
       "anchor": "constraints",
       "subs": [
-        { "number": "09.1", "title": "Rider recovery", "anchor": "rider-recovery" },
-        { "number": "09.2", "title": "Driver side", "anchor": "driver-negotiation" },
-        { "number": "09.3", "title": "The tradeoff", "anchor": "tradeoff" }
+        {
+          "number": "09.1",
+          "title": "Rider recovery",
+          "anchor": "rider-recovery"
+        },
+        {
+          "number": "09.2",
+          "title": "Driver side",
+          "anchor": "driver-negotiation"
+        },
+        {
+          "number": "09.3",
+          "title": "The tradeoff",
+          "anchor": "tradeoff"
+        }
       ]
     },
-    { "number": "10", "title": "Outcomes", "anchor": "outcomes", "subs": [] },
-    { "number": "11", "title": "Reflection", "anchor": "reflection", "subs": [] }
+    {
+      "number": "10",
+      "title": "Outcomes",
+      "anchor": "outcomes",
+      "subs": []
+    },
+    {
+      "number": "11",
+      "title": "Reflection",
+      "anchor": "reflection",
+      "subs": []
+    }
   ],
   "nextProject": {
     "label": "NEXT PROJECT",

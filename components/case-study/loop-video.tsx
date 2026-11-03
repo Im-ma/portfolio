@@ -18,12 +18,14 @@ function useReducedMotion() {
 export function LoopVideo({
   poster,
   mp4,
+  webm,
   label,
   width,
   height,
 }: {
   poster: string;
   mp4: string;
+  webm?: string;
   label: string;
   width: number;
   height: number;
@@ -82,6 +84,7 @@ export function LoopVideo({
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       >
+        {webm ? <source src={webm} type="video/webm" /> : null}
         <source src={mp4} type="video/mp4" />
       </video>
       <button

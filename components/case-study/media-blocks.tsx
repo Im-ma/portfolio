@@ -1,6 +1,7 @@
 import { Check } from "@/components/check/check";
 import { FrameImage } from "@/components/media/frame-image";
 import type { Media } from "@/lib/work-types";
+import { PhoneShot } from "@/components/phone/phone-shot";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./media-blocks.module.css";
 
@@ -10,6 +11,11 @@ const third = "(max-width: 767px) calc(100vw - 48px), 320px";
 
 function altFor(frame: Media, fallback: string) {
   return frame.caption || frame.alt || fallback;
+}
+
+function FrameView({ media, alt, sizes }: { media: Media; alt: string; sizes: string }) {
+  if (media.screen) return <PhoneShot media={media} alt={alt} />;
+  return <ZoomFigure media={media} alt={alt} sizes={sizes} />;
 }
 
 export function FullBleed({ frame }: { frame: Media }) {
@@ -71,12 +77,7 @@ export function SplitBlock({
           {check ? <Check note={checkNote} /> : null}
         </p>
       </div>
-      <ZoomFigure
-        media={frame}
-        alt={altFor(frame, title || "")}
-        caption={frame.caption}
-        sizes={half}
-      />
+      <FrameView media={frame} alt={altFor(frame, title || "")} sizes={half} />
     </div>
   );
 }
@@ -84,15 +85,19 @@ export function SplitBlock({
 export function Pair({ frames }: { frames: Media[] }) {
   return (
     <div className={styles.pair}>
-      {frames.map((frame) => (
-        <ZoomFigure
-          key={frame.src + (frame.caption || "")}
-          media={frame}
-          alt={altFor(frame, "")}
-          caption={frame.caption}
-          sizes={half}
-        />
-      ))}
+      {frames.map((frame) =>
+        frame.screen ? (
+          <PhoneShot key={frame.src} media={frame} alt={altFor(frame, "")} />
+        ) : (
+          <ZoomFigure
+            key={frame.src + (frame.caption || "")}
+            media={frame}
+            alt={altFor(frame, "")}
+            caption={frame.caption}
+            sizes={half}
+          />
+        ),
+      )}
     </div>
   );
 }

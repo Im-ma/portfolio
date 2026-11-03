@@ -1,0 +1,97 @@
+.device {
+  width: 100%;
+  max-width: 280px;
+  margin-inline: auto;
+  padding: 20px 16px 28px;
+}
+
+.body {
+  position: relative;
+  border-radius: 46px;
+  background: linear-gradient(165deg, #243356 0%, #0b1b3f 42%, #15284f 100%);
+  box-shadow:
+    0 18px 36px rgb(11 27 63 / 18%),
+    inset 0 0 0 1px rgb(255 255 255 / 16%);
+}
+
+.bezel {
+  padding: 9px;
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 393 / 852;
+  overflow: hidden;
+  border-radius: 38px;
+  background: #fff;
+}
+
+.island {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: 50%;
+  width: 34%;
+  height: 22px;
+  border-radius: 999px;
+  background: #0b1b3f;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.well {
+  position: absolute;
+  inset: 36px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  position: absolute;
+  width: 3px;
+  border-radius: 2px;
+  background: #4d5d7c;
+}
+
+.btn[data-side="left"] {
+  left: -3px;
+}
+
+.btn[data-side="right"] {
+  right: -3px;
+}
+
+.btn[data-kind="action"] {
+  top: 16%;
+  height: 7%;
+}
+
+.btn[data-kind="vol1"] {
+  top: 26%;
+  height: 11%;
+}
+
+.btn[data-kind="vol2"] {
+  top: 39%;
+  height: 11%;
+}
+
+.btn[data-kind="power"] {
+  top: 28%;
+  height: 16%;
+}
+
+@media (max-width: 767px) {
+  .device {
+    max-width: 250px;
+  }
+
+  .island {
+    height: 18px;
+  }
+
+  .well {
+    inset: 30px 0 6px;
+  }
+}
