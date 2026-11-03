@@ -2,9 +2,9 @@
   "route": "/",
   "talkButtonLabel": "Pull up a chair",
   "hero": {
-    "eyebrow": "CS + MATH  /  FIRST YEAR  /  PEOPLE FIRST",
-    "title": "I listen to people, then design and build what helps them.",
-    "lead": "First-year CS + Math student at Livingstone College, aiming for product design and engineering roles.",
+    "title": "Immanuel Mensah is a product designer who engineers what he designs.",
+    "name": "Immanuel Mensah",
+    "lead": "CS + Math at Livingstone College, class of 2030.",
     "buttons": [
       {
         "label": "See selected work",
@@ -32,8 +32,7 @@
       "standin": true,
       "alt": "stylized portrait silhouette",
       "check": true
-    },
-    "portraitCaption": "Livingstone College, class of 2030"
+    }
   },
   "selectedWork": {
     "id": "work",
@@ -134,7 +133,7 @@
         "status": "In progress",
         "title": "Campus Ride",
         "tag": "Product design, 2026",
-        "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+        "summary": "Student-to-student rides, where riders name their own price.",
         "slug": "campus-ride",
         "href": "/work/campus-ride"
       }
