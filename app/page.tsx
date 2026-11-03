@@ -7,10 +7,10 @@ export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: { absolute: "Immanuel Mensah" },
-  description: home.hero.lead,
+  description: home.hero.title,
   openGraph: {
     title: "Immanuel Mensah",
-    description: home.hero.lead,
+    description: home.hero.title,
   },
 };
 

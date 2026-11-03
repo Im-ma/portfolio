@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     default: "Immanuel Mensah",
     template: "%s | Immanuel Mensah",
   },
-  description: home.hero.lead,
+  description: home.hero.title,
   openGraph: {
     title: "Immanuel Mensah",
-    description: home.hero.lead,
+    description: home.hero.title,
     type: "website",
   },
 };

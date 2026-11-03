@@ -2,8 +2,9 @@
   "route": "/",
   "talkButtonLabel": "Pull up a chair",
   "hero": {
-    "title": "Immanuel Mensah",
-    "lead": "Product designer who engineers what he designs.",
+    "title": "Immanuel Mensah is a product designer who engineers what he designs.",
+    "name": "Immanuel Mensah",
+    "lead": "CS + Math at Livingstone College, class of 2030.",
     "buttons": [
       {
         "label": "See selected work",

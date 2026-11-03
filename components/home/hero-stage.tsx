@@ -52,6 +52,7 @@ export function HeroStage() {
   const lineB = useRef<SVGLineElement>(null);
   const lineC = useRef<SVGLineElement>(null);
   const words = hero.title.split(" ");
+  const nameWords = new Set(hero.name.split(" "));
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -146,17 +147,20 @@ export function HeroStage() {
       <div className={`shell ${styles.heroGrid}`}>
         <div className={styles.copy}>
           <div className={styles.intro}>
-            <h1 ref={nameRef} className="t-display-h1">
+            <h1 ref={nameRef} className={`${styles.introLine} t-heading-h2`}>
               {words.map((word, index) => (
                 <Fragment key={`${word}-${index}`}>
                   {index > 0 ? " " : null}
-                  <span className={styles.word} style={{ ["--i" as string]: index }}>
+                  <span
+                    className={`${styles.word} ${nameWords.has(word) ? styles.nameMark : ""}`}
+                    style={{ ["--i" as string]: index }}
+                  >
                     {word}
                   </span>
                 </Fragment>
               ))}
             </h1>
-            <p ref={roleRef} className={`${styles.lead} t-body-l`}>
+            <p ref={roleRef} className={`${styles.school} t-body-m`}>
               {hero.lead}
             </p>
           </div>
