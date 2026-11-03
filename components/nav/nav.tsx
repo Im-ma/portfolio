@@ -54,6 +54,13 @@ export function Nav() {
   }, [open]);
 
   const links = navItems();
+  const availability = () =>
+    pathname === "/" ? null : (
+      <p className={`${styles.chip} t-mono-small`}>
+        <span className={styles.dot} aria-hidden="true" />
+        {site.availability}
+      </p>
+    );
   const items = links.map((item) => {
     const active = isActive(pathname, item.href);
     const className = `${styles.link} t-body-nav${active ? ` ${styles.active}` : ""}`;
@@ -103,10 +110,7 @@ export function Nav() {
               ))}
             </ul>
           </nav>
-          <p className={`${styles.chip} t-mono-small`}>
-            <span className={styles.dot} aria-hidden="true" />
-            {site.availability}
-          </p>
+          {availability()}
         </div>
         <button
           type="button"
@@ -172,10 +176,7 @@ export function Nav() {
                 </Link>
               );
             })}
-            <p className={`${styles.chip} t-mono-small`}>
-              <span className={styles.dot} aria-hidden="true" />
-              {site.availability}
-            </p>
+            {availability()}
           </nav>
         </>
       ) : null}
