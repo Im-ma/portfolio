@@ -13,6 +13,7 @@ import type { Block, VideoBlock, Work, WorkLink, WorkSection } from "@/lib/work-
 import Link from "next/link";
 import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
+import { CampusRideCover } from "./campus-cover";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
 import styles from "./case-study.module.css";
@@ -108,96 +109,117 @@ export function CaseStudy({ work }: { work: Work }) {
 
   return (
     <article>
-      <header className={styles.cover}>
-        <div className="shell">
-          <Link className={`${styles.back} t-mono-small`} href={work.backLink.href}>
-            <span aria-hidden="true">←</span> {work.backLink.label}
-          </Link>
-        </div>
-        {work.cover?.mp4 && work.cover.webm && work.cover.poster ? (
-          <div
-            className={styles.heroFilm}
-            style={{ background: work.cover.field || "var(--color-neutral-soft)" }}
-          >
-            <CoverVideo
-              mp4={work.cover.mp4}
-              webm={work.cover.webm}
-              poster={work.cover.poster}
-              field={work.cover.field || "transparent"}
-            />
+      {work.slug === "campus-ride" ? (
+        <CampusRideCover work={work} />
+      ) : (
+        <header className={styles.cover}>
+          <div className="shell">
+            <Link className={`${styles.back} t-mono-small`} href={work.backLink.href}>
+              <span aria-hidden="true">←</span> {work.backLink.label}
+            </Link>
           </div>
-        ) : coverVideo ? (
-          <div className={`shell ${styles.heroVideo}`}>
-            <FlowVideo
-              label={coverVideo.label}
-              poster={coverVideo.poster}
-              mp4={coverVideo.mp4}
-              webm={coverVideo.webm}
-              playLabel={coverVideo.playLabel}
-              caption={coverVideo.caption}
-            />
-          </div>
-        ) : work.cover?.src ? (
-          <div
-            className={styles.hero}
-            data-portrait={(work.cover.height ?? 0) > (work.cover.width ?? 0) ? "true" : undefined}
-          >
-            <FrameImage
-              src={work.cover.src}
-              alt=""
-              sizes="100vw"
-              objectFit={(work.cover.height ?? 0) > (work.cover.width ?? 0) ? "contain" : "cover"}
-              objectPosition={work.cover.objectPosition || "center"}
-              standin={work.cover.standin}
-              priority
-              fillFrame
-            />
-          </div>
-        ) : null}
-        <div className="shell">
-          <div className={styles.coverCopy}>
-            <div className={styles.kicker}>
-              <p className={`${styles.accent} t-mono-label`}>{work.eyebrow}</p>
-              <StatusTag status={work.status} />
+          {work.hero?.src ? (
+            <div
+              className={styles.hero}
+              data-natural="true"
+              style={{ aspectRatio: `${work.hero.width} / ${work.hero.height}` }}
+            >
+              <FrameImage
+                src={work.hero.src}
+                alt={work.hero.alt || ""}
+                sizes="100vw"
+                objectFit="cover"
+                priority
+                fillFrame
+              />
             </div>
-            <h1 className="t-display-h1-case">
-              {work.title}
-              {work.titleCheck?.check ? <Check note={work.titleCheck.checkNote} /> : null}
-            </h1>
-            <p className={`${styles.summary} t-body-l`}>{work.summary}</p>
+          ) : work.cover?.mp4 && work.cover.webm && work.cover.poster ? (
+            <div
+              className={styles.heroFilm}
+              style={{ background: work.cover.field || "var(--color-neutral-soft)" }}
+            >
+              <CoverVideo
+                mp4={work.cover.mp4}
+                webm={work.cover.webm}
+                poster={work.cover.poster}
+                field={work.cover.field || "transparent"}
+              />
+            </div>
+          ) : coverVideo ? (
+            <div className={`shell ${styles.heroVideo}`}>
+              <FlowVideo
+                label={coverVideo.label}
+                poster={coverVideo.poster}
+                mp4={coverVideo.mp4}
+                webm={coverVideo.webm}
+                playLabel={coverVideo.playLabel}
+                caption={coverVideo.caption}
+              />
+            </div>
+          ) : work.cover?.src ? (
+            <div
+              className={styles.hero}
+              data-portrait={
+                (work.cover.height ?? 0) > (work.cover.width ?? 0) ? "true" : undefined
+              }
+            >
+              <FrameImage
+                src={work.cover.src}
+                alt=""
+                sizes="100vw"
+                objectFit={(work.cover.height ?? 0) > (work.cover.width ?? 0) ? "contain" : "cover"}
+                objectPosition={work.cover.objectPosition || "center"}
+                standin={work.cover.standin}
+                priority
+                fillFrame
+              />
+            </div>
+          ) : null}
+          <div className="shell">
+            <div className={styles.coverCopy}>
+              <div className={styles.kicker}>
+                <p className={`${styles.accent} t-mono-label`}>{work.eyebrow}</p>
+                <StatusTag status={work.status} />
+              </div>
+              <h1 className="t-display-h1-case">
+                {work.title}
+                {work.titleCheck?.check ? <Check note={work.titleCheck.checkNote} /> : null}
+              </h1>
+              <p className={`${styles.summary} t-body-l`}>{work.summary}</p>
+            </div>
+            <dl className={styles.strip}>
+              {details.map((item) => (
+                <div key={item.label} className={styles.stripItem}>
+                  <dt className={`${styles.muted} t-mono-label`}>{item.label}</dt>
+                  <dd className="t-body-s">
+                    {item.value}
+                    {item.check ? <Check note={item.checkNote} /> : null}
+                  </dd>
+                </div>
+              ))}
+              {links.length > 0 ? (
+                <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+                  <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
+                  <dd>
+                    <LinkList items={links} />
+                  </dd>
+                </div>
+              ) : null}
+              {flowLinks.length > 0 ? (
+                <div className={`${styles.stripItem} ${styles.stripLinks}`}>
+                  <dt className={`${styles.blockLabel} t-mono-label`}>
+                    {work.links.flowsLabel || "PROTOTYPE FLOWS"}
+                  </dt>
+                  <dd>
+                    <LinkList items={flowLinks} />
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+            <CaseTocBar label={work.tocLabel} items={work.toc} />
           </div>
-          <dl className={styles.strip}>
-            {details.map((item) => (
-              <div key={item.label} className={styles.stripItem}>
-                <dt className={`${styles.muted} t-mono-label`}>{item.label}</dt>
-                <dd className="t-body-s">
-                  {item.value}
-                  {item.check ? <Check note={item.checkNote} /> : null}
-                </dd>
-              </div>
-            ))}
-            {links.length > 0 ? (
-              <div className={`${styles.stripItem} ${styles.stripLinks}`}>
-                <dt className={`${styles.blockLabel} t-mono-label`}>LINKS</dt>
-                <dd>
-                  <LinkList items={links} />
-                </dd>
-              </div>
-            ) : null}
-            {flowLinks.length > 0 ? (
-              <div className={`${styles.stripItem} ${styles.stripLinks}`}>
-                <dt className={`${styles.blockLabel} t-mono-label`}>
-                  {work.links.flowsLabel || "PROTOTYPE FLOWS"}
-                </dt>
-                <dd>
-                  <LinkList items={flowLinks} />
-                </dd>
-              </div>
-            ) : null}
-          </dl>
-          <CaseTocBar label={work.tocLabel} items={work.toc} />
-        </div>
-      </header>
+        </header>
+      )}
 
       <div className={`shell ${styles.study}`}>
         <div className={styles.tocSlot}>

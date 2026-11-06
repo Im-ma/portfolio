@@ -15,11 +15,13 @@ export function CoverVideo({
   webm,
   poster,
   field,
+  eager = false,
 }: {
   mp4: string;
   webm: string;
   poster: string;
   field: string;
+  eager?: boolean;
 }) {
   const frameRef = useRef<HTMLSpanElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -37,6 +39,11 @@ export function CoverVideo({
   useEffect(() => {
     const node = frameRef.current;
     if (!node) return;
+    const visible = () => {
+      const rect = node.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight + 200;
+    };
+    if (visible()) setNear(true);
     const load = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) setNear(true);
@@ -69,9 +76,7 @@ export function CoverVideo({
 
   return (
     <span ref={frameRef} className={styles.frame} style={{ background: field }}>
-      {reduced && near ? (
-        <Image src={poster} alt="" fill sizes="(max-width: 767px) calc(100vw - 48px), 600px" />
-      ) : null}
+      <Image src={poster} alt="" fill sizes="100vw" loading={eager ? "eager" : undefined} />
       {!reduced && near ? (
         <video
           ref={videoRef}

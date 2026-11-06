@@ -8,7 +8,7 @@
   "number": 4,
   "status": "In progress",
   "title": "Campus Ride",
-  "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+  "summary": "Getting off campus shouldn't take longer than the ride.",
   "cover": {
     "kind": "video",
     "mp4": "/videos/covers/campus-ride.mp4",
@@ -27,23 +27,29 @@
     },
     {
       "label": "ROLE",
-      "value": "Product design"
+      "value": "Product design",
+      "check": true,
+      "checkNote": "my role"
     },
     {
       "label": "TIMELINE",
-      "value": "v1: September 2026. Audit, fixes, and expansion: Oct 3 to 9, 2026.",
+      "value": "Still underway",
       "check": true,
-      "checkNote": "timeline (v1 and end date estimated)"
+      "checkNote": "start and end months"
     },
     {
       "label": "TEAM",
-      "value": "Solo, self-initiated",
+      "value": "Team of 3",
       "check": true,
-      "checkNote": "team"
+      "checkNote": "teammate names"
     },
     {
       "label": "TOOLS",
-      "value": "Figma (variables, components, prototyping)"
+      "value": "Figma"
+    },
+    {
+      "label": "PLATFORM",
+      "value": "iOS"
     }
   ],
   "links": {
@@ -70,315 +76,1108 @@
       "title": "Overview",
       "blocks": [
         {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Getting off campus without a car is hard. A grocery run, a doctor’s appointment, or a trip to the pharmacy can mean asking around in group chats and hoping someone is free."
+          "type": "heading",
+          "text": "How might students without a car get off campus quickly, fairly, and safely?"
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Meanwhile plenty of students with cars would happily drive a classmate for a few dollars. The two groups just do not have a simple, trusted way to find each other."
+          "text": "As a team of 3, our goal was to turn one local problem at Livingstone College into a complete two-sided product."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Campus Ride connects them: verified Livingstone students, riding with and driving for each other, at a price the rider proposes.",
+          "text": "I worked on the product design: the pricing model, the prototype, and the system the screens sit on.",
+          "check": true,
+          "checkNote": "my role"
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "Product strategy",
+              "text": "Finding a pricing and trust model that works between classmates."
+            },
+            {
+              "title": "Prototyping and testing",
+              "text": "76 screens, 13 flows, and a clickable prototype for riders and drivers."
+            },
+            {
+              "title": "Iterating with feedback",
+              "text": "Auditing the first screens and rebuilding them on one system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "problem",
+      "number": "02",
+      "title": "Problem",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "problem-wait",
+          "text": "The wait is longer than the ride."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "One day I needed to get to Walmart from campus. The shuttle wasn't around, so I ordered an Uber. I waited about 10 minutes to be matched, then about 15 more for the driver to arrive. About 25 minutes of waiting for a 7 minute ride.",
           "askHighlight": true,
           "tooltip": "Ask Immanuel about this"
         },
         {
-          "type": "research",
-          "text": "Salisbury is hard to get around without a car. The trips students need most are groceries, the pharmacy, and getting to the bus or train station before breaks. Today that means asking in group chats and hoping someone answers. I wanted asking for a ride to feel less like asking for a favor.",
-          "check": true,
-          "checkNote": "the real story"
-        }
-      ]
-    },
-    {
-      "id": "what-i-made",
-      "number": "02",
-      "title": "What I made",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "variant": "lead",
-          "text": "Campus Ride covers both sides of a trip, from booking a ride to getting paid for driving one."
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/problem-the-wait.webp",
+            "width": 1400,
+            "height": 560,
+            "alt": "A bar for a campus to Walmart trip: 10 minutes matching a driver, 15 minutes with the driver on the way, and 7 minutes riding.",
+            "caption": "About 25 minutes of waiting for a 7 minute ride."
+          }
         },
         {
-          "type": "panel",
-          "tone": "solution",
-          "label": "THE FLOW",
-          "blocks": [
-            {
-              "type": "video",
-              "label": "",
-              "poster": "/images/work/campus-ride/flow-poster.webp",
-              "mp4": "/videos/campus-ride-flow.mp4",
-              "webm": "/videos/campus-ride-flow.webm",
-              "playLabel": "Play the flow 0:12",
-              "caption": "12 seconds. A rider sets a destination and a price, driver offers come in, and the rider accepts one."
-            }
-          ]
-        },
-        {
-          "type": "figure",
-          "caption": "Booking flow: home, destination, set your price, schedule a ride, finding a driver, driver offers, and no drivers available.",
-          "src": "/images/work/campus-ride/01-booking-flow-overview.webp",
-          "width": 2400,
-          "height": 631,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 0,
-          "figmaSize": [
-            1440,
-            379
-          ]
+          "type": "heading",
+          "id": "problem-opportunity",
+          "text": "The drivers are already on campus."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Riders verify as students, pick a destination, set a price, and choose from driver offers. Drivers apply with a student ID and their documents, go online, and get requests with a countdown. Both sides have the unhappy screens too: no internet, payment failed, no drivers available. It comes to 76 mobile screens in 13 flows, and a clickable prototype."
-        }
-      ]
-    },
-    {
-      "id": "decisions",
-      "number": "03",
-      "title": "Decisions",
-      "blocks": [
-        {
-          "type": "decision",
-          "number": 1,
-          "eyebrow": "DECISION 01",
-          "title": "Riders name the price, with a suggestion",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "Fixed prices are simple but feel wrong between classmates on tight budgets. Fully open pricing is fair but slow, and nobody knows what is reasonable."
-            },
-            {
-              "type": "split",
-              "side": "end",
-              "text": "So the \"Set your price\" step shows a suggested price ($7.00) next to an offer the rider can change ($6.00). The suggestion starts from distance and estimated drive time. It gives people a starting point, and the offer keeps them in control.",
-              "frame": {
-                "caption": "Set your price",
-                "src": "/images/work/campus-ride/04-set-your-price.webp",
-                "width": 402,
-                "height": 874,
-                "objectFit": "cover",
-                "objectPosition": "center",
-                "radius": 6,
-                "figmaSize": [
-                  270,
-                  587
-                ]
-              },
-              "check": true,
-              "checkNote": "suggested price logic"
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "It took five versions of the destination screen to get here, moving the map and the destination list around. In the end I stopped asking one screen to do everything. Choosing where you are going and agreeing on a price are different decisions, so each got its own screen."
-            },
-            {
-              "type": "figure",
-              "caption": "Five versions of the destination screen.",
-              "src": "/images/work/campus-ride/02-destination-versions-explored.webp",
-              "width": 1246,
-              "height": 904,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "radius": 6,
-              "figmaSize": [
-                728,
-                528
-              ]
-            }
-          ]
+          "text": "Plenty of students have cars and would drive a classmate for a few dollars. They already do it in group chats. What's missing is trust, a fair price, and a way to find each other fast."
         },
         {
-          "type": "decision",
-          "number": 2,
-          "eyebrow": "DECISION 02",
-          "title": "I audited my first 11 screens before adding any new ones",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "My first 11 screens were a solid happy path. The fast move was to keep adding. But every problem in those 11 would get copied into the next 65."
-            },
-            {
-              "type": "panel",
-              "tone": "problem",
-              "label": "WHAT THE AUDIT FOUND",
-              "blocks": [
-                {
-                  "type": "list",
-                  "variant": "arrow",
-                  "items": [
-                    {
-                      "marker": "→",
-                      "text": "Two type families and 18 text sizes, some fractional, like 11.545 px."
-                    },
-                    {
-                      "marker": "→",
-                      "text": "The primary button existed in five sizes and radii."
-                    },
-                    {
-                      "marker": "→",
-                      "text": "Two chips came in under 3:1 contrast, and input borders were 1.48:1."
-                    },
-                    {
-                      "marker": "→",
-                      "text": "Tap targets as small as 16 px, and copy slips like \"Kannaplois\" and \"Salibury.\""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "I fixed the foundation first: one type scale, every color bound to a variable, a radius scale, 44 px hit areas, and one price format. Then I turned the repeating patterns into components, starting with Button, Input, Header, Stepper, and Bottom sheet."
-            },
-            {
-              "type": "figure",
-              "caption": "Driver offers, before and after the audit.",
-              "src": "/images/work/campus-ride/03-v1-vs-v2-driver-offers.webp",
-              "width": 824,
-              "height": 904,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "radius": 6,
-              "figmaSize": [
-                420,
-                461
-              ]
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "A marketplace has a lot of screens that look alike. If the base pieces are consistent, every new screen is faster to make and easier to trust.",
-              "check": true,
-              "checkNote": "decision 2 why"
-            }
-          ]
-        },
-        {
-          "type": "decision",
-          "number": 3,
-          "eyebrow": "DECISION 03",
-          "title": "Design the negotiation on both sides, including when it fails",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "Name your price only works if drivers can respond and riders can choose. And it has to handle the awkward moments: nobody accepts, or a driver loses out."
-            },
-            {
-              "type": "flow",
-              "steps": [
-                {
-                  "title": "Riders see driver offers",
-                  "text": "Each has a verified badge, rating, ETA, and price. One is tagged Best Match."
-                },
-                {
-                  "title": "Drivers get a request with a countdown",
-                  "text": "They can accept, decline, or counter, and see what they take home after the fee."
-                },
-                {
-                  "title": "When no one accepts",
-                  "text": "The rider gets \"No drivers available\" and two ways forward: raise the offer or schedule for later."
-                },
-                {
-                  "title": "Drivers get closure too",
-                  "text": "\"Rider chose someone else\" and \"You missed a request\" explain what happened."
-                }
-              ],
-              "frame": {
-                "caption": "The offer loop: driver offers, counter offer, and no drivers available.",
-                "src": "/images/work/campus-ride/05-offer-negotiation-loop.webp",
-                "width": 1302,
-                "height": 922,
-                "objectFit": "cover",
-                "objectPosition": "center",
-                "radius": 6,
-                "figmaSize": [
-                  728,
-                  516
-                ]
-              }
-            },
-            {
-              "type": "paragraph",
-              "variant": "small",
-              "text": "The numbers in these screens, like typical offer ranges and the 10% fee, are placeholder copy, not real data. I would set the real fee after asking drivers what feels fair.",
-              "check": true,
-              "checkNote": "10% fee"
-            },
-            {
-              "type": "paragraph",
-              "variant": "body",
-              "text": "A marketplace is only as good as its worst moment. If a rider’s offer is too low, the app should help them fix it, not leave them waiting.",
-              "check": true,
-              "checkNote": "decision 3 why"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "looking-back",
-      "number": "04",
-      "title": "Looking back",
-      "blocks": [
-        {
-          "type": "features",
+          "type": "threeUp",
           "items": [
             {
-              "title": "Audit before you scale.",
-              "text": "Fixing 11 screens was cheap. Fixing 76 would not have been."
+              "title": "Closer drivers",
+              "text": "A classmate down the hall instead of a driver across town."
             },
             {
-              "title": "Split, do not squeeze.",
-              "text": "When a screen keeps getting rearranged, it might be two screens."
+              "title": "Verified community",
+              "text": "Every rider and driver is a verified student."
             },
             {
-              "title": "Two-sided means twice the empathy.",
-              "text": "Designing \"Rider chose someone else\" made me care about how the app feels for the person who loses out, not just the person who wins."
+              "title": "A fair price",
+              "text": "The rider names it, drivers accept or counter."
             }
           ]
         },
         {
           "type": "paragraph",
           "variant": "small",
-          "text": "Campus Ride has not launched, so there are no users or metrics yet. What I most want to learn is whether a rider’s first offer gets accepted, and how many students would sign up to drive. A short survey in student group chats and through ColorStack could answer the second one before I build anything.",
+          "text": "How Campus Ride would make money is still an open question.",
           "check": true,
-          "checkNote": "survey"
+          "checkNote": "revenue model"
+        }
+      ]
+    },
+    {
+      "id": "solution",
+      "number": "03",
+      "title": "Solution",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Introducing Campus Ride: the ride you agree on before you get in."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "A mobile app where a rider names a price, nearby student drivers accept or counter, and the rider picks who to ride with."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/hero.webp",
+            "width": 1600,
+            "height": 700,
+            "alt": "Campus Ride. Rides between students, at a price the rider names.",
+            "caption": "Rides between students, at a price the rider names."
+          }
+        },
+        {
+          "type": "videoLoop",
+          "layout": "full",
+          "mp4": "/videos/campus-ride-flow.mp4",
+          "webm": "/videos/campus-ride-flow.webm",
+          "poster": "/images/work/campus-ride/flow-poster.webp",
+          "width": 1920,
+          "height": 1080,
+          "label": "Booking flow",
+          "caption": "A rider sets a destination and a price, offers come in, and the rider accepts one."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/solution-in-context.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Campus Ride screens over a photo of Livingstone College.",
+            "caption": "Livingstone College photo: Wikimedia Commons, CC BY-SA 3.0."
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Campus Ride works on both sides of the ride."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Riders set a price and pick a driver. Students with cars go online between classes and choose the requests they want."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/banner-rider.webp",
+            "width": 1600,
+            "height": 820,
+            "alt": "Rider screens: set your price, driver offers, and the driver arriving.",
+            "caption": "Rider"
+          }
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/banner-driver.webp",
+            "width": 1600,
+            "height": 820,
+            "alt": "Driver screens: online home, an incoming request, and navigation to pickup.",
+            "caption": "Driver"
+          }
+        }
+      ]
+    },
+    {
+      "id": "flows",
+      "number": "04",
+      "title": "Core flows",
+      "blocks": [
+        {
+          "type": "phoneFlows",
+          "steps": [
+            {
+              "title": "Name your price",
+              "text": "Pick where you're going, see a suggested price, and set your own offer.",
+              "src": "/images/work/campus-ride/flow-name-your-price.webp",
+              "width": 550,
+              "height": 1196
+            },
+            {
+              "title": "Pick your driver",
+              "text": "Compare verified student drivers by rating, ETA, and price. Marcus accepts $6.00 and he's on the way.",
+              "src": "/images/work/campus-ride/flow-pick-your-driver.webp",
+              "width": 550,
+              "height": 1196
+            },
+            {
+              "title": "Ride with confidence",
+              "text": "Message your driver, open the safety sheet anytime, then rate the ride.",
+              "src": "/images/work/campus-ride/flow-ride-with-confidence.webp",
+              "width": 550,
+              "height": 1196
+            },
+            {
+              "title": "Drive between classes",
+              "text": "Go online, get a request with a countdown, and navigate to a classmate.",
+              "src": "/images/work/campus-ride/flow-drive-between-classes.webp",
+              "width": 550,
+              "height": 1196
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Onboarding to Campus Ride"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Proving you belong to the campus before you ever see a driver, for riders and for students who apply to drive."
+        },
+        {
+          "type": "videoLoop",
+          "layout": "full",
+          "mp4": "/videos/work/campus-ride/onboarding.mp4",
+          "poster": "/images/work/campus-ride/flow-onboarding-poster.webp",
+          "width": 1600,
+          "height": 900,
+          "label": "Onboarding to Campus Ride"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "number": "05",
+      "title": "Research",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "How students at Livingstone actually get around."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I dug into the campus shuttle, Salisbury's buses and microtransit, ride hailing in small towns, and apps that tried this before. Then I found the clearest proof in our own dorm group chat."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/research-collage.webp",
+            "width": 1600,
+            "height": 1150,
+            "alt": "Collage of transit pages, news articles, a route map, and a group chat ride request.",
+            "caption": "The shuttle, city transit, ride hailing, and the dorm chat."
+          }
+        },
+        {
+          "type": "research",
+          "text": "In the chat, a student wrote \"I will pay someone to take me to Sam's club, it 25 mins away.\" Someone asked \"How much we talking.\" The answer: \"15.\" Students already name a price for rides. They just do it by hand."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Option today",
+            "The gap for students"
+          ],
+          "rows": [
+            [
+              "Livingstone shuttle",
+              "Designated routes and approved activities. When it isn't around, you're on your own. [1]"
+            ],
+            [
+              "Salisbury Transit buses",
+              "Two weekday routes, last trips around 7 pm, Saturday service suspended. [2][3]"
+            ],
+            [
+              "Salisbury Connect",
+              "On demand, Monday to Friday, 6 am to 7 pm, within a set area. [4]"
+            ],
+            [
+              "Uber or Lyft",
+              "Fewer drivers in small towns. 19% of rural Americans use ride hailing vs 45% urban (Pew). [5]"
+            ],
+            [
+              "Group chats",
+              "No trust, no tracking, no payment, no guaranteed reply."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Walmart is 1.9 miles from campus. Sam's Club is 18 miles away in Kannapolis, about 27 minutes by car, which matches the \"25 mins\" in the chat. [6] Zimride proved closed student networks build trust [7], and inDrive proved riders can name the price [8]."
+        }
+      ]
+    },
+    {
+      "id": "explorations",
+      "number": "06",
+      "title": "Explorations",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Exploring how a ride should be priced"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I weighed three pricing directions before designing a single booking screen.",
+          "check": true,
+          "checkNote": "pricing directions"
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "Fixed fare",
+              "text": "Fast and familiar, but wrong for classmates on tight budgets."
+            },
+            {
+              "title": "Driver bids",
+              "text": "Fair to drivers, but riders can't plan and get surprised."
+            },
+            {
+              "title": "Rider names the price",
+              "text": "The rider proposes, drivers accept or counter."
+            }
+          ]
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/explorations.webp",
+            "width": 1600,
+            "height": 1050,
+            "alt": "Five booking screen explorations.",
+            "caption": "Five passes at the booking screen, before the price got its own step."
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Why name your price?"
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "It's already happening",
+              "text": "Students name prices in group chats today."
+            },
+            {
+              "title": "No surprise at the end",
+              "text": "The rider knows the cost before booking."
+            },
+            {
+              "title": "Drivers keep a voice",
+              "text": "Counter offers keep it fair on both sides."
+            }
+          ]
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/name-your-price-screens.webp",
+            "width": 1600,
+            "height": 900,
+            "alt": "Three screens: set your price, driver offers, and the driver arriving.",
+            "caption": "Set your price, compare offers, then meet the driver you chose."
+          }
+        }
+      ]
+    },
+    {
+      "id": "prototypes",
+      "number": "07",
+      "title": "Prototypes",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Prototyping the booking experience"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I explored a ton of concepts for the rider side of name your price. Here are a few:"
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Where the map lives"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Choosing a place and agreeing on a price kept fighting for one screen."
+        },
+        {
+          "type": "pair",
+          "frames": [
+            {
+              "src": "/images/work/campus-ride/proto-map-a.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "Destination exploration with the map in the middle.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            },
+            {
+              "src": "/images/work/campus-ride/proto-map-b.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "Another destination exploration, with the map in a different place.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Offer cards"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Making the best offer obvious without hiding the others."
+        },
+        {
+          "type": "pair",
+          "frames": [
+            {
+              "src": "/images/work/campus-ride/proto-offers-a.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "An earlier layout for driver offer cards.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            },
+            {
+              "src": "/images/work/campus-ride/proto-offers-b.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "A later offer card layout, with one offer called out.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Waiting and failing"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "What riders see while drivers respond, and when nobody does."
+        },
+        {
+          "type": "pair",
+          "frames": [
+            {
+              "src": "/images/work/campus-ride/proto-waiting-a.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "A waiting state while drivers respond to an offer.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            },
+            {
+              "src": "/images/work/campus-ride/proto-waiting-b.webp",
+              "width": 700,
+              "height": 900,
+              "alt": "A failed state when no driver accepts.",
+              "screen": {
+                "x": 185,
+                "y": 51,
+                "w": 330,
+                "h": 718
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Testing and iterating with feedback"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I am putting the prototype in front of students, watching how they book, and listening. Session videos are still to come."
+        },
+        {
+          "type": "threeUp",
+          "columns": 4,
+          "items": [
+            {
+              "title": "Session 1",
+              "text": "Recording coming soon.",
+              "placeholder": true,
+              "check": true,
+              "checkNote": "testing session video 1",
+              "frame": {
+                "src": "/images/work/campus-ride/testing-session-1.webp",
+                "width": 540,
+                "height": 960,
+                "alt": "Placeholder for testing session 1.",
+                "standin": true
+              }
+            },
+            {
+              "title": "Session 2",
+              "text": "Recording coming soon.",
+              "placeholder": true,
+              "check": true,
+              "checkNote": "testing session video 2",
+              "frame": {
+                "src": "/images/work/campus-ride/testing-session-2.webp",
+                "width": 540,
+                "height": 960,
+                "alt": "Placeholder for testing session 2.",
+                "standin": true
+              }
+            },
+            {
+              "title": "Session 3",
+              "text": "Recording coming soon.",
+              "placeholder": true,
+              "check": true,
+              "checkNote": "testing session video 3",
+              "frame": {
+                "src": "/images/work/campus-ride/testing-session-3.webp",
+                "width": 540,
+                "height": 960,
+                "alt": "Placeholder for testing session 3.",
+                "standin": true
+              }
+            },
+            {
+              "title": "Session 4",
+              "text": "Recording coming soon.",
+              "placeholder": true,
+              "check": true,
+              "checkNote": "testing session video 4",
+              "frame": {
+                "src": "/images/work/campus-ride/testing-session-4.webp",
+                "width": 540,
+                "height": 960,
+                "alt": "Placeholder for testing session 4.",
+                "standin": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Key user insights",
+          "badge": "Pending"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Student sessions are still ahead, so these notes come from the screen audit, not from a watched test. I will replace them with what students actually say.",
+          "check": true,
+          "checkNote": "replace with what students actually said"
+        },
+        {
+          "type": "threeUp",
+          "columns": 2,
+          "items": [
+            {
+              "title": "Consistency builds trust",
+              "text": "Draft from the audit: mixed type, five button sizes, and typos made the app feel unfinished."
+            },
+            {
+              "title": "The price should never change",
+              "text": "Draft from the audit: the agreed price has to read the same from offer to arrival."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "number": "08",
+      "title": "Decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "I designed a system, not just screens."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Every flow for riders and drivers sits on one set of components, so the 76th screen is as consistent as the first."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/systems-thinking.webp",
+            "width": 1600,
+            "height": 2794,
+            "alt": "Rider and driver flows A to M, and the component system underneath them.",
+            "caption": "Flows A to M for riders and drivers, on one component system."
+          }
+        },
+        {
+          "type": "heading",
+          "id": "insight-consistency",
+          "text": "Insight 1: Consistency builds trust"
+        },
+        {
+          "type": "beforeAfter",
+          "items": [
+            {
+              "label": "Before the audit",
+              "text": "Two type families, typos like \"Salibury,\" and \"US$6\" next to \"$7.00.\"",
+              "frame": {
+                "src": "/images/work/campus-ride/insight-consistency-before.webp",
+                "width": 700,
+                "height": 900,
+                "alt": "Driver offers before the audit, with mixed type and price formats.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
+              }
+            },
+            {
+              "label": "After the audit",
+              "text": "One type scale, readable chips, 44 px tap targets, and one price format.",
+              "frame": {
+                "src": "/images/work/campus-ride/insight-consistency-after.webp",
+                "width": 700,
+                "height": 900,
+                "alt": "Driver offers after the audit, with one type scale and one price format.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "id": "insight-price",
+          "text": "Insight 2: The price should never change"
+        },
+        {
+          "type": "beforeAfter",
+          "items": [
+            {
+              "label": "Agree up front",
+              "text": "A suggested $7.00 anchors the rider's own $6.00 offer.",
+              "frame": {
+                "src": "/images/work/campus-ride/insight-price-agree.webp",
+                "width": 700,
+                "height": 900,
+                "alt": "Set your price, with a suggested $7.00 beside a $6.00 offer.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
+              }
+            },
+            {
+              "label": "Carry it through",
+              "text": "Driver Arriving shows the same $6.00, marked Agreed.",
+              "frame": {
+                "src": "/images/work/campus-ride/insight-price-carry.webp",
+                "width": 700,
+                "height": 900,
+                "alt": "Driver arriving, with the agreed $6.00 still on screen.",
+                "screen": {
+                  "x": 185,
+                  "y": 91,
+                  "w": 330,
+                  "h": 718
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constraints",
+      "number": "09",
+      "title": "Constraints",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A ride on every offer isn't possible, yet."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Name your price only works if someone says yes. A low offer, a busy afternoon, or a driver who loses out can break the whole idea."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/how-students-get-around.webp",
+            "width": 1600,
+            "height": 520,
+            "alt": "Campus shuttle, a city bus, ride hailing, group chats, and students with cars.",
+            "caption": "Photos: Wikimedia Commons (shuttle CC BY-SA 4.0, bus CC BY-SA 4.0, Uber app CC0, parking lot CC BY 2.0)."
+          }
+        },
+        {
+          "type": "callout",
+          "tone": "accent",
+          "kicker": "So I had to ask",
+          "title": "What happens when nobody accepts my price?"
+        },
+        {
+          "type": "heading",
+          "id": "rider-recovery",
+          "text": "Rider-side recovery"
+        },
+        {
+          "type": "callout",
+          "tone": "neutral",
+          "text": "When no driver accepts, the rider gets clear ways forward instead of a dead end.",
+          "frame": {
+            "src": "/images/work/campus-ride/callout-rider-recovery.webp",
+            "width": 1600,
+            "height": 900,
+            "alt": "No drivers available, with nearby offers, raise offer, and schedule for later."
+          }
         },
         {
           "type": "label",
-          "text": "NEXT"
+          "text": "CONSIDERATIONS"
         },
         {
-          "type": "list",
-          "variant": "numbered",
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do I help riders raise a fair offer?",
+          "text": "Show what nearby riders are offering, with quick picks and \"Raise offer\" as the main action.",
+          "frame": {
+            "src": "/images/work/campus-ride/cons-no-drivers.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "No drivers available, with quick price picks and a raise offer button.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "What if they can't pay more?",
+          "text": "\"Schedule for later\" keeps the trip alive instead of ending it.",
+          "frame": {
+            "src": "/images/work/campus-ride/cons-schedule.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "Schedule for later, so a low offer does not end the trip.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
+          }
+        },
+        {
+          "type": "heading",
+          "id": "driver-negotiation",
+          "text": "Driver-side negotiation"
+        },
+        {
+          "type": "callout",
+          "tone": "neutral",
+          "text": "Drivers see each request with a countdown and can accept, decline, or counter.",
+          "frame": {
+            "src": "/images/work/campus-ride/callout-driver-negotiation.webp",
+            "width": 1600,
+            "height": 900,
+            "alt": "A driver request with a countdown, and accept, decline, or counter."
+          }
+        },
+        {
+          "type": "label",
+          "text": "CONSIDERATIONS"
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do drivers decide fast?",
+          "text": "The rider's offer, pickup, dropoff, distance, and a 12 second timer on one card.",
+          "frame": {
+            "src": "/images/work/campus-ride/cons-request.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "Incoming request card with the offer, route, and a 12 second timer.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "What does losing feel like?",
+          "text": "\"Rider chose someone else\" shows the winning offer, so drivers learn instead of guessing.",
+          "frame": {
+            "src": "/images/work/campus-ride/cons-chose-else.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "Rider chose someone else, with the winning offer visible.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "What if they miss it?",
+          "text": "\"You missed a request\" closes the loop and keeps them ready for the next one.",
+          "frame": {
+            "src": "/images/work/campus-ride/cons-missed.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "You missed a request, with a way back to the next one.",
+            "screen": {
+              "x": 135,
+              "y": 51,
+              "w": 330,
+              "h": 718
+            }
+          }
+        },
+        {
+          "type": "heading",
+          "id": "tradeoff",
+          "text": "Trading speed for fairness."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "A fixed price would get riders into a car one step faster. I chose fairness and control, and spent the extra design work on making the slow moments (waiting, countering, losing) clear and respectful."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/seesaw.webp",
+            "width": 1400,
+            "height": 640,
+            "alt": "A seesaw with a small speed weight and a larger fairness weight.",
+            "caption": "Speed against fairness. Fairness is the side I weighted."
+          }
+        },
+        {
+          "type": "callout",
+          "tone": "signal",
+          "title": "A price both sides agreed on is worth one extra tap."
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "number": "10",
+      "title": "Outcomes",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Estimated impact"
+        },
+        {
+          "type": "label",
+          "text": "ESTIMATED, STUDENT FEEDBACK IN PROGRESS"
+        },
+        {
+          "type": "stats",
           "items": [
             {
-              "marker": "01",
-              "text": "Talk to ten students: five who need rides and five who have cars.",
-              "check": true,
-              "checkNote": "next step: interviews"
+              "value": "25 min",
+              "text": "My wait today: about 10 min to match, plus about 15 min for pickup."
             },
             {
-              "marker": "02",
-              "text": "Settle the safety and verification rules: student email, student ID, and driver documents."
+              "value": "4 to 10 min",
+              "text": "Estimated wait with Campus Ride: 2 to 5 min to get an accepted offer, plus 2 to 5 min pickup by a driver already on campus."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "That's an estimated 60% to 84% less waiting. The comparison is (25 minus 10) / 25 and (25 minus 4) / 25. These are assumptions, not measured results. I will replace them with real numbers from student feedback.",
+          "check": true,
+          "checkNote": "estimated wait, replace with student feedback"
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "number": "11",
+      "title": "Reflection",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "What I learned"
+        },
+        {
+          "type": "threeUp",
+          "columns": 2,
+          "items": [
+            {
+              "title": "The best research was already in our group chat.",
+              "text": "I looked at transit schedules and competitor apps, but one dorm message about Sam's Club proved the model better than any of it. Real behavior beats assumptions."
             },
             {
-              "marker": "03",
-              "text": "Test the offer loop in the prototype with real classmates."
+              "title": "Design the \"no,\" not just the \"yes.\"",
+              "text": "Name your price lives or dies on what happens when nobody accepts. Designing \"No drivers available\" and \"Rider chose someone else\" made the idea honest."
+            },
+            {
+              "title": "Audit before you scale.",
+              "text": "Fixing the first 11 screens was cheap. Fixing 76 would not have been. The system is why the driver side came together fast."
+            },
+            {
+              "title": "When a screen keeps moving, it might be two screens.",
+              "text": "Five versions of the booking screen taught me to split choosing a place from agreeing on a price."
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "text": "SOURCES"
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "text": "",
+          "parts": [
+            {
+              "text": "[1] "
+            },
+            {
+              "text": "Livingstone shuttle driver posting",
+              "href": "https://www.ihiretransportation.com/jobs/view/538636159"
+            },
+            {
+              "text": " [2] "
+            },
+            {
+              "text": "Salisbury Transit stops and times",
+              "href": "https://salisburync.gov/Government/Transit/Stops-and-Times"
+            },
+            {
+              "text": " [3] "
+            },
+            {
+              "text": "Salisbury Transit",
+              "href": "https://salisburync.gov/Government/Transit/Pages/default"
+            },
+            {
+              "text": " [4] "
+            },
+            {
+              "text": "Salisbury Connect",
+              "href": "https://city.ridewithvia.com/salisbury"
+            },
+            {
+              "text": ", "
+            },
+            {
+              "text": "Salisbury Post",
+              "href": "https://www.salisburypost.com/2026/05/08/salisbury-hears-first-quarter-salisbury-connect-statistics/"
+            },
+            {
+              "text": " [5] "
+            },
+            {
+              "text": "Vox citing Pew",
+              "href": "https://www.vox.com/the-goods/2019/1/11/18179036/uber-lyft-rural-areas-subscription-model"
+            },
+            {
+              "text": " [6] Routes: OpenStreetMap contributors and OSRM [7] "
+            },
+            {
+              "text": "Zimride",
+              "href": "https://en.wikipedia.org/wiki/Zimride"
+            },
+            {
+              "text": ", "
+            },
+            {
+              "text": "Fast Company",
+              "href": "https://www.fastcompany.com/1702207/zimride-carpooling-college-students/"
+            },
+            {
+              "text": " [8] "
+            },
+            {
+              "text": "inDrive",
+              "href": "https://blog.indrive.com/article/global-rideshare-leader-indrive-launches-in-the-u-s-bringing-name-your-price-model-to-consumers-and-drivers"
+            },
+            {
+              "text": ". Also: "
+            },
+            {
+              "text": "ValuePenguin student car survey",
+              "href": "https://www.valuepenguin.com/college-students-cars-survey"
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "text": "",
+          "parts": [
+            {
+              "text": "Photos (Wikimedia Commons): "
+            },
+            {
+              "text": "Livingstone College from Monroe St",
+              "href": "https://commons.wikimedia.org/wiki/File:Livingstone_College_from_Monroe_St_Salisbury_NC.JPG"
+            },
+            {
+              "text": " and "
+            },
+            {
+              "text": "the bear",
+              "href": "https://commons.wikimedia.org/wiki/File:Livingstone_College_from_Monroe_St_Salisbury_NC_-_the_bear.JPG"
+            },
+            {
+              "text": " (CC BY-SA 3.0), "
+            },
+            {
+              "text": "PCC shuttle bus",
+              "href": "https://commons.wikimedia.org/wiki/File:PCC_shuttle_bus_on_Rock_Creek_campus_(2018).jpg"
+            },
+            {
+              "text": " (CC BY-SA 4.0), "
+            },
+            {
+              "text": "City Bus in Winston-Salem",
+              "href": "https://commons.wikimedia.org/wiki/File:City_Bus_in_Winston-Salem.jpg"
+            },
+            {
+              "text": " (CC BY-SA 4.0), "
+            },
+            {
+              "text": "Uber iPhone app",
+              "href": "https://commons.wikimedia.org/wiki/File:Uber_iPhone_app_(24336063775).jpg"
+            },
+            {
+              "text": " (CC0), "
+            },
+            {
+              "text": "GCC parking lot",
+              "href": "https://commons.wikimedia.org/wiki/File:GCC_parking_lot_at_sunset.jpg"
+            },
+            {
+              "text": " (CC BY 2.0). The collage shows screenshots of the cited pages."
             }
           ]
         }
@@ -395,36 +1194,100 @@
     },
     {
       "number": "02",
-      "title": "What I made",
-      "anchor": "what-i-made",
-      "subs": []
-    },
-    {
-      "number": "03",
-      "title": "Decisions",
-      "anchor": "decisions",
+      "title": "Problem",
+      "anchor": "problem",
       "subs": [
         {
-          "number": "3.1",
-          "title": "Riders name the price",
-          "anchor": "decision-1"
+          "number": "02.1",
+          "title": "The wait",
+          "anchor": "problem-wait"
         },
         {
-          "number": "3.2",
-          "title": "Audit before adding",
-          "anchor": "decision-2"
-        },
-        {
-          "number": "3.3",
-          "title": "Design the negotiation",
-          "anchor": "decision-3"
+          "number": "02.2",
+          "title": "The opportunity",
+          "anchor": "problem-opportunity"
         }
       ]
     },
     {
+      "number": "03",
+      "title": "Solution",
+      "anchor": "solution",
+      "subs": []
+    },
+    {
       "number": "04",
-      "title": "Looking back",
-      "anchor": "looking-back",
+      "title": "Core flows",
+      "anchor": "flows",
+      "subs": []
+    },
+    {
+      "number": "05",
+      "title": "Research",
+      "anchor": "research",
+      "subs": []
+    },
+    {
+      "number": "06",
+      "title": "Explorations",
+      "anchor": "explorations",
+      "subs": []
+    },
+    {
+      "number": "07",
+      "title": "Prototypes",
+      "anchor": "prototypes",
+      "subs": []
+    },
+    {
+      "number": "08",
+      "title": "Decisions",
+      "anchor": "decisions",
+      "subs": [
+        {
+          "number": "08.1",
+          "title": "Consistency",
+          "anchor": "insight-consistency"
+        },
+        {
+          "number": "08.2",
+          "title": "The price",
+          "anchor": "insight-price"
+        }
+      ]
+    },
+    {
+      "number": "09",
+      "title": "Constraints",
+      "anchor": "constraints",
+      "subs": [
+        {
+          "number": "09.1",
+          "title": "Rider recovery",
+          "anchor": "rider-recovery"
+        },
+        {
+          "number": "09.2",
+          "title": "Driver side",
+          "anchor": "driver-negotiation"
+        },
+        {
+          "number": "09.3",
+          "title": "The tradeoff",
+          "anchor": "tradeoff"
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "Outcomes",
+      "anchor": "outcomes",
+      "subs": []
+    },
+    {
+      "number": "11",
+      "title": "Reflection",
+      "anchor": "reflection",
       "subs": []
     }
   ],

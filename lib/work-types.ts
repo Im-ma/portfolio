@@ -1,3 +1,10 @@
+export type ScreenRect = {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+};
+
 export type Media = {
   src: string;
   width: number;
@@ -9,6 +16,8 @@ export type Media = {
   standin?: boolean;
   alt?: string;
   caption?: string;
+  /** Inner display, in source pixels, when the file includes a device bezel. */
+  screen?: ScreenRect;
 };
 
 export type ListItem = {
@@ -31,12 +40,28 @@ export type VideoBlock = {
   standin?: boolean;
 };
 
+export type TextPart = {
+  text: string;
+  href?: string;
+};
+
+export type ThreeUpItem = {
+  title?: string;
+  text?: string;
+  frame?: Media;
+  /** Draft slot. Renders a labeled placeholder instead of the image file. */
+  placeholder?: boolean;
+  check?: boolean;
+  checkNote?: string;
+};
+
 export type Block =
   | { type: "annotation"; devOnly?: boolean; text: string }
   | {
       type: "paragraph";
       variant?: string;
       text: string;
+      parts?: TextPart[];
       askHighlight?: boolean;
       tooltip?: string;
       check?: boolean;
@@ -54,7 +79,15 @@ export type Block =
   | { type: "videos"; items: VideoBlock[] }
   | { type: "decision"; number: number; eyebrow: string; title: string; blocks: Block[] }
   | { type: "label"; text: string }
-  | { type: "heading"; text?: string }
+  | {
+      type: "heading";
+      text?: string;
+      id?: string;
+      level?: 3 | 4;
+      badge?: string;
+      check?: boolean;
+      checkNote?: string;
+    }
   | {
       type: "options";
       items: {
@@ -71,9 +104,11 @@ export type Block =
   | { type: "single"; frame: Media }
   | {
       type: "split";
+      title?: string;
       text: string;
       frame: Media;
       side?: "start" | "end";
+      compact?: boolean;
       check?: boolean;
       checkNote?: string;
     }
@@ -95,7 +130,48 @@ export type Block =
       label?: string;
       caption?: string;
       blocks: Block[];
-    };
+    }
+  | { type: "full"; frame: Media }
+  | { type: "threeUp"; columns?: 2 | 3 | 4; items: ThreeUpItem[] }
+  | {
+      type: "videoLoop";
+      mp4: string;
+      webm?: string;
+      poster: string;
+      width: number;
+      height: number;
+      title?: string;
+      text?: string;
+      caption?: string;
+      label?: string;
+      layout?: "split" | "full";
+      flip?: boolean;
+      check?: boolean;
+      checkNote?: string;
+    }
+  | {
+      type: "phoneFlows";
+      steps: {
+        title: string;
+        text: string;
+        src: string;
+        width: number;
+        height: number;
+      }[];
+    }
+  | { type: "beforeAfter"; items: { label: string; text?: string; frame: Media }[] }
+  | {
+      type: "callout";
+      tone?: "accent" | "neutral" | "signal";
+      kicker?: string;
+      title?: string;
+      text?: string;
+      frame?: Media;
+      check?: boolean;
+      checkNote?: string;
+    }
+  | { type: "stats"; items: { value: string; text: string }[]; check?: boolean; checkNote?: string }
+  | { type: "table"; headers: string[]; rows: string[][]; caption?: string };
 
 export type WorkSection = {
   id: string;
@@ -143,6 +219,7 @@ export type Work = {
   };
   keyTakeaway?: { label: string; heading: string; body: string };
   scope?: { label: string; text: string };
+  hero?: { src: string; width: number; height: number; alt?: string };
   meta: { label: string; value: string; tag?: string; check?: boolean; checkNote?: string }[];
   links: { items: WorkLink[]; flows?: WorkLink[]; flowsLabel?: string };
   sections: WorkSection[];
