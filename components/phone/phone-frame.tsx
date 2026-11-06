@@ -1,10 +1,14 @@
+import Image from "next/image";
 import styles from "./phone-frame.module.css";
 
 /**
- * Original iPhone 16 Pro style frame drawn for this site.
- * Proportions follow the published 402 by 874 pt screen, an even bezel,
- * and a centered Dynamic Island. This is not Apple artwork and not a
- * third party asset, so no separate license applies.
+ * iPhone 16 Pro frame, black titanium.
+ * Source: screenflow (Marvin Hulsmann)
+ * https://github.com/marvinhuelsmann/homebrew-screenflow
+ * License: MIT. Copyright (c) 2026 Marvin Hulsmann.
+ * The PNG is 1350 by 2760. Its transparent screen cutout is
+ * x 72, y 69, 1206 by 2622, with a 190 px corner radius.
+ * The hardware, including the Dynamic Island, is part of the image.
  */
 export function PhoneFrame({
   children,
@@ -20,18 +24,20 @@ export function PhoneFrame({
       className={styles.device}
       style={{ "--phone-max": `${maxWidth}px` } as React.CSSProperties}
     >
-      <div className={styles.body}>
-        <span className={styles.grain} aria-hidden="true" />
-        <span className={styles.btn} data-side="left" data-kind="action" aria-hidden="true" />
-        <span className={styles.btn} data-side="left" data-kind="volUp" aria-hidden="true" />
-        <span className={styles.btn} data-side="left" data-kind="volDown" aria-hidden="true" />
-        <span className={styles.btn} data-side="right" data-kind="power" aria-hidden="true" />
+      <div className={styles.stage}>
         <div className={styles.screen}>
           <div className={styles.well}>{children}</div>
-          <span className={styles.island} aria-hidden="true">
-            <span className={styles.lens} />
-          </span>
         </div>
+        {/* The frame sits over the screen so the cutout bezel and island stay even. */}
+        <Image
+          className={styles.frame}
+          src="/images/devices/iphone-16-pro-black.png"
+          alt=""
+          width={1350}
+          height={2760}
+          unoptimized
+          draggable={false}
+        />
       </div>
       <span className="sr-only">{label}</span>
     </div>
