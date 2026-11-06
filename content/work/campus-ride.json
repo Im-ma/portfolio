@@ -260,58 +260,30 @@
             {
               "title": "Name your price",
               "text": "Pick where you're going, see a suggested price, and set your own offer.",
-              "mp4": "/videos/work/campus-ride/name-your-price.mp4",
-              "poster": "/images/work/campus-ride/flow-name-your-price-poster.webp",
-              "width": 960,
-              "height": 1200,
-              "screen": {
-                "x": 179,
-                "y": 0,
-                "w": 601,
-                "h": 1200
-              }
+              "src": "/images/work/campus-ride/flow-name-your-price.webp",
+              "width": 550,
+              "height": 1196
             },
             {
               "title": "Pick your driver",
               "text": "Compare verified student drivers by rating, ETA, and price. Marcus accepts $6.00 and he's on the way.",
-              "mp4": "/videos/work/campus-ride/pick-your-driver.mp4",
-              "poster": "/images/work/campus-ride/flow-pick-your-driver-poster.webp",
-              "width": 960,
-              "height": 1200,
-              "screen": {
-                "x": 179,
-                "y": 0,
-                "w": 601,
-                "h": 1200
-              }
+              "src": "/images/work/campus-ride/flow-pick-your-driver.webp",
+              "width": 550,
+              "height": 1196
             },
             {
               "title": "Ride with confidence",
               "text": "Message your driver, open the safety sheet anytime, then rate the ride.",
-              "mp4": "/videos/work/campus-ride/ride-and-rate.mp4",
-              "poster": "/images/work/campus-ride/flow-ride-and-rate-poster.webp",
-              "width": 960,
-              "height": 1200,
-              "screen": {
-                "x": 179,
-                "y": 0,
-                "w": 601,
-                "h": 1200
-              }
+              "src": "/images/work/campus-ride/flow-ride-with-confidence.webp",
+              "width": 550,
+              "height": 1196
             },
             {
               "title": "Drive between classes",
               "text": "Go online, get a request with a countdown, and navigate to a classmate.",
-              "mp4": "/videos/work/campus-ride/drive-between-classes.mp4",
-              "poster": "/images/work/campus-ride/flow-drive-between-classes-poster.webp",
-              "width": 960,
-              "height": 1200,
-              "screen": {
-                "x": 179,
-                "y": 0,
-                "w": 601,
-                "h": 1200
-              }
+              "src": "/images/work/campus-ride/flow-drive-between-classes.webp",
+              "width": 550,
+              "height": 1196
             }
           ]
         },

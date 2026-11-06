@@ -154,11 +154,9 @@ export type Block =
       steps: {
         title: string;
         text: string;
-        mp4: string;
-        poster: string;
+        src: string;
         width: number;
         height: number;
-        screen: ScreenRect;
       }[];
     }
   | { type: "beforeAfter"; items: { label: string; text?: string; frame: Media }[] }
