@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { ScreenRect } from "@/lib/work-types";
 import { PhoneFrame } from "@/components/phone/phone-frame";
-import cropStyles from "@/components/phone/screen-crop.module.css";
 import styles from "./phone-flows.module.css";
 
-const wellRatio = 393 / 852;
+/** iPhone 16 Pro screen cutout, width over height. Matches the frame image. */
+const cutoutRatio = 1206 / 2622;
 
 export type PhoneFlowStep = {
   title: string;
@@ -133,7 +133,11 @@ export function PhoneFlows({ steps }: { steps: PhoneFlowStep[] }) {
             aria-labelledby={`flow-tab-${index}`}
           >
             {steps.map((step, item) => {
-              const wide = step.screen.w / step.screen.h > wellRatio;
+              const heightPct = (step.height / step.screen.h) * 100;
+              const widthPct = (step.width / step.screen.h / cutoutRatio) * 100;
+              const screenLeftPct = -((step.screen.w / step.screen.h / cutoutRatio - 1) / 2) * 100;
+              const leftPct = screenLeftPct - (step.screen.x / step.width) * widthPct;
+              const topPct = -(step.screen.y / step.screen.h) * 100;
               return (
                 <div
                   key={step.title}
@@ -141,37 +145,31 @@ export function PhoneFlows({ steps }: { steps: PhoneFlowStep[] }) {
                   data-active={item === index ? "true" : "false"}
                   aria-hidden={item === index ? undefined : true}
                 >
-                  <div
-                    className={cropStyles.crop}
-                    data-wide={wide ? "true" : "false"}
-                    style={{ aspectRatio: `${step.screen.w} / ${step.screen.h}` }}
+                  <video
+                    ref={(node) => {
+                      videos.current[item] = node;
+                    }}
+                    className={styles.video}
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-label={step.title}
+                    onPlay={() => {
+                      if (item === index) setPlaying(true);
+                    }}
+                    onPause={() => {
+                      if (item === index) setPlaying(false);
+                    }}
+                    style={{
+                      width: `${widthPct}%`,
+                      height: `${heightPct}%`,
+                      left: `${leftPct}%`,
+                      top: `${topPct}%`,
+                    }}
                   >
-                    <video
-                      ref={(node) => {
-                        videos.current[item] = node;
-                      }}
-                      className={styles.video}
-                      poster={step.poster}
-                      muted
-                      loop
-                      playsInline
-                      preload={item === index ? "metadata" : "none"}
-                      aria-label={step.title}
-                      onPlay={() => {
-                        if (item === index) setPlaying(true);
-                      }}
-                      onPause={() => {
-                        if (item === index) setPlaying(false);
-                      }}
-                      style={{
-                        marginLeft: `${(-step.screen.x / step.screen.w) * 100}%`,
-                        marginTop: `${(-step.screen.y / step.screen.w) * 100}%`,
-                        width: `${(step.width / step.screen.w) * 100}%`,
-                      }}
-                    >
-                      <source src={step.mp4} type="video/mp4" />
-                    </video>
-                  </div>
+                    <source src={step.mp4} type="video/mp4" />
+                  </video>
                 </div>
               );
             })}

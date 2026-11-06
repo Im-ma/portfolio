@@ -51,27 +51,29 @@
 .stack {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .layer {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 280ms ease;
+  transition: opacity 300ms ease;
 }
 
 .layer[data-active="true"] {
+  z-index: 1;
   opacity: 1;
 }
 
 .video {
+  position: absolute;
   display: block;
-  height: auto;
   max-width: none;
+  object-fit: fill;
+  background: #fff;
 }
 
 .play {
