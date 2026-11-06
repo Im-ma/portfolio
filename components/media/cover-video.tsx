@@ -15,11 +15,13 @@ export function CoverVideo({
   webm,
   poster,
   field,
+  eager = false,
 }: {
   mp4: string;
   webm: string;
   poster: string;
   field: string;
+  eager?: boolean;
 }) {
   const frameRef = useRef<HTMLSpanElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -74,7 +76,7 @@ export function CoverVideo({
 
   return (
     <span ref={frameRef} className={styles.frame} style={{ background: field }}>
-      <Image src={poster} alt="" fill sizes="100vw" />
+      <Image src={poster} alt="" fill sizes="100vw" loading={eager ? "eager" : undefined} />
       {!reduced && near ? (
         <video
           ref={videoRef}

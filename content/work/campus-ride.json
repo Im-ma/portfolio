@@ -26,10 +26,10 @@
       "value": "Design and clickable prototype"
     },
     {
-      "label": "COLLABORATORS",
-      "value": "Team of 3",
+      "label": "ROLE",
+      "value": "Product design",
       "check": true,
-      "checkNote": "teammate names"
+      "checkNote": "my role"
     },
     {
       "label": "TIMELINE",
@@ -38,14 +38,18 @@
       "checkNote": "start and end months"
     },
     {
-      "label": "SCOPE",
-      "value": "Product design, strategy, and the design system"
+      "label": "TEAM",
+      "value": "Team of 3",
+      "check": true,
+      "checkNote": "teammate names"
     },
     {
-      "label": "ROLE",
-      "value": "Product design",
-      "check": true,
-      "checkNote": "my role"
+      "label": "TOOLS",
+      "value": "Figma"
+    },
+    {
+      "label": "PLATFORM",
+      "value": "iOS"
     }
   ],
   "links": {
