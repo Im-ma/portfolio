@@ -150,11 +150,12 @@ export type Block =
       checkNote?: string;
     }
   | {
-      type: "phoneFlows";
-      steps: {
-        title: string;
-        text: string;
-        src: string;
+      type: "prototypeFlows";
+      items: {
+        label: string;
+        caption: string;
+        mp4: string;
+        poster: string;
         width: number;
         height: number;
       }[];

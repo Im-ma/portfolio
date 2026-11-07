@@ -255,35 +255,23 @@
       "title": "Core flows",
       "blocks": [
         {
-          "type": "phoneFlows",
-          "steps": [
+          "type": "prototypeFlows",
+          "items": [
             {
-              "title": "Name your price",
-              "text": "Pick where you're going, see a suggested price, and set your own offer.",
-              "src": "/images/work/campus-ride/flow-name-your-price.webp",
-              "width": 550,
-              "height": 1196
+              "label": "Rider",
+              "caption": "Request a ride at your price, pick a driver, chat.",
+              "mp4": "/videos/work/campus-ride/rider-flow.mp4",
+              "poster": "/images/work/campus-ride/rider-flow-poster.jpg",
+              "width": 540,
+              "height": 1084
             },
             {
-              "title": "Pick your driver",
-              "text": "Compare verified student drivers by rating, ETA, and price. Marcus accepts $6.00 and he's on the way.",
-              "src": "/images/work/campus-ride/flow-pick-your-driver.webp",
-              "width": 550,
-              "height": 1196
-            },
-            {
-              "title": "Ride with confidence",
-              "text": "Message your driver, open the safety sheet anytime, then rate the ride.",
-              "src": "/images/work/campus-ride/flow-ride-with-confidence.webp",
-              "width": 550,
-              "height": 1196
-            },
-            {
-              "title": "Drive between classes",
-              "text": "Go online, get a request with a countdown, and navigate to a classmate.",
-              "src": "/images/work/campus-ride/flow-drive-between-classes.webp",
-              "width": 550,
-              "height": 1196
+              "label": "Driver",
+              "caption": "Go online, accept, pick up, finish and rate.",
+              "mp4": "/videos/work/campus-ride/driver-flow.mp4",
+              "poster": "/images/work/campus-ride/driver-flow-poster.jpg",
+              "width": 540,
+              "height": 1084
             }
           ]
         },

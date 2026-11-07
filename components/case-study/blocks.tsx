@@ -19,7 +19,7 @@ import {
   VideoSlot,
 } from "./media-blocks";
 import { BeforeAfter, Callout, Full, Stats, Table, ThreeUp, VideoLoop } from "./layout-blocks";
-import { PhoneFlows } from "./phone-flows";
+import { PrototypeFlows } from "./prototype-flows";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
 import panelStyles from "./media-blocks.module.css";
@@ -297,7 +297,7 @@ function BlockView({
       />
     );
   }
-  if (block.type === "phoneFlows") return <PhoneFlows steps={block.steps} />;
+  if (block.type === "prototypeFlows") return <PrototypeFlows items={block.items} />;
   if (block.type === "beforeAfter") return <BeforeAfter items={block.items} />;
   if (block.type === "callout") {
     return (
