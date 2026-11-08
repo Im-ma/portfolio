@@ -235,17 +235,21 @@ export function CaseStudy({ work }: { work: Work }) {
         </div>
         <div className={styles.studyMain}>
           {sections.map((section) => {
-            const campusOverview = work.slug === "campus-ride" && section.id === "overview";
+            const campusColumn =
+              work.slug === "campus-ride" &&
+              (section.id === "overview" || section.id === "solution");
             return (
               <section
                 key={section.id}
                 id={section.id}
                 className={styles.section}
-                data-overview={campusOverview ? "true" : undefined}
+                data-overview={
+                  work.slug === "campus-ride" && section.id === "overview" ? "true" : undefined
+                }
               >
                 <Reveal>
-                  {campusOverview ? (
-                    <CampusOverview>
+                  {campusColumn ? (
+                    <CampusOverview label={section.title}>
                       <SectionBody section={section} source={work.title} sizes={columnSizes} />
                     </CampusOverview>
                   ) : (

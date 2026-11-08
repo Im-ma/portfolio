@@ -136,21 +136,13 @@
       "blocks": [
         {
           "type": "heading",
+          "level": 2,
           "text": "Introducing Campus Ride: the ride you agree on before you get in."
         },
         {
           "type": "paragraph",
-          "variant": "body",
-          "text": "A mobile app where a rider names a price, nearby student drivers accept or counter, and the rider picks who to ride with. Students with cars go online between classes and choose the requests they want."
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/hero.webp",
-            "width": 1600,
-            "height": 700,
-            "alt": "Campus Ride. Rides between students, at a price the rider names."
-          }
+          "variant": "muted",
+          "text": "A mobile app where a rider names a price, nearby student drivers accept or counter, and the rider picks who to ride with."
         },
         {
           "type": "full",
@@ -158,8 +150,37 @@
             "src": "/images/work/campus-ride/solution-in-context.webp",
             "width": 1600,
             "height": 1000,
-            "alt": "Campus Ride screens over a photo of Livingstone College.",
-            "caption": "Livingstone College photo: Wikimedia Commons, CC BY-SA 3.0."
+            "alt": "Campus Ride screens over a photo of Livingstone College",
+            "caption": "Livingstone College photo: Wikimedia Commons, CC BY-SA 3.0"
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Campus Ride works on both sides of the ride."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Riders set a price and pick a driver. Students with cars go online between classes and choose the requests they want."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/banner-rider.webp",
+            "width": 1600,
+            "height": 820,
+            "alt": "Rider screens: set your price, driver offers, driver arriving",
+            "caption": "Rider"
+          }
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/campus-ride/banner-driver.webp",
+            "width": 1600,
+            "height": 820,
+            "alt": "Driver screens: online home, incoming request, navigate to pickup",
+            "caption": "Driver"
           }
         }
       ]

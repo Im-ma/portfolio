@@ -8,13 +8,13 @@ const serif = Source_Serif_4({
   display: "swap",
 });
 
-export function CampusOverview({ children }: { children: ReactNode }) {
+export function CampusOverview({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div
       className={styles.column}
       style={{ "--overview-serif": serif.style.fontFamily } as CSSProperties}
     >
-      <p className={`${styles.label} t-body-s`}>Overview</p>
+      <p className={`${styles.label} t-body-s`}>{label}</p>
       {children}
     </div>
   );
