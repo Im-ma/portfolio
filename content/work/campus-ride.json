@@ -21,35 +21,16 @@
   },
   "meta": [
     {
-      "label": "STATUS",
-      "tag": "In progress",
-      "value": "Design and clickable prototype"
-    },
-    {
-      "label": "ROLE",
-      "value": "Product design",
-      "check": true,
-      "checkNote": "my role"
+      "label": "TEAM",
+      "value": "Team of 3"
     },
     {
       "label": "TIMELINE",
-      "value": "Still underway",
-      "check": true,
-      "checkNote": "start and end months"
+      "value": "Sep 2026 to ongoing"
     },
     {
-      "label": "TEAM",
-      "value": "Team of 3",
-      "check": true,
-      "checkNote": "teammate names"
-    },
-    {
-      "label": "TOOLS",
-      "value": "Figma"
-    },
-    {
-      "label": "PLATFORM",
-      "value": "iOS"
+      "label": "ROLE",
+      "value": "Product design and engineering"
     }
   ],
   "links": {
