@@ -123,7 +123,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "One day I needed to get to Walmart from campus. The shuttle wasn't around, so I ordered an Uber. I waited about 10 minutes to be matched, then about 15 more for the driver to arrive. About 25 minutes of waiting for a 7 minute ride.",
+          "text": "One day I needed to get to Walmart from campus. The shuttle wasn't around, so I ordered an Uber. I waited about 10 minutes to be matched, then about 15 more for the driver to arrive.",
           "askHighlight": true,
           "tooltip": "Ask Immanuel about this"
         },
@@ -133,8 +133,7 @@
             "src": "/images/work/campus-ride/problem-the-wait.webp",
             "width": 1400,
             "height": 560,
-            "alt": "A bar for a campus to Walmart trip: 10 minutes matching a driver, 15 minutes with the driver on the way, and 7 minutes riding.",
-            "caption": "About 25 minutes of waiting for a 7 minute ride."
+            "alt": "A bar for a campus to Walmart trip: 10 minutes matching a driver, 15 minutes with the driver on the way, and 7 minutes riding."
           }
         },
         {
@@ -145,7 +144,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Plenty of students have cars and would drive a classmate for a few dollars. They already do it in group chats. What's missing is trust, a fair price, and a way to find each other fast."
+          "text": "Plenty of students have cars and would drive a classmate for a few dollars. What's missing is trust, a fair price, and a way to find each other fast."
         },
         {
           "type": "threeUp",
@@ -159,8 +158,8 @@
               "text": "Every rider and driver is a verified student."
             },
             {
-              "title": "A fair price",
-              "text": "The rider names it, drivers accept or counter."
+              "title": "Fair price",
+              "text": "The missing piece between classmates."
             }
           ]
         },
@@ -185,7 +184,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "A mobile app where a rider names a price, nearby student drivers accept or counter, and the rider picks who to ride with."
+          "text": "A mobile app where a rider names a price, nearby student drivers accept or counter, and the rider picks who to ride with. Students with cars go online between classes and choose the requests they want."
         },
         {
           "type": "full",
@@ -193,20 +192,8 @@
             "src": "/images/work/campus-ride/hero.webp",
             "width": 1600,
             "height": 700,
-            "alt": "Campus Ride. Rides between students, at a price the rider names.",
-            "caption": "Rides between students, at a price the rider names."
+            "alt": "Campus Ride. Rides between students, at a price the rider names."
           }
-        },
-        {
-          "type": "videoLoop",
-          "layout": "full",
-          "mp4": "/videos/campus-ride-flow.mp4",
-          "webm": "/videos/campus-ride-flow.webm",
-          "poster": "/images/work/campus-ride/flow-poster.webp",
-          "width": 1920,
-          "height": 1080,
-          "label": "Booking flow",
-          "caption": "A rider sets a destination and a price, offers come in, and the rider accepts one."
         },
         {
           "type": "full",
@@ -216,35 +203,6 @@
             "height": 1000,
             "alt": "Campus Ride screens over a photo of Livingstone College.",
             "caption": "Livingstone College photo: Wikimedia Commons, CC BY-SA 3.0."
-          }
-        },
-        {
-          "type": "heading",
-          "text": "Campus Ride works on both sides of the ride."
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Riders set a price and pick a driver. Students with cars go online between classes and choose the requests they want."
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/banner-rider.webp",
-            "width": 1600,
-            "height": 820,
-            "alt": "Rider screens: set your price, driver offers, and the driver arriving.",
-            "caption": "Rider"
-          }
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/banner-driver.webp",
-            "width": 1600,
-            "height": 820,
-            "alt": "Driver screens: online home, an incoming request, and navigation to pickup.",
-            "caption": "Driver"
           }
         }
       ]
@@ -307,7 +265,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "I dug into the campus shuttle, Salisbury's buses and microtransit, ride hailing in small towns, and apps that tried this before. Then I found the clearest proof in our own dorm group chat."
+          "text": "I dug into the campus shuttle, Salisbury's buses and microtransit, ride hailing in small towns, and apps that tried this before."
         },
         {
           "type": "full",
@@ -416,22 +374,8 @@
             {
               "title": "No surprise at the end",
               "text": "The rider knows the cost before booking."
-            },
-            {
-              "title": "Drivers keep a voice",
-              "text": "Counter offers keep it fair on both sides."
             }
           ]
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/name-your-price-screens.webp",
-            "width": 1600,
-            "height": 900,
-            "alt": "Three screens: set your price, driver offers, and the driver arriving.",
-            "caption": "Set your price, compare offers, then meet the driver you chose."
-          }
         }
       ]
     },
@@ -530,12 +474,12 @@
         {
           "type": "heading",
           "level": 4,
-          "text": "Waiting and failing"
+          "text": "Waiting"
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "What riders see while drivers respond, and when nobody does."
+          "text": "What riders see while drivers respond."
         },
         {
           "type": "pair",
@@ -545,18 +489,6 @@
               "width": 700,
               "height": 900,
               "alt": "A waiting state while drivers respond to an offer.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            },
-            {
-              "src": "/images/work/campus-ride/proto-waiting-b.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "A failed state when no driver accepts.",
               "screen": {
                 "x": 185,
                 "y": 51,
@@ -636,32 +568,6 @@
               }
             }
           ]
-        },
-        {
-          "type": "heading",
-          "text": "Key user insights",
-          "badge": "Pending"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Student sessions are still ahead, so these notes come from the screen audit, not from a watched test. I will replace them with what students actually say.",
-          "check": true,
-          "checkNote": "replace with what students actually said"
-        },
-        {
-          "type": "threeUp",
-          "columns": 2,
-          "items": [
-            {
-              "title": "Consistency builds trust",
-              "text": "Draft from the audit: mixed type, five button sizes, and typos made the app feel unfinished."
-            },
-            {
-              "title": "The price should never change",
-              "text": "Draft from the audit: the agreed price has to read the same from offer to arrival."
-            }
-          ]
         }
       ]
     },
@@ -677,7 +583,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Every flow for riders and drivers sits on one set of components, so the 76th screen is as consistent as the first."
+          "text": "Every flow for riders and drivers sits on one set of components, so the last screen is as consistent as the first."
         },
         {
           "type": "full",
@@ -811,17 +717,6 @@
           "text": "Rider-side recovery"
         },
         {
-          "type": "callout",
-          "tone": "neutral",
-          "text": "When no driver accepts, the rider gets clear ways forward instead of a dead end.",
-          "frame": {
-            "src": "/images/work/campus-ride/callout-rider-recovery.webp",
-            "width": 1600,
-            "height": 900,
-            "alt": "No drivers available, with nearby offers, raise offer, and schedule for later."
-          }
-        },
-        {
           "type": "label",
           "text": "CONSIDERATIONS"
         },
@@ -830,7 +725,7 @@
           "compact": true,
           "side": "start",
           "title": "How do I help riders raise a fair offer?",
-          "text": "Show what nearby riders are offering, with quick picks and \"Raise offer\" as the main action.",
+          "text": "When no driver accepts, the rider gets clear ways forward instead of a dead end. Show what nearby riders are offering, with quick picks and \"Raise offer\" as the main action.",
           "frame": {
             "src": "/images/work/campus-ride/cons-no-drivers.webp",
             "width": 600,
@@ -867,17 +762,6 @@
           "type": "heading",
           "id": "driver-negotiation",
           "text": "Driver-side negotiation"
-        },
-        {
-          "type": "callout",
-          "tone": "neutral",
-          "text": "Drivers see each request with a countdown and can accept, decline, or counter.",
-          "frame": {
-            "src": "/images/work/campus-ride/callout-driver-negotiation.webp",
-            "width": 1600,
-            "height": 900,
-            "alt": "A driver request with a countdown, and accept, decline, or counter."
-          }
         },
         {
           "type": "label",
@@ -1017,7 +901,7 @@
           "items": [
             {
               "title": "The best research was already in our group chat.",
-              "text": "I looked at transit schedules and competitor apps, but one dorm message about Sam's Club proved the model better than any of it. Real behavior beats assumptions."
+              "text": "Real behavior beats assumptions."
             },
             {
               "title": "Design the \"no,\" not just the \"yes.\"",
@@ -1025,11 +909,11 @@
             },
             {
               "title": "Audit before you scale.",
-              "text": "Fixing the first 11 screens was cheap. Fixing 76 would not have been. The system is why the driver side came together fast."
+              "text": "Fixing the first 11 screens was cheap. Fixing all of them would not have been. The system is why the driver side came together fast."
             },
             {
               "title": "When a screen keeps moving, it might be two screens.",
-              "text": "Five versions of the booking screen taught me to split choosing a place from agreeing on a price."
+              "text": "Choosing a place and agreeing on a price needed their own screens."
             }
           ]
         },
