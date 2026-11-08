@@ -59,7 +59,7 @@ export function CampusRideCover({ work }: { work: Work }) {
             </div>
           ))}
         </dl>
-        <CaseTocBar label={work.tocLabel} items={work.toc} />
+        <CaseTocBar plain label={work.tocLabel} items={work.toc} />
       </div>
     </header>
   );

@@ -58,55 +58,39 @@
       "blocks": [
         {
           "type": "heading",
+          "level": 2,
           "text": "How might students without a car get off campus quickly, fairly, and safely?"
         },
         {
           "type": "paragraph",
-          "variant": "body",
+          "variant": "muted",
           "text": "As a team of 3, our goal was to turn one local problem at Livingstone College into a complete two-sided product."
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "I worked on the product design: the pricing model, the prototype, and the system the screens sit on.",
-          "check": true,
-          "checkNote": "my role"
         },
         {
           "type": "threeUp",
           "items": [
             {
-              "title": "Product strategy",
+              "title": "Product Strategy",
               "text": "Finding a pricing and trust model that works between classmates."
             },
             {
-              "title": "Prototyping and testing",
+              "title": "Prototyping & Testing",
               "text": "76 screens, 13 flows, and a clickable prototype for riders and drivers."
             },
             {
-              "title": "Iterating with feedback",
-              "text": "Auditing the first screens and rebuilding them on one system."
+              "title": "Iterating with Feedback",
+              "text": "Auditing our first screens and rebuilding them on one system."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "problem",
-      "number": "02",
-      "title": "Problem",
-      "blocks": [
+        },
         {
           "type": "heading",
-          "id": "problem-wait",
-          "text": "The wait is longer than the ride."
+          "text": "Problem: the wait is longer than the ride."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "One day I needed to get to Walmart from campus. The shuttle wasn't around, so I ordered an Uber. I waited about 10 minutes to be matched, then about 15 more for the driver to arrive.",
-          "askHighlight": true,
-          "tooltip": "Ask Immanuel about this"
+          "text": "One day I needed to get to Walmart from campus. The shuttle wasn't around, so I ordered an Uber. I waited about 10 minutes to be matched, then about 15 more for the driver to arrive. About 25 minutes of waiting for a 7 minute ride."
         },
         {
           "type": "full",
@@ -119,13 +103,12 @@
         },
         {
           "type": "heading",
-          "id": "problem-opportunity",
-          "text": "The drivers are already on campus."
+          "text": "Opportunity: the drivers are already on campus."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Plenty of students have cars and would drive a classmate for a few dollars. What's missing is trust, a fair price, and a way to find each other fast."
+          "text": "Plenty of students have cars and would drive a classmate for a few dollars. They already do it in group chats. What's missing is trust, a fair price, and a way to find each other fast."
         },
         {
           "type": "threeUp",
@@ -139,17 +122,10 @@
               "text": "Every rider and driver is a verified student."
             },
             {
-              "title": "Fair price",
-              "text": "The missing piece between classmates."
+              "title": "A fair price",
+              "text": "The rider names it, drivers accept or counter."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "variant": "small",
-          "text": "How Campus Ride would make money is still an open question.",
-          "check": true,
-          "checkNote": "revenue model"
         }
       ]
     },
@@ -1046,23 +1022,6 @@
       "subs": []
     },
     {
-      "number": "02",
-      "title": "Problem",
-      "anchor": "problem",
-      "subs": [
-        {
-          "number": "02.1",
-          "title": "The wait",
-          "anchor": "problem-wait"
-        },
-        {
-          "number": "02.2",
-          "title": "The opportunity",
-          "anchor": "problem-opportunity"
-        }
-      ]
-    },
-    {
       "number": "03",
       "title": "Solution",
       "anchor": "solution",
@@ -1096,40 +1055,13 @@
       "number": "08",
       "title": "Decisions",
       "anchor": "decisions",
-      "subs": [
-        {
-          "number": "08.1",
-          "title": "Consistency",
-          "anchor": "insight-consistency"
-        },
-        {
-          "number": "08.2",
-          "title": "The price",
-          "anchor": "insight-price"
-        }
-      ]
+      "subs": []
     },
     {
       "number": "09",
       "title": "Constraints",
       "anchor": "constraints",
-      "subs": [
-        {
-          "number": "09.1",
-          "title": "Rider recovery",
-          "anchor": "rider-recovery"
-        },
-        {
-          "number": "09.2",
-          "title": "Driver side",
-          "anchor": "driver-negotiation"
-        },
-        {
-          "number": "09.3",
-          "title": "The tradeoff",
-          "anchor": "tradeoff"
-        }
-      ]
+      "subs": []
     },
     {
       "number": "10",

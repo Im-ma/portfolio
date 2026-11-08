@@ -27,6 +27,7 @@ import panelStyles from "./media-blocks.module.css";
 const variantClass: Record<string, string> = {
   lead: "t-body-l",
   body: "t-body-m",
+  muted: "t-body-m",
   small: "t-body-s",
   xsmall: "t-body-xs",
   mono: "t-mono-small",
@@ -127,7 +128,8 @@ function BlockView({
       );
     }
     const variant = block.variant || "body";
-    const muted = variant === "small" || variant === "xsmall" || variant === "mono";
+    const muted =
+      variant === "small" || variant === "xsmall" || variant === "mono" || variant === "muted";
     return (
       <p
         className={`${variantClass[variant] || "t-body-m"} ${variant === "lead" ? styles.lead : ""} ${muted ? styles.muted : ""}`}
@@ -143,8 +145,9 @@ function BlockView({
   }
 
   if (block.type === "heading") {
-    const Tag = block.level === 4 ? "h4" : "h3";
-    const variant = block.level === 4 ? "t-heading-h4" : "t-heading-h3";
+    const level = block.level === 2 || block.level === 4 ? block.level : 3;
+    const Tag = level === 2 ? "h2" : level === 4 ? "h4" : "h3";
+    const variant = level === 2 ? "t-heading-h2" : level === 4 ? "t-heading-h4" : "t-heading-h3";
     return (
       <div className={styles.headingRow} id={block.id}>
         <Tag className={variant}>{block.text}</Tag>

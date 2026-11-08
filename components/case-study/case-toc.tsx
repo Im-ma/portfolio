@@ -49,32 +49,36 @@ export function CaseToc({
   label,
   items,
   note,
+  plain = false,
 }: {
   label: string;
   items: TocItem[];
   note?: string;
+  plain?: boolean;
 }) {
-  const active = useActiveSection(collectIds(items));
+  const active = useActiveSection(plain ? items.map((item) => item.anchor) : collectIds(items));
   return (
     <nav className={styles.toc} aria-label={label}>
       <p className={`${styles.tocLabel} t-mono-label`}>{label}</p>
       <ol className={styles.tocList}>
         {items.map((item) => {
-          const childActive = item.subs?.some((sub) => sub.anchor === active) ?? false;
+          const childActive = !plain && (item.subs?.some((sub) => sub.anchor === active) ?? false);
           const current = item.anchor === active || childActive;
           return (
             <li key={item.anchor}>
               <a
-                className={`${styles.tocLink} t-body-xs`}
+                className={`${plain ? styles.tocPlain : styles.tocLink} t-body-xs`}
                 href={`#${item.anchor}`}
                 data-active={item.anchor === active ? "true" : undefined}
                 data-current={current ? "true" : undefined}
                 aria-current={item.anchor === active ? "location" : undefined}
               >
-                <span className={`${styles.tocNum} t-mono-number`}>{item.number}</span>
+                {plain ? null : (
+                  <span className={`${styles.tocNum} t-mono-number`}>{item.number}</span>
+                )}
                 <span>{item.title}</span>
               </a>
-              {item.subs && item.subs.length > 0 ? (
+              {!plain && item.subs && item.subs.length > 0 ? (
                 <ol className={styles.subList}>
                   {item.subs.map((sub) => (
                     <li key={sub.anchor}>
@@ -100,12 +104,20 @@ export function CaseToc({
   );
 }
 
-export function CaseTocBar({ label, items }: { label: string; items: TocItem[] }) {
-  const active = useActiveSection(collectIds(items));
+export function CaseTocBar({
+  label,
+  items,
+  plain = false,
+}: {
+  label: string;
+  items: TocItem[];
+  plain?: boolean;
+}) {
+  const active = useActiveSection(plain ? items.map((item) => item.anchor) : collectIds(items));
   return (
     <div className={styles.tocBar} role="navigation" aria-label={label}>
       {items.map((item) => {
-        const childActive = item.subs?.some((sub) => sub.anchor === active) ?? false;
+        const childActive = !plain && (item.subs?.some((sub) => sub.anchor === active) ?? false);
         const on = item.anchor === active || childActive;
         return (
           <a
@@ -113,9 +125,10 @@ export function CaseTocBar({ label, items }: { label: string; items: TocItem[] }
             className={`${styles.tocChip} t-body-xs`}
             href={`#${item.anchor}`}
             data-active={on ? "true" : undefined}
+            data-plain={plain ? "true" : undefined}
             aria-current={on ? "location" : undefined}
           >
-            {item.number} {item.title}
+            {plain ? item.title : `${item.number} ${item.title}`}
           </a>
         );
       })}

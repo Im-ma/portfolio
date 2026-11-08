@@ -83,7 +83,7 @@ export type Block =
       type: "heading";
       text?: string;
       id?: string;
-      level?: 3 | 4;
+      level?: 2 | 3 | 4;
       badge?: string;
       check?: boolean;
       checkNote?: string;

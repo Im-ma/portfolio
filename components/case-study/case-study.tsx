@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
 import { CampusRideCover } from "./campus-cover";
+import { CampusOverview } from "./campus-overview";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
 import styles from "./case-study.module.css";
@@ -224,18 +225,39 @@ export function CaseStudy({ work }: { work: Work }) {
       <div className={`shell ${styles.study}`}>
         <div className={styles.tocSlot}>
           <div className={styles.tocSticky}>
-            <CaseToc label={work.tocLabel} items={work.toc} note={tocNote} />
+            <CaseToc
+              label={work.tocLabel}
+              items={work.toc}
+              note={tocNote}
+              plain={work.slug === "campus-ride"}
+            />
           </div>
         </div>
         <div className={styles.studyMain}>
-          {sections.map((section) => (
-            <section key={section.id} id={section.id} className={`${styles.section}`}>
-              <Reveal>
-                <SectionHeader number={section.number} title={section.title} />
-                <SectionBody section={section} source={work.title} sizes={columnSizes} />
-              </Reveal>
-            </section>
-          ))}
+          {sections.map((section) => {
+            const campusOverview = work.slug === "campus-ride" && section.id === "overview";
+            return (
+              <section
+                key={section.id}
+                id={section.id}
+                className={styles.section}
+                data-overview={campusOverview ? "true" : undefined}
+              >
+                <Reveal>
+                  {campusOverview ? (
+                    <CampusOverview>
+                      <SectionBody section={section} source={work.title} sizes={columnSizes} />
+                    </CampusOverview>
+                  ) : (
+                    <>
+                      <SectionHeader number={section.number} title={section.title} />
+                      <SectionBody section={section} source={work.title} sizes={columnSizes} />
+                    </>
+                  )}
+                </Reveal>
+              </section>
+            );
+          })}
         </div>
       </div>
 

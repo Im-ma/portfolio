@@ -185,6 +185,10 @@
   padding-block: var(--section-y);
 }
 
+.section[data-overview="true"] {
+  padding-top: 40px;
+}
+
 .surface {
   background: var(--color-surface);
 }
@@ -311,6 +315,22 @@
 .subLink[data-active="true"] {
   border-left-color: var(--color-accent);
   color: var(--color-ink);
+  font-weight: 500;
+}
+
+.tocPlain {
+  display: block;
+  padding: 6px 0;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.tocPlain:hover {
+  color: var(--color-ink);
+}
+
+.tocPlain[data-active="true"] {
+  color: var(--color-accent);
   font-weight: 500;
 }
 
@@ -767,6 +787,10 @@
     border-bottom-color: var(--color-accent);
     background: none;
     color: var(--color-ink);
+  }
+
+  .tocChip[data-plain="true"][data-active="true"] {
+    color: var(--color-accent);
   }
 
   .decision {

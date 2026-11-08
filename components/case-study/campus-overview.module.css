@@ -1,0 +1,63 @@
+.column {
+  max-width: 680px;
+}
+
+.label {
+  margin: 0 0 12px;
+  color: var(--color-muted);
+}
+
+.column :global(h2),
+.column :global(h3) {
+  font-family: var(--overview-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.column :global(h2) {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.column :global(h3) {
+  font-size: 26px;
+  line-height: 1.28;
+}
+
+.column :global(.headingRow) {
+  max-width: none;
+  margin-top: 40px;
+}
+
+.column :global(.stack > .headingRow:first-child) {
+  margin-top: 0;
+}
+
+.column :global(.threeUp[data-columns="3"]) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 1200px) {
+  .column :global(h2) {
+    font-size: 42px;
+  }
+
+  .column :global(h3) {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .column :global(h2) {
+    font-size: 32px;
+  }
+
+  .column :global(h3) {
+    font-size: 24px;
+  }
+
+  .column :global(.threeUp[data-columns="3"]) {
+    grid-template-columns: 1fr;
+  }
+}
