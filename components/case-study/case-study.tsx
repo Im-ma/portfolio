@@ -15,6 +15,7 @@ import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
 import { CampusRideCover } from "./campus-cover";
 import { CampusOverview } from "./campus-overview";
+import { SolutionFilm } from "./solution-film";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
 import styles from "./case-study.module.css";
@@ -238,6 +239,20 @@ export function CaseStudy({ work }: { work: Work }) {
             const campusColumn =
               work.slug === "campus-ride" &&
               (section.id === "overview" || section.id === "solution");
+            const filmIndex = campusColumn
+              ? section.blocks.findIndex((block) => block.type === "film")
+              : -1;
+            const filmBlock = filmIndex >= 0 ? section.blocks[filmIndex] : null;
+            const columnSection =
+              filmIndex < 0
+                ? section
+                : {
+                    ...section,
+                    blocks: [
+                      ...section.blocks.slice(0, filmIndex),
+                      ...section.blocks.slice(filmIndex + 1),
+                    ],
+                  };
             return (
               <section
                 key={section.id}
@@ -246,12 +261,27 @@ export function CaseStudy({ work }: { work: Work }) {
                 data-overview={
                   work.slug === "campus-ride" && section.id === "overview" ? "true" : undefined
                 }
+                data-solution={filmIndex >= 0 ? "true" : undefined}
               >
                 <Reveal>
                   {campusColumn ? (
-                    <CampusOverview label={section.title}>
-                      <SectionBody section={section} source={work.title} sizes={columnSizes} />
-                    </CampusOverview>
+                    <>
+                      <CampusOverview label={section.title}>
+                        <SectionBody
+                          section={columnSection}
+                          source={work.title}
+                          sizes={columnSizes}
+                        />
+                      </CampusOverview>
+                      {filmBlock && filmBlock.type === "film" ? (
+                        <SolutionFilm
+                          mp4={filmBlock.mp4}
+                          webm={filmBlock.webm}
+                          poster={filmBlock.poster}
+                          label={filmBlock.label}
+                        />
+                      ) : null}
+                    </>
                   ) : (
                     <>
                       <SectionHeader number={section.number} title={section.title} />

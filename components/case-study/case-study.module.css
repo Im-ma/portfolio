@@ -189,6 +189,10 @@
   padding-top: 40px;
 }
 
+.section[data-solution="true"] {
+  padding-bottom: 0;
+}
+
 .surface {
   background: var(--color-surface);
 }
