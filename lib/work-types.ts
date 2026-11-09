@@ -132,6 +132,7 @@ export type Block =
       blocks: Block[];
     }
   | { type: "full"; frame: Media }
+  | { type: "film"; mp4: string; webm: string; poster: string; label: string }
   | { type: "threeUp"; columns?: 2 | 3 | 4; items: ThreeUpItem[] }
   | {
       type: "videoLoop";

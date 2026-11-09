@@ -20,6 +20,7 @@ import {
 } from "./media-blocks";
 import { BeforeAfter, Callout, Full, Stats, Table, ThreeUp, VideoLoop } from "./layout-blocks";
 import { PrototypeFlows } from "./prototype-flows";
+import { SolutionFilm } from "./solution-film";
 import { ZoomFigure } from "./zoom-figure";
 import styles from "./case-study.module.css";
 import panelStyles from "./media-blocks.module.css";
@@ -280,6 +281,11 @@ function BlockView({
   }
 
   if (block.type === "full") return <Full frame={block.frame} />;
+  if (block.type === "film") {
+    return (
+      <SolutionFilm mp4={block.mp4} webm={block.webm} poster={block.poster} label={block.label} />
+    );
+  }
   if (block.type === "threeUp") return <ThreeUp columns={block.columns} items={block.items} />;
   if (block.type === "videoLoop") {
     return (

@@ -164,24 +164,11 @@
           "text": "Riders set a price and pick a driver. Students with cars go online between classes and choose the requests they want."
         },
         {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/banner-rider.webp",
-            "width": 1600,
-            "height": 820,
-            "alt": "Rider screens: set your price, driver offers, driver arriving",
-            "caption": "Rider"
-          }
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/banner-driver.webp",
-            "width": 1600,
-            "height": 820,
-            "alt": "Driver screens: online home, incoming request, navigate to pickup",
-            "caption": "Driver"
-          }
+          "type": "film",
+          "mp4": "/videos/work/campus-ride/solution-map.mp4",
+          "webm": "/videos/work/campus-ride/solution-map.webm",
+          "poster": "/images/work/campus-ride/solution-map-poster.png",
+          "label": "Campus Ride flow on a map of Salisbury: name your price, drivers accept or counter, pick who to ride with, the driver arrives and drives to Walmart"
         }
       ]
     },
