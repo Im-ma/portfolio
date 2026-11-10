@@ -241,12 +241,13 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "How students at Livingstone actually get around."
+          "level": 2,
+          "text": "We researched how students at Livingstone actually get around."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "I dug into the campus shuttle, Salisbury's buses and microtransit, ride hailing in small towns, and apps that tried this before."
+          "text": "We dug into the campus shuttle, Salisbury's buses and microtransit, ride hailing in small towns, and apps that tried this before. Then we found the clearest proof in our own dorm group chat."
         },
         {
           "type": "full",
@@ -254,12 +255,12 @@
             "src": "/images/work/campus-ride/research-collage.webp",
             "width": 1600,
             "height": 1150,
-            "alt": "Collage of transit pages, news articles, a route map, and a group chat ride request.",
-            "caption": "The shuttle, city transit, ride hailing, and the dorm chat."
+            "alt": "Collage of transit pages, news articles, a route map, and a group chat ride request"
           }
         },
         {
-          "type": "research",
+          "type": "paragraph",
+          "variant": "body",
           "text": "In the chat, a student wrote \"I will pay someone to take me to Sam's club, it 25 mins away.\" Someone asked \"How much we talking.\" The answer: \"15.\" Students already name a price for rides. They just do it by hand."
         },
         {

@@ -15,6 +15,7 @@ import { Blocks } from "./blocks";
 import { BuiltToggle } from "./built-toggle";
 import { CampusRideCover } from "./campus-cover";
 import { CampusOverview } from "./campus-overview";
+import { CampusResearch } from "./campus-research";
 import { SolutionFilm } from "./solution-film";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
@@ -236,6 +237,7 @@ export function CaseStudy({ work }: { work: Work }) {
         </div>
         <div className={styles.studyMain}>
           {sections.map((section) => {
+            const campusResearch = work.slug === "campus-ride" && section.id === "research";
             const campusColumn =
               work.slug === "campus-ride" &&
               (section.id === "overview" || section.id === "solution");
@@ -264,7 +266,9 @@ export function CaseStudy({ work }: { work: Work }) {
                 data-solution={filmIndex >= 0 ? "true" : undefined}
               >
                 <Reveal>
-                  {campusColumn ? (
+                  {campusResearch ? (
+                    <CampusResearch blocks={section.blocks} />
+                  ) : campusColumn ? (
                     <>
                       <CampusOverview label={section.title}>
                         <SectionBody
