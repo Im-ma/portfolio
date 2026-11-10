@@ -18,6 +18,7 @@ import { CampusOverview } from "./campus-overview";
 import { CampusPricing } from "./campus-pricing";
 import { CampusTesting } from "./campus-testing";
 import { CampusResearch } from "./campus-research";
+import { CampusSystem } from "./campus-system";
 import { SolutionFilm } from "./solution-film";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
@@ -242,6 +243,7 @@ export function CaseStudy({ work }: { work: Work }) {
             const campusResearch = work.slug === "campus-ride" && section.id === "research";
             const campusPricing = work.slug === "campus-ride" && section.id === "explorations";
             const campusTesting = work.slug === "campus-ride" && section.id === "testing";
+            const campusSystem = work.slug === "campus-ride" && section.id === "system";
             const campusColumn =
               work.slug === "campus-ride" &&
               (section.id === "overview" || section.id === "solution");
@@ -276,6 +278,8 @@ export function CaseStudy({ work }: { work: Work }) {
                     <CampusPricing blocks={section.blocks} />
                   ) : campusTesting ? (
                     <CampusTesting blocks={section.blocks} />
+                  ) : campusSystem ? (
+                    <CampusSystem blocks={section.blocks} />
                   ) : campusColumn ? (
                     <>
                       <CampusOverview label={section.title}>

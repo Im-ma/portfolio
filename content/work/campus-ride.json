@@ -383,41 +383,32 @@
           "type": "paragraph",
           "variant": "body",
           "text": "We are putting the prototype in front of students, watching how they book, and listening. Session videos coming soon."
-        },
-        {
-          "type": "heading",
-          "level": 4,
-          "text": "Key User Insights Pending"
-        },
-        {
-          "type": "threeUp",
-          "columns": 2,
-          "items": [
-            {
-              "title": "Consistency builds trust",
-              "text": "Draft from our audit: mixed type, five button sizes, and typos made the app feel unfinished."
-            },
-            {
-              "title": "The price should never change",
-              "text": "Draft from our audit: the agreed price has to read the same from offer to arrival."
-            }
-          ]
         }
       ]
     },
     {
-      "id": "decisions",
+      "id": "system",
       "number": "08",
-      "title": "Decisions",
+      "title": "System",
       "blocks": [
         {
           "type": "heading",
-          "text": "I designed a system, not just screens."
+          "level": 2,
+          "text": "We designed a system, not just screens."
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "Every flow for riders and drivers sits on one set of components, so the last screen is as consistent as the first."
+          "text": "Every flow for riders and drivers sits on one set of components, so the 76th screen is as consistent as the first."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/case-studies/campus-ride/system/systems-map.webp",
+            "width": 4800,
+            "height": 2700,
+            "alt": "Campus Ride systems map: rider and driver flows, ride request, offer and agreed price data, and the verified campus community"
+          }
         },
         {
           "type": "full",
@@ -425,91 +416,69 @@
             "src": "/images/work/campus-ride/systems-thinking.webp",
             "width": 1600,
             "height": 2794,
-            "alt": "Rider and driver flows A to M, and the component system underneath them.",
-            "caption": "Flows A to M for riders and drivers, on one component system."
+            "alt": "Rider and driver flows A to M and the component system"
           }
         },
         {
           "type": "heading",
-          "id": "insight-consistency",
-          "text": "Insight 1: Consistency builds trust"
+          "id": "decisions",
+          "level": 2,
+          "text": "Decision 1: Consistency builds trust"
         },
         {
-          "type": "beforeAfter",
-          "items": [
-            {
-              "label": "Before the audit",
-              "text": "Two type families, typos like \"Salibury,\" and \"US$6\" next to \"$7.00.\"",
-              "frame": {
-                "src": "/images/work/campus-ride/insight-consistency-before.webp",
-                "width": 700,
-                "height": 900,
-                "alt": "Driver offers before the audit, with mixed type and price formats.",
-                "screen": {
-                  "x": 185,
-                  "y": 91,
-                  "w": 330,
-                  "h": 718
-                }
-              }
-            },
-            {
-              "label": "After the audit",
-              "text": "One type scale, readable chips, 44 px tap targets, and one price format.",
-              "frame": {
-                "src": "/images/work/campus-ride/insight-consistency-after.webp",
-                "width": 700,
-                "height": 900,
-                "alt": "Driver offers after the audit, with one type scale and one price format.",
-                "screen": {
-                  "x": 185,
-                  "y": 91,
-                  "w": 330,
-                  "h": 718
-                }
-              }
-            }
-          ]
+          "type": "full",
+          "frame": {
+            "src": "/case-studies/campus-ride/system/before-audit.webp",
+            "width": 1200,
+            "height": 1647,
+            "alt": "Driver offers screen before the audit"
+          }
         },
         {
           "type": "heading",
-          "id": "insight-price",
-          "text": "Insight 2: The price should never change"
+          "level": 4,
+          "text": "Before the audit"
         },
         {
-          "type": "beforeAfter",
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Two type families, typos like \"Salibury,\" and \"US$6\" next to \"$7.00.\""
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/case-studies/campus-ride/system/after-audit.webp",
+            "width": 1200,
+            "height": 1647,
+            "alt": "Driver offers screen after the audit"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "After the audit"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "One type scale, readable chips, 44 px tap targets, and one price format."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Decision 2: The price should never change"
+        },
+        {
+          "type": "threeUp",
+          "columns": 2,
           "items": [
             {
-              "label": "Agree up front",
-              "text": "A suggested $7.00 anchors the rider's own $6.00 offer.",
-              "frame": {
-                "src": "/images/work/campus-ride/insight-price-agree.webp",
-                "width": 700,
-                "height": 900,
-                "alt": "Set your price, with a suggested $7.00 beside a $6.00 offer.",
-                "screen": {
-                  "x": 185,
-                  "y": 91,
-                  "w": 330,
-                  "h": 718
-                }
-              }
+              "title": "Agree up front",
+              "text": "A suggested $7.00 anchors the rider's own $6.00 offer."
             },
             {
-              "label": "Carry it through",
-              "text": "Driver Arriving shows the same $6.00, marked Agreed.",
-              "frame": {
-                "src": "/images/work/campus-ride/insight-price-carry.webp",
-                "width": 700,
-                "height": 900,
-                "alt": "Driver arriving, with the agreed $6.00 still on screen.",
-                "screen": {
-                  "x": 185,
-                  "y": 91,
-                  "w": 330,
-                  "h": 718
-                }
-              }
+              "title": "Carry it through",
+              "text": "Driver Arriving shows the same $6.00, marked Agreed."
             }
           ]
         }
@@ -932,6 +901,12 @@
       "number": "07",
       "title": "Testing",
       "anchor": "testing",
+      "subs": []
+    },
+    {
+      "number": "",
+      "title": "System",
+      "anchor": "system",
       "subs": []
     },
     {

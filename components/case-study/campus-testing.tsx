@@ -11,9 +11,6 @@ const sessions: { video?: SessionVideoSource }[] = [{}, {}, {}, {}];
 export function CampusTesting({ blocks }: { blocks: Block[] }) {
   const heading = blocks.find((block) => block.type === "heading" && block.level === 3);
   const intro = blocks.find((block) => block.type === "paragraph");
-  const insightHeading = blocks.find((block) => block.type === "heading" && block.level === 4);
-  const insights = blocks.find((block) => block.type === "threeUp");
-
   return (
     <>
       <CampusOverview>
@@ -29,23 +26,6 @@ export function CampusTesting({ blocks }: { blocks: Block[] }) {
           ))}
         </div>
       </Reveal>
-      <CampusOverview>
-        <div className={styles.stack}>
-          {insightHeading?.type === "heading" ? (
-            <h4 className="t-heading-h4">{insightHeading.text}</h4>
-          ) : null}
-          {insights?.type === "threeUp" ? (
-            <div className={styles.columns}>
-              {insights.items.map((item) => (
-                <div key={item.title}>
-                  <p className={`${styles.title} t-body-m-strong`}>{item.title}</p>
-                  <p className={`${styles.line} t-body-s`}>{item.text}</p>
-                </div>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </CampusOverview>
     </>
   );
 }
