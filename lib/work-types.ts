@@ -151,6 +151,29 @@ export type Block =
       checkNote?: string;
     }
   | {
+      type: "coreFlows";
+      rows: {
+        title: string;
+        text: string;
+        label: string;
+        mp4: string;
+        webm: string;
+        poster: string;
+        width: number;
+        height: number;
+      }[];
+      onboarding: {
+        title: string;
+        text: string;
+        label: string;
+        mp4: string;
+        webm: string;
+        poster: string;
+        width: number;
+        height: number;
+      };
+    }
+  | {
       type: "prototypeFlows";
       items: {
         label: string;

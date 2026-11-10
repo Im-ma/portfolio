@@ -19,6 +19,7 @@ import {
   VideoSlot,
 } from "./media-blocks";
 import { BeforeAfter, Callout, Full, Stats, Table, ThreeUp, VideoLoop } from "./layout-blocks";
+import { CoreFlows } from "./core-flows";
 import { PrototypeFlows } from "./prototype-flows";
 import { SolutionFilm } from "./solution-film";
 import { ZoomFigure } from "./zoom-figure";
@@ -305,6 +306,9 @@ function BlockView({
         webm={block.webm}
       />
     );
+  }
+  if (block.type === "coreFlows") {
+    return <CoreFlows rows={block.rows} onboarding={block.onboarding} />;
   }
   if (block.type === "prototypeFlows") return <PrototypeFlows items={block.items} />;
   if (block.type === "beforeAfter") return <BeforeAfter items={block.items} />;
