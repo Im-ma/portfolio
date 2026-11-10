@@ -418,69 +418,6 @@
             "height": 2794,
             "alt": "Rider and driver flows A to M and the component system"
           }
-        },
-        {
-          "type": "heading",
-          "id": "decisions",
-          "level": 2,
-          "text": "Decision 1: Consistency builds trust"
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/case-studies/campus-ride/system/before-audit.webp",
-            "width": 1200,
-            "height": 1647,
-            "alt": "Driver offers screen before the audit"
-          }
-        },
-        {
-          "type": "heading",
-          "level": 4,
-          "text": "Before the audit"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Two type families, typos like \"Salibury,\" and \"US$6\" next to \"$7.00.\""
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/case-studies/campus-ride/system/after-audit.webp",
-            "width": 1200,
-            "height": 1647,
-            "alt": "Driver offers screen after the audit"
-          }
-        },
-        {
-          "type": "heading",
-          "level": 4,
-          "text": "After the audit"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "One type scale, readable chips, 44 px tap targets, and one price format."
-        },
-        {
-          "type": "heading",
-          "level": 2,
-          "text": "Decision 2: The price should never change"
-        },
-        {
-          "type": "threeUp",
-          "columns": 2,
-          "items": [
-            {
-              "title": "Agree up front",
-              "text": "A suggested $7.00 anchors the rider's own $6.00 offer."
-            },
-            {
-              "title": "Carry it through",
-              "text": "Driver Arriving shows the same $6.00, marked Agreed."
-            }
-          ]
         }
       ]
     },
@@ -907,12 +844,6 @@
       "number": "",
       "title": "System",
       "anchor": "system",
-      "subs": []
-    },
-    {
-      "number": "08",
-      "title": "Decisions",
-      "anchor": "decisions",
       "subs": []
     },
     {
