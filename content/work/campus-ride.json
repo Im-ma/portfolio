@@ -306,14 +306,8 @@
       "blocks": [
         {
           "type": "heading",
+          "level": 2,
           "text": "Exploring how a ride should be priced"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "I weighed three pricing directions before designing a single booking screen.",
-          "check": true,
-          "checkNote": "pricing directions"
         },
         {
           "type": "threeUp",
@@ -335,15 +329,16 @@
         {
           "type": "full",
           "frame": {
-            "src": "/images/work/campus-ride/explorations.webp",
-            "width": 1600,
-            "height": 1050,
-            "alt": "Five booking screen explorations.",
-            "caption": "Five passes at the booking screen, before the price got its own step."
+            "src": "/case-studies/campus-ride/pricing/explorations.webp",
+            "width": 2400,
+            "height": 1350,
+            "alt": "Five booking screen explorations: Destination v1, Map and price v1, Destination audited, Set your price, and Schedule for later"
           }
         },
         {
           "type": "heading",
+          "id": "why-name-your-price",
+          "level": 2,
           "text": "Why name your price?"
         },
         {
@@ -356,8 +351,21 @@
             {
               "title": "No surprise at the end",
               "text": "The rider knows the cost before booking."
+            },
+            {
+              "title": "Drivers keep a voice",
+              "text": "Counter offers keep it fair on both sides."
             }
           ]
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/case-studies/campus-ride/pricing/three-up.webp",
+            "width": 2400,
+            "height": 1350,
+            "alt": "Three screens: Set your price, Driver offers, and Driver arriving"
+          }
         }
       ]
     },
@@ -1068,6 +1076,12 @@
       "number": "06",
       "title": "Explorations",
       "anchor": "explorations",
+      "subs": []
+    },
+    {
+      "number": "",
+      "title": "Why name your price?",
+      "anchor": "why-name-your-price",
       "subs": []
     },
     {
