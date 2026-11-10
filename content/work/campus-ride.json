@@ -370,192 +370,36 @@
       ]
     },
     {
-      "id": "prototypes",
+      "id": "testing",
       "number": "07",
-      "title": "Prototypes",
+      "title": "Testing",
       "blocks": [
         {
           "type": "heading",
-          "text": "Prototyping the booking experience"
+          "level": 3,
+          "text": "Testing and iterating with feedback!"
         },
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "I explored a ton of concepts for the rider side of name your price. Here are a few:"
+          "text": "We are putting the prototype in front of students, watching how they book, and listening. Session videos coming soon."
         },
         {
           "type": "heading",
           "level": 4,
-          "text": "Where the map lives"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Choosing a place and agreeing on a price kept fighting for one screen."
-        },
-        {
-          "type": "pair",
-          "frames": [
-            {
-              "src": "/images/work/campus-ride/proto-map-a.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "Destination exploration with the map in the middle.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            },
-            {
-              "src": "/images/work/campus-ride/proto-map-b.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "Another destination exploration, with the map in a different place.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "level": 4,
-          "text": "Offer cards"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Making the best offer obvious without hiding the others."
-        },
-        {
-          "type": "pair",
-          "frames": [
-            {
-              "src": "/images/work/campus-ride/proto-offers-a.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "An earlier layout for driver offer cards.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            },
-            {
-              "src": "/images/work/campus-ride/proto-offers-b.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "A later offer card layout, with one offer called out.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "level": 4,
-          "text": "Waiting"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "What riders see while drivers respond."
-        },
-        {
-          "type": "pair",
-          "frames": [
-            {
-              "src": "/images/work/campus-ride/proto-waiting-a.webp",
-              "width": 700,
-              "height": 900,
-              "alt": "A waiting state while drivers respond to an offer.",
-              "screen": {
-                "x": 185,
-                "y": 51,
-                "w": 330,
-                "h": 718
-              }
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Testing and iterating with feedback"
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "I am putting the prototype in front of students, watching how they book, and listening. Session videos are still to come."
+          "text": "Key User Insights Pending"
         },
         {
           "type": "threeUp",
-          "columns": 4,
+          "columns": 2,
           "items": [
             {
-              "title": "Session 1",
-              "text": "Recording coming soon.",
-              "placeholder": true,
-              "check": true,
-              "checkNote": "testing session video 1",
-              "frame": {
-                "src": "/images/work/campus-ride/testing-session-1.webp",
-                "width": 540,
-                "height": 960,
-                "alt": "Placeholder for testing session 1.",
-                "standin": true
-              }
+              "title": "Consistency builds trust",
+              "text": "Draft from our audit: mixed type, five button sizes, and typos made the app feel unfinished."
             },
             {
-              "title": "Session 2",
-              "text": "Recording coming soon.",
-              "placeholder": true,
-              "check": true,
-              "checkNote": "testing session video 2",
-              "frame": {
-                "src": "/images/work/campus-ride/testing-session-2.webp",
-                "width": 540,
-                "height": 960,
-                "alt": "Placeholder for testing session 2.",
-                "standin": true
-              }
-            },
-            {
-              "title": "Session 3",
-              "text": "Recording coming soon.",
-              "placeholder": true,
-              "check": true,
-              "checkNote": "testing session video 3",
-              "frame": {
-                "src": "/images/work/campus-ride/testing-session-3.webp",
-                "width": 540,
-                "height": 960,
-                "alt": "Placeholder for testing session 3.",
-                "standin": true
-              }
-            },
-            {
-              "title": "Session 4",
-              "text": "Recording coming soon.",
-              "placeholder": true,
-              "check": true,
-              "checkNote": "testing session video 4",
-              "frame": {
-                "src": "/images/work/campus-ride/testing-session-4.webp",
-                "width": 540,
-                "height": 960,
-                "alt": "Placeholder for testing session 4.",
-                "standin": true
-              }
+              "title": "The price should never change",
+              "text": "Draft from our audit: the agreed price has to read the same from offer to arrival."
             }
           ]
         }
@@ -1086,8 +930,8 @@
     },
     {
       "number": "07",
-      "title": "Prototypes",
-      "anchor": "prototypes",
+      "title": "Testing",
+      "anchor": "testing",
       "subs": []
     },
     {

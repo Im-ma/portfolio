@@ -16,6 +16,7 @@ import { BuiltToggle } from "./built-toggle";
 import { CampusRideCover } from "./campus-cover";
 import { CampusOverview } from "./campus-overview";
 import { CampusPricing } from "./campus-pricing";
+import { CampusTesting } from "./campus-testing";
 import { CampusResearch } from "./campus-research";
 import { SolutionFilm } from "./solution-film";
 import { CaseToc, CaseTocBar } from "./case-toc";
@@ -240,6 +241,7 @@ export function CaseStudy({ work }: { work: Work }) {
           {sections.map((section) => {
             const campusResearch = work.slug === "campus-ride" && section.id === "research";
             const campusPricing = work.slug === "campus-ride" && section.id === "explorations";
+            const campusTesting = work.slug === "campus-ride" && section.id === "testing";
             const campusColumn =
               work.slug === "campus-ride" &&
               (section.id === "overview" || section.id === "solution");
@@ -272,6 +274,8 @@ export function CaseStudy({ work }: { work: Work }) {
                     <CampusResearch blocks={section.blocks} />
                   ) : campusPricing ? (
                     <CampusPricing blocks={section.blocks} />
+                  ) : campusTesting ? (
+                    <CampusTesting blocks={section.blocks} />
                   ) : campusColumn ? (
                     <>
                       <CampusOverview label={section.title}>
