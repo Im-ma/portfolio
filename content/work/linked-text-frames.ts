@@ -41,6 +41,7 @@ export type Block =
   | { type: "h4"; text: string }
   | { type: "p"; text: string }
   | { type: "link"; text: string; href: string }
+  | { type: "note"; text: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string; cite: string }
   | { type: "image"; frame: Frame; maxWidth?: number; enlarge?: boolean }
@@ -314,7 +315,7 @@ export const linkedFrames = {
           frame: {
             src: img("directions-a-b-c-comparison.png"),
             width: 1328,
-            height: 400,
+            height: 332,
             alt: "Decision board with three cards. Direction A, Port and link, marked Recommended for v1. Direction B, Flow Auto Layout property. Direction C, Story object.",
             caption:
               "Direction A leads v1. B is a complementary Auto Layout shortcut. C is a later power-user story object.",
@@ -404,7 +405,7 @@ export const linkedFrames = {
         { type: "h2", text: "Text flow: thread text the way Figma would" },
         {
           type: "p",
-          text: 'Eight screens at 1440 x 900, drawn to look like Figma UI3 on a real "Wander" magazine Lisbon spread, linked with Smart Animate. Some spacing values are estimates because the official UI3 kit would not open. Any keyboard shortcuts shown are my proposals, not real Figma shortcuts.',
+          text: 'Eight screens at 1440 x 900, drawn to look like Figma UI3 on a real "Wander" magazine Lisbon spread, linked with Smart Animate.',
         },
         {
           type: "beside",
@@ -469,6 +470,10 @@ export const linkedFrames = {
             "Deleting the middle column, a toast confirming the text was kept, and Undo restoring the column.",
             "Delete a linked box and its text stays in the story. Undo is one click away.",
           ),
+        },
+        {
+          type: "note",
+          text: "Some spacing values are estimates because the official UI3 kit would not open. Any keyboard shortcuts shown are my proposals, not real Figma shortcuts.",
         },
       ],
     },

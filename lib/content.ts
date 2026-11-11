@@ -7,8 +7,10 @@ import siteJson from "@/content/site.json";
 import campusEventsJson from "@/content/work/campus-events.json";
 import campusRideJson from "@/content/work/campus-ride.json";
 import { linkedFramesMeta } from "@/content/work/linked-text-frames";
-import mimicJson from "@/content/work/mimic.json";
-import traceJson from "@/content/work/trace.json";
+// Trace and Mimic are hidden for now. To restore: uncomment these imports,
+// the two entries in `works`, and remove "trace" and "mimic" from hiddenWorkSlugs.
+// import mimicJson from "@/content/work/mimic.json";
+// import traceJson from "@/content/work/trace.json";
 
 export const site = siteJson;
 export const home = homeJson;
@@ -17,12 +19,16 @@ export const aboutPage = aboutJson;
 export const gatheringsPage = gatheringsJson;
 export const labPage = labJson;
 
+// Trace and Mimic are hidden for now. Uncomment to put them back in the list,
+// the sitemap, and their routes. Then drop them from hiddenWorkSlugs.
+export const hiddenWorkSlugs = ["trace", "mimic"] as const;
+
 export const works = [
   linkedFramesMeta,
   campusRideJson,
   campusEventsJson,
-  traceJson,
-  mimicJson,
+  // traceJson,
+  // mimicJson,
 ] as const;
 
 export type WorkMeta = (typeof works)[number];
