@@ -86,7 +86,7 @@ Copy lives in `content/`. The site reads the JSON files. Change the words there,
 - `content/work/<slug>.json`: case studies. `content/work-mdx/` is the first draft of the same writing in MDX. It is out of date and the site never reads it. Block types are listed below.
 - `tokens/tokens.css`: colors, type, shadows, radii. Do not paste hex colors into components.
 - `public/images/` and `public/videos/`: photos, posters, and flow videos.
-- `public/resume.pdf`: the Resume link.
+- `public/resume.pdf`: the file shown on `/resume`. Nav, footer, about, and contact links point at that page.
 
 A `"check": true` field still needs Immanuel to confirm it. In local dev, and on previews when `NEXT_PUBLIC_SHOW_CHECKS=1`, a small CHECK marker shows after that text. `"standin": true` images get a STAND-IN tag in those same builds. Production hides both.
 

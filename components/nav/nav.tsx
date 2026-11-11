@@ -20,7 +20,7 @@ function navItems(): NavItem[] {
   // const lab: NavItem = { number: "04", label: "Lab", href: "/lab", external: false };
   // const items: NavItem[] = [];
   // for (const item of site.nav) {
-  //   if (item.href === "/resume.pdf") {
+  //   if (item.href === "/resume") {
   //     items.push(lab);
   //     items.push({ ...item, number: "05" });
   //   } else {
@@ -89,7 +89,7 @@ export function Nav() {
   });
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} site-header`}>
       <div className={`shell ${styles.bar}`}>
         <Link className={styles.logo} href="/" aria-label="Immanuel Mensah, home">
           <span className={styles.mark} aria-hidden="true" />

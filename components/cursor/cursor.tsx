@@ -166,10 +166,16 @@ export function SiteCursor() {
       delete root.dataset.hidden;
     };
 
+    const onScroll = () => {
+      if (grabbing && down) return;
+      setMode(modeFrom(document.elementFromPoint(point.x, point.y), down));
+    };
+
     frame = window.requestAnimationFrame(draw);
     window.addEventListener("pointermove", onMove, { passive: true });
     window.addEventListener("pointerdown", onDown, { passive: true });
     window.addEventListener("pointerup", onUp, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("pointerleave", onLeave);
     document.addEventListener("pointerenter", onEnter);
 
@@ -179,6 +185,7 @@ export function SiteCursor() {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onDown);
       window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("pointerenter", onEnter);
       delete document.documentElement.dataset.fineCursor;

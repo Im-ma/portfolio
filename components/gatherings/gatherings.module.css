@@ -123,6 +123,17 @@
   box-shadow: var(--shadow-card);
   color: inherit;
   text-align: left;
+  outline: none;
+}
+
+.polaroid:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:global(html[data-focus="pointer"]) .polaroid:focus,
+:global(html[data-focus="pointer"]) .polaroid:focus-visible {
+  outline: none;
 }
 
 .photo {
@@ -234,6 +245,15 @@
     border-width: 1.5px;
     box-shadow: var(--shadow-lifted);
     transform: translateY(-8px) rotate(0deg);
+  }
+
+  /* Hover can stick while the page scrolls and the pointer does not move. */
+  :global(html[data-scrolling]) .polaroid:hover {
+    z-index: var(--z);
+    border-color: var(--color-hairline);
+    border-width: 1px;
+    box-shadow: var(--shadow-card);
+    transform: rotate(var(--rot));
   }
 }
 

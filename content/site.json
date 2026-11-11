@@ -22,8 +22,8 @@
     {
       "number": "04",
       "label": "Resume",
-      "href": "/resume.pdf",
-      "external": true
+      "href": "/resume",
+      "external": false
     }
   ],
   "availability": "Open to Summer 2027 internships",
@@ -68,7 +68,7 @@
       "number": "04",
       "label": "Resume (PDF)",
       "value": "Download PDF",
-      "href": "/resume.pdf",
+      "href": "/resume",
       "check": true,
       "checkNote": "resume link"
     },
