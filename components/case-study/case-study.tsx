@@ -266,7 +266,7 @@ export function CaseStudy({ work }: { work: Work }) {
                     <CampusSystem blocks={section.blocks} />
                   ) : campusColumn ? (
                     <>
-                      <CampusOverview label={section.title}>
+                      <CampusOverview>
                         <SectionBody
                           section={columnSection}
                           source={work.title}

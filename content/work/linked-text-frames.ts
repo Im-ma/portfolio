@@ -7,6 +7,16 @@ export const linkedFramesMeta = {
   summary:
     "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
   eyebrow: "Case study",
+  status: "Concept",
+  cover: {
+    kind: "video" as const,
+    mp4: vid("cover-loop.mp4"),
+    poster: img("cover-poster.jpg"),
+    cardPoster: img("cover-poster.jpg"),
+    field: "#D6EEE2",
+    width: 1920,
+    height: 1080,
+  },
 } as const;
 
 export type Frame = {
@@ -30,6 +40,7 @@ export type Block =
   | { type: "h2"; text: string }
   | { type: "h4"; text: string }
   | { type: "p"; text: string }
+  | { type: "link"; text: string; href: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string; cite: string }
   | { type: "image"; frame: Frame; maxWidth?: number; enlarge?: boolean }
@@ -610,6 +621,11 @@ export const linkedFrames = {
         {
           type: "p",
           text: "I wrote a working development plugin, Linked Text Frames (Prototype), in TypeScript on the Figma Plugin API and tested it on the real Wander spread. On November 10, 2026, link, reflow, auto reflow, and delete all worked in Figma.",
+        },
+        {
+          type: "link",
+          text: "View the plugin on GitHub",
+          href: "https://github.com/Im-ma/linked-text-frames-plugin",
         },
         {
           type: "video",

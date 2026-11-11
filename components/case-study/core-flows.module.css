@@ -6,7 +6,7 @@
 .rows {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 32px;
 }
 
 .row {
@@ -21,8 +21,7 @@
   display: block;
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-video-poster);
-  background: #eef0f3;
+  background: transparent;
 }
 
 .frame :global(img) {
@@ -35,7 +34,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #eef0f3;
+  background: transparent;
   opacity: 0;
   transition: opacity 500ms ease;
 }
@@ -45,10 +44,20 @@
 }
 
 .copy h4,
+.onboarding h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
 .copy p,
-.onboarding h3,
 .onboarding p {
   margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .copy p {
@@ -57,7 +66,7 @@
 }
 
 .onboarding {
-  margin-top: 80px;
+  margin-top: 32px;
 }
 
 .onboarding p {

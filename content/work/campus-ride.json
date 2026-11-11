@@ -867,11 +867,11 @@
   ],
   "nextProject": {
     "label": "NEXT PROJECT",
-    "status": "Concept",
-    "title": "Trace",
-    "summary": "A debug console for finding the bad records hiding in ML training data.",
+    "status": "In progress",
+    "title": "Campus Events",
+    "summary": "See what is on tonight, RSVP in a tap, and run the door if you are the club.",
     "cta": "Read case study",
-    "slug": "trace"
+    "slug": "campus-events"
   },
   "contact": {
     "heading": "Questions about this project?",

@@ -18,7 +18,6 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-video-poster);
 }
 
 .frame :global(img) {

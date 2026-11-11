@@ -16,6 +16,12 @@
   min-width: 0;
 }
 
+.fit :global([data-cursor="zoom"]) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
 .back {
   display: inline-flex;
   align-items: center;
@@ -135,6 +141,13 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-muted);
+}
+
+.textLink {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
 }
 
 .list {

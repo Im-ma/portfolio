@@ -8,13 +8,13 @@ import styles from "./case-study.module.css";
 function NextCover({ slug }: { slug: string }) {
   const work = getWork(slug);
   const cover = work && "cover" in work ? work.cover : undefined;
-  if (!cover?.mp4 || !cover.webm || !cover.poster) return null;
+  if (!cover?.mp4 || !cover.poster) return null;
   const field = cover.field || "transparent";
   return (
     <span className={styles.nextPhoto} style={{ background: field }}>
       <CoverVideo
         mp4={cover.mp4}
-        webm={cover.webm}
+        webm={"webm" in cover ? cover.webm : undefined}
         poster={cover.cardPoster || cover.poster}
         field={field}
       />

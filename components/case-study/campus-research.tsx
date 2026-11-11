@@ -88,7 +88,7 @@ export function CampusResearch({ blocks }: { blocks: Block[] }) {
 
   return (
     <>
-      <CampusOverview label="Research">
+      <CampusOverview>
         <TextBlocks blocks={before} />
       </CampusOverview>
       {image?.src ? (

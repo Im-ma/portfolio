@@ -4,8 +4,7 @@
   justify-content: center;
   aspect-ratio: 9 / 16;
   overflow: hidden;
-  border-radius: var(--radius-video-poster);
-  background: #eef0f3;
+  background: transparent;
   padding: 16px;
   text-align: center;
 }
