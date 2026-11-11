@@ -173,13 +173,11 @@ export function LinkedFramesStudy() {
       <article className={styles.page}>
         <div className={styles.layout}>
           <div className={styles.preface}>
-            <div className={styles.measure}>
-              <Link className={styles.back} href="/#work">
-                <span aria-hidden="true">←</span> Work
-              </Link>
-              <h1 className={styles.title}>{study.title}</h1>
-              <p className={styles.dek}>{study.summary}</p>
-            </div>
+            <Link className={styles.back} href="/#work">
+              <span aria-hidden="true">←</span> Work
+            </Link>
+            <h1 className={styles.title}>{study.title}</h1>
+            <p className={styles.dek}>{study.summary}</p>
             <figure className={styles.hero}>
               <StudyVideo
                 mp4={study.hero.mp4}
