@@ -49,51 +49,42 @@
             "text": "Figma"
           },
           {
-            "text": "React + TypeScript",
-            "check": false,
-            "checkNote": "Trace stack chip"
+            "text": "TypeScript"
           }
         ],
         "cover": {
-          "mp4": "/videos/covers/trace.mp4",
-          "webm": "/videos/covers/trace.webm",
-          "poster": "/images/covers/trace-card.png",
-          "field": "#142004"
+          "mp4": "/videos/work/linked-text-frames/cover-loop.mp4",
+          "webm": "",
+          "poster": "/images/work/linked-text-frames/cover-poster.jpg",
+          "field": "#D6EEE2"
         },
         "number": "01",
         "status": "Concept",
-        "title": "Trace",
-        "tag": "Design + front end, 2026",
-        "tagCheck": false,
-        "tagCheckNote": "tag undecided: Concept 2026, or Product design + engineering",
-        "summary": "A debug console for finding the bad records hiding in ML training data.",
-        "slug": "trace",
-        "href": "/work/trace"
+        "title": "Linked Text Frames for Figma",
+        "tag": "Product design, 2026",
+        "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
+        "slug": "linked-text-frames",
+        "href": "/work/linked-text-frames"
       },
       {
         "tools": [
           {
             "text": "Figma"
-          },
-          {
-            "text": "React",
-            "check": false,
-            "checkNote": "Mimic stack chip"
           }
         ],
         "cover": {
-          "mp4": "/videos/covers/mimic.mp4",
-          "webm": "/videos/covers/mimic.webm",
-          "poster": "/images/covers/mimic-card.png",
-          "field": "#EEF2F7"
+          "mp4": "/videos/covers/campus-ride.mp4",
+          "webm": "/videos/covers/campus-ride.webm",
+          "poster": "/images/covers/campus-ride-card.png",
+          "field": "#E4EFFE"
         },
         "number": "02",
         "status": "In progress",
-        "title": "Mimic",
-        "tag": "Design + engineering, 2026",
-        "summary": "A control dashboard for a robotic arm that copies your hand.",
-        "slug": "mimic",
-        "href": "/work/mimic"
+        "title": "Campus Ride",
+        "tag": "Product design, 2026",
+        "summary": "Student-to-student rides, where riders name their own price.",
+        "slug": "campus-ride",
+        "href": "/work/campus-ride"
       },
       {
         "tools": [
@@ -121,21 +112,28 @@
         "tools": [
           {
             "text": "Figma"
+          },
+          {
+            "text": "React + TypeScript",
+            "check": false,
+            "checkNote": "Trace stack chip"
           }
         ],
         "cover": {
-          "mp4": "/videos/covers/campus-ride.mp4",
-          "webm": "/videos/covers/campus-ride.webm",
-          "poster": "/images/covers/campus-ride-card.png",
-          "field": "#E4EFFE"
+          "mp4": "/videos/covers/trace.mp4",
+          "webm": "/videos/covers/trace.webm",
+          "poster": "/images/covers/trace-card.png",
+          "field": "#142004"
         },
         "number": "04",
-        "status": "In progress",
-        "title": "Campus Ride",
-        "tag": "Product design, 2026",
-        "summary": "Student-to-student rides, where riders name their own price.",
-        "slug": "campus-ride",
-        "href": "/work/campus-ride"
+        "status": "Concept",
+        "title": "Trace",
+        "tag": "Design + front end, 2026",
+        "tagCheck": false,
+        "tagCheckNote": "tag undecided: Concept 2026, or Product design + engineering",
+        "summary": "A debug console for finding the bad records hiding in ML training data.",
+        "slug": "trace",
+        "href": "/work/trace"
       },
       {
         "tools": [
@@ -143,22 +141,24 @@
             "text": "Figma"
           },
           {
-            "text": "TypeScript"
+            "text": "React",
+            "check": false,
+            "checkNote": "Mimic stack chip"
           }
         ],
         "cover": {
-          "mp4": "/videos/work/linked-text-frames/cover-loop.mp4",
-          "webm": "",
-          "poster": "/images/work/linked-text-frames/cover-poster.jpg",
-          "field": "#D6EEE2"
+          "mp4": "/videos/covers/mimic.mp4",
+          "webm": "/videos/covers/mimic.webm",
+          "poster": "/images/covers/mimic-card.png",
+          "field": "#EEF2F7"
         },
         "number": "05",
-        "status": "Concept",
-        "title": "Linked Text Frames for Figma",
-        "tag": "Product design, 2026",
-        "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
-        "slug": "linked-text-frames",
-        "href": "/work/linked-text-frames"
+        "status": "In progress",
+        "title": "Mimic",
+        "tag": "Design + engineering, 2026",
+        "summary": "A control dashboard for a robotic arm that copies your hand.",
+        "slug": "mimic",
+        "href": "/work/mimic"
       }
     ]
   },

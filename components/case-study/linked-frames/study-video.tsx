@@ -23,16 +23,20 @@ export function StudyVideo({
   width,
   height,
   alt,
+  webm,
   eager = false,
   cover = false,
+  field,
 }: {
   mp4: string;
+  webm?: string;
   poster: string;
   width: number;
   height: number;
   alt: string;
   eager?: boolean;
   cover?: boolean;
+  field?: string;
 }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -116,7 +120,7 @@ export function StudyVideo({
     <div
       ref={stageRef}
       className={cover ? `${styles.stage} ${styles.coverStage}` : styles.stage}
-      style={{ aspectRatio: `${width} / ${height}` }}
+      style={{ aspectRatio: `${width} / ${height}`, background: field }}
     >
       {/* Poster stays up until the loop is ready. Below-fold clips wait to load. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -143,6 +147,7 @@ export function StudyVideo({
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
         >
+          {webm ? <source src={webm} type="video/webm" /> : null}
           <source src={mp4} type="video/mp4" />
         </video>
       ) : null}

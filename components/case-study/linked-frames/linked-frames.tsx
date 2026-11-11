@@ -1,11 +1,9 @@
-import { NextProjectCard } from "@/components/case-study/next-project";
+import { StudySection, StudyTemplate } from "@/components/case-study/study-template";
 import { linkedFrames } from "@/content/work/linked-text-frames";
 import type { Block, Clip, Frame } from "@/content/work/linked-text-frames";
 import { workAfter } from "@/lib/content";
 import Image from "next/image";
-import Link from "next/link";
 import { EnlargeFigure } from "./enlarge-figure";
-import { StudyNav } from "./study-nav";
 import { StudyVideo } from "./study-video";
 import styles from "./linked-frames.module.css";
 
@@ -69,6 +67,14 @@ function BlockView({ block }: { block: Block }) {
       return <h3 className={styles.subhead}>{block.text}</h3>;
     case "p":
       return <p className={styles.body}>{block.text}</p>;
+    case "link":
+      return (
+        <p className={styles.body}>
+          <a className={styles.textLink} href={block.href} target="_blank" rel="noopener noreferrer">
+            {block.text}
+          </a>
+        </p>
+      );
     case "list":
       return (
         <ul className={styles.list}>
@@ -169,84 +175,36 @@ export function LinkedFramesStudy() {
   const next = workAfter(study.slug);
   const nextStatus = next && "status" in next ? next.status : "";
   return (
-    <>
-      <article className={styles.page}>
-        <div className={styles.layout}>
-          <div className={styles.preface}>
-            <Link className={styles.back} href="/#work">
-              <span aria-hidden="true">←</span> Work
-            </Link>
-            <h1 className={styles.title}>{study.title}</h1>
-            <p className={styles.dek}>{study.summary}</p>
-            <figure className={styles.hero}>
-              <StudyVideo
-                mp4={study.hero.mp4}
-                poster={study.hero.poster}
-                width={study.hero.width}
-                height={study.hero.height}
-                alt={study.hero.alt}
-                eager
-                cover
-              />
-            </figure>
-            <div className={styles.measure}>
-              <dl className={styles.strip}>
-                {study.meta.map((item) => (
-                  <div key={item.label}>
-                    <dt className={styles.metaLabel}>{item.label}</dt>
-                    <dd className={styles.metaValue}>{item.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className={styles.disclaimer}>{study.disclaimer}</p>
-            </div>
-          </div>
-          <aside className={styles.navCol}>
-            <div className={styles.navSticky}>
-              <StudyNav
-                items={study.sections.map((section) => ({ id: section.id, label: section.label }))}
-              />
-            </div>
-          </aside>
-          <div className={styles.story}>
-            <div className={styles.measure}>
-              <div className={styles.sections}>
-                {study.sections.map((section) => (
-                  <section
-                    key={section.id}
-                    id={section.id}
-                    className={styles.section}
-                    aria-labelledby={`${section.id}-label`}
-                  >
-                    <div className={styles.rule} />
-                    <p id={`${section.id}-label`} className={styles.kicker}>
-                      {section.label}
-                    </p>
-                    {section.blocks.map((block, index) => (
-                      <BlockView key={`${section.id}-${index}`} block={block} />
-                    ))}
-                  </section>
-                ))}
-              </div>
-              <footer className={styles.credits}>
-                {study.credits.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </footer>
-            </div>
-          </div>
-        </div>
-      </article>
-      {next ? (
-        <NextProjectCard
-          slug={next.slug}
-          label="NEXT PROJECT"
-          status={nextStatus}
-          title={next.title}
-          summary={next.summary}
-          cta="Read case study"
-        />
-      ) : null}
-    </>
+    <StudyTemplate
+      title={study.title}
+      summary={study.summary}
+      cover={{ ...study.hero, mint: true }}
+      meta={study.meta}
+      disclaimer={study.disclaimer}
+      nav={study.sections.map((section) => ({ id: section.id, label: section.label }))}
+      credits={study.credits}
+      next={
+        next
+          ? {
+              slug: next.slug,
+              label: "NEXT PROJECT",
+              status: nextStatus,
+              title: next.title,
+              summary: next.summary,
+              cta: "Read case study",
+            }
+          : null
+      }
+    >
+      <div className={styles.sections}>
+        {study.sections.map((section) => (
+          <StudySection key={section.id} id={section.id} label={section.label}>
+            {section.blocks.map((block, index) => (
+              <BlockView key={`${section.id}-${index}`} block={block} />
+            ))}
+          </StudySection>
+        ))}
+      </div>
+    </StudyTemplate>
   );
 }

@@ -443,11 +443,11 @@
   ],
   "nextProject": {
     "label": "NEXT PROJECT",
-    "status": "In progress",
-    "title": "Campus Ride",
-    "summary": "Student-to-student rides for Livingstone, where riders name their own price.",
+    "status": "Concept",
+    "title": "Trace",
+    "summary": "A debug console for finding the bad records hiding in ML training data.",
     "cta": "Read case study",
-    "slug": "campus-ride"
+    "slug": "trace"
   },
   "contact": {
     "heading": "Questions about this project?",

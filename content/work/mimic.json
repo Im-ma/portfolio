@@ -401,11 +401,11 @@
   ],
   "nextProject": {
     "label": "NEXT PROJECT",
-    "status": "In progress",
-    "title": "Campus Events",
-    "summary": "See what is on tonight, RSVP in a tap, and run the door if you are the club.",
+    "status": "Concept",
+    "title": "Linked Text Frames for Figma",
+    "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
     "cta": "Read case study",
-    "slug": "campus-events"
+    "slug": "linked-text-frames"
   },
   "contact": {
     "heading": "Questions about this project?",

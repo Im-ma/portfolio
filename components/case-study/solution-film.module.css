@@ -6,8 +6,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: var(--radius-video-poster);
-  background: var(--color-neutral-soft);
+  background: transparent;
 }
 
 .credit {

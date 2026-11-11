@@ -18,11 +18,11 @@ export const gatheringsPage = gatheringsJson;
 export const labPage = labJson;
 
 export const works = [
+  linkedFramesMeta,
+  campusRideJson,
+  campusEventsJson,
   traceJson,
   mimicJson,
-  campusEventsJson,
-  campusRideJson,
-  linkedFramesMeta,
 ] as const;
 
 export type WorkMeta = (typeof works)[number];
