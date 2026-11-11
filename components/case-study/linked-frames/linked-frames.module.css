@@ -11,7 +11,8 @@
   display: none;
 }
 
-.main {
+.preface,
+.story {
   min-width: 0;
 }
 
@@ -31,12 +32,8 @@
   color: var(--color-accent);
 }
 
-.backMobile {
-  display: inline-flex;
-}
-
 .hero {
-  margin: 0 0 40px;
+  margin: 40px 0;
 }
 
 .intro {
@@ -425,17 +422,28 @@
     align-items: start;
   }
 
+  .preface {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
   .navCol {
     display: block;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: stretch;
+  }
+
+  .story {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .navSticky {
     position: sticky;
     top: calc(var(--nav-h) + 24px);
-  }
-
-  .backMobile {
-    display: none;
+    max-height: calc(100vh - var(--nav-h) - 48px);
+    overflow-y: auto;
   }
 
   .measure {

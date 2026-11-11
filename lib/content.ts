@@ -31,6 +31,13 @@ export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);
 }
 
+/** Next study in list order. The last study wraps to the first, same as Campus Ride. */
+export function workAfter(slug: string) {
+  const index = works.findIndex((work) => work.slug === slug);
+  if (index < 0) return undefined;
+  return works[(index + 1) % works.length];
+}
+
 export function talkLabelForPath(pathname: string) {
   if (pathname.startsWith("/work/")) return site.talkButton.labels.work;
   if (pathname.startsWith("/gatherings")) return site.talkButton.labels.gatherings;
