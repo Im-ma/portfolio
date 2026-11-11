@@ -1,0 +1,21 @@
+.figure {
+  margin: 20px 0 0;
+}
+
+.film {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-video-poster);
+  background: var(--color-neutral-soft);
+}
+
+.credit {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+}
+
+.credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}

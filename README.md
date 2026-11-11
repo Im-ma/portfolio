@@ -117,6 +117,21 @@ Use these block types when you have (or are standing in) an asset. To replace a 
 - `video`: one clip with `label`, `poster`, `mp4`, `webm`, `playLabel`, and `caption`. It lazy-loads, stays muted, and loops. Reduced motion does not autoplay. Put several video blocks in a section, or group them as `{ "type": "videos", "items": [video, video] }`.
 - Empty second slot: `"type": "video"`, `"devOnly": true`, `"mp4": ""`, `"webm": ""`, plus a poster and caption. Dev builds show the poster. Production leaves it out.
 
+## Layout blocks
+
+These are the shared blocks for a longer case study (Campus Ride uses them). Other studies can adopt the same JSON without a new page template. A `heading` can set `id` (for the sticky nav), `level` (`3` or `4`), `badge`, and `check`. A `paragraph` can set `parts`: `{ "text", "href"? }[]` when a sentence needs links. A `split` can set `title` and `"compact": true` for a narrow frame beside a question.
+
+- `full`: `{ "type": "full", "frame": frame }`. One image at the width of the story column.
+- `pair`: `{ "type": "pair", "frames": [frame, frame] }`. Two frames, half width, stacked on a phone.
+- `threeUp`: `{ "type": "threeUp", "columns": 2 | 3 | 4, "items": [{ "title", "text", "frame"?, "placeholder"?, "check"? }] }`. Text columns, or frames. `"placeholder": true` paints a labeled coming-soon card instead of the file, so draft art with notes stays out of the public page. The `frame` can still point at the file you will swap in.
+- `videoLoop`: `{ "type": "videoLoop", "mp4", "webm"?, "poster", "width", "height", "title", "text", "layout": "split" | "full", "flip"? }`. Muted, looping, `playsInline`, with a poster. It autoplays in view. Reduced motion leaves the poster until someone presses play.
+- `prototypeFlows`: `{ "type": "prototypeFlows", "items": [{ "label", "caption", "mp4", "poster", "width", "height" }] }`. Recordings sit side by side on a dark panel, and stack on a phone. The phone is already in the video, so the page does not add another frame. Reduced motion shows the poster and controls.
+- A `screen` rect (`x`, `y`, `w`, `h`, source pixels) drops a still into a phone on `pair`, `split`, and `beforeAfter` frames.
+- `beforeAfter`: `{ "type": "beforeAfter", "items": [{ "label", "text", "frame" }] }`. A labeled pair. A label that starts with "After" uses the green.
+- `callout`: `{ "type": "callout", "tone": "accent" | "neutral" | "signal", "kicker"?, "title"?, "text"?, "frame"? }`. A short statement, an image, or both.
+- `stats`: `{ "type": "stats", "items": [{ "value", "text" }], "check"? }`.
+- `table`: `{ "type": "table", "headers", "rows", "caption"? }`. On a phone each row stacks under its column name.
+
 `"standin": true` shows a STAND-IN tag in dev and when `NEXT_PUBLIC_SHOW_CHECKS=1`. Production hides it and still shows the image.
 
 ## Shortcuts
