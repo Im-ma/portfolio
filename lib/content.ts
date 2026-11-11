@@ -6,6 +6,7 @@ import talkJson from "@/content/pages/talk-panel.json";
 import siteJson from "@/content/site.json";
 import campusEventsJson from "@/content/work/campus-events.json";
 import campusRideJson from "@/content/work/campus-ride.json";
+import { linkedFramesMeta } from "@/content/work/linked-text-frames";
 import mimicJson from "@/content/work/mimic.json";
 import traceJson from "@/content/work/trace.json";
 
@@ -16,12 +17,25 @@ export const aboutPage = aboutJson;
 export const gatheringsPage = gatheringsJson;
 export const labPage = labJson;
 
-export const works = [traceJson, mimicJson, campusEventsJson, campusRideJson] as const;
+export const works = [
+  traceJson,
+  mimicJson,
+  campusEventsJson,
+  campusRideJson,
+  linkedFramesMeta,
+] as const;
 
 export type WorkMeta = (typeof works)[number];
 
 export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);
+}
+
+/** Next study in list order. The last study wraps to the first, same as Campus Ride. */
+export function workAfter(slug: string) {
+  const index = works.findIndex((work) => work.slug === slug);
+  if (index < 0) return undefined;
+  return works[(index + 1) % works.length];
 }
 
 export function talkLabelForPath(pathname: string) {

@@ -136,6 +136,29 @@
         "summary": "Student-to-student rides, where riders name their own price.",
         "slug": "campus-ride",
         "href": "/work/campus-ride"
+      },
+      {
+        "tools": [
+          {
+            "text": "Figma"
+          },
+          {
+            "text": "TypeScript"
+          }
+        ],
+        "cover": {
+          "mp4": "/videos/work/linked-text-frames/cover-loop.mp4",
+          "webm": "",
+          "poster": "/images/work/linked-text-frames/cover-poster.jpg",
+          "field": "#D6EEE2"
+        },
+        "number": "05",
+        "status": "Concept",
+        "title": "Linked Text Frames for Figma",
+        "tag": "Product design, 2026",
+        "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
+        "slug": "linked-text-frames",
+        "href": "/work/linked-text-frames"
       }
     ]
   },

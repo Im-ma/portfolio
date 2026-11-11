@@ -19,7 +19,7 @@ export function CoverVideo({
   label,
 }: {
   mp4: string;
-  webm: string;
+  webm?: string;
   poster: string;
   field: string;
   eager?: boolean;
@@ -100,7 +100,7 @@ export function CoverVideo({
           aria-hidden={label ? undefined : true}
           onCanPlay={() => setReady(true)}
         >
-          <source src={webm} type="video/webm" />
+          {webm ? <source src={webm} type="video/webm" /> : null}
           <source src={mp4} type="video/mp4" />
         </video>
       ) : null}

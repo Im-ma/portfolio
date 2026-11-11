@@ -6,7 +6,6 @@ import { CoverVideo } from "@/components/media/cover-video";
 import { FrameImage } from "@/components/media/frame-image";
 import { Reveal } from "@/components/motion/reveal";
 import { TalkAction } from "@/components/talk/talk-action";
-import { getWork } from "@/lib/content";
 import { showAnnotations } from "@/lib/show-checks";
 import { sectionSplitsViews } from "@/lib/built-views";
 import type { Block, VideoBlock, Work, WorkLink, WorkSection } from "@/lib/work-types";
@@ -22,6 +21,7 @@ import { CampusSystem } from "./campus-system";
 import { SolutionFilm } from "./solution-film";
 import { CaseToc, CaseTocBar } from "./case-toc";
 import { FlowVideo } from "./flow-video";
+import { NextProjectCard } from "./next-project";
 import styles from "./case-study.module.css";
 
 const columnSizes = "(max-width: 767px) calc(100vw - 48px), 860px";
@@ -66,22 +66,6 @@ function LinkList({ items }: { items: WorkLink[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-function NextCover({ slug }: { slug: string }) {
-  const cover = getWork(slug)?.cover;
-  if (!cover?.mp4 || !cover.webm || !cover.poster) return null;
-  const field = cover.field || "transparent";
-  return (
-    <span className={styles.nextPhoto} style={{ background: field }}>
-      <CoverVideo
-        mp4={cover.mp4}
-        webm={cover.webm}
-        poster={cover.cardPoster || cover.poster}
-        field={field}
-      />
-    </span>
   );
 }
 
@@ -311,30 +295,14 @@ export function CaseStudy({ work }: { work: Work }) {
         </div>
       </div>
 
-      <section className={`${styles.nextSection} ${styles.surface}`}>
-        <div className="shell">
-          <Reveal>
-            <Link
-              className={styles.next}
-              href={`/work/${work.nextProject.slug}`}
-              data-cursor="view"
-            >
-              <NextCover slug={work.nextProject.slug} />
-              <span className={styles.nextBody}>
-                <span className={`${styles.accent} t-mono-label`}>
-                  {work.nextProject.label} <span aria-hidden="true">→</span>
-                </span>
-                <StatusTag status={work.nextProject.status} />
-                <h2 className="t-heading-h2">{work.nextProject.title}</h2>
-                <span className={`${styles.muted} t-body-s`}>{work.nextProject.summary}</span>
-                <span className={`${styles.nextCta} t-body-nav`}>
-                  {work.nextProject.cta} <span aria-hidden="true">→</span>
-                </span>
-              </span>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
+      <NextProjectCard
+        slug={work.nextProject.slug}
+        label={work.nextProject.label}
+        status={work.nextProject.status}
+        title={work.nextProject.title}
+        summary={work.nextProject.summary}
+        cta={work.nextProject.cta}
+      />
 
       <section className={styles.contact}>
         <div className="shell">
