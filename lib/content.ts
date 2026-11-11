@@ -6,6 +6,7 @@ import talkJson from "@/content/pages/talk-panel.json";
 import siteJson from "@/content/site.json";
 import campusEventsJson from "@/content/work/campus-events.json";
 import campusRideJson from "@/content/work/campus-ride.json";
+import { linkedFramesMeta } from "@/content/work/linked-text-frames";
 import mimicJson from "@/content/work/mimic.json";
 import traceJson from "@/content/work/trace.json";
 
@@ -16,7 +17,13 @@ export const aboutPage = aboutJson;
 export const gatheringsPage = gatheringsJson;
 export const labPage = labJson;
 
-export const works = [traceJson, mimicJson, campusEventsJson, campusRideJson] as const;
+export const works = [
+  traceJson,
+  mimicJson,
+  campusEventsJson,
+  campusRideJson,
+  linkedFramesMeta,
+] as const;
 
 export type WorkMeta = (typeof works)[number];
 

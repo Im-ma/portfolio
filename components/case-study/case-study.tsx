@@ -70,7 +70,8 @@ function LinkList({ items }: { items: WorkLink[] }) {
 }
 
 function NextCover({ slug }: { slug: string }) {
-  const cover = getWork(slug)?.cover;
+  const work = getWork(slug);
+  const cover = work && "cover" in work ? work.cover : undefined;
   if (!cover?.mp4 || !cover.webm || !cover.poster) return null;
   const field = cover.field || "transparent";
   return (
