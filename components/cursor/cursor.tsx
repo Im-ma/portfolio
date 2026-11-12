@@ -119,6 +119,14 @@ export function SiteCursor() {
     let grabbing = false;
     let frame = 0;
     let running = true;
+    let caretH = 18;
+
+    const caretHeightFor = (target: EventTarget | null) => {
+      const el = target instanceof Element ? target : null;
+      const text = el?.closest("p, li, blockquote, h1, h2, h3, h4");
+      const size = text ? Number.parseFloat(getComputedStyle(text).fontSize) : 15;
+      return (Number.isFinite(size) ? size : 15) * 1.15;
+    };
 
     const draw = () => {
       if (!running) return;
@@ -126,9 +134,20 @@ export function SiteCursor() {
       point.dy += (point.y - point.dy) * 0.38;
       point.rx += (point.x - point.rx) * 0.16;
       point.ry += (point.y - point.ry) * 0.16;
-      const scale = mode === "ask" ? "scale(0.22, 1.35)" : `scale(${scaleFor(mode)})`;
       dot.style.transform = `translate3d(${point.dx}px, ${point.dy}px, 0)`;
-      ring.style.transform = `translate3d(${point.rx}px, ${point.ry}px, 0) ${scale}`;
+      if (mode === "ask") {
+        ring.style.width = "2px";
+        ring.style.height = `${caretH}px`;
+        ring.style.marginTop = `${-caretH / 2}px`;
+        ring.style.marginLeft = "-1px";
+        ring.style.transform = `translate3d(${point.rx}px, ${point.ry}px, 0)`;
+      } else {
+        ring.style.width = "";
+        ring.style.height = "";
+        ring.style.marginTop = "";
+        ring.style.marginLeft = "";
+        ring.style.transform = `translate3d(${point.rx}px, ${point.ry}px, 0) scale(${scaleFor(mode)})`;
+      }
       frame = window.requestAnimationFrame(draw);
     };
 
@@ -142,6 +161,7 @@ export function SiteCursor() {
     const onMove = (event: PointerEvent) => {
       point.x = event.clientX;
       point.y = event.clientY;
+      caretH = caretHeightFor(event.target);
       if (grabbing && down) {
         setMode("grabbing");
         return;

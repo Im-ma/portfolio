@@ -444,10 +444,10 @@
   "nextProject": {
     "label": "NEXT PROJECT",
     "status": "Concept",
-    "title": "Trace",
-    "summary": "A debug console for finding the bad records hiding in ML training data.",
+    "title": "Linked Text Frames for Figma",
+    "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
     "cta": "Read case study",
-    "slug": "trace"
+    "slug": "linked-text-frames"
   },
   "contact": {
     "heading": "Questions about this project?",
