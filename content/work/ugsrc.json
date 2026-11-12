@@ -4,8 +4,8 @@
     "label": "Back to work",
     "href": "/#work"
   },
-  "eyebrow": "CASE STUDY 04",
-  "number": 4,
+  "eyebrow": "CASE STUDY 02",
+  "number": 2,
   "status": "Published",
   "title": "UGSRC App",
   "summary": "Everything a University of Ghana student needs from their SRC, in one app.",
@@ -15,7 +15,7 @@
     "webm": "/videos/covers/ugsrc.webm",
     "poster": "/images/covers/ugsrc-poster.png",
     "cardPoster": "/images/covers/ugsrc-card.png",
-    "field": "#F7F0DE",
+    "field": "#001933",
     "width": 1920,
     "height": 1080
   },
@@ -140,10 +140,10 @@
         },
         {
           "type": "film",
-          "mp4": "/videos/work/ugsrc/promo.mp4",
-          "webm": "/videos/work/ugsrc/promo.webm",
-          "poster": "/videos/work/ugsrc/promo-poster.png",
-          "label": "A short reel of the UGSRC App: Home, PascoHub, Ujamaa, SRC Connect and Updates, ending on the launch status"
+          "mp4": "/videos/work/ugsrc/solution-channels.mp4",
+          "webm": "/videos/work/ugsrc/solution-channels.webm",
+          "poster": "/videos/work/ugsrc/solution-channels-poster.png",
+          "label": "Five scattered channels (WhatsApp groups, word of mouth, cluttered emails, notice boards and social media pages) gather into the UGSRC App Home screen, then SRC Connect opens an anonymous accommodation ticket with a reply box"
         },
         {
           "type": "full",
@@ -192,7 +192,7 @@
             },
             {
               "title": "Ujamaa",
-              "text": "An AI campus companion that walks students through UG processes, and answers in Twi when asked. The clip shows the transcript steps. The Twi moment is not in the clip because the only recording of it has a development overlay on the answer text.",
+              "text": "An AI campus companion that walks students through UG processes, and answers in Twi when asked. The clip shows the transcript steps.",
               "label": "Asking Ujamaa, the campus AI companion, how to request a transcript and reading the step by step answer",
               "mp4": "/case-studies/ugsrc/core-flows/ujamaa.mp4",
               "webm": "/case-studies/ugsrc/core-flows/ujamaa.webm",
@@ -262,9 +262,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "For this case study I pulled together what the SRC, the university and published research already say about how students get information.",
-          "check": true,
-          "checkNote": "any SRC meetings, requirement docs or student feedback. If yes, add them here first."
+          "text": "For this case study I pulled together what the SRC, the university and published research already say about how students get information."
         },
         {
           "type": "heading",
@@ -369,9 +367,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "These are the main decisions I weighed while structuring the app.",
-          "check": true,
-          "checkNote": "earlier versions. Add real Figma explorations here if you have them. I have not described any discarded version that I cannot show."
+          "text": "These are the main decisions I weighed while structuring the app."
         },
         {
           "type": "heading",
@@ -600,8 +596,6 @@
           "side": "start",
           "title": "How do I keep study activity private?",
           "text": "PascoHub has its own sign-in by design, so a student's past-questions activity stays separate from their main account, as the app's privacy policy sets out [13]. A deliberate privacy decision, for one extra step.",
-          "check": true,
-          "checkNote": "your rationale for the separate PascoHub sign-in, in your own words",
           "frame": {
             "src": "/images/work/ugsrc/cons-pascohub-signin.webp",
             "width": 600,
@@ -678,9 +672,7 @@
         {
           "type": "heading",
           "level": 2,
-          "text": "What I learned",
-          "check": true,
-          "checkNote": "rewrite these in your own words. They are drafts based on what the work shows."
+          "text": "What I learned"
         },
         {
           "type": "threeUp",
@@ -866,11 +858,11 @@
   ],
   "nextProject": {
     "label": "NEXT PROJECT",
-    "status": "Concept",
-    "title": "Linked Text Frames for Figma",
-    "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
+    "status": "In progress",
+    "title": "Campus Ride",
+    "summary": "Student-to-student rides, where riders name their own price.",
     "cta": "Read case study",
-    "slug": "linked-text-frames"
+    "slug": "campus-ride"
   },
   "contact": {
     "heading": "Questions about this project?",

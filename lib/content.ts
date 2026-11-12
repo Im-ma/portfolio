@@ -26,9 +26,9 @@ export const hiddenWorkSlugs = ["trace", "mimic"] as const;
 
 export const works = [
   linkedFramesMeta,
+  ugsrcJson,
   campusRideJson,
   campusEventsJson,
-  ugsrcJson,
   // traceJson,
   // mimicJson,
 ] as const;

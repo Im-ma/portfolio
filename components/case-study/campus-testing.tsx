@@ -19,13 +19,15 @@ export function CampusTesting({ blocks }: { blocks: Block[] }) {
           {intro?.type === "paragraph" ? <p className="t-body-m">{intro.text}</p> : null}
         </div>
       </CampusOverview>
-      <Reveal>
-        <div className={styles.sessions}>
-          {sessions.map((slot, index) => (
-            <SessionPlaceholder key={index} video={slot.video} />
-          ))}
-        </div>
-      </Reveal>
+      {sessions.some((slot) => slot.video) ? (
+        <Reveal>
+          <div className={styles.sessions}>
+            {sessions.map((slot, index) =>
+              slot.video ? <SessionPlaceholder key={index} video={slot.video} /> : null,
+            )}
+          </div>
+        </Reveal>
+      ) : null}
     </>
   );
 }

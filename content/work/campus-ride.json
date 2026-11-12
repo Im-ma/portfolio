@@ -4,8 +4,8 @@
     "label": "Back to work",
     "href": "/#work"
   },
-  "eyebrow": "CASE STUDY 04",
-  "number": 4,
+  "eyebrow": "CASE STUDY 03",
+  "number": 3,
   "status": "In progress",
   "title": "Campus Ride",
   "summary": "Getting off campus shouldn't take longer than the ride.",
@@ -382,7 +382,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "We are putting the prototype in front of students, watching how they book, and listening. Session videos coming soon."
+          "text": "We are putting the prototype in front of students, watching how they book, and listening."
         }
       ]
     },
@@ -601,10 +601,6 @@
           "text": "Estimated impact"
         },
         {
-          "type": "label",
-          "text": "ESTIMATED, STUDENT FEEDBACK IN PROGRESS"
-        },
-        {
           "type": "stats",
           "items": [
             {
@@ -620,9 +616,7 @@
         {
           "type": "paragraph",
           "variant": "body",
-          "text": "That's an estimated 60% to 84% less waiting. The comparison is (25 minus 10) / 25 and (25 minus 4) / 25. These are assumptions, not measured results. I will replace them with real numbers from student feedback.",
-          "check": true,
-          "checkNote": "estimated wait, replace with student feedback"
+          "text": "That's an estimated 60% to 84% less waiting. The comparison is (25 minus 10) / 25 and (25 minus 4) / 25. These are assumptions, not measured results. I will replace them with real numbers from student feedback."
         }
       ]
     },

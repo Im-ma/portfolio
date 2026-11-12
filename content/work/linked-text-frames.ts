@@ -475,10 +475,6 @@ export const linkedFrames = {
             "Delete a linked box and its text stays in the story. Undo is one click away.",
           ),
         },
-        {
-          type: "note",
-          text: "Some spacing values are estimates because the official UI3 kit would not open. Any keyboard shortcuts shown are my proposals, not real Figma shortcuts.",
-        },
       ],
     },
     {

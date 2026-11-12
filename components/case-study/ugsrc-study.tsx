@@ -112,7 +112,7 @@ export function UgsrcStudy({ work }: { work: Work }) {
           poster: cover?.poster || "",
           width: cover?.width || 1920,
           height: cover?.height || 1080,
-          alt: "Five scattered channels gather into the UGSRC App Home screen, SRC Connect opens an anonymous accommodation ticket with a reply box",
+          alt: "The UGSRC App launch animation: the University of Ghana SRC crest rises and spins, then the UGSRC wordmark slides in",
           field: cover?.field,
         }}
         meta={work.meta
