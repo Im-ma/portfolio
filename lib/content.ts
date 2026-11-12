@@ -6,6 +6,7 @@ import talkJson from "@/content/pages/talk-panel.json";
 import siteJson from "@/content/site.json";
 import campusEventsJson from "@/content/work/campus-events.json";
 import campusRideJson from "@/content/work/campus-ride.json";
+import { jrunMeta } from "@/content/work/jrun-llc";
 import { linkedFramesMeta } from "@/content/work/linked-text-frames";
 import mimicJson from "@/content/work/mimic.json";
 import traceJson from "@/content/work/trace.json";
@@ -21,6 +22,7 @@ export const works = [
   linkedFramesMeta,
   campusRideJson,
   campusEventsJson,
+  jrunMeta,
   traceJson,
   mimicJson,
 ] as const;
