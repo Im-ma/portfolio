@@ -1,5 +1,6 @@
 import { NextProjectCard } from "@/components/case-study/next-project";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { StudyNav } from "./linked-frames/study-nav";
 import { StudyVideo } from "./linked-frames/study-video";
@@ -51,6 +52,7 @@ export function StudyTemplate({
     alt: string;
     field?: string;
     mint?: boolean;
+    still?: string;
   };
   meta: StudyMeta[];
   disclaimer?: string;
@@ -78,17 +80,28 @@ export function StudyTemplate({
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.dek}>{summary}</p>
             <figure className={styles.hero}>
-              <StudyVideo
-                mp4={cover.mp4}
-                webm={cover.webm}
-                poster={cover.poster}
-                width={cover.width}
-                height={cover.height}
-                alt={cover.alt}
-                eager
-                cover={cover.mint}
-                field={cover.field}
-              />
+              {cover.still ? (
+                <Image
+                  className={styles.shot}
+                  src={cover.still}
+                  alt={cover.alt}
+                  width={cover.width}
+                  height={cover.height}
+                  priority
+                />
+              ) : (
+                <StudyVideo
+                  mp4={cover.mp4}
+                  webm={cover.webm}
+                  poster={cover.poster}
+                  width={cover.width}
+                  height={cover.height}
+                  alt={cover.alt}
+                  eager
+                  cover={cover.mint}
+                  field={cover.field}
+                />
+              )}
             </figure>
             <div className={styles.measure}>
               <dl className={styles.strip}>

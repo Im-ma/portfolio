@@ -144,19 +144,6 @@ export function JrunStudy() {
       }
     >
       <div className={styles.sections}>
-        <figure className={local.heroDevice}>
-          <div className={local.laptop}>
-            <div className={local.laptopScreen}>
-              <DeviceClip
-                mp4={study.laptop.mp4}
-                poster={study.laptop.poster}
-                alt={study.laptop.alt}
-              />
-            </div>
-          </div>
-          <figcaption className={styles.caption}>{study.laptop.caption}</figcaption>
-        </figure>
-
         <StudySection id="about" label="About">
           <p className={styles.body}>{study.about}</p>
           <dl className={`${styles.strip} ${local.aboutStrip}`}>

@@ -178,30 +178,6 @@
   line-height: 1.3;
 }
 
-.heroDevice {
-  width: min(100%, 640px);
-  margin: 0;
-}
-
-.laptop {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1916 / 1102;
-  background-image: url("/images/work/jrun-llc/devices/macbook.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-.laptopScreen {
-  position: absolute;
-  top: 7.2595281307%;
-  left: 12.369519833%;
-  width: 75.260960334%;
-  height: 81.8511796733%;
-  overflow: hidden;
-  background: #17130f;
-}
-
 .phones {
   display: grid;
   grid-template-columns: 1fr 1fr;

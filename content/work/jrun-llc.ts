@@ -13,9 +13,9 @@ export const jrunMeta = {
     mp4: vid("cover-loop.mp4"),
     poster: img("cover-poster.jpg"),
     cardPoster: img("cover-poster.jpg"),
-    field: "#F6F0E6",
-    width: 1600,
-    height: 900,
+    field: "#f5f7fb",
+    width: 1920,
+    height: 1080,
   },
 } as const;
 
@@ -54,10 +54,11 @@ export const jrunStudy = {
   hero: {
     mp4: vid("cover-loop.mp4"),
     poster: img("cover-poster.jpg"),
-    width: 1600,
-    height: 900,
-    alt: "Cream cover with the words JRUN LLC and Two businesses, one website. A rose panel reads GG Beauty. An olive panel reads Table 231.",
-    field: "#F6F0E6",
+    still: img("cover-poster.jpg"),
+    width: 1920,
+    height: 1080,
+    alt: "A MacBook and an iPhone on a pale background. The laptop screen shows the JRUN LLC home. The phone shows the GG Beauty page.",
+    field: "#f5f7fb",
   },
   meta: [
     { label: "Timeline", value: "September 2026" },
@@ -95,24 +96,24 @@ export const jrunStudy = {
   principles: [
     {
       src: img("principle-1.webp"),
-      width: 900,
-      height: 900,
-      alt: "Cream tile titled One umbrella, two voices. An ink bar labeled JRUN LLC sits above a rose block for GG Beauty and an olive block for Table 231.",
+      width: 1600,
+      height: 844,
+      alt: "The JRUN LLC home, with the shared navigation and links into GG Beauty and Table 231.",
       caption:
         "One umbrella, two voices. JRUN LLC holds everything together. Each business speaks for itself.",
     },
     {
       src: img("principle-2.webp"),
-      width: 900,
-      height: 900,
-      alt: "Cream tile titled Every page has one job. A hair card says pages lead to booking. A food card says pages lead to ordering.",
+      width: 1820,
+      height: 504,
+      alt: "The hair page Book now button beside the food page Place an Order button.",
       caption: "Every page has one job. Hair pages lead to booking. Food pages lead to ordering.",
     },
     {
       src: img("principle-3.webp"),
-      width: 900,
-      height: 900,
-      alt: "Cream tile titled Shared bones, different color. Two matching layouts, one with a rose accent and one with an olive accent.",
+      width: 1820,
+      height: 651,
+      alt: "The rose GG Beauty page beside the olive Table 231 page. Both keep the same navigation and layout.",
       caption:
         "Shared bones, different color. Same type, layout, and components everywhere, so it reads as one brand.",
     },
@@ -182,11 +183,6 @@ export const jrunStudy = {
       ),
     ],
   },
-  laptop: clip(
-    "01-home-hero",
-    "The home hero playing inside a laptop frame.",
-    "Home",
-  ),
   phones: [
     {
       mp4: vid("07-hair-phone.mp4"),
