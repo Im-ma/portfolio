@@ -107,9 +107,13 @@ p {
   animation: 220ms ease 80ms both fade-in;
 }
 
+.site-header {
+  view-transition-name: site-header;
+}
+
 ::view-transition-group(site-header) {
   animation: none;
-  z-index: 40;
+  z-index: 50;
 }
 
 @keyframes fade-out {

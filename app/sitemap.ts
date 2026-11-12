@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/gatherings",
+    "/resume",
     // "/lab", // hidden for now
     ...works.map((work) => `/work/${work.slug}`),
   ];

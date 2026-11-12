@@ -1,5 +1,7 @@
 .canvas {
   position: relative;
+  /* Card z-index and rotation stay inside this canvas, under the sticky header. */
+  isolation: isolate;
   width: 100%;
   height: var(--need-h, auto);
   min-height: var(--design-h, 240px);

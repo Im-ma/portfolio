@@ -41,7 +41,10 @@ export function Lightbox({
     return () => {
       release();
       document.removeEventListener("keydown", onKey);
-      previous?.focus();
+      const keyboard = document.documentElement.dataset.focus === "keyboard";
+      const options: FocusOptions = { preventScroll: true };
+      if (!keyboard) Object.assign(options, { focusVisible: false });
+      previous?.focus(options);
     };
   }, [open]);
 

@@ -1,6 +1,7 @@
 import { AskSelection } from "@/components/ask/ask-selection";
 import { SiteCursor } from "@/components/cursor/cursor";
 import { Nav } from "@/components/nav/nav";
+import { ResumeProvider } from "@/components/resume/resume-modal";
 import { TalkButton } from "@/components/talk/talk-button";
 import { TalkPanel } from "@/components/talk/talk-panel";
 import { TalkProvider } from "@/components/talk/talk-provider";
@@ -69,12 +70,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <TalkProvider>
-          <Nav />
-          {children}
-          <TalkButton />
-          <SiteCursor />
-          <TalkPanel />
-          <AskSelection />
+          <ResumeProvider>
+            <Nav />
+            {children}
+            <TalkButton />
+            <SiteCursor />
+            <TalkPanel />
+            <AskSelection />
+          </ResumeProvider>
         </TalkProvider>
       </body>
     </html>

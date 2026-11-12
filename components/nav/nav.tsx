@@ -1,6 +1,7 @@
 "use client";
 
 import { site } from "@/lib/content";
+import { useOpenResume } from "@/components/resume/resume-modal";
 import { lockScroll } from "@/lib/scroll-lock";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,7 +21,7 @@ function navItems(): NavItem[] {
   // const lab: NavItem = { number: "04", label: "Lab", href: "/lab", external: false };
   // const items: NavItem[] = [];
   // for (const item of site.nav) {
-  //   if (item.href === "/resume.pdf") {
+  //   if (item.href === "/resume") {
   //     items.push(lab);
   //     items.push({ ...item, number: "05" });
   //   } else {
@@ -42,7 +43,11 @@ export function Nav() {
     if (!open) return;
     const release = lockScroll();
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && !document.querySelector("[data-talk-dialog]")) {
+      if (
+        event.key === "Escape" &&
+        !document.querySelector("[data-talk-dialog]") &&
+        !document.querySelector("[data-resume-dialog]")
+      ) {
         setOpenPath(null);
       }
     };
@@ -52,6 +57,12 @@ export function Nav() {
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
+  const openResumeModal = useOpenResume();
+  const openResume = (trigger: HTMLElement, pointer: boolean) => {
+    setOpen(false);
+    openResumeModal(trigger, pointer);
+  };
 
   const links = navItems();
   const items = links.map((item) => {
@@ -63,6 +74,18 @@ export function Nav() {
         {item.label}
       </>
     );
+    if (item.href === "/resume") {
+      return (
+        <button
+          key={item.href}
+          type="button"
+          className={`${className} ${styles.command}`}
+          onClick={(event) => openResume(event.currentTarget, event.detail > 0)}
+        >
+          {content}
+        </button>
+      );
+    }
     if (item.external) {
       return (
         <a
@@ -89,7 +112,7 @@ export function Nav() {
   });
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} site-header`}>
       <div className={`shell ${styles.bar}`}>
         <Link className={styles.logo} href="/" aria-label="Immanuel Mensah, home">
           <span className={styles.mark} aria-hidden="true" />
@@ -144,6 +167,18 @@ export function Nav() {
                   </span>
                 </>
               );
+              if (item.href === "/resume") {
+                return (
+                  <button
+                    key={item.href}
+                    type="button"
+                    className={`${styles.sheetLink} ${styles.command}`}
+                    onClick={(event) => openResume(event.currentTarget, event.detail > 0)}
+                  >
+                    {content}
+                  </button>
+                );
+              }
               if (item.external) {
                 return (
                   <a
