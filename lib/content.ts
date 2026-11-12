@@ -6,6 +6,7 @@ import talkJson from "@/content/pages/talk-panel.json";
 import siteJson from "@/content/site.json";
 import campusEventsJson from "@/content/work/campus-events.json";
 import campusRideJson from "@/content/work/campus-ride.json";
+import { jrunMeta } from "@/content/work/jrun-llc";
 import ugsrcJson from "@/content/work/ugsrc.json";
 import { linkedFramesMeta } from "@/content/work/linked-text-frames";
 // Trace and Mimic are hidden for now. To restore: uncomment these imports,
@@ -29,6 +30,7 @@ export const works = [
   ugsrcJson,
   campusRideJson,
   campusEventsJson,
+  jrunMeta,
   // traceJson,
   // mimicJson,
 ] as const;

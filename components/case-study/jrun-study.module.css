@@ -1,0 +1,229 @@
+.aboutStrip {
+  margin-top: 8px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 12px 16px;
+  align-items: start;
+}
+
+.num {
+  margin: 2px 0 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--color-muted);
+}
+
+.itemTitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.chip {
+  display: block;
+  height: 64px;
+  border: 1px solid var(--color-hairline);
+}
+
+.swatchName {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.hex {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.specimen {
+  margin: 14px 0 0;
+  padding: 20px;
+  background: #fdf3e7;
+  color: #17130f;
+}
+
+.playfair {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.inter {
+  margin: 12px 0 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.face {
+  margin: 10px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  color: #17130f;
+}
+
+.components {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.roseBtn,
+.oliveBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.roseBtn {
+  min-height: 44px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: #cf6a3a;
+  font-size: 0.85rem;
+}
+
+.oliveBtn {
+  min-height: 48px;
+  padding: 14px 26px;
+  background: #74804a;
+  font-size: 0.9rem;
+}
+
+.field {
+  width: min(100%, 260px);
+  padding: 24px 20px;
+  border-radius: 20px;
+  background: #6f5537;
+  color: #fff;
+}
+
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  color: #ffffffd9;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.fieldLine {
+  border-bottom: 1px solid #ffffff40;
+  padding: 6px 0 10px;
+  color: #ffffff59;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.phones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 420px;
+  margin: 8px 0 0;
+}
+
+.phoneFigure {
+  margin: 0;
+}
+
+.phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 979 / 1960;
+  background-image: url("/images/work/jrun-llc/devices/iphone.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.phoneScreen {
+  position: absolute;
+  top: 2.6530612245%;
+  left: 6.026557712%;
+  width: 88.0490296221%;
+  height: 94.6428571429%;
+  overflow: hidden;
+  -webkit-mask-image: url("/images/work/jrun-llc/devices/iphone-mask.png");
+  mask-image: url("/images/work/jrun-llc/devices/iphone-mask.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.screenMedia {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (min-width: 640px) {
+  .swatches {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

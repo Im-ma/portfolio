@@ -1,3 +1,4 @@
+import { jrunStudy } from "@/content/work/jrun-llc";
 import { linkedFrames } from "@/content/work/linked-text-frames";
 import { getWork } from "@/lib/content";
 import { ogContentType, ogImage, ogSize } from "@/lib/og";
@@ -11,8 +12,9 @@ export const contentType = ogContentType;
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (slug === linkedFrames.slug) {
-    const file = await readFile(join(process.cwd(), "public", linkedFrames.hero.poster));
+  if (slug === linkedFrames.slug || slug === jrunStudy.slug) {
+    const study = slug === linkedFrames.slug ? linkedFrames : jrunStudy;
+    const file = await readFile(join(process.cwd(), "public", study.hero.poster));
     const src = `data:image/jpeg;base64,${file.toString("base64")}`;
     return new ImageResponse(
       <div
@@ -20,7 +22,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#D6EEE2",
+          background: slug === linkedFrames.slug ? "#D6EEE2" : "#F6F0E6",
         }}
       >
         <img
