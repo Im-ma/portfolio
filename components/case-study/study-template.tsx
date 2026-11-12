@@ -1,3 +1,4 @@
+import { Check } from "@/components/check/check";
 import { NextProjectCard } from "@/components/case-study/next-project";
 import type { ReactNode } from "react";
 import Image from "next/image";
@@ -6,7 +7,13 @@ import { StudyNav } from "./linked-frames/study-nav";
 import { StudyVideo } from "./linked-frames/study-video";
 import styles from "./linked-frames/linked-frames.module.css";
 
-export type StudyMeta = { label: string; value: string; href?: string };
+export type StudyMeta = {
+  label: string;
+  value: string;
+  href?: string;
+  check?: boolean;
+  checkNote?: string;
+};
 export type StudyNavItem = { id: string; label: string };
 
 export function StudySection({
@@ -121,6 +128,7 @@ export function StudyTemplate({
                       ) : (
                         item.value
                       )}
+                      {item.check ? <Check note={item.checkNote} /> : null}
                     </dd>
                   </div>
                 ))}

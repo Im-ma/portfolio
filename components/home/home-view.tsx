@@ -7,7 +7,7 @@ import { ProjectCard } from "@/components/project-card/project-card";
 import { SectionHeader } from "@/components/section-header/section-header";
 import { SignalPath } from "@/components/signal-path/signal-path";
 import { TalkAction } from "@/components/talk/talk-action";
-import { home, site } from "@/lib/content";
+import { hiddenWorkSlugs, home, site } from "@/lib/content";
 import type { WallNote } from "@/lib/notes";
 import Link from "next/link";
 import { ContactLinks } from "./contact-links";
@@ -28,9 +28,15 @@ export function HomeView({ notes }: { notes: WallNote[] }) {
               link={home.selectedWork.link}
             />
             <div className={styles.cards}>
-              {home.selectedWork.cards.map((card) => (
-                <ProjectCard key={card.slug} card={card} />
-              ))}
+              {/* Trace and Mimic are hidden for now. Remove their slugs from hiddenWorkSlugs to show the cards again. */}
+              {home.selectedWork.cards
+                .filter(
+                  (card) =>
+                    !hiddenWorkSlugs.includes(card.slug as (typeof hiddenWorkSlugs)[number]),
+                )
+                .map((card) => (
+                  <ProjectCard key={card.slug} card={card} />
+                ))}
             </div>
           </Reveal>
         </div>

@@ -250,7 +250,7 @@
       },
       {
         "label": "Resume (PDF)",
-        "href": "/resume.pdf",
+        "href": "/resume",
         "variant": "secondary",
         "check": false,
         "checkNote": "resume PDF link"

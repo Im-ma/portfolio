@@ -75,6 +75,8 @@ function BlockView({ block }: { block: Block }) {
           </a>
         </p>
       );
+    case "note":
+      return <p className={styles.note}>{block.text}</p>;
     case "list":
       return (
         <ul className={styles.list}>

@@ -4,7 +4,7 @@ import { useFreeArrange, type Piece } from "@/components/arrange/use-free-arrang
 import { Check } from "@/components/check/check";
 import { Lightbox } from "@/components/lightbox/lightbox";
 import { FrameImage } from "@/components/media/frame-image";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./gatherings.module.css";
 
 export type PilePhoto = {
@@ -75,6 +75,34 @@ export function PolaroidPile({
     scatterSeed: seed,
     minSize,
   });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const markPointer = () => {
+      root.dataset.focus = "pointer";
+    };
+    const markKeyboard = (event: KeyboardEvent) => {
+      if (event.key === "Tab") root.dataset.focus = "keyboard";
+    };
+    let scrollTimer = 0;
+    const onScroll = () => {
+      root.dataset.scrolling = "true";
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        delete root.dataset.scrolling;
+      }, 140);
+    };
+    window.addEventListener("pointerdown", markPointer, true);
+    window.addEventListener("keydown", markKeyboard, true);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("pointerdown", markPointer, true);
+      window.removeEventListener("keydown", markKeyboard, true);
+      window.removeEventListener("scroll", onScroll);
+      window.clearTimeout(scrollTimer);
+      delete root.dataset.scrolling;
+    };
+  }, []);
 
   function select(value: string) {
     if (value === filter && value === "all") return;

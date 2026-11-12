@@ -150,6 +150,13 @@
   overflow-wrap: anywhere;
 }
 
+.note {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
 .list {
   display: flex;
   flex-direction: column;

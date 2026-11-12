@@ -107,9 +107,13 @@ p {
   animation: 220ms ease 80ms both fade-in;
 }
 
+.site-header {
+  view-transition-name: site-header;
+}
+
 ::view-transition-group(site-header) {
   animation: none;
-  z-index: 40;
+  z-index: 50;
 }
 
 @keyframes fade-out {
@@ -129,17 +133,19 @@ p {
 }
 
 html.js .reveal {
-  opacity: 0;
-  transform: translateY(14px);
+  opacity: 1;
+  transform: none;
 }
 
 html.js .reveal[data-shown="true"] {
-  animation: reveal-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: reveal-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @keyframes reveal-in {
+  from {
+    transform: translateY(14px);
+  }
   to {
-    opacity: 1;
     transform: none;
   }
 }
