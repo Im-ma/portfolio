@@ -189,20 +189,22 @@ export const jrunStudy = {
   ),
   phones: [
     {
-      src: img("hair-phone.webp"),
+      mp4: vid("07-hair-phone.mp4"),
+      poster: img("07-hair-phone.jpg"),
       width: 780,
       height: 1688,
-      alt: "GG Beauty hair page at mobile width, inside a phone frame. The heading reads Start your next great hair day here.",
+      alt: "GG Beauty at phone width. The clip starts on the hero, scrolls to the styles carousel, moves through a few styles, and returns to the hero.",
       caption: "Hair",
     },
     {
-      src: img("food-phone.webp"),
+      mp4: vid("08-food-phone.mp4"),
+      poster: img("08-food-phone.jpg"),
       width: 780,
       height: 1688,
-      alt: "Table 231 food page at mobile width, inside a phone frame. The heading reads Home Of Condiments And Marinades.",
+      alt: "Table 231 at phone width. The clip starts on the hero, scrolls to the menu, taps filter tabs, and returns to the hero.",
       caption: "Food",
     },
-  ] satisfies Frame[],
+  ] satisfies Clip[],
   outcome: "The site is live.",
   nextSteps: [
     "Show the full price tiers (student, standard, length, and mobile).",

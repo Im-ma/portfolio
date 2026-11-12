@@ -265,16 +265,10 @@ export function JrunStudy() {
           <p className={styles.body}>{study.outcome}</p>
           <div className={local.phones}>
             {study.phones.map((phone) => (
-              <figure key={phone.src} className={local.phoneFigure}>
+              <figure key={phone.mp4} className={local.phoneFigure}>
                 <div className={local.phone}>
                   <div className={local.phoneScreen}>
-                    <Image
-                      src={phone.src}
-                      alt={phone.alt}
-                      fill
-                      sizes="200px"
-                      className={local.screenMedia}
-                    />
+                    <DeviceClip mp4={phone.mp4} poster={phone.poster} alt={phone.alt} />
                   </div>
                 </div>
                 <figcaption className={styles.caption}>{phone.caption}</figcaption>
