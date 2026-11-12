@@ -109,6 +109,22 @@
         "href": "/work/campus-events"
       },
       {
+        "tools": [],
+        "cover": {
+          "mp4": "/videos/covers/ugsrc.mp4",
+          "webm": "/videos/covers/ugsrc.webm",
+          "poster": "/images/covers/ugsrc-card.png",
+          "field": "#F7F0DE"
+        },
+        "number": "04",
+        "status": "Published",
+        "title": "UGSRC App",
+        "tag": "Product design, 2026",
+        "summary": "Everything a University of Ghana student needs from their SRC, in one app.",
+        "slug": "ugsrc",
+        "href": "/work/ugsrc"
+      },
+      {
         "tools": [
           {
             "text": "Figma"
@@ -125,7 +141,7 @@
           "poster": "/images/covers/trace-card.png",
           "field": "#142004"
         },
-        "number": "04",
+        "number": "05",
         "status": "Concept",
         "title": "Trace",
         "tag": "Design + front end, 2026",
@@ -152,7 +168,7 @@
           "poster": "/images/covers/mimic-card.png",
           "field": "#EEF2F7"
         },
-        "number": "05",
+        "number": "06",
         "status": "In progress",
         "title": "Mimic",
         "tag": "Design + engineering, 2026",

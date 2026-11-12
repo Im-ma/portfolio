@@ -1,0 +1,912 @@
+{
+  "slug": "ugsrc",
+  "backLink": {
+    "label": "Back to work",
+    "href": "/#work"
+  },
+  "eyebrow": "CASE STUDY 04",
+  "number": 4,
+  "status": "Published",
+  "title": "UGSRC App",
+  "summary": "Everything a University of Ghana student needs from their SRC, in one app.",
+  "cover": {
+    "kind": "video",
+    "mp4": "/videos/covers/ugsrc.mp4",
+    "webm": "/videos/covers/ugsrc.webm",
+    "poster": "/images/covers/ugsrc-poster.png",
+    "cardPoster": "/images/covers/ugsrc-card.png",
+    "field": "#F7F0DE",
+    "width": 1920,
+    "height": 1080
+  },
+  "meta": [
+    {
+      "label": "TEAM",
+      "value": "Not confirmed yet",
+      "check": true,
+      "checkNote": "team"
+    },
+    {
+      "label": "TIMELINE",
+      "value": "Not confirmed yet",
+      "check": true,
+      "checkNote": "timeline"
+    },
+    {
+      "label": "ROLE",
+      "value": "UI/UX Engineer, lead designer of the complete app"
+    }
+  ],
+  "links": {
+    "items": [],
+    "flows": []
+  },
+  "sections": [
+    {
+      "id": "overview",
+      "number": "01",
+      "title": "Overview",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How might 76,126 students get news, study help, answers, and a voice with their SRC in one trusted place?"
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "76,126 is the University of Ghana's official 2024/2025 enrolment, from the IRPO enrolment statistics [14]."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "I led the design of the UGSRC App end to end. That meant the whole experience, not a set of screens: how the app is structured, how people move through it, and how every feature connects."
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "Product structure.",
+              "text": "Eight connected flows organised around one Home screen and five tabs."
+            },
+            {
+              "title": "End to end flows.",
+              "text": "Sign in, find a pasco, ask a question, file a complaint, and follow it to a reply."
+            },
+            {
+              "title": "A connected system.",
+              "text": "One set of components, colours and patterns shared by every feature, in four themes."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Problem: Official SRC information is spread across too many places, and students have no clear line back to the SRC."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The SRC's own IT & Innovation Committee put it plainly: students rely on \"WhatsApp groups, cluttered emails, notice boards, social media pages, and word of mouth,\" so \"important updates get missed, academic resources are scattered, and official SRC communication is not always easy to find\" [1]. Even the university's Academic Affairs office says some students \"still miss these essential updates\" [2]. Past questions sit behind a library portal with a 48 hour registration wait, or in shared Drive folders [3]. Issues reach the SRC through one-off campaigns [4]."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/ugsrc/problem-channels.webp",
+            "width": 1400,
+            "height": 560,
+            "alt": "A student at the centre of five channels: WhatsApp groups, cluttered emails, notice boards, social media pages and word of mouth, leading to missed updates, scattered resources and hard to find SRC communication",
+            "caption": "Where SRC updates live today. Source: UGSRC IT and Innovation Committee, in-app blog, Feb 2026."
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Opportunity: Give the SRC one official channel that students can read, use and talk back to."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "If the SRC owns one app, announcements are verified at the source, study material lives next to the news, and every complaint becomes a ticket someone has to answer. Students get one place to go. The SRC gets one place to listen."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/ugsrc/opportunity-one-channel.webp",
+            "width": 1400,
+            "height": 560,
+            "alt": "The same five channels routed into the UGSRC App, which leads to Find it fast, Get answers and Be heard"
+          }
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "Find it fast.",
+              "text": "Updates, events, clubs, leaders and scholarships from one Home screen."
+            },
+            {
+              "title": "Get answers.",
+              "text": "Past questions on demand and an AI companion for how-to questions."
+            },
+            {
+              "title": "Be heard.",
+              "text": "Complaints, suggestions and questions, anonymous if needed, tracked to a reply."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solution",
+      "number": "02",
+      "title": "Solution",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Introducing the UGSRC App: the SRC, in every student's pocket."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "One app for SRC news, past questions, campus answers and direct feedback, built on a single design system for students and SRC officers."
+        },
+        {
+          "type": "film",
+          "mp4": "/videos/work/ugsrc/promo.mp4",
+          "webm": "/videos/work/ugsrc/promo.webm",
+          "poster": "/videos/work/ugsrc/promo-poster.png",
+          "label": "A short reel of the UGSRC App: Home, PascoHub, Ujamaa, SRC Connect and Updates, ending on the launch status"
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/ugsrc/solution-in-context.webp",
+            "width": 1600,
+            "height": 1000,
+            "alt": "Two phones over a softened photo of Balme Library: the UGSRC App Home screen in dark mode and the Share Feedback form in light mode",
+            "caption": "Balme Library, University of Ghana. Photo: Sarah Shreeves, Wikimedia Commons, CC BY 2.0."
+          }
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Built for students first, with an officer side so the SRC can reply."
+        }
+      ]
+    },
+    {
+      "id": "flows",
+      "number": "03",
+      "title": "Core flows",
+      "blocks": [
+        {
+          "type": "coreFlows",
+          "rows": [
+            {
+              "title": "Home and quick actions",
+              "text": "A greeting, eight quick actions, Trending Now and the latest updates and events. Every service starts here.",
+              "label": "The UGSRC App Home screen in dark mode with a greeting, eight quick actions and Trending Now",
+              "mp4": "/case-studies/ugsrc/core-flows/home.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/home.webm",
+              "poster": "/case-studies/ugsrc/core-flows/home-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "PascoHub",
+              "text": "Search past questions by course, preview, download for offline use, and earn credits by uploading.",
+              "label": "Browsing past questions in PascoHub, opening a paper and downloading it as a PDF",
+              "mp4": "/case-studies/ugsrc/core-flows/pascohub.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/pascohub.webm",
+              "poster": "/case-studies/ugsrc/core-flows/pascohub-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "Ujamaa",
+              "text": "An AI campus companion that walks students through UG processes, and answers in Twi when asked. The clip shows the transcript steps. The Twi moment is not in the clip because the only recording of it has a development overlay on the answer text.",
+              "label": "Asking Ujamaa, the campus AI companion, how to request a transcript and reading the step by step answer",
+              "mp4": "/case-studies/ugsrc/core-flows/ujamaa.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/ujamaa.webm",
+              "poster": "/case-studies/ugsrc/core-flows/ujamaa-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "SRC Connect",
+              "text": "File a complaint, suggestion or question, choose to stay anonymous, and follow it as a live thread.",
+              "label": "Filing an anonymous complaint in SRC Connect and seeing it confirmed and listed under My Feedback",
+              "mp4": "/case-studies/ugsrc/core-flows/src-connect.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/src-connect.webm",
+              "poster": "/case-studies/ugsrc/core-flows/src-connect-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "Updates, Events and Clubs",
+              "text": "Category filters for announcements, a dated timeline for events, and every student organisation in one list.",
+              "label": "Filtering SRC updates, scrolling the events timeline and browsing student clubs",
+              "mp4": "/case-studies/ugsrc/core-flows/updates-events-clubs.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/updates-events-clubs.webm",
+              "poster": "/case-studies/ugsrc/core-flows/updates-events-clubs-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "Governance and Scholarships",
+              "text": "A directory of university management and SRC executives, and open funding with amount, deadline and requirements.",
+              "label": "The leadership directory of university management and SRC executives, then the list of open scholarships",
+              "mp4": "/case-studies/ugsrc/core-flows/governance-scholarships.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/governance-scholarships.webm",
+              "poster": "/case-studies/ugsrc/core-flows/governance-scholarships-poster.png",
+              "width": 1600,
+              "height": 1200
+            },
+            {
+              "title": "Profile and themes",
+              "text": "See your verified account, reach Course and Lecturer Evaluation, and switch between Light, Dark, System and Slate.",
+              "label": "The Profile screen in light mode, the appearance options, then the same Profile in dark mode",
+              "mp4": "/case-studies/ugsrc/core-flows/profile-themes.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/profile-themes.webm",
+              "poster": "/case-studies/ugsrc/core-flows/profile-themes-poster.png",
+              "width": 1600,
+              "height": 1200
+            }
+          ],
+          "onboarding": {
+            "title": "Onboarding",
+            "text": "Enter your email, get a one-time code, and you are in. No password to forget.",
+            "label": "Two phones: entering an email on Welcome Back, and entering the one-time code on Verify Your Email before landing on Home",
+            "mp4": "/case-studies/ugsrc/core-flows/onboarding.mp4",
+            "webm": "/case-studies/ugsrc/core-flows/onboarding.webm",
+            "poster": "/case-studies/ugsrc/core-flows/onboarding-poster.png",
+            "width": 1600,
+            "height": 900
+          }
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The leadership directory shows real officials' names and photos. They are public office holders.",
+          "check": true,
+          "checkNote": "confirm you are happy to show public officials' names and photos"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "number": "04",
+      "title": "Research",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "For this case study I pulled together what the SRC, the university and published research already say about how students get information.",
+          "check": true,
+          "checkNote": "any SRC meetings, requirement docs or student feedback. If yes, add them here first."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What I found"
+        },
+        {
+          "type": "list",
+          "variant": "numbered",
+          "items": [
+            {
+              "marker": "1",
+              "title": "Students already say the channels are scattered.",
+              "text": "The SRC's own launch post lists five channels students juggle [1]. Academic Affairs started a WhatsApp channel because people miss notices [2]."
+            },
+            {
+              "marker": "2",
+              "title": "WhatsApp is where students are, and it is noisy.",
+              "text": "In a survey of 420 UG undergraduates, WhatsApp was the most used platform for academic purposes [5]. A 2026 survey of 454 UG undergraduates found \"information overload and unequal participation\" were the main problems with WhatsApp groups [6]."
+            },
+            {
+              "marker": "3",
+              "title": "Past questions are essential and hard to reach.",
+              "text": "The official route needs registration, a 48 hour wait and a second login per paper [3]. Students fill the gap with Drive links and unofficial sites."
+            },
+            {
+              "marker": "4",
+              "title": "Students have a lot to raise.",
+              "text": "One SRC academic campaign collected 503 concerns, from results to scholarships [4]. In November 2026 the SRC and GRASAG told students to rely only on official SRC channels during a hostel fee dispute [7]."
+            },
+            {
+              "marker": "5",
+              "title": "University services are split across portals.",
+              "text": "MIS Web, Sakai, the STS portal and the halls portal each have their own login [8]. The university's earlier app, UGMobile, left the iOS App Store in 2024 [9]."
+            },
+            {
+              "marker": "6",
+              "title": "One app with AI is where campus software is heading.",
+              "text": "Platforms like Modo Campus and ReadyCampus sell one mobile front door with an AI assistant [10][11]. Georgia State's AI text assistant cut summer melt by 21.4% in a randomized study [12]."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How it compares"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Channel",
+            "Official news",
+            "Past questions",
+            "Ask a question",
+            "Reach the SRC",
+            "Anonymous"
+          ],
+          "rows": [
+            ["WhatsApp groups", "Mixed with chat", "Shared files", "Peers", "Indirect", "No"],
+            ["UG portals (MIS Web, STS, Balme)", "Partly", "Yes, 48h wait", "No", "No", "No"],
+            ["Vendor campus apps (Modo, ReadyCampus)", "Yes", "No", "AI assistant", "Not student-government led", "Varies"],
+            ["UGSRC App", "Yes, from the SRC", "Yes, plus uploads", "Ujamaa", "SRC Connect", "Yes"]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Who I designed for"
+        },
+        {
+          "type": "paragraph",
+          "variant": "muted",
+          "text": "Hypotheses, not interviewed personas."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "marker": "01",
+              "text": "A fresher who does not yet know which portal does what."
+            },
+            {
+              "marker": "02",
+              "text": "A continuing student near exams who needs pascos fast, offline, on limited data."
+            },
+            {
+              "marker": "03",
+              "text": "A student with a welfare issue who wants to report it without being named."
+            },
+            {
+              "marker": "04",
+              "text": "An SRC officer who needs issues sorted and a way to reply."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explorations",
+      "number": "05",
+      "title": "Explorations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "These are the main decisions I weighed while structuring the app.",
+          "check": true,
+          "checkNote": "earlier versions. Add real Figma explorations here if you have them. I have not described any discarded version that I cannot show."
+        },
+        {
+          "type": "heading",
+          "text": "One hub or separate apps."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Pascos, AI and feedback could each be their own app. I chose one hub so a student installs once and sees SRC news on the way to every task."
+        },
+        {
+          "type": "heading",
+          "text": "Chatbot or FAQ page."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "A FAQ is easy to keep correct but hard to search. A chatbot is easy to ask but can make things up. I chose a chatbot that answers only from verified SRC and university documents and says so when it does not know [13]."
+        },
+        {
+          "type": "heading",
+          "text": "Public or anonymous feedback."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Named feedback is easier to follow up. Anonymous feedback lowers the cost of speaking up. I made anonymity a toggle on every submission, so the student decides per issue."
+        },
+        {
+          "type": "heading",
+          "text": "Tab structure."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Five tabs: Home, PascoHub, Ujamaa, SRC Connect, Profile. Ujamaa sits in the centre as a raised gold button because it is the one place you can start any question. Less frequent services (Clubs, Governance, Blog, Polls, Scholarships) live in Home's quick actions instead of competing for a tab."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Why one app?"
+        },
+        {
+          "type": "threeUp",
+          "items": [
+            {
+              "title": "One front door.",
+              "text": "Email code to get in, then every service from Home."
+            },
+            {
+              "title": "One source of truth.",
+              "text": "If it is in the app, it came from the SRC."
+            },
+            {
+              "title": "One loop.",
+              "text": "Read an update, ask about it, respond to it, without leaving."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "number": "06",
+      "title": "System",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "We designed a system, not just screens."
+        },
+        {
+          "type": "full",
+          "frame": {
+            "src": "/images/work/ugsrc/systems-thinking.webp",
+            "width": 1600,
+            "height": 3621,
+            "alt": "Eight lettered flows of the UGSRC App, A Home, B PascoHub, C Ujamaa, D SRC Connect, E Updates, Events and Clubs, F Governance and Scholarships, G Profile, H Onboarding, above a strip of real interface components"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "marker": "A",
+              "title": "Home:",
+              "text": "greeting, quick actions, Trending Now, latest updates and events."
+            },
+            {
+              "marker": "B",
+              "title": "PascoHub:",
+              "text": "sign in, search, preview, download, offline library, upload, credits."
+            },
+            {
+              "marker": "C",
+              "title": "Ujamaa:",
+              "text": "suggested prompts or voice, answer, follow up, change language, report an answer."
+            },
+            {
+              "marker": "D",
+              "title": "SRC Connect:",
+              "text": "choose type, title, category, description, anonymous toggle, submit, ticket, thread, officer reply."
+            },
+            {
+              "marker": "E",
+              "title": "Updates, Events and Clubs:",
+              "text": "filter, read, comment, browse organisations."
+            },
+            {
+              "marker": "F",
+              "title": "Governance and Scholarships:",
+              "text": "leadership directory, browse funding, detail, apply."
+            },
+            {
+              "marker": "G",
+              "title": "Profile:",
+              "text": "profile, Course and Lecturer Evaluation, notifications and quiet hours, themes."
+            },
+            {
+              "marker": "H",
+              "title": "Onboarding:",
+              "text": "email, one-time code, academic details, Home."
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "text": "COMPONENTS"
+        },
+        {
+          "type": "features",
+          "items": [
+            {
+              "title": "Colour",
+              "text": "Deep navy brand, mustard gold for primary actions, type colours for feedback (red complaint, purple suggestion, orange question), green status pills."
+            },
+            {
+              "title": "Themes",
+              "text": "Light, Dark, System and Slate, all from the same tokens."
+            },
+            {
+              "title": "Navigation",
+              "text": "Five-tab bottom bar with a raised centre action."
+            },
+            {
+              "title": "Cards",
+              "text": "Rounded content cards for updates, events, pascos, clubs and scholarships."
+            },
+            {
+              "title": "Chips and pills",
+              "text": "Category filters, status (Open), level and semester tags, verified badges."
+            },
+            {
+              "title": "Bottom sheets",
+              "text": "Feedback type picker, confirmations."
+            },
+            {
+              "title": "Inputs",
+              "text": "One-time code boxes, search bars, toggle rows, chat composer with voice."
+            },
+            {
+              "title": "States",
+              "text": "Success screens, empty states, loading, offline downloads."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constraints",
+      "number": "07",
+      "title": "Constraints",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "accent",
+          "kicker": "So I had to ask",
+          "title": "How do 76,126 students speak up, get answers and study, when trust in information is the real problem?"
+        },
+        {
+          "type": "label",
+          "text": "CONSIDERATIONS"
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do students raise sensitive issues without fear?",
+          "text": "Anonymity is a toggle on every submission, and the issue still becomes a tracked ticket with an Open status and a thread, so anonymous does not mean ignored.",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-anonymous.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "The Share Feedback form with the Submit anonymously toggle switched on"
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How does an AI assistant stay trustworthy?",
+          "text": "Ujamaa answers from a curated set of verified documents, says plainly when it has no verified answer, and lets students report a wrong one [13].",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-ujamaa-verified.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "Ujamaa replying that it does not have verified information, with an option to report the answer"
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do pascos stay free to grow but fair to use?",
+          "text": "A credit system: upload a reviewed paper to earn credits, spend credits to download. Downloads work offline for students on limited data.",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-credits.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "PascoHub showing 39 credits available and an Upload and Earn Credits button"
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do I keep study activity private?",
+          "text": "PascoHub has its own sign-in by design, so a student's past-questions activity stays separate from their main account, as the app's privacy policy sets out [13]. A deliberate privacy decision, for one extra step.",
+          "check": true,
+          "checkNote": "your rationale for the separate PascoHub sign-in, in your own words",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-pascohub-signin.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "The PascoHub sign-in screen, which asks the student to continue with their UGSRC account or use a different PascoHub account"
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do officers keep up with volume?",
+          "text": "Every submission carries a type and a category (Academic, Welfare, Facilities and more), so it can be routed to the right executive.",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-officer-reply.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "An officer view of an anonymous accommodation complaint with an Open status and a reply box"
+          }
+        },
+        {
+          "type": "split",
+          "compact": true,
+          "side": "start",
+          "title": "How do students avoid notification overload?",
+          "text": "Students switch categories on or off and set quiet hours. Urgent announcements can still get through [13].",
+          "frame": {
+            "src": "/images/work/ugsrc/cons-notifications.webp",
+            "width": 600,
+            "height": 820,
+            "alt": "Notification settings with category toggles and quiet hours"
+          }
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "number": "08",
+      "title": "Outcomes",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Published on both the App Store and Google Play, but not yet open to students pending administrative checks."
+        },
+        {
+          "type": "paragraph",
+          "variant": "body",
+          "text": "The app is complete and running on University of Ghana infrastructure [13]. Because it is not yet open to students, there are no usage numbers to share, and I have not estimated any."
+        },
+        {
+          "type": "heading",
+          "text": "What I'd measure next"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "marker": "01", "text": "Weekly active students as a share of enrolment." },
+            { "marker": "02", "text": "Time from an SRC Connect submission to the first officer reply." },
+            { "marker": "03", "text": "Share of tickets resolved, by category." },
+            { "marker": "04", "text": "Share of anonymous submissions." },
+            { "marker": "05", "text": "Ujamaa questions answered without a \"no verified info\" reply, and answers reported." },
+            { "marker": "06", "text": "Pasco downloads per exam period, and uploads approved." },
+            { "marker": "07", "text": "Notification opt-out rate by category." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "number": "09",
+      "title": "Reflection",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What I learned",
+          "check": true,
+          "checkNote": "rewrite these in your own words. They are drafts based on what the work shows."
+        },
+        {
+          "type": "threeUp",
+          "columns": 2,
+          "items": [
+            {
+              "title": "Design the system first.",
+              "text": "With this many services, the hard part was deciding where things live. Once the structure and components were set, each new feature was quicker to design."
+            },
+            {
+              "title": "Trust is a design feature.",
+              "text": "Verified content, an AI that admits what it does not know, and a ticket that always gets a status matter more than any single screen."
+            },
+            {
+              "title": "Anonymity needs a loop.",
+              "text": "Letting students hide their name only works if they can still see their issue move."
+            },
+            {
+              "title": "Privacy can be worth a step.",
+              "text": "Giving PascoHub its own sign-in keeps study activity separate. Writing down why that step exists makes it easy to defend, and to revisit as the product grows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sources",
+      "number": "10",
+      "title": "Sources",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "1. UGSRC IT & Innovation Committee, \"Why the UGSRC App Matters: Everything UG Students Can Now Do in One Place\", in-app SRC Blog, Feb 4, 2026. (Not public on the web.)" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "2. University of Ghana Academic Affairs, \"" },
+            { "text": "Stay updated with the new UG Academic Affairs WhatsApp channel", "href": "https://www.ug.edu.gh/aad/node/69" },
+            { "text": "\"." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "3. Guides to Balme Library past exam papers. " },
+            { "text": "Sko Bureau", "href": "https://skobureau.blogspot.com/2023/03/ug-students-this-is-how-to-access.html" },
+            { "text": " and " },
+            { "text": "Asetena", "href": "https://asetena.com/how-to-access-university-of-ghana-past-questions-for-free/" },
+            { "text": "." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "4. Radio Univers, \"" },
+            { "text": "UGSRC tackles students' concerns through 2nd phase of 'LET's VIBE' initiative", "href": "https://univers.ug.edu.gh/ugsrc-tackles-students-concerns-through-2nd-phase-of-lets-vibe-initiative/" },
+            { "text": "\", Apr 17, 2024." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "5. Bawa et al., \"" },
+            { "text": "Social Media Usage and Coping Strategies among University of Ghana Undergraduate Students", "href": "https://openjournals.ljmu.ac.uk/JSML/article/view/462" },
+            { "text": "\", Journal of Social Media for Learning, 2021." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "6. Entsua-Mensah, Kwanya and Okyere, \"" },
+            { "text": "WhatsApp groups as informal knowledge management platforms in African higher education", "href": "https://doi.org/10.1108/ils-05-2026-0162" },
+            { "text": "\", Information and Learning Sciences, 2026." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "7. GRASAG-UG and UGSRC, \"" },
+            { "text": "Joint communique on student accommodation concerns and proposed demonstration", "href": "https://www.citinewsroom.com/wp-content/uploads/2026/11/GRASAG_SRC_Joint_Communique.pdf" },
+            { "text": "\", Nov 1, 2026." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "8. University of Ghana " },
+            { "text": "Apps Portal", "href": "https://apps.ug.edu.gh/" },
+            { "text": " and " },
+            { "text": "STS transcript page", "href": "https://www.ug.edu.gh/aad/resources/academic-support-services/transcript-request" },
+            { "text": "." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "9. AppBrain, \"" },
+            { "text": "UGMobile for iPhone", "href": "https://www.appbrain.com/appstore/ugmobile/ios-1296617677" },
+            { "text": "\"." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "10. Modo Labs, \"" },
+            { "text": "Modo Campus", "href": "https://modolabs.com/modo-campus/" },
+            { "text": "\"." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "11. Ready Education, \"" },
+            { "text": "ReadyCampus", "href": "https://www.readyeducation.com/readycampus/" },
+            { "text": "\"." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "12. Harvard Graduate School of Education, \"" },
+            { "text": "Smarter Tech to Smooth the Path to College", "href": "https://www.gse.harvard.edu/ideas/usable-knowledge/17/04/smarter-tech-smooth-path-college" },
+            { "text": "\", 2017." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "13. UGSRC App Privacy Policy, updated Nov 3, 2026. " },
+            { "text": "support.ugsrcconnect.com", "href": "https://support.ugsrcconnect.com/privacy-policy.html" },
+            { "text": "." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "14. University of Ghana IRPO, \"" },
+            { "text": "Student Enrolment Statistics 2024/2025", "href": "https://irpo.ug.edu.gh/sites/irpo/files/pictures/STUDENT%20ENROLMENT%20STATISTICS%202025.pdf" },
+            { "text": "\"." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "variant": "small",
+          "parts": [
+            { "text": "15. Photo: Sarah Shreeves, \"" },
+            { "text": "Balme Library at University of Ghana, Legon", "href": "https://commons.wikimedia.org/wiki/File:Balme_Library_at_University_of_Ghana_-_Legon.jpg" },
+            { "text": "\", Wikimedia Commons, CC BY 2.0." }
+          ]
+        }
+      ]
+    }
+  ],
+  "tocLabel": "CONTENTS",
+  "toc": [
+    { "number": "01", "title": "Overview", "anchor": "overview", "subs": [] },
+    { "number": "02", "title": "Solution", "anchor": "solution", "subs": [] },
+    { "number": "03", "title": "Core flows", "anchor": "flows", "subs": [] },
+    { "number": "04", "title": "Research", "anchor": "research", "subs": [] },
+    { "number": "05", "title": "Explorations", "anchor": "explorations", "subs": [] },
+    { "number": "06", "title": "System", "anchor": "system", "subs": [] },
+    { "number": "07", "title": "Constraints", "anchor": "constraints", "subs": [] },
+    { "number": "08", "title": "Outcomes", "anchor": "outcomes", "subs": [] },
+    { "number": "09", "title": "Reflection", "anchor": "reflection", "subs": [] },
+    { "number": "10", "title": "Sources", "anchor": "sources", "subs": [] }
+  ],
+  "nextProject": {
+    "label": "NEXT PROJECT",
+    "status": "Concept",
+    "title": "Linked Text Frames for Figma",
+    "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
+    "cta": "Read case study",
+    "slug": "linked-text-frames"
+  },
+  "contact": {
+    "heading": "Questions about this project?",
+    "body": "Ask me anything, or book a quick chat.",
+    "buttons": [
+      {
+        "label": "Ask a question",
+        "action": "talk:question",
+        "variant": "primary",
+        "arrow": true
+      },
+      {
+        "label": "Book a 15-min chat",
+        "action": "talk:book",
+        "variant": "secondary"
+      }
+    ]
+  },
+  "talkButtonLabel": "Questions about this project?"
+}

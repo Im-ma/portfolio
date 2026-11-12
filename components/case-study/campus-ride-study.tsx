@@ -99,6 +99,8 @@ export function CampusRideStudy({ work }: { work: Work }) {
         .map((item) => ({
           label: metaLabels[item.label] || item.label,
           value: item.value,
+          check: item.check,
+          checkNote: item.checkNote,
         }))}
       nav={nav}
       fit
