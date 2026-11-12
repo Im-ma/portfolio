@@ -112,7 +112,11 @@ export const linkedFrames = {
       blocks: [
         {
           type: "h2",
-          text: "How might we let long text flow across boxes in Figma, so editorial layouts can stay in one collaborative tool?",
+          text: "Figma has no way to flow one story across text boxes.",
+        },
+        {
+          type: "p",
+          text: "InDesign already does. Text that does not fit in one frame flows into the next, and the story reflows when the copy changes. In Figma, every text box stands alone.",
         },
         {
           type: "image",

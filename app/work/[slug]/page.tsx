@@ -1,5 +1,6 @@
 import { AskRoot } from "@/components/ask/ask-root";
 import { CampusRideStudy } from "@/components/case-study/campus-ride-study";
+import { UgsrcStudy } from "@/components/case-study/ugsrc-study";
 import { CaseStudy } from "@/components/case-study/case-study";
 import { LinkedFramesStudy } from "@/components/case-study/linked-frames/linked-frames";
 import { Footer } from "@/components/footer/footer";
@@ -62,6 +63,21 @@ export default async function WorkPage({ params }: Props) {
         <main id="content">
           <AskRoot source={linkedFrames.title}>
             <LinkedFramesStudy />
+          </AskRoot>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+  if (slug === "ugsrc") {
+    const study = getWork(slug);
+    if (!study) notFound();
+    const typedStudy = asWork(study);
+    return (
+      <>
+        <main id="content">
+          <AskRoot source={typedStudy.title}>
+            <UgsrcStudy work={typedStudy} />
           </AskRoot>
         </main>
         <Footer />

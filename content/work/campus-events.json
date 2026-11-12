@@ -443,11 +443,11 @@
   ],
   "nextProject": {
     "label": "NEXT PROJECT",
-    "status": "Concept",
-    "title": "Linked Text Frames for Figma",
-    "summary": "A native concept for InDesign style text threading in Figma, with a working plugin as proof.",
+    "status": "Published",
+    "title": "UGSRC App",
+    "summary": "Everything a University of Ghana student needs from their SRC, in one app.",
     "cta": "Read case study",
-    "slug": "linked-text-frames"
+    "slug": "ugsrc"
   },
   "contact": {
     "heading": "Questions about this project?",
