@@ -1,15 +1,45 @@
 import { StudySection, StudyTemplate } from "@/components/case-study/study-template";
 import { jrunStudy } from "@/content/work/jrun-llc";
-import type { Block, Frame, Part } from "@/content/work/jrun-llc";
+import type { Frame, Part } from "@/content/work/jrun-llc";
 import { workAfter } from "@/lib/content";
+import { Inter, Playfair_Display } from "next/font/google";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import styles from "./linked-frames/linked-frames.module.css";
+import local from "./jrun-study.module.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  display: "swap",
+});
 
 const wide = "(max-width: 767px) calc(100vw - 48px), 820px";
-const half = "(max-width: 767px) calc(100vw - 48px), 400px";
+const half = "(max-width: 767px) calc(100vw - 48px), 360px";
 const third = "(max-width: 767px) calc(100vw - 48px), 260px";
 
-function Shot({ frame, sizes }: { frame: Frame; sizes: string }) {
+const colors = [
+  { name: "Cream", token: "--cream", hex: "#fdf3e7" },
+  { name: "Ink", token: "--ink", hex: "#17130f" },
+  { name: "Rose", token: "--hair-rose", hex: "#cf6a3a" },
+  { name: "Olive", token: "--food-olive", hex: "#74804a" },
+];
+
+function Shot({
+  frame,
+  sizes,
+  unoptimized = false,
+}: {
+  frame: Frame;
+  sizes: string;
+  unoptimized?: boolean;
+}) {
   return (
     <Image
       src={frame.src}
@@ -18,14 +48,23 @@ function Shot({ frame, sizes }: { frame: Frame; sizes: string }) {
       height={frame.height}
       sizes={sizes}
       className={styles.shot}
+      unoptimized={unoptimized}
     />
   );
 }
 
-function Figure({ frame, sizes, maxWidth }: { frame: Frame; sizes: string; maxWidth?: number }) {
+function Figure({
+  frame,
+  sizes,
+  unoptimized = false,
+}: {
+  frame: Frame;
+  sizes: string;
+  unoptimized?: boolean;
+}) {
   return (
-    <figure className={styles.figure} style={maxWidth ? { maxWidth } : undefined}>
-      <Shot frame={frame} sizes={sizes} />
+    <figure className={styles.figure}>
+      <Shot frame={frame} sizes={sizes} unoptimized={unoptimized} />
       {frame.caption ? <figcaption className={styles.caption}>{frame.caption}</figcaption> : null}
     </figure>
   );
@@ -49,92 +88,50 @@ function Parts({ parts }: { parts: Part[] }) {
   );
 }
 
-function BlockView({ block }: { block: Block }) {
-  switch (block.type) {
-    case "h2":
-      return <h2 className={styles.question}>{block.text}</h2>;
-    case "h4":
-      return <h3 className={styles.subhead}>{block.text}</h3>;
-    case "p":
-      return <p className={styles.body}>{block.text}</p>;
-    case "link":
-      return (
-        <p className={styles.body}>
-          <a
-            className={styles.textLink}
-            href={block.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {block.text}
-          </a>
-        </p>
-      );
-    case "list":
-      return (
-        <ul className={styles.list}>
-          {block.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      );
-    case "points":
-      return (
-        <ul className={styles.list}>
-          {block.items.map((parts) => (
-            <li key={parts.map((part) => part.text).join("")}>
-              <Parts parts={parts} />
-            </li>
-          ))}
-        </ul>
-      );
-    case "image":
-      return (
-        <Figure
-          frame={block.frame}
-          sizes={block.maxWidth ? `${block.maxWidth}px` : wide}
-          maxWidth={block.maxWidth}
-        />
-      );
-    case "tiles":
-      return (
-        <div className={styles.tiles}>
-          {block.frames.map((frame) => (
-            <figure key={frame.src} className={styles.tile}>
-              <span className={styles.tileFrame}>
-                <Shot frame={frame} sizes={third} />
-              </span>
-              {frame.caption ? (
-                <figcaption className={styles.caption}>{frame.caption}</figcaption>
-              ) : null}
-            </figure>
-          ))}
-        </div>
-      );
-    case "pair":
-      return (
-        <div className={styles.pair}>
-          {block.frames.map((frame) => (
-            <Figure key={frame.src} frame={frame} sizes={half} />
-          ))}
-        </div>
-      );
-    default:
-      return null;
-  }
+function Headline({
+  id,
+  eyebrow,
+  headline,
+  children,
+}: {
+  id: string;
+  eyebrow: string;
+  headline: string;
+  children: ReactNode;
+}) {
+  return (
+    <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
+      <div className={styles.rule} />
+      <p className={local.eyebrow}>{eyebrow}</p>
+      <h2 id={`${id}-title`} className={styles.question}>
+        {headline}
+      </h2>
+      {children}
+    </section>
+  );
 }
 
 export function JrunStudy() {
   const study = jrunStudy;
   const next = workAfter(study.slug);
   const nextStatus = next && "status" in next ? next.status : "";
+  const nav = [
+    { id: "about", label: "About" },
+    { id: "approach", label: "Approach" },
+    ...study.scenes.map((scene) => ({ id: scene.id, label: scene.nav })),
+    { id: "requests", label: "Requests" },
+    { id: "full-page", label: "Full page" },
+    { id: "system", label: "Design system" },
+    { id: "outcome", label: "Outcome" },
+  ];
+
   return (
     <StudyTemplate
       title={study.title}
       summary={study.summary}
       cover={{ ...study.hero, mint: false }}
       meta={study.meta}
-      nav={study.sections.map((section) => ({ id: section.id, label: section.label }))}
+      nav={nav}
       next={
         next
           ? {
@@ -149,13 +146,164 @@ export function JrunStudy() {
       }
     >
       <div className={styles.sections}>
-        {study.sections.map((section) => (
-          <StudySection key={section.id} id={section.id} label={section.label}>
-            {section.blocks.map((block, index) => (
-              <BlockView key={`${section.id}-${index}`} block={block} />
+        <StudySection id="about" label="About">
+          <p className={styles.body}>{study.about}</p>
+          <dl className={`${styles.strip} ${local.aboutStrip}`}>
+            {study.facts.map((fact) => (
+              <div key={fact.label}>
+                <dt className={styles.metaLabel}>{fact.label}</dt>
+                <dd className={styles.metaValue}>{fact.value}</dd>
+              </div>
             ))}
-          </StudySection>
+          </dl>
+        </StudySection>
+
+        <StudySection id="approach" label="Approach">
+          <h2 className={styles.question}>{study.approach.headline}</h2>
+          <div className={styles.tiles}>
+            {study.principles.map((frame) => (
+              <figure key={frame.src} className={styles.tile}>
+                <span className={styles.tileFrame}>
+                  <Shot frame={frame} sizes={third} />
+                </span>
+                {frame.caption ? (
+                  <figcaption className={styles.caption}>{frame.caption}</figcaption>
+                ) : null}
+              </figure>
+            ))}
+          </div>
+          <p className={styles.body}>
+            <Parts parts={study.approach.why} />
+          </p>
+        </StudySection>
+
+        {study.scenes.map((scene) => (
+          <Headline key={scene.id} id={scene.id} eyebrow={scene.eyebrow} headline={scene.headline}>
+            <p className={styles.body}>{scene.text}</p>
+            <Figure frame={scene.frame} sizes={wide} />
+          </Headline>
         ))}
+
+        <Headline id="requests" eyebrow="Requests" headline={study.requests.headline}>
+          <p className={styles.body}>{study.requests.text}</p>
+          <div className={styles.pair}>
+            {study.requests.frames.map((frame) => (
+              <Figure key={frame.src} frame={frame} sizes={half} />
+            ))}
+          </div>
+        </Headline>
+
+        <div className={local.deviceRow}>
+          <p className={styles.body}>{study.devices.line}</p>
+          <div className={local.devices}>
+            <figure className={`${local.device} ${local.laptop}`}>
+              <div className={local.laptopScreen}>
+                <Image
+                  src={study.devices.laptop.src}
+                  alt={study.devices.laptop.alt}
+                  fill
+                  sizes="(max-width: 767px) calc(100vw - 48px), 480px"
+                  className={local.screenImg}
+                />
+              </div>
+              <div className={local.laptopChin} />
+              <figcaption className={styles.caption}>{study.devices.laptop.caption}</figcaption>
+            </figure>
+            {study.devices.phones.map((phone) => (
+              <figure key={phone.src} className={local.device}>
+                <div className={local.phone}>
+                  <div className={local.ear} />
+                  <div className={local.phoneScreen}>
+                    <Image
+                      src={phone.src}
+                      alt={phone.alt}
+                      fill
+                      sizes="(max-width: 767px) calc(50vw - 32px), 180px"
+                      className={local.screenImg}
+                    />
+                  </div>
+                </div>
+                <figcaption className={styles.caption}>{phone.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        <StudySection id="full-page" label="Full page">
+          <p className={styles.body}>The live home page, at desktop width and at mobile width.</p>
+          <div className={styles.pair}>
+            {study.pages.map((frame) => (
+              <Figure key={frame.src} frame={frame} sizes={half} unoptimized />
+            ))}
+          </div>
+        </StudySection>
+
+        <StudySection id="system" label="Design system">
+          <ol className={local.sheet}>
+            <li className={local.item}>
+              <p className={local.num}>01</p>
+              <div>
+                <h2 className={local.itemTitle}>Color</h2>
+                <div className={local.swatches}>
+                  {colors.map((color) => (
+                    <figure key={color.hex} className={local.swatch}>
+                      <span className={local.chip} style={{ background: color.hex }} />
+                      <figcaption>
+                        <p className={local.swatchName}>{color.name}</p>
+                        <p className={local.hex}>
+                          {color.hex} {color.token}
+                        </p>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </li>
+            <li className={local.item}>
+              <p className={local.num}>02</p>
+              <div>
+                <h2 className={local.itemTitle}>Typography</h2>
+                <div className={local.specimen}>
+                  <p className={`${local.playfair} ${playfair.className}`}>
+                    Beauty at your door, flavour on your table.
+                  </p>
+                  <p className={`${local.inter} ${inter.className}`}>
+                    Book a hair appointment with a mobile stylist who comes to you.
+                  </p>
+                  <p className={local.face}>Playfair Display, 500. Inter, 400.</p>
+                </div>
+              </div>
+            </li>
+            <li className={local.item}>
+              <p className={local.num}>03</p>
+              <div>
+                <h2 className={local.itemTitle}>Components</h2>
+                <div className={`${local.components} ${inter.className}`}>
+                  <div className={local.actions}>
+                    <span className={local.roseBtn}>Request Booking</span>
+                    <span className={local.oliveBtn}>Place Order</span>
+                  </div>
+                  <div className={local.field}>
+                    <p className={local.fieldLabel}>
+                      Preferred Date
+                      <span className={local.fieldLine}>mm/dd/yyyy</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </StudySection>
+
+        <StudySection id="outcome" label="Outcome">
+          <p className={styles.body}>{study.outcome}</p>
+          <h2 className={styles.subhead}>What I&apos;d do next</h2>
+          <ul className={styles.list}>
+            {study.nextSteps.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </StudySection>
       </div>
     </StudyTemplate>
   );

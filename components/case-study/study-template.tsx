@@ -5,7 +5,7 @@ import { StudyNav } from "./linked-frames/study-nav";
 import { StudyVideo } from "./linked-frames/study-video";
 import styles from "./linked-frames/linked-frames.module.css";
 
-export type StudyMeta = { label: string; value: string };
+export type StudyMeta = { label: string; value: string; href?: string };
 export type StudyNavItem = { id: string; label: string };
 
 export function StudySection({
@@ -95,7 +95,20 @@ export function StudyTemplate({
                 {meta.map((item) => (
                   <div key={item.label}>
                     <dt className={styles.metaLabel}>{item.label}</dt>
-                    <dd className={styles.metaValue}>{item.value}</dd>
+                    <dd className={styles.metaValue}>
+                      {item.href ? (
+                        <a
+                          className={styles.textLink}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        item.value
+                      )}
+                    </dd>
                   </div>
                 ))}
               </dl>
