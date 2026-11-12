@@ -178,80 +178,70 @@
   line-height: 1.3;
 }
 
-.deviceRow {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.devices {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 12px;
-  align-items: end;
-  margin: 0;
-}
-
-.device {
+.heroDevice {
+  width: min(100%, 640px);
   margin: 0;
 }
 
 .laptop {
-  grid-column: 1 / -1;
-}
-
-.laptopScreen,
-.phoneScreen {
   position: relative;
-  overflow: hidden;
-  background: var(--color-bg);
-  border: 1px solid var(--color-hairline);
+  width: 100%;
+  aspect-ratio: 1916 / 1102;
+  background-image: url("/images/work/jrun-llc/devices/macbook.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .laptopScreen {
-  aspect-ratio: 1600 / 844;
-  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: 7.2595281307%;
+  left: 12.369519833%;
+  width: 75.260960334%;
+  height: 81.8511796733%;
+  overflow: hidden;
+  background: #17130f;
 }
 
-.laptopChin {
-  height: 12px;
-  border: 1px solid var(--color-hairline);
-  border-top: 0;
-  border-radius: 0 0 8px 8px;
-  background: var(--color-bg);
+.phones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 420px;
+  margin: 8px 0 0;
 }
 
-.laptopChin::after {
-  content: "";
-  display: block;
-  width: 18%;
-  height: 5px;
-  margin: 0 auto;
-  background: var(--color-hairline);
-  border-radius: 0 0 4px 4px;
+.phoneFigure {
+  margin: 0;
 }
 
 .phone {
-  border: 1px solid var(--color-hairline);
-  border-radius: 22px;
-  padding: 10px 8px 12px;
-  background: var(--color-bg);
-}
-
-.ear {
-  width: 42px;
-  height: 4px;
-  margin: 0 auto 8px;
-  border-radius: 99px;
-  background: var(--color-hairline);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 979 / 1960;
+  background-image: url("/images/work/jrun-llc/devices/iphone.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .phoneScreen {
-  aspect-ratio: 9 / 16;
-  border-radius: 12px;
+  position: absolute;
+  top: 2.6530612245%;
+  left: 6.026557712%;
+  width: 88.0490296221%;
+  height: 94.6428571429%;
+  overflow: hidden;
+  -webkit-mask-image: url("/images/work/jrun-llc/devices/iphone-mask.png");
+  mask-image: url("/images/work/jrun-llc/devices/iphone-mask.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
-.screenImg {
+.screenMedia {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
 }
@@ -259,15 +249,5 @@
 @media (min-width: 640px) {
   .swatches {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 768px) {
-  .devices {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.7fr) minmax(0, 0.7fr);
-  }
-
-  .laptop {
-    grid-column: auto;
   }
 }

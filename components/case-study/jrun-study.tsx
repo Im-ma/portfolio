@@ -1,7 +1,9 @@
 import { StudySection, StudyTemplate } from "@/components/case-study/study-template";
+import { StudyVideo } from "@/components/case-study/linked-frames/study-video";
 import { jrunStudy } from "@/content/work/jrun-llc";
-import type { Frame, Part } from "@/content/work/jrun-llc";
+import type { Clip, Frame, Part } from "@/content/work/jrun-llc";
 import { workAfter } from "@/lib/content";
+import { DeviceClip } from "./jrun-screen";
 import { Inter, Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -20,8 +22,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const wide = "(max-width: 767px) calc(100vw - 48px), 820px";
-const half = "(max-width: 767px) calc(100vw - 48px), 360px";
 const third = "(max-width: 767px) calc(100vw - 48px), 260px";
 
 const colors = [
@@ -53,19 +53,18 @@ function Shot({
   );
 }
 
-function Figure({
-  frame,
-  sizes,
-  unoptimized = false,
-}: {
-  frame: Frame;
-  sizes: string;
-  unoptimized?: boolean;
-}) {
+function ClipFigure({ clip }: { clip: Clip }) {
   return (
     <figure className={styles.figure}>
-      <Shot frame={frame} sizes={sizes} unoptimized={unoptimized} />
-      {frame.caption ? <figcaption className={styles.caption}>{frame.caption}</figcaption> : null}
+      <StudyVideo
+        mp4={clip.mp4}
+        poster={clip.poster}
+        width={clip.width}
+        height={clip.height}
+        alt={clip.alt}
+        field="#17130f"
+      />
+      {clip.caption ? <figcaption className={styles.caption}>{clip.caption}</figcaption> : null}
     </figure>
   );
 }
@@ -120,7 +119,6 @@ export function JrunStudy() {
     { id: "approach", label: "Approach" },
     ...study.scenes.map((scene) => ({ id: scene.id, label: scene.nav })),
     { id: "requests", label: "Requests" },
-    { id: "full-page", label: "Full page" },
     { id: "system", label: "Design system" },
     { id: "outcome", label: "Outcome" },
   ];
@@ -146,6 +144,19 @@ export function JrunStudy() {
       }
     >
       <div className={styles.sections}>
+        <figure className={local.heroDevice}>
+          <div className={local.laptop}>
+            <div className={local.laptopScreen}>
+              <DeviceClip
+                mp4={study.laptop.mp4}
+                poster={study.laptop.poster}
+                alt={study.laptop.alt}
+              />
+            </div>
+          </div>
+          <figcaption className={styles.caption}>{study.laptop.caption}</figcaption>
+        </figure>
+
         <StudySection id="about" label="About">
           <p className={styles.body}>{study.about}</p>
           <dl className={`${styles.strip} ${local.aboutStrip}`}>
@@ -180,63 +191,18 @@ export function JrunStudy() {
         {study.scenes.map((scene) => (
           <Headline key={scene.id} id={scene.id} eyebrow={scene.eyebrow} headline={scene.headline}>
             <p className={styles.body}>{scene.text}</p>
-            <Figure frame={scene.frame} sizes={wide} />
+            {scene.clips.map((item) => (
+              <ClipFigure key={item.mp4} clip={item} />
+            ))}
           </Headline>
         ))}
 
         <Headline id="requests" eyebrow="Requests" headline={study.requests.headline}>
           <p className={styles.body}>{study.requests.text}</p>
-          <div className={styles.pair}>
-            {study.requests.frames.map((frame) => (
-              <Figure key={frame.src} frame={frame} sizes={half} />
-            ))}
-          </div>
+          {study.requests.clips.map((item) => (
+            <ClipFigure key={item.mp4} clip={item} />
+          ))}
         </Headline>
-
-        <div className={local.deviceRow}>
-          <p className={styles.body}>{study.devices.line}</p>
-          <div className={local.devices}>
-            <figure className={`${local.device} ${local.laptop}`}>
-              <div className={local.laptopScreen}>
-                <Image
-                  src={study.devices.laptop.src}
-                  alt={study.devices.laptop.alt}
-                  fill
-                  sizes="(max-width: 767px) calc(100vw - 48px), 480px"
-                  className={local.screenImg}
-                />
-              </div>
-              <div className={local.laptopChin} />
-              <figcaption className={styles.caption}>{study.devices.laptop.caption}</figcaption>
-            </figure>
-            {study.devices.phones.map((phone) => (
-              <figure key={phone.src} className={local.device}>
-                <div className={local.phone}>
-                  <div className={local.ear} />
-                  <div className={local.phoneScreen}>
-                    <Image
-                      src={phone.src}
-                      alt={phone.alt}
-                      fill
-                      sizes="(max-width: 767px) calc(50vw - 32px), 180px"
-                      className={local.screenImg}
-                    />
-                  </div>
-                </div>
-                <figcaption className={styles.caption}>{phone.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        <StudySection id="full-page" label="Full page">
-          <p className={styles.body}>The live home page, at desktop width and at mobile width.</p>
-          <div className={styles.pair}>
-            {study.pages.map((frame) => (
-              <Figure key={frame.src} frame={frame} sizes={half} unoptimized />
-            ))}
-          </div>
-        </StudySection>
 
         <StudySection id="system" label="Design system">
           <ol className={local.sheet}>
@@ -297,6 +263,24 @@ export function JrunStudy() {
 
         <StudySection id="outcome" label="Outcome">
           <p className={styles.body}>{study.outcome}</p>
+          <div className={local.phones}>
+            {study.phones.map((phone) => (
+              <figure key={phone.src} className={local.phoneFigure}>
+                <div className={local.phone}>
+                  <div className={local.phoneScreen}>
+                    <Image
+                      src={phone.src}
+                      alt={phone.alt}
+                      fill
+                      sizes="200px"
+                      className={local.screenMedia}
+                    />
+                  </div>
+                </div>
+                <figcaption className={styles.caption}>{phone.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
           <h2 className={styles.subhead}>What I&apos;d do next</h2>
           <ul className={styles.list}>
             {study.nextSteps.map((item) => (

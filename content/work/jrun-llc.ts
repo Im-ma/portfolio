@@ -29,6 +29,24 @@ export type Frame = {
 
 export type Part = { text: string; href?: string };
 
+export type Clip = {
+  mp4: string;
+  poster: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption?: string;
+};
+
+const clip = (file: string, alt: string, caption: string): Clip => ({
+  mp4: vid(`${file}.mp4`),
+  poster: img(`${file}.jpg`),
+  width: 1920,
+  height: 1072,
+  alt,
+  caption,
+});
+
 const live = "https://jrun-llc.vercel.app";
 
 export const jrunStudy = {
@@ -106,12 +124,18 @@ export const jrunStudy = {
       eyebrow: "The front door",
       headline: "Beauty at your door, flavour on your table.",
       text: "The home introduces both businesses and sends visitors to the right branch.",
-      frame: {
-        src: img("home-hero.webp"),
-        width: 1600,
-        height: 844,
-        alt: "JRUN LLC home hero with the line Beauty at your door, flavour on your table, and links to GG Beauty and Table 231.",
-      },
+      clips: [
+        clip(
+          "01-home-hero",
+          "Home hero on the live site. The pointer hovers the GG Beauty and Table 231 calls to action.",
+          "The home hero, and the two calls to action.",
+        ),
+        clip(
+          "02-home-services",
+          "The What we do list on the home page. Hovering a service swaps the preview image.",
+          "What we do, with the preview swapping on hover.",
+        ),
+      ],
     },
     {
       id: "beauty",
@@ -119,12 +143,13 @@ export const jrunStudy = {
       eyebrow: "GG Beauty",
       headline: "Book a style and check the price.",
       text: "A rose palette, style photography, and a pricing slider. The page leads to a request to book, and the copy makes it clear the stylist comes to you.",
-      frame: {
-        src: img("hair-pricing.webp"),
-        width: 1600,
-        height: 808,
-        alt: "GG Beauty pricing slider titled Browse our signature styles, with style photographs and prices.",
-      },
+      clips: [
+        clip(
+          "03-hair-styles-slider",
+          "The GG Beauty signature styles carousel, dragged through styles and prices.",
+          "Signature styles and prices.",
+        ),
+      ],
     },
     {
       id: "table",
@@ -132,74 +157,50 @@ export const jrunStudy = {
       eyebrow: "Table 231",
       headline: "Home of condiments and marinades.",
       text: "An olive palette and a filterable menu, under the heading the client asked for. The page leads to an order.",
-      frame: {
-        src: img("food-menu.webp"),
-        width: 1400,
-        height: 906,
-        alt: "Table 231 menu with filters for All, Sauces, Zongo Stew, Marinades, and Stew Base, and a priced list of items.",
-      },
+      clips: [
+        clip(
+          "06-food-menu-filter",
+          "The Table 231 menu. Category tabs filter the list.",
+          "Menu filters update the list.",
+        ),
+      ],
     },
   ],
   requests: {
     headline: "One form for each job.",
     text: "Hair ends in a booking form for date, service, and notes. Food ends in an order form.",
-    frames: [
-      {
-        src: img("hair-booking.webp"),
-        width: 1200,
-        height: 1120,
-        alt: "GG Beauty booking form with fields for name, email, phone, preferred date, service, and notes, and a Request Booking button.",
-        caption: "Booking form.",
-      },
-      {
-        src: img("food-order.webp"),
-        width: 1200,
-        height: 1318,
-        alt: "Table 231 order form with fields for name, email, phone, item, pickup or delivery date, quantity, and notes, and a Place Order button.",
-        caption: "Order form.",
-      },
-    ] satisfies Frame[],
+    clips: [
+      clip(
+        "04-hair-booking-form",
+        "The GG Beauty booking form. The service menu opens over the date, service, and notes fields.",
+        "Booking form and service menu.",
+      ),
+      clip(
+        "05-food-order-scroll",
+        "The Table 231 page. Place an order smooth scrolls to the order form.",
+        "Place an order scrolls to the form.",
+      ),
+    ],
   },
-  devices: {
-    line: "Home on a laptop. Hair and food on a phone.",
-    laptop: {
-      src: img("home-hero.webp"),
-      width: 1600,
-      height: 844,
-      alt: "JRUN LLC home hero inside a laptop frame, with the line Beauty at your door, flavour on your table.",
-      caption: "Home",
-    },
-    phones: [
-      {
-        src: img("hair-phone.webp"),
-        width: 780,
-        height: 1688,
-        alt: "GG Beauty hair page at mobile width, inside a phone frame. The heading reads Start your next great hair day here.",
-        caption: "Hair",
-      },
-      {
-        src: img("food-phone.webp"),
-        width: 780,
-        height: 1688,
-        alt: "Table 231 food page at mobile width, inside a phone frame. The heading reads Home Of Condiments And Marinades.",
-        caption: "Food",
-      },
-    ] satisfies Frame[],
-  },
-  pages: [
+  laptop: clip(
+    "01-home-hero",
+    "The home hero playing inside a laptop frame.",
+    "Home",
+  ),
+  phones: [
     {
-      src: img("home-desktop.webp"),
-      width: 1200,
-      height: 5034,
-      alt: "Full page screenshot of the JRUN LLC home at desktop width, from the hero through the footer.",
-      caption: "Desktop.",
-    },
-    {
-      src: img("home-mobile.webp"),
+      src: img("hair-phone.webp"),
       width: 780,
-      height: 9226,
-      alt: "Full page screenshot of the JRUN LLC home at mobile width, from the hero through the footer.",
-      caption: "Mobile.",
+      height: 1688,
+      alt: "GG Beauty hair page at mobile width, inside a phone frame. The heading reads Start your next great hair day here.",
+      caption: "Hair",
+    },
+    {
+      src: img("food-phone.webp"),
+      width: 780,
+      height: 1688,
+      alt: "Table 231 food page at mobile width, inside a phone frame. The heading reads Home Of Condiments And Marinades.",
+      caption: "Food",
     },
   ] satisfies Frame[],
   outcome: "The site is live.",
