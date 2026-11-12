@@ -109,6 +109,29 @@
         "href": "/work/campus-events"
       },
       {
+        "tools": [
+          {
+            "text": "React"
+          },
+          {
+            "text": "Vite"
+          }
+        ],
+        "cover": {
+          "mp4": "/videos/work/jrun-llc/cover-loop.mp4",
+          "webm": "",
+          "poster": "/images/work/jrun-llc/cover-poster.jpg",
+          "field": "#120e0c"
+        },
+        "number": "04",
+        "status": "Live",
+        "title": "JRUN LLC",
+        "tag": "Client project, 2026",
+        "summary": "Two businesses, one website. Designing and building a home for GG Beauty and Table 231.",
+        "slug": "jrun-llc",
+        "href": "/work/jrun-llc"
+      },
+      {
         "tools": [],
         "cover": {
           "mp4": "/videos/covers/ugsrc.mp4",
@@ -116,7 +139,7 @@
           "poster": "/images/covers/ugsrc-card.png",
           "field": "#F7F0DE"
         },
-        "number": "04",
+        "number": "05",
         "status": "Published",
         "title": "UGSRC App",
         "tag": "Product design, 2026",
@@ -141,7 +164,7 @@
           "poster": "/images/covers/trace-card.png",
           "field": "#142004"
         },
-        "number": "05",
+        "number": "06",
         "status": "Concept",
         "title": "Trace",
         "tag": "Design + front end, 2026",
@@ -168,7 +191,7 @@
           "poster": "/images/covers/mimic-card.png",
           "field": "#EEF2F7"
         },
-        "number": "06",
+        "number": "07",
         "status": "In progress",
         "title": "Mimic",
         "tag": "Design + engineering, 2026",

@@ -1,12 +1,19 @@
 import { Check } from "@/components/check/check";
 import { NextProjectCard } from "@/components/case-study/next-project";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { StudyNav } from "./linked-frames/study-nav";
 import { StudyVideo } from "./linked-frames/study-video";
 import styles from "./linked-frames/linked-frames.module.css";
 
-export type StudyMeta = { label: string; value: string; check?: boolean; checkNote?: string };
+export type StudyMeta = {
+  label: string;
+  value: string;
+  href?: string;
+  check?: boolean;
+  checkNote?: string;
+};
 export type StudyNavItem = { id: string; label: string };
 
 export function StudySection({
@@ -52,6 +59,7 @@ export function StudyTemplate({
     alt: string;
     field?: string;
     mint?: boolean;
+    still?: string;
   };
   meta: StudyMeta[];
   disclaimer?: string;
@@ -79,17 +87,28 @@ export function StudyTemplate({
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.dek}>{summary}</p>
             <figure className={styles.hero}>
-              <StudyVideo
-                mp4={cover.mp4}
-                webm={cover.webm}
-                poster={cover.poster}
-                width={cover.width}
-                height={cover.height}
-                alt={cover.alt}
-                eager
-                cover={cover.mint}
-                field={cover.field}
-              />
+              {cover.still ? (
+                <Image
+                  className={styles.shot}
+                  src={cover.still}
+                  alt={cover.alt}
+                  width={cover.width}
+                  height={cover.height}
+                  priority
+                />
+              ) : (
+                <StudyVideo
+                  mp4={cover.mp4}
+                  webm={cover.webm}
+                  poster={cover.poster}
+                  width={cover.width}
+                  height={cover.height}
+                  alt={cover.alt}
+                  eager
+                  cover={cover.mint}
+                  field={cover.field}
+                />
+              )}
             </figure>
             <div className={styles.measure}>
               <dl className={styles.strip}>
@@ -97,7 +116,18 @@ export function StudyTemplate({
                   <div key={item.label}>
                     <dt className={styles.metaLabel}>{item.label}</dt>
                     <dd className={styles.metaValue}>
-                      {item.value}
+                      {item.href ? (
+                        <a
+                          className={styles.textLink}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        item.value
+                      )}
                       {item.check ? <Check note={item.checkNote} /> : null}
                     </dd>
                   </div>

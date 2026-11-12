@@ -2,8 +2,10 @@ import { AskRoot } from "@/components/ask/ask-root";
 import { CampusRideStudy } from "@/components/case-study/campus-ride-study";
 import { UgsrcStudy } from "@/components/case-study/ugsrc-study";
 import { CaseStudy } from "@/components/case-study/case-study";
+import { JrunStudy } from "@/components/case-study/jrun-study";
 import { LinkedFramesStudy } from "@/components/case-study/linked-frames/linked-frames";
 import { Footer } from "@/components/footer/footer";
+import { jrunStudy } from "@/content/work/jrun-llc";
 import { linkedFrames } from "@/content/work/linked-text-frames";
 import { getWork, works } from "@/lib/content";
 import type { Work } from "@/lib/work-types";
@@ -42,6 +44,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   }
+  if (slug === jrunStudy.slug) {
+    return {
+      title: jrunStudy.title,
+      description: jrunStudy.summary,
+      openGraph: {
+        title: `${jrunStudy.title} | Immanuel Mensah`,
+        description: jrunStudy.summary,
+        images: [
+          {
+            url: jrunStudy.hero.poster,
+            width: jrunStudy.hero.width,
+            height: jrunStudy.hero.height,
+            alt: jrunStudy.hero.alt,
+          },
+        ],
+      },
+    };
+  }
   const work = getWork(slug);
   if (!work) return {};
   const typed = asWork(work);
@@ -63,6 +83,18 @@ export default async function WorkPage({ params }: Props) {
         <main id="content">
           <AskRoot source={linkedFrames.title}>
             <LinkedFramesStudy />
+          </AskRoot>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+  if (slug === jrunStudy.slug) {
+    return (
+      <>
+        <main id="content">
+          <AskRoot source={jrunStudy.title}>
+            <JrunStudy />
           </AskRoot>
         </main>
         <Footer />
