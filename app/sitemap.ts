@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
-    "/gatherings",
+    "/off-the-clock",
     "/resume",
     // "/lab", // hidden for now
     ...works.map((work) => `/work/${work.slug}`),

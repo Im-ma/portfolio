@@ -62,7 +62,11 @@ export function HomeView({ notes }: { notes: WallNote[] }) {
             <p className={`${styles.gatherLead} t-body-l`}>{home.gatheringsTeaser.lead}</p>
             <div className={styles.teasers}>
               {home.gatheringsTeaser.items.map((item) => (
-                <Link key={item.title} className={styles.teaser} href="/gatherings">
+                <Link
+                  key={item.title}
+                  className={styles.teaser}
+                  href={home.gatheringsTeaser.link.href}
+                >
                   <span className={styles.teaserPhoto}>
                     <FrameImage
                       src={item.image.src}

@@ -9,8 +9,8 @@
     },
     {
       "number": "02",
-      "label": "Gatherings",
-      "href": "/gatherings",
+      "label": "Off the clock",
+      "href": "/off-the-clock",
       "external": false
     },
     {
@@ -33,7 +33,7 @@
     "closeHint": "Esc",
     "labels": {
       "home": "Pull up a chair",
-      "gatherings": "Wanna hang?",
+      "offClock": "Wanna hang?",
       "work": "Questions about this project?",
       "about": "Say hi",
       "lab": "Say hi"
