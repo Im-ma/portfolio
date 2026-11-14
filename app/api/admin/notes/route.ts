@@ -1,4 +1,5 @@
 import { isAdmin } from "@/lib/admin-auth";
+import { revalidateNoteWalls } from "@/lib/revalidate-notes";
 import { getSupabase, supabaseMode } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -48,6 +49,10 @@ export async function PATCH(request: Request) {
       { status: 500 },
     );
   }
+
+  // Approve and hide both change what the walls show. Expire the cached pages
+  // now so the next visit is a fresh render, not the 5 minute stale copy.
+  revalidateNoteWalls();
 
   return NextResponse.json({ ok: true });
 }

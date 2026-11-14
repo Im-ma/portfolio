@@ -70,9 +70,9 @@ create policy "public can read approved" on public.notes for select using (appro
 create policy "public can insert unapproved" on public.notes for insert with check (approved = false);
 ```
 
-New notes are saved as unapproved. The homepage asks Supabase for the latest approved notes (refreshed about every 5 minutes) and falls back to the samples in `content/pages/home.json`.
+New notes are saved as unapproved. The homepage and gatherings page are cached, and they read approved notes again about every 5 minutes. Approving or hiding a note at `/admin/notes` clears that cache, so the next visit shows the change. Empty slots keep the sample notes from the page content.
 
-Approve them at `/admin/notes` after `ADMIN_PASSWORD` and the service role key are set, or flip `approved` to true in the Supabase dashboard.
+Approve them at `/admin/notes` after `ADMIN_PASSWORD` and the service role key are set, or flip `approved` to true in the Supabase dashboard. A change made only in the dashboard still waits for that 5 minute refresh.
 
 ## How to edit content
 
