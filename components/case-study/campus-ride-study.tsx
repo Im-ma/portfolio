@@ -1,5 +1,6 @@
 import { StudySection, StudyTemplate } from "@/components/case-study/study-template";
 import { Blocks } from "@/components/case-study/blocks";
+import { CampusConstraints } from "@/components/case-study/campus-constraints";
 import { CampusOverview } from "@/components/case-study/campus-overview";
 import { CampusPricing } from "@/components/case-study/campus-pricing";
 import { CampusResearch } from "@/components/case-study/campus-research";
@@ -49,6 +50,7 @@ function CampusSections({ work }: { work: Work }) {
         else if (section.id === "explorations") body = <CampusPricing blocks={section.blocks} />;
         else if (section.id === "testing") body = <CampusTesting blocks={section.blocks} />;
         else if (section.id === "system") body = <CampusSystem blocks={section.blocks} />;
+        else if (section.id === "constraints") body = <CampusConstraints blocks={section.blocks} />;
         else if (section.id === "overview" || section.id === "solution") {
           body = (
             <>
