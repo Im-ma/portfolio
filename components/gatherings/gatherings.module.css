@@ -139,9 +139,19 @@
 .photo {
   position: relative;
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: 96px;
   overflow: hidden;
   background: var(--color-neutral-soft);
+}
+
+.polaroidTitle,
+.polaroidCaption,
+.polaroidMeta {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .polaroidTitle {
@@ -155,6 +165,7 @@
 
 .polaroidMeta {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -215,6 +226,9 @@
 
 .slot {
   position: absolute;
+  height: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 .slot article {

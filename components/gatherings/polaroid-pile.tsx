@@ -4,7 +4,7 @@ import { useFreeArrange, type Piece } from "@/components/arrange/use-free-arrang
 import { Check } from "@/components/check/check";
 import { Lightbox } from "@/components/lightbox/lightbox";
 import { FrameImage } from "@/components/media/frame-image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import styles from "./gatherings.module.css";
 
 export type PilePhoto = {
@@ -41,21 +41,39 @@ export function PolaroidPile({
   const [seed, setSeed] = useState(1);
   const [open, setOpen] = useState<PilePhoto | null>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
+  const narrow = useSyncExternalStore(
+    (onChange) => {
+      const media = window.matchMedia("(max-width: 767px)");
+      media.addEventListener("change", onChange);
+      return () => media.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia("(max-width: 767px)").matches,
+    () => false,
+  );
   const minSize = useMemo(() => ({ width: 172, height: 220 }), []);
   const byId = useMemo(() => new Map(photos.map((photo) => [String(photo.id), photo])), [photos]);
+  const stackDesign = useMemo(() => ({ width: 360, height: 3600 }), []);
 
-  const defaults = useMemo<Piece[]>(
-    () =>
-      photos.map((photo) => ({
+  const defaults = useMemo<Piece[]>(() => {
+    if (narrow) {
+      return photos.map((photo, index) => ({
         id: String(photo.id),
-        x: (photo.layout.x / pile.width) * 100,
-        y: (photo.layout.y / pile.height) * 100,
-        w: (photo.layout.width / pile.width) * 100,
-        h: (photo.layout.height / pile.height) * 100,
+        x: 6,
+        y: 1.2 + index * 10.2,
+        w: 88,
+        h: 8.2,
         rotation: photo.layout.rotation,
-      })),
-    [photos, pile.width, pile.height],
-  );
+      }));
+    }
+    return photos.map((photo) => ({
+      id: String(photo.id),
+      x: (photo.layout.x / pile.width) * 100,
+      y: (photo.layout.y / pile.height) * 100,
+      w: (photo.layout.width / pile.width) * 100,
+      h: (photo.layout.height / pile.height) * 100,
+      rotation: photo.layout.rotation,
+    }));
+  }, [photos, pile.width, pile.height, narrow]);
 
   const visibleIds = useMemo(
     () =>
@@ -67,13 +85,16 @@ export function PolaroidPile({
 
   const arrange = useFreeArrange({
     canvasRef,
-    storageKey: "im-arrange:gatherings-polaroids",
-    design: pile,
+    storageKey: narrow
+      ? "im-arrange:gatherings-polaroids-stack"
+      : "im-arrange:gatherings-polaroids",
+    design: narrow ? stackDesign : pile,
     defaults,
     visibleIds,
     layout: filter === "all" ? "saved" : "scatter",
     scatterSeed: seed,
-    minSize,
+    minSize: narrow ? undefined : minSize,
+    scale: narrow ? "readable" : "uniform",
   });
 
   useEffect(() => {
@@ -159,6 +180,8 @@ export function PolaroidPile({
               className={`${styles.polaroid} ${bound.className ?? ""}`}
               style={{
                 ...bound.style,
+                height: "auto",
+                minHeight: bound.style?.height,
                 ["--photo" as string]: `${photoWidth} / ${photoHeight}`,
               }}
               onClick={() => {
