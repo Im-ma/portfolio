@@ -436,16 +436,6 @@
           "text": "Name your price only works if someone says yes. A low offer, a busy afternoon, or a driver who loses out can break the whole idea."
         },
         {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/campus-ride/how-students-get-around.webp",
-            "width": 1600,
-            "height": 520,
-            "alt": "Campus shuttle, a city bus, ride hailing, group chats, and students with cars.",
-            "caption": "Photos: Wikimedia Commons (shuttle CC BY-SA 4.0, bus CC BY-SA 4.0, Uber app CC0, parking lot CC BY 2.0)."
-          }
-        },
-        {
           "type": "callout",
           "tone": "accent",
           "kicker": "So I had to ask",
@@ -457,46 +447,32 @@
           "text": "Rider-side recovery"
         },
         {
-          "type": "label",
-          "text": "CONSIDERATIONS"
+          "type": "paragraph",
+          "variant": "body",
+          "text": "When no driver accepts, the rider gets clear ways forward instead of a dead end."
         },
         {
-          "type": "split",
-          "compact": true,
-          "side": "start",
-          "title": "How do I help riders raise a fair offer?",
-          "text": "When no driver accepts, the rider gets clear ways forward instead of a dead end. Show what nearby riders are offering, with quick picks and \"Raise offer\" as the main action.",
+          "type": "full",
           "frame": {
-            "src": "/images/work/campus-ride/cons-no-drivers.webp",
-            "width": 600,
-            "height": 820,
-            "alt": "No drivers available, with quick price picks and a raise offer button.",
-            "screen": {
-              "x": 135,
-              "y": 51,
-              "w": 330,
-              "h": 718
-            }
+            "src": "/case-studies/campus-ride/constraints/callout-rider-recovery.webp",
+            "width": 2400,
+            "height": 1350,
+            "alt": "No drivers available, with callouts for raise offer, schedule for later, nearby offers shown, and quick price picks."
           }
         },
         {
-          "type": "split",
-          "compact": true,
-          "side": "start",
-          "title": "What if they can't pay more?",
-          "text": "\"Schedule for later\" keeps the trip alive instead of ending it.",
-          "frame": {
-            "src": "/images/work/campus-ride/cons-schedule.webp",
-            "width": 600,
-            "height": 820,
-            "alt": "Schedule for later, so a low offer does not end the trip.",
-            "screen": {
-              "x": 135,
-              "y": 51,
-              "w": 330,
-              "h": 718
+          "type": "threeUp",
+          "columns": 2,
+          "items": [
+            {
+              "title": "How do I help riders raise a fair offer?",
+              "text": "Show what nearby riders are offering, with quick picks and \"Raise offer\" as the main action."
+            },
+            {
+              "title": "What if they can't pay more?",
+              "text": "\"Schedule for later\" keeps the trip alive instead of ending it."
             }
-          }
+          ]
         },
         {
           "type": "heading",
@@ -504,65 +480,36 @@
           "text": "Driver-side negotiation"
         },
         {
-          "type": "label",
-          "text": "CONSIDERATIONS"
+          "type": "paragraph",
+          "variant": "body",
+          "text": "Drivers see each request with a countdown and can accept, decline, or counter."
         },
         {
-          "type": "split",
-          "compact": true,
-          "side": "start",
-          "title": "How do drivers decide fast?",
-          "text": "The rider's offer, pickup, dropoff, distance, and a 12 second timer on one card.",
+          "type": "full",
           "frame": {
-            "src": "/images/work/campus-ride/cons-request.webp",
-            "width": 600,
-            "height": 820,
-            "alt": "Incoming request card with the offer, route, and a 12 second timer.",
-            "screen": {
-              "x": 135,
-              "y": 51,
-              "w": 330,
-              "h": 718
-            }
+            "src": "/case-studies/campus-ride/constraints/callout-driver-negotiation.webp",
+            "width": 2400,
+            "height": 1350,
+            "alt": "New ride request, with callouts for accept, counter offer, decline, and a 12 second countdown."
           }
         },
         {
-          "type": "split",
-          "compact": true,
-          "side": "start",
-          "title": "What does losing feel like?",
-          "text": "\"Rider chose someone else\" shows the winning offer, so drivers learn instead of guessing.",
-          "frame": {
-            "src": "/images/work/campus-ride/cons-chose-else.webp",
-            "width": 600,
-            "height": 820,
-            "alt": "Rider chose someone else, with the winning offer visible.",
-            "screen": {
-              "x": 135,
-              "y": 51,
-              "w": 330,
-              "h": 718
+          "type": "threeUp",
+          "columns": 2,
+          "items": [
+            {
+              "title": "How do drivers decide fast?",
+              "text": "The rider's offer, pickup, dropoff, distance, and a 12 second timer on one card."
+            },
+            {
+              "title": "What does losing feel like?",
+              "text": "\"Rider chose someone else\" shows the winning offer, so drivers learn instead of guessing."
+            },
+            {
+              "title": "What if they miss it?",
+              "text": "\"You missed a request\" closes the loop and keeps them ready for the next one."
             }
-          }
-        },
-        {
-          "type": "split",
-          "compact": true,
-          "side": "start",
-          "title": "What if they miss it?",
-          "text": "\"You missed a request\" closes the loop and keeps them ready for the next one.",
-          "frame": {
-            "src": "/images/work/campus-ride/cons-missed.webp",
-            "width": 600,
-            "height": 820,
-            "alt": "You missed a request, with a way back to the next one.",
-            "screen": {
-              "x": 135,
-              "y": 51,
-              "w": 330,
-              "h": 718
-            }
-          }
+          ]
         },
         {
           "type": "heading",
@@ -580,8 +527,7 @@
             "src": "/images/work/campus-ride/seesaw.webp",
             "width": 1400,
             "height": 640,
-            "alt": "A seesaw with a small speed weight and a larger fairness weight.",
-            "caption": "Speed against fairness. Fairness is the side I weighted."
+            "alt": "Seesaw: speed vs fairness"
           }
         },
         {
