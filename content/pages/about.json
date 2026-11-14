@@ -6,9 +6,9 @@
     "title": "I’m Immanuel. I design and build things, and I start by listening.",
     "lead": "First-year CS and Math student at Livingstone College, class of 2030. I like hard problems and long tables full of friends.",
     "photo": {
-      "src": "/images/gatherings/standin-breaking-bread.webp",
-      "width": 1200,
-      "height": 800,
+      "src": "/images/about/immanuel-headphones.jpg",
+      "width": 768,
+      "height": 920,
       "objectFit": "cover",
       "objectPosition": "center",
       "radius": 16,
@@ -16,9 +16,8 @@
         384,
         460
       ],
-      "standin": true,
-      "alt": "hands sharing food on a picnic blanket",
-      "credit": "Pexels photo 6594958 (stand-in, replace before launch)"
+      "standin": false,
+      "alt": "Immanuel wearing headphones"
     },
     "photoCaption": "Picnics are my favorite kind of meeting."
   },
@@ -31,35 +30,35 @@
       "That habit turned into how I build. I took CodePath Web 101 to learn the web properly, I go to hackathons to ship with a team under pressure, and as a ColorStack Campus Advocate I help other CS students find resources and community.",
       "I call myself a designer who engineers. I love starting in Figma, but I do not want to hand off a picture and walk away. I want to understand the constraints, write the code, and make sure what ships is what people actually needed."
     ],
-    "quickFactsLabel": "QUICK FACTS",
+    "quickFactsLabel": "RIGHT NOW",
     "quickFacts": [
       {
-        "label": "SCHOOL",
-        "value": "Livingstone College"
+        "label": "BUILDING",
+        "value": "my Figma plugin, Linked Text Frames"
       },
       {
-        "label": "STUDYING",
-        "value": "Computer Science + Math"
+        "label": "DESIGNING",
+        "value": "the AKOO brand"
       },
       {
-        "label": "CLASS OF",
-        "value": "2030"
+        "label": "READING",
+        "value": "God's Rivals"
       },
       {
-        "label": "HONORS",
-        "value": "LC Presidential Scholar"
+        "label": "SIDE WORK",
+        "value": "flyers, banners and logos for local businesses and churches"
       },
       {
-        "label": "COMMUNITY",
-        "value": "ColorStack Campus Advocate"
+        "label": "TOOLBOX",
+        "value": "Figma, Photoshop, After Effects, Next.js"
       },
       {
-        "label": "LEARNING",
-        "value": "CodePath Web 101"
+        "label": "USUALLY FOUND",
+        "value": "pulling friends together for study sessions and eat-outs"
       },
       {
-        "label": "OFF HOURS",
-        "value": "Hackathons, study sessions, picnics, eat-outs"
+        "label": "ASK ME ABOUT",
+        "value": "design, code, the Bible, or anything you saw on this site"
       }
     ]
   },
@@ -183,60 +182,57 @@
     "photos": [
       {
         "image": {
-          "src": "/images/gatherings/standin-study-tables.webp",
+          "src": "/off-the-clock/gather-study-group.jpg",
+          "width": 1600,
+          "height": 1200,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 12,
+          "figmaSize": [
+            384,
+            288
+          ],
+          "standin": false,
+          "alt": "my study group"
+        },
+        "title": "Study sessions",
+        "text": "My study group, before the exam."
+      },
+      {
+        "image": {
+          "src": "/off-the-clock/gather-courtyard.jpg",
+          "width": 1600,
+          "height": 1200,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "radius": 12,
+          "figmaSize": [
+            384,
+            288
+          ],
+          "standin": false,
+          "alt": "talking in a circle"
+        },
+        "title": "The courtyard",
+        "text": "We talk in a circle."
+      },
+      {
+        "image": {
+          "src": "/off-the-clock/gather-table.jpg",
           "width": 1200,
           "height": 1600,
           "objectFit": "cover",
-          "objectPosition": "center",
+          "objectPosition": "center 62%",
           "radius": 12,
           "figmaSize": [
             384,
             288
           ],
-          "standin": true,
-          "alt": "overhead study tables",
-          "credit": "Pexels photo 28993557 (stand-in, replace before launch)"
-        },
-        "title": "Study sessions",
-        "text": "The table before a big exam."
-      },
-      {
-        "image": {
-          "src": "/images/gatherings/standin-picnic-overhead.webp",
-          "width": 1200,
-          "height": 1800,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 12,
-          "figmaSize": [
-            384,
-            288
-          ],
-          "standin": true,
-          "alt": "picnic from above, hands and food",
-          "credit": "Pexels photo 17041327 (stand-in, replace before launch)"
-        },
-        "title": "Picnics",
-        "text": "Blankets, food, and no agenda."
-      },
-      {
-        "image": {
-          "src": "/images/gatherings/standin-passing-food.webp",
-          "width": 1200,
-          "height": 1500,
-          "objectFit": "cover",
-          "objectPosition": "center",
-          "radius": 12,
-          "figmaSize": [
-            384,
-            288
-          ],
-          "standin": true,
-          "alt": "hands passing food at an eat-out",
-          "credit": "Pexels photo 29177217 (stand-in, replace before launch)"
+          "standin": false,
+          "alt": "we claimed the table"
         },
         "title": "Eat-outs",
-        "text": "New spots, old friends."
+        "text": "We claimed the table."
       }
     ]
   },

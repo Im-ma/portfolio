@@ -118,7 +118,7 @@ export function AboutView() {
             <p className={`${styles.awayLead} t-body-l`}>{page.away.lead}</p>
             <div className={styles.photos}>
               {page.away.photos.map((photo) => (
-                <Link key={photo.title} className={styles.photoCard} href="/gatherings">
+                <Link key={photo.title} className={styles.photoCard} href="/off-the-clock">
                   <span className={styles.photoFrame}>
                     <FrameImage
                       src={photo.image.src}

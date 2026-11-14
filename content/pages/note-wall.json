@@ -1,0 +1,138 @@
+{
+  "id": "note-wall",
+  "number": "02",
+  "title": "Note wall",
+  "button": {
+    "label": "Leave a note",
+    "action": "talk:note",
+    "arrow": true
+  },
+  "lead": "Notes from friends and visitors, shown after I approve them. Until the wall fills up, these are examples.",
+  "boardSize": {
+    "width": 1200,
+    "height": 680
+  },
+  "notes": [
+    {
+      "text": "Thanks for the study session. I walked in lost and walked out ready for the quiz.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A study group regular",
+      "layout": {
+        "x": 44,
+        "y": 52,
+        "width": 250,
+        "height": 202,
+        "rotation": -3
+      },
+      "color": "yellow",
+      "attachment": "tape"
+    },
+    {
+      "text": "Thanks for the picnic. I met half my friends on that blanket.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A friend from class",
+      "layout": {
+        "x": 336,
+        "y": 30,
+        "width": 240,
+        "height": 184,
+        "rotation": 2
+      },
+      "color": "cobalt",
+      "attachment": "pin"
+    },
+    {
+      "text": "The eat-out was the first time this semester I actually slowed down.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A classmate",
+      "layout": {
+        "x": 616,
+        "y": 66,
+        "width": 256,
+        "height": 208,
+        "rotation": -1
+      },
+      "color": "green",
+      "attachment": "tape"
+    },
+    {
+      "text": "Your work is thoughtful. Keep building.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A visitor",
+      "layout": {
+        "x": 910,
+        "y": 44,
+        "width": 244,
+        "height": 192,
+        "rotation": 4
+      },
+      "color": "pink",
+      "attachment": "pin"
+    },
+    {
+      "text": "Count me in for the next one.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A visitor",
+      "layout": {
+        "x": 64,
+        "y": 378,
+        "width": 240,
+        "height": 194,
+        "rotation": 2
+      },
+      "color": "cobalt",
+      "attachment": "pin"
+    },
+    {
+      "text": "I came to one picnic not knowing anyone. Now I come to every gathering, and I bring people with me.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A first-year student",
+      "layout": {
+        "x": 348,
+        "y": 336,
+        "width": 256,
+        "height": 226,
+        "rotation": -4
+      },
+      "color": "pink",
+      "attachment": "tape"
+    },
+    {
+      "text": "Same time next week?",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A friend",
+      "layout": {
+        "x": 650,
+        "y": 392,
+        "width": 236,
+        "height": 184,
+        "rotation": 3
+      },
+      "color": "yellow",
+      "attachment": null
+    },
+    {
+      "text": "The study session before the exam helped more than the review sheet.",
+      "check": false,
+      "checkNote": "sample note",
+      "signature": "- A classmate",
+      "layout": {
+        "x": 922,
+        "y": 356,
+        "width": 248,
+        "height": 204,
+        "rotation": -2
+      },
+      "color": "green",
+      "attachment": "tape"
+    }
+  ],
+  "sourceNote": "Static sample notes. In production, load approved notes from Supabase (approved = true), newest first, and cycle the 8 layout slots."
+}

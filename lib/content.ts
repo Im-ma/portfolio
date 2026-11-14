@@ -1,6 +1,6 @@
 import aboutJson from "@/content/pages/about.json";
-import gatheringsJson from "@/content/pages/gatherings.json";
 import homeJson from "@/content/pages/home.json";
+import noteWallJson from "@/content/pages/note-wall.json";
 import labJson from "@/content/pages/lab.json";
 import talkJson from "@/content/pages/talk-panel.json";
 import siteJson from "@/content/site.json";
@@ -18,7 +18,7 @@ export const site = siteJson;
 export const home = homeJson;
 export const talkCopy = talkJson;
 export const aboutPage = aboutJson;
-export const gatheringsPage = gatheringsJson;
+export const noteWall = noteWallJson;
 export const labPage = labJson;
 
 // Trace and Mimic are hidden for now. Uncomment to put them back in the list,
@@ -50,7 +50,7 @@ export function workAfter(slug: string) {
 
 export function talkLabelForPath(pathname: string) {
   if (pathname.startsWith("/work/")) return site.talkButton.labels.work;
-  if (pathname.startsWith("/gatherings")) return site.talkButton.labels.gatherings;
+  if (pathname.startsWith("/off-the-clock")) return site.talkButton.labels.offClock;
   if (pathname.startsWith("/about")) return site.talkButton.labels.about;
   if (pathname.startsWith("/lab")) return site.talkButton.labels.lab;
   return site.talkButton.labels.home;
