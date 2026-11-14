@@ -22,8 +22,9 @@
 /* Shared pendulum. The strap and the badge each run this so they stay on one pivot. */
 .swing {
   --swing: 0deg;
+  --swing-scale: 1;
   transform-origin: top center;
-  transform: rotate(var(--swing));
+  transform: rotate(calc(var(--swing) * var(--swing-scale)));
   animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
 }
 
@@ -38,18 +39,30 @@
   border-left: 2px solid var(--color-accent);
   border-right: 2px solid var(--color-accent);
   --swing: 0deg;
+  --swing-scale: 1;
   --shift: 0px;
   transform-origin: top center;
-  transform: translateY(var(--shift)) rotate(var(--swing));
+  transform: translateY(var(--shift)) rotate(calc(var(--swing) * var(--swing-scale)));
   animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
   pointer-events: none;
 }
 
+@media (max-width: 520px) {
+  .swing,
+  .strap {
+    /* A shorter arc so the strap stays clear of the name while it settles. */
+    --swing-scale: 0.4;
+  }
+
+  .strap {
+    width: 12px;
+    margin-left: -6px;
+  }
+}
+
 @media (max-width: 500px) {
   .strap {
-    width: 14px;
     height: 108px;
-    margin-left: -7px;
   }
 }
 
