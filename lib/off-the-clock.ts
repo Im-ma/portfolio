@@ -70,7 +70,7 @@ const frames: Record<string, readonly [number, number]> = {
   "gather-laptops.jpg": [1600, 1200],
   "gather-office.jpg": [1080, 810],
   "gather-walk.jpg": [768, 1024],
-  "gather-lecture.jpg": [1600, 1200],
+  "gather-study-group.jpg": [1600, 1200],
 };
 
 function shapeFor(width: number, height: number): Shape {
