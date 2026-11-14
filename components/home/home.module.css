@@ -1,91 +1,183 @@
 .hero {
   position: relative;
-  padding-top: 72px;
-  padding-bottom: 64px;
+  /* 640px intro line from the mock, minus the 78px header that sits in flow. */
+  padding-top: 562px;
+  padding-bottom: 36px;
 }
 
-.heroGrid {
-  position: relative;
+.wordmarkClip {
+  position: absolute;
+  top: 132px;
+  left: 0;
+  right: 0;
+  height: 134px;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.6fr);
-  gap: 48px;
-  align-items: end;
 }
 
-.copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
-  max-width: 720px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.introLine {
-  max-width: 18em;
+.wordmark {
+  position: absolute;
+  left: 50%;
+  width: 1500px;
+  margin-left: -750px;
+  text-align: center;
+  font-family: var(--font-display), sans-serif;
   font-weight: 500;
+  font-size: 148px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-accent-line);
+  white-space: nowrap;
+  user-select: none;
 }
 
-.nameMark {
-  font-size: inherit;
-  font-weight: 700;
-  color: var(--color-accent);
+/* Pivot sits at the top edge of the page, behind the sticky header. */
+.stage {
+  --strap-h: 132px;
+  --clip-w: 44px;
+  --clip-h: 112px;
+  --clip-top: 110px;
+  --card-w: 330px;
+  --card-h: 421px;
+  --card-top: 174px;
+  --tilt-origin: -64px;
+  position: absolute;
+  top: calc(-1 * var(--nav-h));
+  left: 0;
+  right: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.school {
-  color: var(--color-muted);
-  max-width: 36em;
-  text-wrap: balance;
+.clipHost,
+.cardHost {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  pointer-events: none;
+  perspective: 1100px;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+.clipHost {
+  z-index: 7;
+  width: var(--clip-w);
+  height: calc(var(--clip-top) + var(--clip-h));
+  margin-left: calc(var(--clip-w) / -2);
+  perspective-origin: center calc(var(--clip-top) + var(--clip-h) * 0.45);
 }
 
-.word {
-  display: inline-block;
-  opacity: 0;
-  animation: word-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation-delay: calc(var(--i) * 55ms);
+.cardHost {
+  z-index: 6;
+  width: var(--card-w);
+  height: calc(var(--card-top) + var(--card-h));
+  margin-left: calc(var(--card-w) / -2);
+  perspective-origin: center calc(var(--card-top) + var(--card-h) * 0.42);
 }
 
-.magnet {
-  display: inline-flex;
+.clipTilt,
+.cardTilt {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform-origin: top center;
   transition: transform 180ms ease;
+  pointer-events: auto;
 }
 
-@keyframes word-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.35em);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.clipTilt {
+  top: var(--clip-top);
+  height: var(--clip-h);
 }
 
-.portrait {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.cardTilt {
+  top: var(--card-top);
+  height: var(--card-h);
+  transform-origin: center var(--tilt-origin);
+}
+
+.clip {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 2px rgba(11, 27, 63, 0.16));
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  border: 1px solid var(--color-hairline);
+  box-shadow: 0 24px 80px 0 rgba(11, 27, 63, 0.14);
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-1deg);
+}
+
+.punch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 28px;
+  height: 10px;
+  margin-left: -14px;
+  border-radius: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-hairline);
+  box-shadow: inset 0 1px 2px rgba(11, 27, 63, 0.08);
+  z-index: 2;
 }
 
 .photo {
+  position: absolute;
+  left: 16px;
+  top: 36px;
+  width: calc(100% - 32px);
+  height: calc(100% - 52px);
+  border-radius: var(--radius-figure);
+  overflow: hidden;
+}
+
+.intro {
   position: relative;
-  width: 100%;
-  aspect-ratio: 282 / 380;
-  border-radius: 6px;
+  z-index: 2;
+  width: min(760px, calc(100% - 48px));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 92px;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+}
+
+.name {
+  color: var(--color-accent);
+}
+
+.tagline {
+  margin-top: 10px;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: var(--color-muted);
+}
+
+.actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 .section {
@@ -236,31 +328,61 @@
   color: var(--color-muted);
 }
 
-@media (min-width: 900px) {
-  .hero {
-    padding-top: 112px;
-    padding-bottom: 96px;
-  }
-
-  .heroGrid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 2fr) minmax(220px, 3fr);
-    gap: 24px;
-    align-items: start;
-  }
-
-  .portrait {
-    grid-column: 3;
-    padding-top: 8px;
+@media (max-width: 640px) {
+  .title {
+    font-size: 64px;
+    line-height: 60px;
   }
 }
 
-@media (max-width: 899px) {
-  .heroGrid {
-    grid-template-columns: 1fr;
+@media (max-width: 500px) {
+  .hero {
+    padding-top: 426px;
+    padding-bottom: 28px;
   }
 
-  .photo {
-    max-width: 420px;
+  .wordmarkClip {
+    top: 102px;
+    height: 53px;
+  }
+
+  .wordmark {
+    width: 460px;
+    margin-left: -230px;
+    font-size: 58px;
+    -webkit-text-stroke-width: 1.25px;
+  }
+
+  .stage {
+    --clip-w: 34px;
+    --clip-h: 86px;
+    --clip-top: 92px;
+    --card-w: 248px;
+    --card-h: 316px;
+    --card-top: 142px;
+    --tilt-origin: -50px;
+  }
+
+  .intro {
+    width: min(342px, calc(100% - 48px));
+  }
+
+  .title {
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  .tagline {
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .actions {
+    margin-top: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
 }
 
@@ -287,11 +409,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .word,
-  .magnet {
-    animation: none;
-    opacity: 1;
-    transform: none;
+  .clipTilt,
+  .cardTilt {
     transition: none;
   }
 }

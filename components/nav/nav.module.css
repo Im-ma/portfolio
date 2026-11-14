@@ -4,11 +4,24 @@
   z-index: 50;
   isolation: isolate;
   height: var(--nav-h);
+  background: transparent;
+  border-bottom: 0;
+}
+
+/* White bar sits under the homepage lanyard. Links stay above the strap. */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-hairline);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .bar {
+  position: relative;
+  z-index: 2;
   height: 100%;
   display: flex;
   align-items: center;
@@ -16,12 +29,27 @@
   gap: 24px;
 }
 
+.strapAnchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .logo {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   color: var(--color-ink);
   text-decoration: none;
+  /* Same ink as the strap, so the name needs the white bar behind it where they meet. */
+  background: var(--color-surface);
+  padding-right: 6px;
 }
 
 .mark {
@@ -154,4 +182,3 @@
     text-decoration: none;
   }
 }
-

@@ -1,0 +1,62 @@
+@property --swing {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes swing-in {
+  0% {
+    --swing: -20deg;
+  }
+  58% {
+    --swing: 3.2deg;
+  }
+  80% {
+    --swing: -1.1deg;
+  }
+  100% {
+    --swing: 0deg;
+  }
+}
+
+/* Shared pendulum. The strap and the badge each run this so they stay on one pivot. */
+.swing {
+  --swing: 0deg;
+  transform-origin: top center;
+  transform: rotate(var(--swing));
+  animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.strap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16px;
+  height: 132px;
+  margin-left: -8px;
+  background: var(--color-ink);
+  border-left: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+  --swing: 0deg;
+  --shift: 0px;
+  transform-origin: top center;
+  transform: translateY(var(--shift)) rotate(var(--swing));
+  animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+  pointer-events: none;
+}
+
+@media (max-width: 500px) {
+  .strap {
+    width: 14px;
+    height: 108px;
+    margin-left: -7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swing,
+  .strap {
+    animation: none;
+    --swing: 0deg;
+  }
+}

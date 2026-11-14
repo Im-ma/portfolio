@@ -1,5 +1,6 @@
 "use client";
 
+import { LanyardStrap } from "@/components/home/lanyard-strap";
 import { site } from "@/lib/content";
 import { useOpenResume } from "@/components/resume/resume-modal";
 import { lockScroll } from "@/lib/scroll-lock";
@@ -113,6 +114,11 @@ export function Nav() {
 
   return (
     <header className={`${styles.header} site-header`}>
+      {pathname === "/" ? (
+        <div className={styles.strapAnchor}>
+          <LanyardStrap />
+        </div>
+      ) : null}
       <div className={`shell ${styles.bar}`}>
         <Link className={styles.logo} href="/" aria-label="Immanuel Mensah, home">
           <span className={styles.mark} aria-hidden="true" />
