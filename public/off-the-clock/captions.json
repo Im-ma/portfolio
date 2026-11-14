@@ -376,5 +376,26 @@
     "poster": null,
     "caption": "in the lecture hall",
     "category": "gathering"
+  },
+  {
+    "file": "design-campus-ride-home.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the Campus Ride home screens",
+    "category": "design"
+  },
+  {
+    "file": "design-campus-ride-screens.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a set of Campus Ride screens",
+    "category": "design"
+  },
+  {
+    "file": "design-campus-ride-cards.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "Campus Ride cards in Figma",
+    "category": "design"
   }
 ]
