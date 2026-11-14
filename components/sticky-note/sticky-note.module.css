@@ -19,12 +19,16 @@
   font-weight: 400;
   font-size: clamp(18px, 11cqi, 26px);
   line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .signature {
   display: block;
   margin-top: 12px;
   color: var(--color-muted);
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .tape {
@@ -71,6 +75,8 @@
   height: auto;
   min-height: 0;
   max-width: none;
+  max-height: none;
+  overflow: visible;
   transform: none;
   animation: none;
 }

@@ -11,6 +11,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  padding-bottom: 104px;
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans), "IBM Plex Sans", system-ui, sans-serif;
@@ -147,6 +148,12 @@ html.js .reveal[data-shown="true"] {
   }
   to {
     transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 84px;
   }
 }
 

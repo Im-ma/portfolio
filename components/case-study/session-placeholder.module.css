@@ -4,7 +4,8 @@
   justify-content: center;
   aspect-ratio: 9 / 16;
   overflow: hidden;
-  background: transparent;
+  border-radius: var(--radius-video-poster);
+  background: #eef0f3;
   padding: 16px;
   text-align: center;
 }
@@ -17,6 +18,7 @@
 .box[data-video="true"] {
   position: relative;
   padding: 0;
+  background: transparent;
 }
 
 .media {
