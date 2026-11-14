@@ -1,0 +1,401 @@
+[
+  {
+    "file": "me-smile.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "caught mid-smile",
+    "category": "me"
+  },
+  {
+    "file": "me-sky.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "just me, blue sky",
+    "category": "me"
+  },
+  {
+    "file": "me-headphones.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "headphones on",
+    "category": "me"
+  },
+  {
+    "file": "me-bible.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "me and my Bible",
+    "category": "me"
+  },
+  {
+    "file": "me-pulpit.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "trying the pulpit",
+    "category": "me"
+  },
+  {
+    "file": "me-robot.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the robot arm",
+    "category": "me"
+  },
+  {
+    "file": "me-museum.mp4",
+    "type": "video",
+    "poster": "me-museum-poster.jpg",
+    "caption": "a museum selfie",
+    "category": "me"
+  },
+  {
+    "file": "me-library.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "studying at the library desk",
+    "category": "me"
+  },
+  {
+    "file": "design-akoo.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the AKOO cover",
+    "category": "design"
+  },
+  {
+    "file": "design-desk.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "my desk today",
+    "category": "design"
+  },
+  {
+    "file": "design-welcome.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a welcome back poster",
+    "category": "design"
+  },
+  {
+    "file": "design-beauty.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "G.Beauty logo ideas",
+    "category": "design"
+  },
+  {
+    "file": "design-logo.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a little logo family",
+    "category": "design"
+  },
+  {
+    "file": "design-print.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "print shop day",
+    "category": "design"
+  },
+  {
+    "file": "design-booth.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "from the booth",
+    "category": "design"
+  },
+  {
+    "file": "design-merch.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "hoodie mockups",
+    "category": "design"
+  },
+  {
+    "file": "design-layouts.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "layouts on the monitor",
+    "category": "design"
+  },
+  {
+    "file": "design-sankofa.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the Sankofa logo",
+    "category": "design"
+  },
+  {
+    "file": "design-logo-motion.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "animating a logo",
+    "category": "design"
+  },
+  {
+    "file": "design-alabaster.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the Alabaster flyer",
+    "category": "design"
+  },
+  {
+    "file": "design-helios.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the Helios screens",
+    "category": "design"
+  },
+  {
+    "file": "design-exercise-book.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a jungle exercise book",
+    "category": "design"
+  },
+  {
+    "file": "design-couples-camp.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a Couples Mini Camp poster",
+    "category": "design"
+  },
+  {
+    "file": "design-urbanbite.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "an UrbanBite menu flyer",
+    "category": "design"
+  },
+  {
+    "file": "design-executives.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "an SRC executives poster",
+    "category": "design"
+  },
+  {
+    "file": "design-salon.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the TYLJ Salon banner",
+    "category": "design"
+  },
+  {
+    "file": "design-welcome-alt.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "another welcome back poster",
+    "category": "design"
+  },
+  {
+    "file": "design-nsakina.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "an Nsakina for Christ poster",
+    "category": "design"
+  },
+  {
+    "file": "design-birthday.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a birthday poster for Pastor Abraham",
+    "category": "design"
+  },
+  {
+    "file": "design-organizing.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "an organizing secretary poster",
+    "category": "design"
+  },
+  {
+    "file": "design-vice-president.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a vice president poster",
+    "category": "design"
+  },
+  {
+    "file": "design-financial.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a financial secretary poster",
+    "category": "design"
+  },
+  {
+    "file": "design-thanksgiving.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a Thanksgiving service poster",
+    "category": "design"
+  },
+  {
+    "file": "design-cargon.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "working on a Cargon flyer",
+    "category": "design"
+  },
+  {
+    "file": "design-base44.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a Base44 workshop poster",
+    "category": "design"
+  },
+  {
+    "file": "design-vicaz.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a Vicaz catering flyer",
+    "category": "design"
+  },
+  {
+    "file": "gather-team.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the three of us at a hackathon",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-courtyard.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "talking in a circle",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-car.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a backseat selfie",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-table.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "we claimed the table",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-game.mp4",
+    "type": "video",
+    "poster": "gather-game-poster.jpg",
+    "caption": "board game night",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-fair.mp4",
+    "type": "video",
+    "poster": "gather-fair-poster.jpg",
+    "caption": "campus fair day",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-polo.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "watching polo",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-night.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "hanging out at night",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-laptops.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "laptops on the couch",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-office.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "in the mLab office",
+    "category": "gathering"
+  },
+  {
+    "file": "gather-walk.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "walking over together",
+    "category": "gathering"
+  },
+  {
+    "file": "me-laptop-stickers.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "stickers on my laptop",
+    "category": "me"
+  },
+  {
+    "file": "design-file-folder.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a folder of my design files",
+    "category": "design"
+  },
+  {
+    "file": "me-jacket-tie.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "me in a jacket and tie",
+    "category": "me"
+  },
+  {
+    "file": "me-room.mp4",
+    "type": "video",
+    "poster": "me-room-poster.jpg",
+    "caption": "just hanging in my room",
+    "category": "me"
+  },
+  {
+    "file": "me-goofy.mp4",
+    "type": "video",
+    "poster": "me-goofy-poster.jpg",
+    "caption": "a goofy indoor selfie",
+    "category": "me"
+  },
+  {
+    "file": "design-gdcl-board.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the GDCL website board",
+    "category": "design"
+  },
+  {
+    "file": "gather-study-group.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "my study group",
+    "category": "gathering"
+  },
+  {
+    "file": "design-campus-ride-home.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "the Campus Ride home screens",
+    "category": "design"
+  },
+  {
+    "file": "design-campus-ride-screens.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "a set of Campus Ride screens",
+    "category": "design"
+  },
+  {
+    "file": "design-campus-ride-cards.jpg",
+    "type": "photo",
+    "poster": null,
+    "caption": "Campus Ride cards in Figma",
+    "category": "design"
+  }
+]

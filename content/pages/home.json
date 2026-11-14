@@ -225,75 +225,60 @@
   },
   "gatheringsTeaser": {
     "number": "03",
-    "title": "Gatherings",
+    "title": "Off the clock",
     "link": {
-      "label": "See all gatherings",
-      "href": "/gatherings"
+      "label": "See the pile",
+      "href": "/off-the-clock"
     },
-    "lead": "Study sessions, picnics, and eat-outs I organize. Most of what I know about people I learned around a table.",
+    "lead": "Me, the work on my desk, and a few days with people.",
     "items": [
       {
         "image": {
-          "src": "/images/gatherings/standin-study-tables.webp",
+          "src": "/off-the-clock/me-smile.jpg",
           "width": 1200,
           "height": 1600,
           "objectFit": "cover",
-          "objectPosition": "center",
+          "objectPosition": "center 84%",
           "radius": 6,
-          "figmaSize": [
-            384,
-            260
-          ],
-          "standin": true,
-          "alt": "overhead study tables",
-          "credit": "Pexels photo 28993557 (stand-in, replace before launch)"
+          "standin": false,
+          "alt": "caught mid-smile"
         },
-        "title": "Study session",
-        "date": "Sep 2026",
+        "title": "caught mid-smile",
+        "date": "Me",
         "check": false,
-        "checkNote": "study session date"
+        "checkNote": "home off the clock photo"
       },
       {
         "image": {
-          "src": "/images/gatherings/standin-picnic-blanket.webp",
-          "width": 1200,
-          "height": 1600,
+          "src": "/off-the-clock/design-desk.jpg",
+          "width": 1600,
+          "height": 1200,
           "objectFit": "cover",
           "objectPosition": "center",
           "radius": 6,
-          "figmaSize": [
-            384,
-            260
-          ],
-          "standin": true,
-          "alt": "picnic blanket on grass",
-          "credit": "Pexels photo 28122105 (stand-in, replace before launch)"
+          "standin": false,
+          "alt": "my desk today"
         },
-        "title": "Picnic",
-        "date": "Sep 2026",
+        "title": "my desk today",
+        "date": "Desk",
         "check": false,
-        "checkNote": "picnic date"
+        "checkNote": "home off the clock photo"
       },
       {
         "image": {
-          "src": "/images/gatherings/standin-shared-table.webp",
-          "width": 1200,
-          "height": 1854,
+          "src": "/off-the-clock/gather-team.jpg",
+          "width": 1206,
+          "height": 891,
           "objectFit": "cover",
           "objectPosition": "center",
           "radius": 6,
-          "figmaSize": [
-            384,
-            260
-          ],
-          "standin": true,
-          "alt": "shared table from above, hands only",
-          "credit": "Pexels photo 6223233 (stand-in, replace before launch)"
+          "standin": false,
+          "alt": "the three of us at a hackathon"
         },
-        "title": "Eat-out",
-        "date": "Oct 2026",
+        "title": "the three of us",
+        "date": "With people",
         "check": false,
-        "checkNote": "eat-out date"
+        "checkNote": "home off the clock photo"
       }
     ],
     "noteWall": {
@@ -301,7 +286,7 @@
       "text": "Notes people leave, shown after I approve them. Until the wall fills up, these three are examples.",
       "link": {
         "label": "Read the wall",
-        "href": "/gatherings#note-wall"
+        "href": "/off-the-clock#note-wall"
       },
       "notes": [
         {

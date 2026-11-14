@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test lib/revalidate-notes.test.mjs",
+    "test": "node --experimental-strip-types --test lib/revalidate-notes.test.mjs lib/pile-layout.test.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

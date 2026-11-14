@@ -2,7 +2,7 @@
 
 Personal site for a designer who engineers. Next.js App Router, TypeScript, and the Signal Path tokens.
 
-The shared shell, homepage, gatherings, case studies, About, and Lab all use the same layout.
+The shared shell, homepage, Off the clock, case studies, About, and Lab all use the same layout.
 
 ## Setup
 
@@ -70,7 +70,7 @@ create policy "public can read approved" on public.notes for select using (appro
 create policy "public can insert unapproved" on public.notes for insert with check (approved = false);
 ```
 
-New notes are saved as unapproved. The homepage and gatherings page are cached, and they read approved notes again about every 5 minutes. Approving or hiding a note at `/admin/notes` clears that cache, so the next visit shows the change. Empty slots keep the sample notes from the page content.
+New notes are saved as unapproved. The homepage and Off the clock page are cached, and they read approved notes again about every 5 minutes. Approving or hiding a note at `/admin/notes` clears that cache, so the next visit shows the change. Empty slots keep the sample notes from the page content.
 
 Approve them at `/admin/notes` after `ADMIN_PASSWORD` and the service role key are set, or flip `approved` to true in the Supabase dashboard. A change made only in the dashboard still waits for that 5 minute refresh.
 
@@ -80,7 +80,7 @@ Copy lives in `content/`. The site reads the JSON files. Change the words there,
 
 - `content/site.json`: name, nav, availability line, talk button labels, contact links, footer.
 - `content/pages/home.json`: homepage sections.
-- `content/pages/gatherings.json`, `about.json`: those pages.
+- `content/pages/note-wall.json`, `about.json`: the note wall and About. `/gatherings` redirects to `/off-the-clock`.
 - `content/pages/lab.json`: the Lab. `pieces` are the four playable decisions (the demos live in `components/lab/playables.tsx`), `site` lists the three small experiments from this site.
 - `content/pages/talk-panel.json`: the talk panel menu and the three forms.
 - `content/work/<slug>.json`: case studies. `content/work-mdx/` is the first draft of the same writing in MDX. It is out of date and the site never reads it. Block types are listed below.
@@ -145,7 +145,7 @@ These are the shared blocks for a longer case study (Campus Ride uses them). Oth
 ```
 app/page.tsx                 homepage
 app/work/[slug]/page.tsx     case study pages
-app/gatherings, about, lab   gatherings, about, and lab
+app/off-the-clock, about, lab Off the clock, about, and lab
 app/admin/notes              approve notes
 app/api/notes                save a note
 app/api/question             email a question
