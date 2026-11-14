@@ -1,75 +1,179 @@
-@property --swing {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
+.metrics {
+  --strap-w: 16px;
+  --clasp-w: 48px;
+  --clasp-h: 116px;
+  --clasp-top: 102px;
+  --card-w: 330px;
+  --card-h: 421px;
+  --card-top: 186px;
+  --slot-w: 65px;
+  --slot-h: 14px;
+  --slot-r: 7px;
+  --slot-y: 17px;
 }
 
-@keyframes swing-in {
-  0% {
-    --swing: -20deg;
-  }
-  58% {
-    --swing: 3.2deg;
-  }
-  80% {
-    --swing: -1.1deg;
-  }
-  100% {
-    --swing: 0deg;
-  }
+.headerRig,
+.pageRig {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transform-origin: 50% 0;
+  pointer-events: none;
 }
 
-/* Shared pendulum. The strap and the badge each run this so they stay on one pivot. */
-.swing {
-  --swing: 0deg;
-  --swing-scale: 1;
-  transform-origin: top center;
-  transform: rotate(calc(var(--swing) * var(--swing-scale)));
-  animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+.pageRig {
+  z-index: 3;
+}
+
+.spin {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
 }
 
 .strap {
   position: absolute;
   top: 0;
-  left: 50%;
-  width: 16px;
-  height: 132px;
-  margin-left: -8px;
+  left: 0;
+  z-index: 1;
+  width: var(--strap-w);
+  margin-left: calc(var(--strap-w) / -2);
+  height: calc(var(--clasp-top) + var(--clasp-h) * 0.135);
   background: var(--color-ink);
   border-left: 2px solid var(--color-accent);
   border-right: 2px solid var(--color-accent);
-  --swing: 0deg;
-  --swing-scale: 1;
-  --shift: 0px;
-  transform-origin: top center;
-  transform: translateY(var(--shift)) rotate(calc(var(--swing) * var(--swing-scale)));
-  animation: swing-in 1.15s cubic-bezier(0.22, 0.8, 0.3, 1) both;
-  pointer-events: none;
+}
+
+.clasp {
+  position: absolute;
+  top: var(--clasp-top);
+  left: 0;
+  width: var(--clasp-w);
+  height: var(--clasp-h);
+  margin-left: calc(var(--clasp-w) / -2);
+}
+
+.clasp svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 2px rgba(11, 27, 63, 0.16));
+}
+
+.claspFront {
+  z-index: 3;
+  clip-path: inset(0 0 0 47%);
+}
+
+.claspBack {
+  z-index: 1;
+  clip-path: inset(0 53% 0 0);
+}
+
+.slotBack {
+  position: absolute;
+  top: calc(var(--card-top) + var(--slot-y));
+  left: 0;
+  width: var(--slot-w);
+  height: var(--slot-h);
+  margin-left: calc(var(--slot-w) / -2);
+  border-radius: var(--slot-r);
+  background: var(--color-bg);
+  z-index: 0;
+}
+
+.cardSpin {
+  position: absolute;
+  top: var(--card-top);
+  left: 0;
+  width: var(--card-w);
+  height: var(--card-h);
+  margin-left: calc(var(--card-w) / -2);
+  transform-origin: 50% 0%;
+  perspective: 1600px;
+  pointer-events: auto;
+  touch-action: pan-y;
+  z-index: 2;
+}
+
+.cardFace {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  border: 1px solid var(--color-hairline);
+  position: relative;
+  overflow: hidden;
+  filter: drop-shadow(0 24px 48px rgba(11, 27, 63, 0.16));
+  --slot-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 20'><rect width='92' height='20' rx='11' fill='white'/></svg>");
+  -webkit-mask-image: linear-gradient(#000, #000), var(--slot-mask);
+  mask-image: linear-gradient(#000, #000), var(--slot-mask);
+  -webkit-mask-size:
+    100% 100%,
+    var(--slot-w) var(--slot-h);
+  mask-size:
+    100% 100%,
+    var(--slot-w) var(--slot-h);
+  -webkit-mask-position:
+    center,
+    center var(--slot-y);
+  mask-position:
+    center,
+    center var(--slot-y);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.photo {
+  position: absolute;
+  left: 16px;
+  top: 36px;
+  width: calc(100% - 32px);
+  height: calc(100% - 52px);
+  border-radius: var(--radius-figure);
+  overflow: hidden;
 }
 
 @media (max-width: 520px) {
-  .swing,
-  .strap {
-    /* A shorter arc so the strap stays clear of the name while it settles. */
-    --swing-scale: 0.4;
-  }
-
-  .strap {
-    width: 12px;
-    margin-left: -6px;
+  .metrics {
+    --strap-w: 12px;
   }
 }
 
 @media (max-width: 500px) {
-  .strap {
-    height: 108px;
+  .metrics {
+    --clasp-w: 36px;
+    --clasp-h: 88px;
+    --clasp-top: 78px;
+    --card-w: 248px;
+    --card-h: 316px;
+    --card-top: 130px;
+    --slot-w: 49px;
+    --slot-h: 11px;
+    --slot-r: 5.5px;
+    --slot-y: 13px;
+  }
+
+  .photo {
+    left: 12px;
+    top: 28px;
+    width: calc(100% - 24px);
+    height: calc(100% - 40px);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .swing,
-  .strap {
-    animation: none;
-    --swing: 0deg;
+@media (prefers-reduced-motion: no-preference) {
+  :global(html.js) .headerRig,
+  :global(html.js) .pageRig {
+    transform: translate3d(0, -600px, 0);
+    opacity: 0;
   }
 }

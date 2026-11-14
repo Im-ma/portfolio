@@ -1,23 +1,21 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useId } from "react";
+import { Clasp } from "./clasp";
 import styles from "./lanyard.module.css";
 
-/* Drawn inside the header, above its white bar and under the links.
-   --shift keeps the strap pinned to the top of the page while the bar sticks. */
+/* Strap and the front half of the clasp. The header paints this above its
+   white bar and under the name, from the top edge of the page. */
 export function LanyardStrap() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const update = () => {
-      node.style.setProperty("--shift", `${-window.scrollY}px`);
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-
-  return <div ref={ref} className={styles.strap} aria-hidden="true" />;
+  const id = useId().replace(/:/g, "");
+  return (
+    <div className={`${styles.metrics} ${styles.headerRig}`} data-lanyard-header>
+      <div className={styles.spin} data-lanyard-spin>
+        <div className={styles.strap} />
+        <div className={`${styles.clasp} ${styles.claspFront}`}>
+          <Clasp id={`${id}-front`} />
+        </div>
+      </div>
+    </div>
+  );
 }

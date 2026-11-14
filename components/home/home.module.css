@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   /* 640px intro line from the mock, minus the 78px header that sits in flow. */
-  padding-top: 562px;
+  padding-top: 596px;
   padding-bottom: 36px;
 }
 
@@ -33,112 +33,14 @@
   user-select: none;
 }
 
-/* Pivot sits at the top edge of the page, behind the sticky header. */
+/* Anchor for the badge. The rig itself hangs from the top edge of the page. */
 .stage {
-  --strap-h: 132px;
-  --clip-w: 44px;
-  --clip-h: 112px;
-  --clip-top: 110px;
-  --card-w: 330px;
-  --card-h: 421px;
-  --card-top: 174px;
-  --tilt-origin: -64px;
   position: absolute;
   top: calc(-1 * var(--nav-h));
   left: 0;
   right: 0;
   height: 0;
   pointer-events: none;
-}
-
-.clipHost,
-.cardHost {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  pointer-events: none;
-  perspective: 1100px;
-}
-
-.clipHost {
-  z-index: 7;
-  width: var(--clip-w);
-  height: calc(var(--clip-top) + var(--clip-h));
-  margin-left: calc(var(--clip-w) / -2);
-  perspective-origin: center calc(var(--clip-top) + var(--clip-h) * 0.45);
-}
-
-.cardHost {
-  z-index: 6;
-  width: var(--card-w);
-  height: calc(var(--card-top) + var(--card-h));
-  margin-left: calc(var(--card-w) / -2);
-  perspective-origin: center calc(var(--card-top) + var(--card-h) * 0.42);
-}
-
-.clipTilt,
-.cardTilt {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  transform-origin: top center;
-  transition: transform 180ms ease;
-  pointer-events: auto;
-}
-
-.clipTilt {
-  top: var(--clip-top);
-  height: var(--clip-h);
-}
-
-.cardTilt {
-  top: var(--card-top);
-  height: var(--card-h);
-  transform-origin: center var(--tilt-origin);
-}
-
-.clip {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  filter: drop-shadow(0 1px 2px rgba(11, 27, 63, 0.16));
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-card);
-  background: var(--color-surface);
-  border: 1px solid var(--color-hairline);
-  box-shadow: 0 24px 80px 0 rgba(11, 27, 63, 0.14);
-  position: relative;
-  overflow: hidden;
-  transform: rotate(-1deg);
-}
-
-.punch {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  width: 28px;
-  height: 10px;
-  margin-left: -14px;
-  border-radius: 8px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-hairline);
-  box-shadow: inset 0 1px 2px rgba(11, 27, 63, 0.08);
-  z-index: 2;
-}
-
-.photo {
-  position: absolute;
-  left: 16px;
-  top: 36px;
-  width: calc(100% - 32px);
-  height: calc(100% - 52px);
-  border-radius: var(--radius-figure);
-  overflow: hidden;
 }
 
 .intro {
@@ -352,16 +254,6 @@
     margin-left: -230px;
     font-size: 58px;
     -webkit-text-stroke-width: 1.25px;
-  }
-
-  .stage {
-    --clip-w: 34px;
-    --clip-h: 86px;
-    --clip-top: 92px;
-    --card-w: 248px;
-    --card-h: 316px;
-    --card-top: 142px;
-    --tilt-origin: -50px;
   }
 
   .intro {
