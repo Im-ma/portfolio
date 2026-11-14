@@ -19,19 +19,19 @@
       }
     ],
     "portrait": {
-      "src": "/images/about/standin-portrait.webp",
-      "width": 564,
-      "height": 760,
+      "src": "/images/home/immanuel-portrait.webp",
+      "width": 1000,
+      "height": 1126,
       "objectFit": "cover",
-      "objectPosition": "center",
+      "objectPosition": "50% 20%",
       "radius": 6,
       "figmaSize": [
-        282,
-        380
+        330,
+        421
       ],
-      "standin": true,
-      "alt": "stylized portrait silhouette",
-      "check": true
+      "standin": false,
+      "alt": "Portrait of Immanuel Mensah",
+      "check": false
     }
   },
   "selectedWork": {

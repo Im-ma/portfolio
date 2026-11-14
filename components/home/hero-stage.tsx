@@ -1,98 +1,96 @@
 "use client";
 
-import { Check } from "@/components/check/check";
 import { Button } from "@/components/button/button";
-import { FrameImage } from "@/components/media/frame-image";
 import { TalkAction } from "@/components/talk/talk-action";
 import { home } from "@/lib/content";
-import { useLivelyPointer } from "@/lib/lively-pointer";
-import { useRef, Fragment, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
+import Image from "next/image";
+import { useId, useLayoutEffect, useRef } from "react";
+import { Clasp } from "./clasp";
+import { mountLanyard, pointTarget, releaseTarget } from "./lanyard-motion";
 import styles from "./home.module.css";
-
-function Magnetic({ children }: { children: ReactNode }) {
-  const lively = useLivelyPointer();
-  const ref = useRef<HTMLSpanElement>(null);
-  const shift = (event: ReactPointerEvent<HTMLSpanElement>) => {
-    const node = ref.current;
-    if (!node || !lively) return;
-    const box = node.getBoundingClientRect();
-    const x = (event.clientX - (box.left + box.width / 2)) * 0.28;
-    const y = (event.clientY - (box.top + box.height / 2)) * 0.4;
-    node.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  };
-  return (
-    <span
-      ref={ref}
-      className={styles.magnet}
-      onPointerMove={shift}
-      onPointerLeave={() => {
-        if (ref.current) ref.current.style.transform = "";
-      }}
-    >
-      {children}
-    </span>
-  );
-}
+import rig from "./lanyard.module.css";
 
 export function HeroStage() {
   const hero = home.hero;
-  const words = hero.title.split(" ");
-  const nameWords = new Set(hero.name.split(" "));
+  const pageRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const id = useId().replace(/:/g, "");
+  const primary = hero.buttons[0];
+  const secondary = hero.buttons[1];
+
+  useLayoutEffect(() => {
+    const page = pageRef.current;
+    const card = cardRef.current;
+    const header = document.querySelector<HTMLElement>("[data-lanyard-header]");
+    const spins = [...document.querySelectorAll<HTMLElement>("[data-lanyard-spin]")];
+    if (!page || !card || !header || spins.length === 0) return;
+    return mountLanyard({ header, page, spins, card });
+  }, []);
+
+  const track = (event: React.PointerEvent<HTMLDivElement>) => {
+    pointTarget(event.clientX, event.currentTarget.getBoundingClientRect());
+  };
 
   return (
-    <section className={styles.hero}>
-      <div className={`shell ${styles.heroGrid}`}>
-        <div className={styles.copy}>
-          <div className={styles.intro}>
-            <h1 className={`${styles.introLine} t-heading-h2`}>
-              {words.map((word, index) => (
-                <Fragment key={`${word}-${index}`}>
-                  {index > 0 ? " " : null}
-                  <span
-                    className={`${styles.word} ${nameWords.has(word) ? styles.nameMark : ""}`}
-                    style={{ ["--i" as string]: index }}
-                  >
-                    {word}
-                  </span>
-                </Fragment>
-              ))}
-            </h1>
-            <p className={`${styles.school} t-body-m`}>
-              {hero.lead}
-            </p>
-          </div>
-          <div className={styles.actions}>
-            {"href" in hero.buttons[0] && hero.buttons[0].href ? (
-              <Magnetic>
-                <Button href={hero.buttons[0].href} variant="primary" arrow={hero.buttons[0].arrow}>
-                  {hero.buttons[0].label}
-                </Button>
-              </Magnetic>
-            ) : null}
-            {"action" in hero.buttons[1] && hero.buttons[1].action ? (
-              <Magnetic>
-                <TalkAction action={hero.buttons[1].action} variant="secondary">
-                  {hero.buttons[1].label}
-                </TalkAction>
-              </Magnetic>
-            ) : null}
+    <section className={styles.hero} aria-labelledby="home-hero-title">
+      <div className={styles.wordmarkClip} aria-hidden="true">
+        <div className={styles.wordmark}>design engineer</div>
+      </div>
+
+      <div className={styles.stage}>
+        <div ref={pageRef} className={`${rig.metrics} ${rig.pageRig}`}>
+          <div className={rig.spin} data-lanyard-spin>
+            <div className={rig.slotBack} aria-hidden="true" />
+            <div className={`${rig.clasp} ${rig.claspBack}`}>
+              <Clasp id={`${id}-back`} />
+            </div>
+            <div
+              ref={cardRef}
+              className={rig.cardSpin}
+              onPointerMove={track}
+              onPointerLeave={releaseTarget}
+              onPointerUp={releaseTarget}
+              onPointerCancel={releaseTarget}
+            >
+              <div className={rig.cardFace}>
+                <div className={rig.photo}>
+                  <Image
+                    src={hero.portrait.src}
+                    alt={hero.portrait.alt}
+                    fill
+                    sizes="(max-width: 500px) 216px, 298px"
+                    preload
+                    draggable={false}
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: hero.portrait.objectPosition,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <figure className={styles.portrait}>
-          <div className={styles.photo}>
-            <FrameImage
-              src={hero.portrait.src}
-              alt={hero.portrait.alt}
-              sizes="(max-width: 899px) calc(100vw - 48px), 282px"
-              radius={hero.portrait.radius}
-              objectPosition={hero.portrait.objectPosition}
-              standin={hero.portrait.standin}
-              priority
-              fillFrame
-            />
-          </div>
-          {hero.portrait.check ? <Check note="portrait stand-in" /> : null}
-        </figure>
+      </div>
+
+      <div className={styles.intro}>
+        <h1 id="home-hero-title" className={styles.title}>
+          <span className={styles.im}>I&apos;m </span>
+          <span className={styles.name}>Immanuel</span>
+        </h1>
+        <p className={styles.tagline}>a design engineer who builds what I design.</p>
+        <div className={styles.actions}>
+          {"href" in primary && primary.href ? (
+            <Button href={primary.href} variant="primary" arrow={primary.arrow}>
+              {primary.label}
+            </Button>
+          ) : null}
+          {"action" in secondary && secondary.action ? (
+            <TalkAction action={secondary.action} variant="secondary">
+              {secondary.label}
+            </TalkAction>
+          ) : null}
+        </div>
       </div>
     </section>
   );
