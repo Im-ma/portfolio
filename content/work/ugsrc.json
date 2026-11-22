@@ -232,8 +232,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/governance-scholarships.mp4",
               "webm": "/case-studies/ugsrc/core-flows/governance-scholarships.webm",
               "poster": "/case-studies/ugsrc/core-flows/governance-scholarships-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Profile and themes",
