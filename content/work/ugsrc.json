@@ -243,19 +243,21 @@
               "mp4": "/case-studies/ugsrc/core-flows/profile-themes.mp4",
               "webm": "/case-studies/ugsrc/core-flows/profile-themes.webm",
               "poster": "/case-studies/ugsrc/core-flows/profile-themes-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             }
           ],
           "onboarding": {
             "title": "Onboarding",
             "text": "Enter your email, get a one-time code, and you are in. No password to forget.",
-            "label": "Two phones: entering an email on Welcome Back, and entering the one-time code on Verify Your Email before landing on Home",
+            "label": "Welcome Back with an empty email field, then the Home screen",
             "mp4": "/case-studies/ugsrc/core-flows/onboarding.mp4",
             "webm": "/case-studies/ugsrc/core-flows/onboarding.webm",
             "poster": "/case-studies/ugsrc/core-flows/onboarding-poster.png",
-            "width": 1600,
-            "height": 900
+            "width": 590,
+            "height": 1276,
+            "frame": "phone"
           }
         }
       ]

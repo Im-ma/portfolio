@@ -199,7 +199,11 @@ export function CoreFlows({ rows, onboarding }: { rows: Clip[]; onboarding: Clip
         <div className={styles.onboarding}>
           <h3 className="t-heading-h3">{onboarding.title}</h3>
           <p className="t-body-m">{onboarding.text}</p>
-          <FlowClip clip={onboarding} sizes="100vw" />
+          {onboarding.frame === "phone" ? (
+            <PhoneClip clip={onboarding} />
+          ) : (
+            <FlowClip clip={onboarding} sizes="100vw" />
+          )}
         </div>
       </Reveal>
     </div>
