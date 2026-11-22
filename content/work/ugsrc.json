@@ -221,8 +221,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/updates-events-clubs.mp4",
               "webm": "/case-studies/ugsrc/core-flows/updates-events-clubs.webm",
               "poster": "/case-studies/ugsrc/core-flows/updates-events-clubs-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Governance and Scholarships",
