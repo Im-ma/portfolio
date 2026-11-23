@@ -9,6 +9,21 @@
   gap: 32px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  row-gap: 48px;
+  align-items: start;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
 .row {
   display: grid;
   grid-template-columns: minmax(0, 60%) minmax(0, 1fr);
@@ -108,6 +123,10 @@
 }
 
 @media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
   .rows {
     gap: 48px;
   }

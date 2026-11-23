@@ -308,7 +308,7 @@ function BlockView({
     );
   }
   if (block.type === "coreFlows") {
-    return <CoreFlows rows={block.rows} onboarding={block.onboarding} />;
+    return <CoreFlows rows={block.rows} onboarding={block.onboarding} layout={block.layout} />;
   }
   if (block.type === "prototypeFlows") return <PrototypeFlows items={block.items} />;
   if (block.type === "beforeAfter") return <BeforeAfter items={block.items} />;

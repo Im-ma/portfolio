@@ -169,6 +169,7 @@
       "blocks": [
         {
           "type": "coreFlows",
+          "layout": "columns",
           "rows": [
             {
               "title": "Home and quick actions",
