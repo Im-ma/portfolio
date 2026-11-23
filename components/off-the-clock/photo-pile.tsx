@@ -2,7 +2,8 @@
 
 import { useFreeArrange, type Piece } from "@/components/arrange/use-free-arrange";
 import type { ClockItem } from "@/lib/off-the-clock";
-import { layoutPile } from "@/lib/pile-layout";
+import { columnCount, layoutPile } from "@/lib/pile-layout";
+import { Button } from "@/components/button/button";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import styles from "./off-the-clock.module.css";
@@ -130,6 +131,7 @@ function CardPhoto({ item, reduced }: { item: ClockItem; reduced: boolean }) {
         fill
         sizes="(max-width: 679px) 46vw, 280px"
         draggable={false}
+        loading="lazy"
         style={{ objectFit: item.fit, objectPosition: item.position }}
       />
       {item.video && (armed || started) ? (
@@ -162,7 +164,10 @@ export function PhotoPile({ items }: { items: ClockItem[] }) {
   const reduced = useReducedMotion();
   const [seed, reshuffle] = usePileSeed();
   const [width, setWidth] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   const [tossing, setTossing] = useState(false);
+  const pageSize = width ? columnCount(width) * 2 : items.length;
+  const visible = expanded ? items : items.slice(0, pageSize);
   const [measured, setMeasured] = useState<{ width: number; heights: Record<string, number> }>({
     width: 0,
     heights: NO_HEIGHTS,
@@ -172,12 +177,12 @@ export function PhotoPile({ items }: { items: ClockItem[] }) {
   const layout = useMemo(() => {
     if (!width || seed === 0) return null;
     return layoutPile(
-      items.map((item) => ({ id: item.id, shape: item.shape, caption: item.caption })),
+      visible.map((item) => ({ id: item.id, shape: item.shape, caption: item.caption })),
       width,
       seed,
       heights,
     );
-  }, [items, width, seed, heights]);
+  }, [visible, width, seed, heights]);
 
   const defaults = useMemo<Piece[]>(
     () =>
@@ -201,7 +206,7 @@ export function PhotoPile({ items }: { items: ClockItem[] }) {
 
   const arrange = useFreeArrange({
     canvasRef,
-    storageKey: `im-arrange:off-the-clock:${seed}:${width}`,
+    storageKey: `im-arrange:off-the-clock:${seed}:${width}:${visible.length}`,
     design,
     defaults,
     visibleIds,
@@ -308,7 +313,7 @@ export function PhotoPile({ items }: { items: ClockItem[] }) {
         role="group"
         aria-label="A pile of photos"
       >
-        {items.map((item) => {
+        {visible.map((item) => {
           const bound = arrange.bind(item.id);
           if (!bound.style) return null;
           return (
@@ -328,6 +333,13 @@ export function PhotoPile({ items }: { items: ClockItem[] }) {
           );
         })}
       </div>
+      {visible.length < items.length ? (
+        <div className={styles.more}>
+          <Button variant="secondary" type="button" onClick={() => setExpanded(true)}>
+            Show more
+          </Button>
+        </div>
+      ) : null}
       <p className="sr-only">Arrow keys nudge a focused photo. Shift moves it farther.</p>
     </>
   );

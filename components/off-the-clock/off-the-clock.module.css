@@ -138,6 +138,12 @@
   object-fit: contain;
 }
 
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
 .play {
   position: absolute;
   right: 8px;
