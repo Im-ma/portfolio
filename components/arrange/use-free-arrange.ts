@@ -216,6 +216,7 @@ export function useFreeArrange({
   scatterSeed,
   minSize,
   scale = "uniform",
+  hug = false,
 }: {
   canvasRef: RefObject<HTMLDivElement | null>;
   storageKey: string;
@@ -227,6 +228,8 @@ export function useFreeArrange({
   minSize?: MinSize;
   /** readable keeps a note's designed size and lets the canvas grow. uniform scales photos with the board. */
   scale?: ScaleMode;
+  /** Size the drag wrapper to its content instead of the authored slot height. */
+  hug?: boolean;
 }) {
   const saved = useSaved(storageKey);
   const [overrides, setOverrides] = useState<{ seed: number; map: Record<string, Place> }>({
@@ -580,13 +583,13 @@ export function useFreeArrange({
             top: boardH ? `${(place.y / 100) * boardH}px` : `${place.y}%`,
             width: fitted && fitted.widthPx > 0 ? `${fitted.widthPx}px` : `${piece.w}%`,
             height:
-              scale === "readable"
+              scale === "readable" || hug
                 ? "auto"
                 : fitted && fitted.heightPx > 0
                   ? `${fitted.heightPx}px`
                   : undefined,
             minHeight:
-              scale === "readable" && fitted && fitted.heightPx > 0
+              !hug && scale === "readable" && fitted && fitted.heightPx > 0
                 ? `${fitted.heightPx}px`
                 : undefined,
             ["--rot" as string]: `${place.rotation}deg`,
@@ -594,7 +597,7 @@ export function useFreeArrange({
           }
         : undefined;
     return {
-      className: styles.item,
+      className: hug ? `${styles.item} ${styles.hug}` : styles.item,
       "data-arrange-id": id,
       "data-cursor": "grab" as const,
       style,

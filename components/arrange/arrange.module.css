@@ -38,6 +38,17 @@
     box-shadow 140ms ease;
 }
 
+.item.hug {
+  height: auto;
+  min-height: 0;
+  background: transparent;
+}
+
+.canvas .item.hug.lifted {
+  box-shadow: none;
+  background: transparent;
+}
+
 .settling .item {
   transition:
     left 480ms cubic-bezier(0.22, 1.35, 0.36, 1),
@@ -92,5 +103,9 @@
 
   .canvas .item.lifted {
     box-shadow: var(--shadow-lifted);
+  }
+
+  .canvas .item.hug.lifted {
+    box-shadow: none;
   }
 }

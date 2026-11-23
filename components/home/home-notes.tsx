@@ -60,6 +60,7 @@ export function HomeNotes({ notes }: { notes: WallNote[] }) {
     layout: "saved",
     scatterSeed: 0,
     scale: "readable",
+    hug: true,
   });
 
   if (notes.length === 0) {

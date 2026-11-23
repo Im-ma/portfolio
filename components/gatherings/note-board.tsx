@@ -96,6 +96,7 @@ export function NoteBoard({
     layout: "saved",
     scatterSeed: 0,
     scale: "readable",
+    hug: true,
   });
 
   return (
