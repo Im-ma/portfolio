@@ -237,8 +237,8 @@
               "frame": "phone"
             },
             {
-              "title": "Profile and themes",
-              "text": "See your verified account, reach Course and Lecturer Evaluation, and switch between Light, Dark, System and Slate.",
+              "title": "Profile",
+              "text": "See your verified account and reach Course and Lecturer Evaluation.",
               "label": "The Profile screen in light mode, the appearance options, then the same Profile in dark mode",
               "mp4": "/case-studies/ugsrc/core-flows/profile-themes.mp4",
               "webm": "/case-studies/ugsrc/core-flows/profile-themes.webm",
@@ -492,7 +492,7 @@
             {
               "marker": "G",
               "title": "Profile:",
-              "text": "profile, Course and Lecturer Evaluation, notifications and quiet hours, themes."
+              "text": "profile, Course and Lecturer Evaluation, notifications and quiet hours."
             },
             {
               "marker": "H",
