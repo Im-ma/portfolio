@@ -144,21 +144,6 @@
           "webm": "/videos/work/ugsrc/solution-channels.webm",
           "poster": "/videos/work/ugsrc/solution-channels-poster.png",
           "label": "Five scattered channels (WhatsApp groups, word of mouth, cluttered emails, notice boards and social media pages) gather into the UGSRC App Home screen, then SRC Connect opens an anonymous accommodation ticket with a reply box"
-        },
-        {
-          "type": "full",
-          "frame": {
-            "src": "/images/work/ugsrc/solution-in-context.webp",
-            "width": 1600,
-            "height": 1000,
-            "alt": "Two phones over a softened photo of Balme Library: the UGSRC App Home screen in dark mode and the Share Feedback form in light mode",
-            "caption": "Balme Library, University of Ghana. Photo: Sarah Shreeves, Wikimedia Commons, CC BY 2.0."
-          }
-        },
-        {
-          "type": "paragraph",
-          "variant": "body",
-          "text": "Built for students first, with an officer side so the SRC can reply."
         }
       ]
     },
@@ -838,15 +823,6 @@
             { "text": "14. University of Ghana IRPO, \"" },
             { "text": "Student Enrollment Statistics 2024/2025", "href": "https://irpo.ug.edu.gh/sites/irpo/files/pictures/STUDENT%20ENROLMENT%20STATISTICS%202025.pdf" },
             { "text": "\"." }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "variant": "small",
-          "parts": [
-            { "text": "15. Photo: Sarah Shreeves, \"" },
-            { "text": "Balme Library at University of Ghana, Legon", "href": "https://commons.wikimedia.org/wiki/File:Balme_Library_at_University_of_Ghana_-_Legon.jpg" },
-            { "text": "\", Wikimedia Commons, CC BY 2.0." }
           ]
         }
       ]
