@@ -239,10 +239,10 @@
             {
               "title": "Profile",
               "text": "See your verified account and reach Course and Lecturer Evaluation.",
-              "label": "The Profile screen in light mode, the appearance options, then the same Profile in dark mode",
-              "mp4": "/case-studies/ugsrc/core-flows/profile-themes.mp4",
-              "webm": "/case-studies/ugsrc/core-flows/profile-themes.webm",
-              "poster": "/case-studies/ugsrc/core-flows/profile-themes-poster.png",
+              "label": "Profile Information for a verified account, with personal and academic details",
+              "mp4": "/case-studies/ugsrc/core-flows/profile.mp4",
+              "webm": "/case-studies/ugsrc/core-flows/profile.webm",
+              "poster": "/case-studies/ugsrc/core-flows/profile-poster.png",
               "width": 590,
               "height": 1276,
               "frame": "phone"
