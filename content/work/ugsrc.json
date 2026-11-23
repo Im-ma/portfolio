@@ -177,8 +177,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/home.mp4",
               "webm": "/case-studies/ugsrc/core-flows/home.webm",
               "poster": "/case-studies/ugsrc/core-flows/home-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "PascoHub",
@@ -187,8 +188,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/pascohub.mp4",
               "webm": "/case-studies/ugsrc/core-flows/pascohub.webm",
               "poster": "/case-studies/ugsrc/core-flows/pascohub-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Ujamaa",
@@ -197,8 +199,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/ujamaa.mp4",
               "webm": "/case-studies/ugsrc/core-flows/ujamaa.webm",
               "poster": "/case-studies/ugsrc/core-flows/ujamaa-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "SRC Connect",
@@ -207,8 +210,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/src-connect.mp4",
               "webm": "/case-studies/ugsrc/core-flows/src-connect.webm",
               "poster": "/case-studies/ugsrc/core-flows/src-connect-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Updates, Events and Clubs",
@@ -217,8 +221,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/updates-events-clubs.mp4",
               "webm": "/case-studies/ugsrc/core-flows/updates-events-clubs.webm",
               "poster": "/case-studies/ugsrc/core-flows/updates-events-clubs-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Governance and Scholarships",
@@ -227,8 +232,9 @@
               "mp4": "/case-studies/ugsrc/core-flows/governance-scholarships.mp4",
               "webm": "/case-studies/ugsrc/core-flows/governance-scholarships.webm",
               "poster": "/case-studies/ugsrc/core-flows/governance-scholarships-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             },
             {
               "title": "Profile and themes",
@@ -237,19 +243,21 @@
               "mp4": "/case-studies/ugsrc/core-flows/profile-themes.mp4",
               "webm": "/case-studies/ugsrc/core-flows/profile-themes.webm",
               "poster": "/case-studies/ugsrc/core-flows/profile-themes-poster.png",
-              "width": 1600,
-              "height": 1200
+              "width": 590,
+              "height": 1276,
+              "frame": "phone"
             }
           ],
           "onboarding": {
             "title": "Onboarding",
             "text": "Enter your email, get a one-time code, and you are in. No password to forget.",
-            "label": "Two phones: entering an email on Welcome Back, and entering the one-time code on Verify Your Email before landing on Home",
+            "label": "Welcome Back with an empty email field, then the Home screen",
             "mp4": "/case-studies/ugsrc/core-flows/onboarding.mp4",
             "webm": "/case-studies/ugsrc/core-flows/onboarding.webm",
             "poster": "/case-studies/ugsrc/core-flows/onboarding-poster.png",
-            "width": 1600,
-            "height": 900
+            "width": 590,
+            "height": 1276,
+            "frame": "phone"
           }
         }
       ]

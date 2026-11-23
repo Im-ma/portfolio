@@ -161,6 +161,8 @@ export type Block =
         poster: string;
         width: number;
         height: number;
+        /** Screen-only clip. Plays inside the shared iPhone frame. */
+        frame?: "phone";
       }[];
       onboarding: {
         title: string;
@@ -171,6 +173,8 @@ export type Block =
         poster: string;
         width: number;
         height: number;
+        /** Screen-only clip. Plays inside the shared iPhone frame. */
+        frame?: "phone";
       };
     }
   | {

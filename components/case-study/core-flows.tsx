@@ -1,8 +1,9 @@
 "use client";
 
 import { Reveal } from "@/components/motion/reveal";
+import { PhoneFrame } from "@/components/phone/phone-frame";
 import Image from "next/image";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type RefObject } from "react";
 import styles from "./core-flows.module.css";
 
 function subscribeReduced(callback: () => void) {
@@ -28,15 +29,15 @@ type Clip = {
   poster: string;
   width: number;
   height: number;
+  frame?: "phone";
 };
 
-function FlowClip({ clip, sizes }: { clip: Clip; sizes: string }) {
+function useClipPlayback(reduced: boolean) {
   const frameRef = useRef<HTMLSpanElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const playing = useRef(false);
   const [near, setNear] = useState(false);
   const [ready, setReady] = useState(false);
-  const reduced = useReducedMotion();
 
   useEffect(() => {
     const node = frameRef.current;
@@ -76,6 +77,46 @@ function FlowClip({ clip, sizes }: { clip: Clip; sizes: string }) {
     else video.pause();
   }, [near, reduced]);
 
+  return { frameRef, videoRef, near, ready, setReady };
+}
+
+function ClipVideo({
+  clip,
+  videoRef,
+  ready,
+  onReady,
+  className,
+}: {
+  clip: Clip;
+  videoRef: RefObject<HTMLVideoElement | null>;
+  ready: boolean;
+  onReady: () => void;
+  className: string;
+}) {
+  return (
+    <video
+      ref={videoRef}
+      className={className}
+      data-ready={ready ? "true" : undefined}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      poster={clip.poster}
+      aria-label={clip.label}
+      onCanPlay={onReady}
+    >
+      <source src={clip.webm} type="video/webm" />
+      <source src={clip.mp4} type="video/mp4" />
+    </video>
+  );
+}
+
+function FlowClip({ clip, sizes }: { clip: Clip; sizes: string }) {
+  const reduced = useReducedMotion();
+  const { frameRef, videoRef, near, ready, setReady } = useClipPlayback(reduced);
+
   return (
     <span
       ref={frameRef}
@@ -91,23 +132,45 @@ function FlowClip({ clip, sizes }: { clip: Clip; sizes: string }) {
         loading="lazy"
       />
       {!reduced && near ? (
-        <video
-          ref={videoRef}
+        <ClipVideo
+          clip={clip}
+          videoRef={videoRef}
+          ready={ready}
+          onReady={() => setReady(true)}
           className={styles.video}
-          data-ready={ready ? "true" : undefined}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={clip.poster}
-          aria-label={clip.label}
-          onCanPlay={() => setReady(true)}
-        >
-          <source src={clip.webm} type="video/webm" />
-          <source src={clip.mp4} type="video/mp4" />
-        </video>
+        />
       ) : null}
+    </span>
+  );
+}
+
+function PhoneClip({ clip }: { clip: Clip }) {
+  const reduced = useReducedMotion();
+  const { frameRef, videoRef, near, ready, setReady } = useClipPlayback(reduced);
+
+  return (
+    <span ref={frameRef} className={styles.phoneSlot}>
+      <PhoneFrame label={clip.label}>
+        <span className={styles.screenFill}>
+          <Image
+            src={clip.poster}
+            alt={reduced ? clip.label : ""}
+            fill
+            sizes="280px"
+            style={{ objectFit: "cover" }}
+            loading="lazy"
+          />
+          {!reduced && near ? (
+            <ClipVideo
+              clip={clip}
+              videoRef={videoRef}
+              ready={ready}
+              onReady={() => setReady(true)}
+              className={styles.screenVideo}
+            />
+          ) : null}
+        </span>
+      </PhoneFrame>
     </span>
   );
 }
@@ -119,7 +182,11 @@ export function CoreFlows({ rows, onboarding }: { rows: Clip[]; onboarding: Clip
         {rows.map((row) => (
           <Reveal key={row.title}>
             <article className={styles.row}>
-              <FlowClip clip={row} sizes="(max-width: 767px) 100vw, 60vw" />
+              {row.frame === "phone" ? (
+                <PhoneClip clip={row} />
+              ) : (
+                <FlowClip clip={row} sizes="(max-width: 767px) 100vw, 60vw" />
+              )}
               <div className={styles.copy}>
                 <h4 className="t-heading-h4">{row.title}</h4>
                 <p className="t-body-m">{row.text}</p>
@@ -132,7 +199,11 @@ export function CoreFlows({ rows, onboarding }: { rows: Clip[]; onboarding: Clip
         <div className={styles.onboarding}>
           <h3 className="t-heading-h3">{onboarding.title}</h3>
           <p className="t-body-m">{onboarding.text}</p>
-          <FlowClip clip={onboarding} sizes="100vw" />
+          {onboarding.frame === "phone" ? (
+            <PhoneClip clip={onboarding} />
+          ) : (
+            <FlowClip clip={onboarding} sizes="100vw" />
+          )}
         </div>
       </Reveal>
     </div>
