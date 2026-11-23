@@ -62,6 +62,10 @@ export function HomeNotes({ notes }: { notes: WallNote[] }) {
     scale: "readable",
   });
 
+  if (notes.length === 0) {
+    return <p className={`${styles.noteEmpty} t-body-s`}>No notes yet.</p>;
+  }
+
   return (
     <div className={styles.noteStage}>
       <div className={styles.noteTools}>

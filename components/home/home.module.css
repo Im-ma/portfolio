@@ -163,6 +163,11 @@
   min-width: 0;
 }
 
+.noteEmpty {
+  margin: 0;
+  color: var(--color-muted);
+}
+
 .noteTools {
   display: flex;
   justify-content: flex-end;

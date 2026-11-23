@@ -283,41 +283,11 @@
     ],
     "noteWall": {
       "label": "FROM THE NOTE WALL",
-      "text": "Notes people leave, shown after I approve them. Until the wall fills up, these three are examples.",
+      "text": "Notes people leave, shown after I approve them.",
       "link": {
         "label": "Read the wall",
         "href": "/off-the-clock#note-wall"
-      },
-      "notes": [
-        {
-          "text": "Thanks for the calc study night. Limits finally make sense.",
-          "check": false,
-          "checkNote": "note 1",
-          "signature": "- A study group regular",
-          "rotation": -3,
-          "color": "yellow",
-          "attachment": "tape"
-        },
-        {
-          "text": "Loved reading how you build things. Save me a seat at the next picnic.",
-          "check": false,
-          "checkNote": "note 2",
-          "signature": "- A visitor",
-          "rotation": 2,
-          "color": "cobalt",
-          "attachment": "pin"
-        },
-        {
-          "text": "Best picnic of the semester. Same spot next month?",
-          "check": false,
-          "checkNote": "note 3",
-          "signature": "- A friend from class",
-          "rotation": -1,
-          "color": "pink",
-          "attachment": "tape"
-        }
-      ],
-      "sourceNote": "Static sample notes from Figma. In production, show the 3 newest approved notes from Supabase and fall back to these."
+      }
     }
   },
   "contact": {
