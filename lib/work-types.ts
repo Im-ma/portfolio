@@ -176,6 +176,8 @@ export type Block =
         /** Screen-only clip. Plays inside the shared iPhone frame. */
         frame?: "phone";
       };
+      /** Pairs flows side by side. Omitted flows stay one per row. */
+      layout?: "columns";
     }
   | {
       type: "prototypeFlows";

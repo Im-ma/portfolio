@@ -175,7 +175,41 @@ function PhoneClip({ clip }: { clip: Clip }) {
   );
 }
 
-export function CoreFlows({ rows, onboarding }: { rows: Clip[]; onboarding: Clip }) {
+function FlowBody({ clip }: { clip: Clip }) {
+  return clip.frame === "phone" ? (
+    <PhoneClip clip={clip} />
+  ) : (
+    <FlowClip clip={clip} sizes="(max-width: 767px) 100vw, 40vw" />
+  );
+}
+
+export function CoreFlows({
+  rows,
+  onboarding,
+  layout,
+}: {
+  rows: Clip[];
+  onboarding: Clip;
+  layout?: "columns";
+}) {
+  if (layout === "columns") {
+    return (
+      <div className={styles.grid}>
+        {[...rows, onboarding].map((clip) => (
+          <Reveal key={clip.title}>
+            <article className={styles.card}>
+              <FlowBody clip={clip} />
+              <div className={styles.copy}>
+                <h4 className="t-heading-h4">{clip.title}</h4>
+                <p className="t-body-m">{clip.text}</p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className={styles.flows}>
       <div className={styles.rows}>
