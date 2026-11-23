@@ -1,4 +1,3 @@
-import { home } from "@/lib/content";
 import { getSupabase } from "@/lib/supabase";
 
 export const NOTE_COLORS = ["yellow", "cobalt", "green", "pink"] as const;
@@ -24,7 +23,11 @@ export type WallNote = {
   checkNote?: string;
 };
 
-const sampleNotes = home.gatheringsTeaser.noteWall.notes;
+const homeLayouts: { rotation: number; attachment: "tape" | "pin" }[] = [
+  { rotation: -3, attachment: "tape" },
+  { rotation: 2, attachment: "pin" },
+  { rotation: -1, attachment: "tape" },
+];
 
 function asColor(value: string | null | undefined, index: number): NoteColor {
   if (value && NOTE_COLORS.includes(value as NoteColor)) return value as NoteColor;
@@ -80,38 +83,16 @@ export async function getAllNotes(): Promise<StoredNote[]> {
   return data.map((row) => mapRow(row));
 }
 
-/** Latest approved notes sit on the home teaser slots. Samples stay until real notes exist. */
+/** The three newest approved notes on the home teaser. Empty when none are approved. */
 export function homeTeaserNotes(live: StoredNote[]): WallNote[] {
-  if (live.length === 0) {
-    return sampleNotes.map((note) => ({
-      text: note.text,
-      signature: note.signature,
-      rotation: note.rotation,
-      color: asColor(note.color, 0),
-      attachment: note.attachment === "pin" ? "pin" : "tape",
-      check: note.check,
-      checkNote: note.checkNote,
-    }));
-  }
-  return sampleNotes.map((slot, index) => {
-    const note = live[index];
-    if (!note) {
-      return {
-        text: slot.text,
-        signature: slot.signature,
-        rotation: slot.rotation,
-        color: asColor(slot.color, index),
-        attachment: slot.attachment === "pin" ? "pin" : "tape",
-        check: slot.check,
-        checkNote: slot.checkNote,
-      };
-    }
+  return live.slice(0, homeLayouts.length).map((note, index) => {
+    const slot = homeLayouts[index] ?? homeLayouts[0];
     return {
       text: note.body,
       signature: `- ${note.name}`,
       rotation: slot.rotation,
       color: asColor(note.color, index),
-      attachment: slot.attachment === "pin" ? "pin" : "tape",
+      attachment: slot.attachment,
     };
   });
 }
@@ -121,44 +102,28 @@ export function pickNoteColor(seed: number): NoteColor {
 }
 
 export type NoteSlot = {
-  text: string;
-  signature: string;
-  color: string;
   attachment?: string | null;
-  check?: boolean;
-  checkNote?: string;
   layout: { x: number; y: number; width: number; height: number; rotation: number };
 };
 
 export type PlacedNote = WallNote & { x: number; y: number; width: number; height: number };
 
-/** Approved notes fill the wall slots in order. Samples stay in any slot a live note has not replaced. */
+/** Approved notes fill the wall slots in order. Extra notes reuse a slot a little lower. */
 export function placeWallNotes(live: StoredNote[], slots: NoteSlot[]): PlacedNote[] {
-  return slots.map((slot, index) => {
-    const placed = {
-      rotation: slot.layout.rotation,
-      x: slot.layout.x,
-      y: slot.layout.y,
-      width: slot.layout.width,
-      height: slot.layout.height,
-      attachment: slot.attachment === "pin" ? ("pin" as const) : ("tape" as const),
-    };
-    const note = live[index];
-    if (!note) {
-      return {
-        ...placed,
-        text: slot.text,
-        signature: slot.signature,
-        color: asColor(slot.color, index),
-        check: slot.check,
-        checkNote: slot.checkNote,
-      };
-    }
+  if (slots.length === 0) return [];
+  return live.map((note, index) => {
+    const slot = slots[index % slots.length];
+    const cycle = Math.floor(index / slots.length);
     return {
-      ...placed,
       text: note.body,
       signature: `- ${note.name}`,
+      rotation: slot.layout.rotation,
       color: asColor(note.color, index),
+      attachment: slot.attachment === "pin" ? "pin" : "tape",
+      x: slot.layout.x,
+      y: slot.layout.y + cycle * 28,
+      width: slot.layout.width,
+      height: slot.layout.height,
     };
   });
 }

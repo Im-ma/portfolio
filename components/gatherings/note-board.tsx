@@ -102,47 +102,56 @@ export function NoteBoard({
     <>
       <div className={styles.wallBar}>
         <p className={`${styles.wallLead} t-body-m`}>{lead}</p>
-        <button
-          type="button"
-          className={`${arrange.tidyClass} ${styles.tidySlot} t-mono-small`}
-          onClick={() => arrange.tidy()}
+        {notes.length > 0 ? (
+          <button
+            type="button"
+            className={`${arrange.tidyClass} ${styles.tidySlot} t-mono-small`}
+            onClick={() => arrange.tidy()}
+          >
+            Tidy up
+          </button>
+        ) : null}
+      </div>
+      {notes.length === 0 ? <p className={`${styles.wallEmpty} t-body-m`}>No notes yet.</p> : null}
+      {notes.length > 0 ? (
+        <div
+          ref={canvasRef}
+          className={`${styles.board} ${arrange.canvasClass}`}
+          style={arrange.canvasStyle}
+          role="group"
+          aria-label="Note wall"
         >
-          Tidy up
-        </button>
-      </div>
-      <div
-        ref={canvasRef}
-        className={`${styles.board} ${arrange.canvasClass}`}
-        style={arrange.canvasStyle}
-        role="group"
-        aria-label="Note wall"
-      >
-        {notes.map((note, index) => {
-          const id = `wall-${index}`;
-          const bound = arrange.bind(id);
-          return (
-            <div
-              key={id}
-              {...bound}
-              className={`${styles.slot} ${bound.className ?? ""}`}
-              tabIndex={0}
-            >
-              <span className="sr-only">Drag to move. Arrow keys nudge. Shift moves farther.</span>
-              <StickyNote
-                plain
-                text={note.text}
-                signature={note.signature}
-                rotation={note.rotation}
-                color={note.color}
-                attachment={note.attachment}
-                check={note.check}
-                checkNote={note.checkNote}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <p className={`${arrange.holdClass} t-mono-small`}>Hold, then drag</p>
+          {notes.map((note, index) => {
+            const id = `wall-${index}`;
+            const bound = arrange.bind(id);
+            return (
+              <div
+                key={id}
+                {...bound}
+                className={`${styles.slot} ${bound.className ?? ""}`}
+                tabIndex={0}
+              >
+                <span className="sr-only">
+                  Drag to move. Arrow keys nudge. Shift moves farther.
+                </span>
+                <StickyNote
+                  plain
+                  text={note.text}
+                  signature={note.signature}
+                  rotation={note.rotation}
+                  color={note.color}
+                  attachment={note.attachment}
+                  check={note.check}
+                  checkNote={note.checkNote}
+                />
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
+      {notes.length > 0 ? (
+        <p className={`${arrange.holdClass} t-mono-small`}>Hold, then drag</p>
+      ) : null}
     </>
   );
 }

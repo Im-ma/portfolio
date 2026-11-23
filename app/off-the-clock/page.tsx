@@ -18,6 +18,6 @@ export const metadata: Metadata = {
 
 export default async function OffTheClockPage() {
   const live = await getApprovedNotes();
-  const notes = placeWallNotes(live, noteWall.notes);
+  const notes = placeWallNotes(live, noteWall.slots);
   return <OffTheClockView notes={notes} />;
 }
